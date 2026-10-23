@@ -83,7 +83,23 @@ Katalog & batasan lengkap: [`data/README.md`](data/README.md).
 - Perhitungan status & skor EWS di SQL (satu sumber logika)
 - Sumber kedua untuk menutup 18 kab/kota yang kosong (Bapanas saat pulih / SP2KP)
 
-## Deploy ke Hugging Face Spaces (gratis, tanpa kartu)
+## Deploy ke Vercel (rekomendasi — akun sudah ada)
+
+FastAPI dijalankan sebagai **Python serverless function**: `api/index.py` mengekspor `app`,
+dan `vercel.json` meneruskan semua path ke fungsi itu (region `sin1` = Singapura).
+
+1. Buka <https://vercel.com/new> → import repo `RadarPangan-Server`
+   (kalau repo privat, beri akses Vercel GitHub App ke org `RadarPangan`).
+2. Framework preset: **Other**. Build command & output: biarkan kosong.
+3. Environment Variables → tambahkan `RADAR_API_KEY`.
+4. **Deploy** → URL `https://<project>.vercel.app`.
+5. Verifikasi `/docs`, `/api/health`, `/api/v1/peta/status?komoditas=beras_medium`.
+
+Batas Hobby yang relevan: **durasi fungsi 10 detik**, 1 GB RAM, dan cold start
+±0,5–2 detik setelah idle (lebih lambat dari Node karena interpreter Python + import
+FastAPI/Pydantic). Setelah instance hangat, request berikutnya cepat — bukan "tiap request".
+
+## Deploy ke Hugging Face Spaces (Docker = berbayar; Gradio = gratis 2 Space)
 
 Prasyarat sekali saja di browser:
 1. Daftar di <https://huggingface.co> (tidak perlu kartu).
