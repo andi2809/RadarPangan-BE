@@ -1,0 +1,2326 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Radar Pangan API",
+    "description": "API MVP Radar Pangan — GIS early warning + decision support harga pangan Jawa Barat (27 kab/kota, 5 komoditas).\n\n**Kejujuran data:** setiap respons membawa `meta.tanggal_data`, `meta.mode_data` (nyata/demo) dan `meta.peringatan_kualitas`. Wilayah tanpa data dikembalikan dengan `status=tidak_ada_data` — tidak ditebak.",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/api/health": {
+      "get": {
+        "tags": [
+          "Kesehatan layanan"
+        ],
+        "summary": "Health check",
+        "operationId": "health_api_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Health Api Health Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/publik/ringkasan-landing": {
+      "get": {
+        "tags": [
+          "Data publik (tanpa auth)"
+        ],
+        "summary": "Ringkasan untuk landing page",
+        "operationId": "ringkasan_landing_api_v1_publik_ringkasan_landing_get",
+        "responses": {
+          "200": {
+            "description": "Agregat status + 5 wilayah sorotan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Success_RingkasanLandingData_"
+                },
+                "example": {
+                  "ok": true,
+                  "data": {
+                    "judul": "Radar Pangan — peringatan dini harga pangan Jawa Barat",
+                    "jumlah_wilayah": 27,
+                    "jumlah_komoditas": 5,
+                    "distribusi_status": {
+                      "aman": 9,
+                      "waspada": 13,
+                      "kritis": 2,
+                      "turun": 2,
+                      "tidak_ada_data": 1
+                    },
+                    "sorotan": [
+                      {
+                        "kode_kemendagri": "32.15",
+                        "nama": "Kab. Karawang",
+                        "status": "kritis",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 17330,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 17590,
+                        "selisih_persen": 11.81,
+                        "skor_ews": 72
+                      },
+                      {
+                        "kode_kemendagri": "32.74",
+                        "nama": "Kota Cirebon",
+                        "status": "waspada",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 16898,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 17151,
+                        "selisih_persen": 9.02,
+                        "skor_ews": 72
+                      },
+                      {
+                        "kode_kemendagri": "32.76",
+                        "nama": "Kota Depok",
+                        "status": "waspada",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 16707,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 16958,
+                        "selisih_persen": 7.79,
+                        "skor_ews": 69
+                      },
+                      {
+                        "kode_kemendagri": "32.77",
+                        "nama": "Kota Cimahi",
+                        "status": "waspada",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 16767,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 17019,
+                        "selisih_persen": 8.17,
+                        "skor_ews": 69
+                      },
+                      {
+                        "kode_kemendagri": "32.02",
+                        "nama": "Kab. Sukabumi",
+                        "status": "waspada",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 16860,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 17113,
+                        "selisih_persen": 8.77,
+                        "skor_ews": 68
+                      }
+                    ],
+                    "tanggal_data": "2026-10-23"
+                  },
+                  "meta": {
+                    "tanggal_data": "2026-10-23",
+                    "diperbarui_pada": "2026-10-23T08:04:20.860571+00:00",
+                    "sumber": [
+                      "PIHPS BI"
+                    ],
+                    "is_simulasi": false,
+                    "mode_data": "demo",
+                    "peringatan_kualitas": [
+                      "HET_ILUSTRATIF",
+                      "DATA_DEMO_BERLABEL"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/komoditas": {
+      "get": {
+        "tags": [
+          "Data publik (tanpa auth)"
+        ],
+        "summary": "Daftar 5 komoditas kanonik + acuan",
+        "operationId": "komoditas_api_v1_komoditas_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Success_list_Komoditas__"
+                },
+                "example": {
+                  "ok": true,
+                  "data": [
+                    {
+                      "kode": "beras_medium",
+                      "nama": "Beras Medium",
+                      "satuan": "kg",
+                      "jenis_acuan": "HET",
+                      "harga_acuan_rp": 15500,
+                      "keterangan_acuan": "HET beras medium (ILUSTRATIF — ganti dengan Perbadan terbaru)"
+                    },
+                    {
+                      "kode": "cabai_rawit_merah",
+                      "nama": "Cabai Rawit Merah",
+                      "satuan": "kg",
+                      "jenis_acuan": "HAP",
+                      "harga_acuan_rp": 95000,
+                      "keterangan_acuan": "HAP konsumen Perbadan 12/2024 (ILUSTRATIF per zona)"
+                    },
+                    {
+                      "kode": "bawang_merah",
+                      "nama": "Bawang Merah",
+                      "satuan": "kg",
+                      "jenis_acuan": "HAP",
+                      "harga_acuan_rp": 42000,
+                      "keterangan_acuan": "HAP konsumen Perbadan 12/2024 (ILUSTRATIF per zona)"
+                    },
+                    {
+                      "kode": "telur_ayam_ras",
+                      "nama": "Telur Ayam Ras",
+                      "satuan": "kg",
+                      "jenis_acuan": "DINAMIS_MEDIAN_90H",
+                      "harga_acuan_rp": 28500,
+                      "keterangan_acuan": "Median nasional 90 hari — telur tidak punya HET"
+                    },
+                    {
+                      "kode": "minyakita",
+                      "nama": "Minyakita",
+                      "satuan": "liter",
+                      "jenis_acuan": "HET",
+                      "harga_acuan_rp": 15700,
+                      "keterangan_acuan": "HET Minyakita (perlu verifikasi regulasi terbaru)"
+                    }
+                  ],
+                  "meta": {
+                    "tanggal_data": "2026-10-23",
+                    "diperbarui_pada": "2026-10-23T08:04:20.863061+00:00",
+                    "sumber": [
+                      "PIHPS BI"
+                    ],
+                    "is_simulasi": false,
+                    "mode_data": "demo",
+                    "peringatan_kualitas": [
+                      "HET_ILUSTRATIF",
+                      "DATA_DEMO_BERLABEL"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/wilayah": {
+      "get": {
+        "tags": [
+          "Data publik (tanpa auth)"
+        ],
+        "summary": "Daftar kabupaten/kota Jawa Barat",
+        "operationId": "wilayah_api_v1_wilayah_get",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Cari nama, mis. 'bekasi'",
+              "title": "Q"
+            },
+            "description": "Cari nama, mis. 'bekasi'"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Success_list_Wilayah__"
+                },
+                "example": {
+                  "ok": true,
+                  "data": [
+                    {
+                      "kode_kemendagri": "32.01",
+                      "kode_bps": "3201",
+                      "nama": "Kab. Bogor",
+                      "jenis": "kabupaten",
+                      "provinsi": "Jawa Barat",
+                      "centroid": [
+                        -6.4819,
+                        106.854
+                      ],
+                      "status_geometri": "lengkap"
+                    },
+                    {
+                      "kode_kemendagri": "32.02",
+                      "kode_bps": "3202",
+                      "nama": "Kab. Sukabumi",
+                      "jenis": "kabupaten",
+                      "provinsi": "Jawa Barat",
+                      "centroid": [
+                        -6.9277,
+                        106.93
+                      ],
+                      "status_geometri": "lengkap"
+                    },
+                    {
+                      "kode_kemendagri": "32.03",
+                      "kode_bps": "3203",
+                      "nama": "Kab. Cianjur",
+                      "jenis": "kabupaten",
+                      "provinsi": "Jawa Barat",
+                      "centroid": [
+                        -6.817,
+                        107.142
+                      ],
+                      "status_geometri": "lengkap"
+                    }
+                  ],
+                  "meta": {
+                    "tanggal_data": "2026-10-23",
+                    "diperbarui_pada": "2026-10-23T08:04:20.864990+00:00",
+                    "sumber": [
+                      "PIHPS BI"
+                    ],
+                    "is_simulasi": false,
+                    "mode_data": "demo",
+                    "peringatan_kualitas": [
+                      "HET_ILUSTRATIF",
+                      "DATA_DEMO_BERLABEL"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/peta/status": {
+      "get": {
+        "tags": [
+          "Peta status harga"
+        ],
+        "summary": "Choropleth status harga (aktual atau H+7)",
+        "operationId": "peta_status_api_v1_peta_status_get",
+        "parameters": [
+          {
+            "name": "komoditas",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "examples": [
+                "beras_medium"
+              ],
+              "default": "beras_medium",
+              "title": "Komoditas"
+            }
+          },
+          {
+            "name": "tanggal",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Default: tanggal data terakhir",
+              "title": "Tanggal"
+            },
+            "description": "Default: tanggal data terakhir"
+          },
+          {
+            "name": "layer",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "aktual",
+                "h7"
+              ],
+              "type": "string",
+              "description": "aktual | h7",
+              "default": "aktual",
+              "title": "Layer"
+            },
+            "description": "aktual | h7"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Success_PetaStatusData_"
+                },
+                "example": {
+                  "ok": true,
+                  "data": {
+                    "komoditas": "beras_medium",
+                    "layer": "aktual",
+                    "jumlah_wilayah": 27,
+                    "distribusi_status": {
+                      "aman": 9,
+                      "waspada": 13,
+                      "kritis": 2,
+                      "turun": 2,
+                      "tidak_ada_data": 1
+                    },
+                    "wilayah": [
+                      {
+                        "kode_kemendagri": "32.01",
+                        "nama": "Kab. Bogor",
+                        "status": "aman",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 15485,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 15717,
+                        "selisih_persen": -0.1,
+                        "skor_ews": 52
+                      },
+                      {
+                        "kode_kemendagri": "32.02",
+                        "nama": "Kab. Sukabumi",
+                        "status": "waspada",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 16860,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 17113,
+                        "selisih_persen": 8.77,
+                        "skor_ews": 68
+                      },
+                      {
+                        "kode_kemendagri": "32.03",
+                        "nama": "Kab. Cianjur",
+                        "status": "waspada",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 16539,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 16787,
+                        "selisih_persen": 6.7,
+                        "skor_ews": 65
+                      },
+                      {
+                        "kode_kemendagri": "32.04",
+                        "nama": "Kab. Bandung",
+                        "status": "aman",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 16066,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 16307,
+                        "selisih_persen": 3.65,
+                        "skor_ews": 63
+                      },
+                      {
+                        "kode_kemendagri": "32.05",
+                        "nama": "Kab. Garut",
+                        "status": "aman",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 14974,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 15199,
+                        "selisih_persen": -3.39,
+                        "skor_ews": 38
+                      },
+                      {
+                        "kode_kemendagri": "32.06",
+                        "nama": "Kab. Tasikmalaya",
+                        "status": "waspada",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 16442,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 16689,
+                        "selisih_persen": 6.08,
+                        "skor_ews": 60
+                      },
+                      {
+                        "kode_kemendagri": "32.07",
+                        "nama": "Kab. Ciamis",
+                        "status": "aman",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 15900,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 16138,
+                        "selisih_persen": 2.58,
+                        "skor_ews": 56
+                      },
+                      {
+                        "kode_kemendagri": "32.08",
+                        "nama": "Kab. Kuningan",
+                        "status": "turun",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 14408,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 14624,
+                        "selisih_persen": -7.05,
+                        "skor_ews": 29
+                      },
+                      {
+                        "kode_kemendagri": "32.09",
+                        "nama": "Kab. Cirebon",
+                        "status": "waspada",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 16701,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 16952,
+                        "selisih_persen": 7.75,
+                        "skor_ews": 63
+                      },
+                      {
+                        "kode_kemendagri": "32.10",
+                        "nama": "Kab. Majalengka",
+                        "status": "aman",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 15601,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 15835,
+                        "selisih_persen": 0.65,
+                        "skor_ews": 54
+                      },
+                      {
+                        "kode_kemendagri": "32.11",
+                        "nama": "Kab. Sumedang",
+                        "status": "aman",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 14926,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 15150,
+                        "selisih_persen": -3.7,
+                        "skor_ews": 48
+                      },
+                      {
+                        "kode_kemendagri": "32.12",
+                        "nama": "Kab. Indramayu",
+                        "status": "kritis",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 17054,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 17310,
+                        "selisih_persen": 10.03,
+                        "skor_ews": 65
+                      },
+                      {
+                        "kode_kemendagri": "32.13",
+                        "nama": "Kab. Subang",
+                        "status": "waspada",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 16284,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 16528,
+                        "selisih_persen": 5.06,
+                        "skor_ews": 54
+                      },
+                      {
+                        "kode_kemendagri": "32.14",
+                        "nama": "Kab. Purwakarta",
+                        "status": "aman",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 15016,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 15241,
+                        "selisih_persen": -3.12,
+                        "skor_ews": 48
+                      },
+                      {
+                        "kode_kemendagri": "32.15",
+                        "nama": "Kab. Karawang",
+                        "status": "kritis",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 17330,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 17590,
+                        "selisih_persen": 11.81,
+                        "skor_ews": 72
+                      },
+                      {
+                        "kode_kemendagri": "32.16",
+                        "nama": "Kab. Bekasi",
+                        "status": "waspada",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 16548,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 16796,
+                        "selisih_persen": 6.76,
+                        "skor_ews": 64
+                      },
+                      {
+                        "kode_kemendagri": "32.17",
+                        "nama": "Kab. Bandung Barat",
+                        "status": "waspada",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 16314,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 16559,
+                        "selisih_persen": 5.25,
+                        "skor_ews": 63
+                      },
+                      {
+                        "kode_kemendagri": "32.18",
+                        "nama": "Kab. Pangandaran",
+                        "status": "tidak_ada_data",
+                        "jenis_acuan": "HET",
+                        "harga_acuan_rp": 15500
+                      },
+                      {
+                        "kode_kemendagri": "32.71",
+                        "nama": "Kota Bogor",
+                        "status": "aman",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 15349,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 15579,
+                        "selisih_persen": -0.97,
+                        "skor_ews": 50
+                      },
+                      {
+                        "kode_kemendagri": "32.72",
+                        "nama": "Kota Sukabumi",
+                        "status": "waspada",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 16691,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 16941,
+                        "selisih_persen": 7.68,
+                        "skor_ews": 67
+                      },
+                      {
+                        "kode_kemendagri": "32.73",
+                        "nama": "Kota Bandung",
+                        "status": "aman",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 15080,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 15306,
+                        "selisih_persen": -2.71,
+                        "skor_ews": 42
+                      },
+                      {
+                        "kode_kemendagri": "32.74",
+                        "nama": "Kota Cirebon",
+                        "status": "waspada",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 16898,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 17151,
+                        "selisih_persen": 9.02,
+                        "skor_ews": 72
+                      },
+                      {
+                        "kode_kemendagri": "32.75",
+                        "nama": "Kota Bekasi",
+                        "status": "turun",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 14384,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 14600,
+                        "selisih_persen": -7.2,
+                        "skor_ews": 36
+                      },
+                      {
+                        "kode_kemendagri": "32.76",
+                        "nama": "Kota Depok",
+                        "status": "waspada",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 16707,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 16958,
+                        "selisih_persen": 7.79,
+                        "skor_ews": 69
+                      },
+                      {
+                        "kode_kemendagri": "32.77",
+                        "nama": "Kota Cimahi",
+                        "status": "waspada",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 16767,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 17019,
+                        "selisih_persen": 8.17,
+                        "skor_ews": 69
+                      },
+                      {
+                        "kode_kemendagri": "32.78",
+                        "nama": "Kota Tasikmalaya",
+                        "status": "waspada",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 16855,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 17108,
+                        "selisih_persen": 8.74,
+                        "skor_ews": 61
+                      },
+                      {
+                        "kode_kemendagri": "32.79",
+                        "nama": "Kota Banjar",
+                        "status": "waspada",
+                        "jenis_acuan": "HET",
+                        "harga_aktual_rp": 16555,
+                        "harga_acuan_rp": 15500,
+                        "harga_prediksi_h7_rp": 16803,
+                        "selisih_persen": 6.81,
+                        "skor_ews": 60
+                      }
+                    ]
+                  },
+                  "meta": {
+                    "tanggal_data": "2026-10-23",
+                    "diperbarui_pada": "2026-10-23T08:04:20.868502+00:00",
+                    "sumber": [
+                      "PIHPS BI"
+                    ],
+                    "is_simulasi": false,
+                    "mode_data": "demo",
+                    "peringatan_kualitas": [
+                      "HET_ILUSTRATIF",
+                      "DATA_DEMO_BERLABEL"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/wilayah/{kode}/ringkasan": {
+      "get": {
+        "tags": [
+          "Detail wilayah"
+        ],
+        "summary": "Detail satu wilayah: seri 14 hari + prakiraan H+7",
+        "operationId": "detail_wilayah_api_v1_wilayah__kode__ringkasan_get",
+        "parameters": [
+          {
+            "name": "kode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Kode"
+            }
+          },
+          {
+            "name": "komoditas",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "beras_medium",
+              "title": "Komoditas"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Success_DetailWilayahData_"
+                },
+                "example": {
+                  "ok": true,
+                  "data": {
+                    "wilayah": {
+                      "kode_kemendagri": "32.75",
+                      "kode_bps": "3275",
+                      "nama": "Kota Bekasi",
+                      "jenis": "kota",
+                      "provinsi": "Jawa Barat",
+                      "centroid": [
+                        -6.2647,
+                        106.9899
+                      ],
+                      "status_geometri": "lengkap"
+                    },
+                    "komoditas": "beras_medium",
+                    "status": "turun",
+                    "jenis_acuan": "HET",
+                    "harga_acuan_rp": 15500,
+                    "harga_aktual_rp": 14384,
+                    "harga_prediksi_h7_rp": 15153,
+                    "selisih_persen": -7.2,
+                    "skor_ews": 35,
+                    "seri_historis": [
+                      {
+                        "tanggal": "2026-10-10"
+                      },
+                      {
+                        "tanggal": "2026-10-11"
+                      },
+                      {
+                        "tanggal": "2026-10-12",
+                        "harga_rp": 14059
+                      },
+                      {
+                        "tanggal": "2026-10-13",
+                        "harga_rp": 13969
+                      },
+                      {
+                        "tanggal": "2026-10-14",
+                        "harga_rp": 14587
+                      },
+                      {
+                        "tanggal": "2026-10-15",
+                        "harga_rp": 14258
+                      },
+                      {
+                        "tanggal": "2026-10-16",
+                        "harga_rp": 14330
+                      },
+                      {
+                        "tanggal": "2026-10-17"
+                      },
+                      {
+                        "tanggal": "2026-10-18"
+                      },
+                      {
+                        "tanggal": "2026-10-19",
+                        "harga_rp": 14587
+                      },
+                      {
+                        "tanggal": "2026-10-20",
+                        "harga_rp": 14205
+                      },
+                      {
+                        "tanggal": "2026-10-21",
+                        "harga_rp": 14154
+                      },
+                      {
+                        "tanggal": "2026-10-22",
+                        "harga_rp": 14039
+                      },
+                      {
+                        "tanggal": "2026-10-23",
+                        "harga_rp": 14525
+                      }
+                    ],
+                    "prakiraan": [
+                      {
+                        "tanggal": "2026-10-24",
+                        "harga_rp": 14491,
+                        "batas_bawah_rp": 14057,
+                        "batas_atas_rp": 14926
+                      },
+                      {
+                        "tanggal": "2026-10-25",
+                        "harga_rp": 14600,
+                        "batas_bawah_rp": 13980,
+                        "batas_atas_rp": 15219
+                      },
+                      {
+                        "tanggal": "2026-10-26",
+                        "harga_rp": 14709,
+                        "batas_bawah_rp": 13945,
+                        "batas_atas_rp": 15473
+                      },
+                      {
+                        "tanggal": "2026-10-27",
+                        "harga_rp": 14819,
+                        "batas_bawah_rp": 13930,
+                        "batas_atas_rp": 15708
+                      },
+                      {
+                        "tanggal": "2026-10-28",
+                        "harga_rp": 14929,
+                        "batas_bawah_rp": 13928,
+                        "batas_atas_rp": 15931
+                      },
+                      {
+                        "tanggal": "2026-10-29",
+                        "harga_rp": 15041,
+                        "batas_bawah_rp": 13936,
+                        "batas_atas_rp": 16146
+                      },
+                      {
+                        "tanggal": "2026-10-30",
+                        "harga_rp": 15153,
+                        "batas_bawah_rp": 13951,
+                        "batas_atas_rp": 16356
+                      }
+                    ]
+                  },
+                  "meta": {
+                    "tanggal_data": "2026-10-23",
+                    "diperbarui_pada": "2026-10-23T08:04:20.873494+00:00",
+                    "sumber": [
+                      "PIHPS BI"
+                    ],
+                    "is_simulasi": false,
+                    "mode_data": "demo",
+                    "peringatan_kualitas": [
+                      "HET_ILUSTRATIF",
+                      "DATA_DEMO_BERLABEL"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Wilayah tidak ditemukan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/laporan-warga/sekitar": {
+      "get": {
+        "tags": [
+          "Laporan warga (verifikasi)"
+        ],
+        "summary": "Harga sekitar + progres klaster verifikasi (n dari 10)",
+        "operationId": "laporan_sekitar_api_v1_laporan_warga_sekitar_get",
+        "parameters": [
+          {
+            "name": "lat",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "maximum": 6.2,
+              "minimum": -11.1,
+              "examples": [
+                -6.2647
+              ],
+              "title": "Lat"
+            }
+          },
+          {
+            "name": "lng",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "maximum": 141.1,
+              "minimum": 94.9,
+              "examples": [
+                106.9899
+              ],
+              "title": "Lng"
+            }
+          },
+          {
+            "name": "komoditas",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "beras_medium",
+              "title": "Komoditas"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Success_LaporanSekitarData_"
+                },
+                "example": {
+                  "ok": true,
+                  "data": {
+                    "pusat_pencarian": [
+                      -6.2647,
+                      106.9899
+                    ],
+                    "radius_m": 3000,
+                    "laporan": [
+                      {
+                        "komoditas": "beras_medium",
+                        "harga_rp": 15616,
+                        "satuan": "kg",
+                        "jarak_m": 2435,
+                        "dilaporkan_pada": "2026-10-23T07:16:00+07:00",
+                        "status_klaster": "sedang_berjalan"
+                      },
+                      {
+                        "komoditas": "beras_medium",
+                        "harga_rp": 15732,
+                        "satuan": "kg",
+                        "jarak_m": 1900,
+                        "dilaporkan_pada": "2026-10-23T06:41:00+07:00",
+                        "status_klaster": "sedang_berjalan"
+                      },
+                      {
+                        "komoditas": "beras_medium",
+                        "harga_rp": 16143,
+                        "satuan": "kg",
+                        "jarak_m": 642,
+                        "dilaporkan_pada": "2026-10-23T07:51:00+07:00",
+                        "status_klaster": "sedang_berjalan"
+                      },
+                      {
+                        "komoditas": "beras_medium",
+                        "harga_rp": 16135,
+                        "satuan": "kg",
+                        "jarak_m": 1753,
+                        "dilaporkan_pada": "2026-10-23T07:52:00+07:00",
+                        "status_klaster": "sedang_berjalan"
+                      },
+                      {
+                        "komoditas": "beras_medium",
+                        "harga_rp": 15468,
+                        "satuan": "kg",
+                        "jarak_m": 756,
+                        "dilaporkan_pada": "2026-10-23T06:03:00+07:00",
+                        "status_klaster": "sedang_berjalan"
+                      }
+                    ],
+                    "klaster": {
+                      "pusat": [
+                        -6.265,
+                        106.99
+                      ],
+                      "radius_m": 3000,
+                      "jumlah_laporan": 5,
+                      "minimal_laporan": 10,
+                      "status": "sedang_berjalan"
+                    }
+                  },
+                  "meta": {
+                    "tanggal_data": "2026-10-23",
+                    "diperbarui_pada": "2026-10-23T08:04:20.876715+00:00",
+                    "sumber": [
+                      "PIHPS BI",
+                      "Laporan Warga"
+                    ],
+                    "is_simulasi": false,
+                    "mode_data": "demo",
+                    "peringatan_kualitas": [
+                      "HET_ILUSTRATIF",
+                      "DATA_DEMO_BERLABEL"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/laporan-warga": {
+      "post": {
+        "tags": [
+          "Laporan warga (verifikasi)"
+        ],
+        "summary": "Kirim laporan harga warga (wajib X-API-Key)",
+        "operationId": "kirim_laporan_api_v1_laporan_warga_post",
+        "parameters": [
+          {
+            "name": "X-API-Key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Api-Key"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LaporanWargaCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Success_LaporanWargaCreated_"
+                },
+                "example": {
+                  "ok": true,
+                  "data": {
+                    "id": "lpr_20261023_0001",
+                    "status_klaster": "sedang_berjalan",
+                    "jumlah_laporan_klaster": 7,
+                    "minimal_laporan": 10
+                  },
+                  "meta": {
+                    "tanggal_data": "2026-10-23",
+                    "diperbarui_pada": "2026-10-23T08:04:20.879890+00:00",
+                    "sumber": [
+                      "Laporan Warga"
+                    ],
+                    "is_simulasi": false,
+                    "mode_data": "demo",
+                    "peringatan_kualitas": [
+                      "HET_ILUSTRATIF",
+                      "DATA_DEMO_BERLABEL"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "API key tidak ada",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DetailWilayahData": {
+        "properties": {
+          "wilayah": {
+            "$ref": "#/components/schemas/Wilayah"
+          },
+          "komoditas": {
+            "type": "string",
+            "title": "Komoditas"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "aman",
+              "waspada",
+              "kritis",
+              "turun",
+              "tidak_ada_data"
+            ],
+            "title": "Status"
+          },
+          "jenis_acuan": {
+            "type": "string",
+            "enum": [
+              "HET",
+              "HAP",
+              "DINAMIS_MEDIAN_90H"
+            ],
+            "title": "Jenis Acuan"
+          },
+          "harga_acuan_rp": {
+            "type": "integer",
+            "title": "Harga Acuan Rp"
+          },
+          "harga_aktual_rp": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Harga Aktual Rp"
+          },
+          "harga_prediksi_h7_rp": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Harga Prediksi H7 Rp"
+          },
+          "selisih_persen": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Selisih Persen"
+          },
+          "skor_ews": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 100.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Skor Ews"
+          },
+          "seri_historis": {
+            "items": {
+              "$ref": "#/components/schemas/TitikSeri"
+            },
+            "type": "array",
+            "title": "Seri Historis",
+            "description": "H-14 s/d hari ini (data nyata)"
+          },
+          "prakiraan": {
+            "items": {
+              "$ref": "#/components/schemas/TitikPrakiraan"
+            },
+            "type": "array",
+            "title": "Prakiraan",
+            "description": "H+1 s/d H+7 (model regresi)"
+          },
+          "catatan_kondisi_khusus": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Catatan Kondisi Khusus",
+            "description": "Mis. jumlah peserta didik dengan alergi/fobia/intoleran (bila ada)"
+          }
+        },
+        "type": "object",
+        "required": [
+          "wilayah",
+          "komoditas",
+          "status",
+          "jenis_acuan",
+          "harga_acuan_rp",
+          "harga_aktual_rp",
+          "harga_prediksi_h7_rp",
+          "selisih_persen",
+          "seri_historis",
+          "prakiraan"
+        ],
+        "title": "DetailWilayahData"
+      },
+      "ErrorBody": {
+        "properties": {
+          "kode": {
+            "type": "string",
+            "enum": [
+              "VALIDASI_GAGAL",
+              "TIDAK_TEROTENTIKASI",
+              "AKSES_DITOLAK",
+              "WILAYAH_DI_LUAR_YURISDIKSI",
+              "DATA_TIDAK_DITEMUKAN",
+              "BATAS_LAJU_TERLAMPAUI",
+              "HARGA_DI_LUAR_RENTANG_WAJAR",
+              "KOORDINAT_DI_LUAR_INDONESIA",
+              "GALAT_INTERNAL"
+            ],
+            "title": "Kode"
+          },
+          "pesan": {
+            "type": "string",
+            "title": "Pesan",
+            "description": "Bahasa Indonesia, netral, tidak menyalahkan warga"
+          },
+          "detail": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Detail"
+          },
+          "coba_lagi_detik": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Coba Lagi Detik",
+            "description": "Diisi saat HTTP 429"
+          }
+        },
+        "type": "object",
+        "required": [
+          "kode",
+          "pesan"
+        ],
+        "title": "ErrorBody"
+      },
+      "ErrorResponse": {
+        "properties": {
+          "ok": {
+            "type": "boolean",
+            "const": false,
+            "title": "Ok",
+            "default": false
+          },
+          "error": {
+            "$ref": "#/components/schemas/ErrorBody"
+          }
+        },
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "title": "ErrorResponse"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "KlasterVerifikasi": {
+        "properties": {
+          "pusat": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array",
+            "title": "Pusat",
+            "description": "[lat, lng] pusat klaster (grid 0,001°)"
+          },
+          "radius_m": {
+            "type": "integer",
+            "title": "Radius M",
+            "default": 3000
+          },
+          "jumlah_laporan": {
+            "type": "integer",
+            "title": "Jumlah Laporan"
+          },
+          "minimal_laporan": {
+            "type": "integer",
+            "title": "Minimal Laporan",
+            "default": 10
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "belum_terverifikasi",
+              "sedang_berjalan",
+              "terverifikasi"
+            ],
+            "title": "Status"
+          },
+          "harga_konsensus_rp": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Harga Konsensus Rp"
+          }
+        },
+        "type": "object",
+        "required": [
+          "pusat",
+          "jumlah_laporan",
+          "status"
+        ],
+        "title": "KlasterVerifikasi"
+      },
+      "Komoditas": {
+        "properties": {
+          "kode": {
+            "type": "string",
+            "title": "Kode",
+            "description": "Kode kanonik, mis. beras_medium"
+          },
+          "nama": {
+            "type": "string",
+            "title": "Nama"
+          },
+          "satuan": {
+            "type": "string",
+            "enum": [
+              "kg",
+              "liter"
+            ],
+            "title": "Satuan"
+          },
+          "jenis_acuan": {
+            "type": "string",
+            "enum": [
+              "HET",
+              "HAP",
+              "DINAMIS_MEDIAN_90H"
+            ],
+            "title": "Jenis Acuan"
+          },
+          "harga_acuan_rp": {
+            "type": "integer",
+            "title": "Harga Acuan Rp",
+            "description": "HET/HAP/median 90 hari (Rupiah)"
+          },
+          "keterangan_acuan": {
+            "type": "string",
+            "title": "Keterangan Acuan",
+            "description": "Dasar hukum atau metode acuan"
+          }
+        },
+        "type": "object",
+        "required": [
+          "kode",
+          "nama",
+          "satuan",
+          "jenis_acuan",
+          "harga_acuan_rp",
+          "keterangan_acuan"
+        ],
+        "title": "Komoditas",
+        "example": {
+          "harga_acuan_rp": 12500,
+          "jenis_acuan": "HET",
+          "keterangan_acuan": "HET beras medium zona Jawa (ILUSTRATIF — ganti dengan Perbadan terbaru)",
+          "kode": "beras_medium",
+          "nama": "Beras Medium",
+          "satuan": "kg"
+        }
+      },
+      "LaporanRingkas": {
+        "properties": {
+          "komoditas": {
+            "type": "string",
+            "title": "Komoditas"
+          },
+          "harga_rp": {
+            "type": "integer",
+            "title": "Harga Rp"
+          },
+          "satuan": {
+            "type": "string",
+            "enum": [
+              "kg",
+              "liter"
+            ],
+            "title": "Satuan"
+          },
+          "jarak_m": {
+            "type": "integer",
+            "title": "Jarak M"
+          },
+          "dilaporkan_pada": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Dilaporkan Pada"
+          },
+          "status_klaster": {
+            "type": "string",
+            "enum": [
+              "belum_terverifikasi",
+              "sedang_berjalan",
+              "terverifikasi"
+            ],
+            "title": "Status Klaster"
+          }
+        },
+        "type": "object",
+        "required": [
+          "komoditas",
+          "harga_rp",
+          "satuan",
+          "jarak_m",
+          "dilaporkan_pada",
+          "status_klaster"
+        ],
+        "title": "LaporanRingkas"
+      },
+      "LaporanSekitarData": {
+        "properties": {
+          "pusat_pencarian": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array",
+            "title": "Pusat Pencarian"
+          },
+          "radius_m": {
+            "type": "integer",
+            "title": "Radius M"
+          },
+          "laporan": {
+            "items": {
+              "$ref": "#/components/schemas/LaporanRingkas"
+            },
+            "type": "array",
+            "title": "Laporan"
+          },
+          "klaster": {
+            "$ref": "#/components/schemas/KlasterVerifikasi"
+          }
+        },
+        "type": "object",
+        "required": [
+          "pusat_pencarian",
+          "radius_m",
+          "laporan",
+          "klaster"
+        ],
+        "title": "LaporanSekitarData"
+      },
+      "LaporanWargaCreate": {
+        "properties": {
+          "komoditas": {
+            "type": "string",
+            "title": "Komoditas",
+            "examples": [
+              "beras_medium"
+            ]
+          },
+          "harga_rp": {
+            "type": "integer",
+            "maximum": 5000000.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Harga Rp",
+            "examples": [
+              15900
+            ]
+          },
+          "satuan": {
+            "type": "string",
+            "enum": [
+              "kg",
+              "liter"
+            ],
+            "title": "Satuan",
+            "default": "kg"
+          },
+          "latitude": {
+            "type": "number",
+            "maximum": 6.2,
+            "minimum": -11.1,
+            "title": "Latitude",
+            "examples": [
+              -6.2647
+            ]
+          },
+          "longitude": {
+            "type": "number",
+            "maximum": 141.1,
+            "minimum": 94.9,
+            "title": "Longitude",
+            "examples": [
+              106.9899
+            ]
+          },
+          "catatan": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 280
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Catatan"
+          }
+        },
+        "type": "object",
+        "required": [
+          "komoditas",
+          "harga_rp",
+          "latitude",
+          "longitude"
+        ],
+        "title": "LaporanWargaCreate"
+      },
+      "LaporanWargaCreated": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "examples": [
+              "lpr_20261023_0001"
+            ]
+          },
+          "status_klaster": {
+            "type": "string",
+            "enum": [
+              "belum_terverifikasi",
+              "sedang_berjalan",
+              "terverifikasi"
+            ],
+            "title": "Status Klaster"
+          },
+          "jumlah_laporan_klaster": {
+            "type": "integer",
+            "title": "Jumlah Laporan Klaster",
+            "examples": [
+              7
+            ]
+          },
+          "minimal_laporan": {
+            "type": "integer",
+            "title": "Minimal Laporan",
+            "default": 10
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "status_klaster",
+          "jumlah_laporan_klaster"
+        ],
+        "title": "LaporanWargaCreated"
+      },
+      "Meta": {
+        "properties": {
+          "tanggal_data": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tanggal Data",
+            "description": "Tanggal data harga (WIB). null bila tidak ada data."
+          },
+          "diperbarui_pada": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Diperbarui Pada",
+            "description": "Waktu respons dibuat (UTC, ISO-8601)"
+          },
+          "sumber": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Sumber",
+            "description": "Mis. [\"PIHPS BI\", \"Laporan Warga\"]"
+          },
+          "is_simulasi": {
+            "type": "boolean",
+            "title": "Is Simulasi",
+            "description": "true bila hasil simulasi (bukan data nyata)",
+            "default": false
+          },
+          "mode_data": {
+            "type": "string",
+            "enum": [
+              "nyata",
+              "demo"
+            ],
+            "title": "Mode Data",
+            "description": "nyata | demo (seed berlabel)",
+            "default": "demo"
+          },
+          "peringatan_kualitas": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Peringatan Kualitas",
+            "description": "Mis. [\"HET_ILUSTRATIF\", \"DATA_HARI_SEBELUMNYA\", \"WILAYAH_TANPA_DATA\"]"
+          }
+        },
+        "type": "object",
+        "required": [
+          "diperbarui_pada"
+        ],
+        "title": "Meta",
+        "description": "Metadata kejujuran data — wajib ada di setiap respons.",
+        "example": {
+          "diperbarui_pada": "2026-10-23T07:15:00Z",
+          "is_simulasi": false,
+          "mode_data": "demo",
+          "peringatan_kualitas": [
+            "HET_ILUSTRATIF"
+          ],
+          "sumber": [
+            "PIHPS BI",
+            "Laporan Warga"
+          ],
+          "tanggal_data": "2026-10-23"
+        }
+      },
+      "PetaStatusData": {
+        "properties": {
+          "komoditas": {
+            "type": "string",
+            "title": "Komoditas"
+          },
+          "layer": {
+            "type": "string",
+            "enum": [
+              "aktual",
+              "h7"
+            ],
+            "title": "Layer"
+          },
+          "jumlah_wilayah": {
+            "type": "integer",
+            "title": "Jumlah Wilayah"
+          },
+          "distribusi_status": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Distribusi Status",
+            "description": "Jumlah wilayah per status",
+            "example": {
+              "aman": 0,
+              "kritis": 0,
+              "tidak_ada_data": 0,
+              "turun": 0,
+              "waspada": 0
+            }
+          },
+          "wilayah": {
+            "items": {
+              "$ref": "#/components/schemas/StatusWilayah"
+            },
+            "type": "array",
+            "title": "Wilayah"
+          }
+        },
+        "type": "object",
+        "required": [
+          "komoditas",
+          "layer",
+          "jumlah_wilayah",
+          "distribusi_status",
+          "wilayah"
+        ],
+        "title": "PetaStatusData"
+      },
+      "RingkasanLandingData": {
+        "properties": {
+          "judul": {
+            "type": "string",
+            "title": "Judul"
+          },
+          "jumlah_wilayah": {
+            "type": "integer",
+            "title": "Jumlah Wilayah"
+          },
+          "jumlah_komoditas": {
+            "type": "integer",
+            "title": "Jumlah Komoditas"
+          },
+          "distribusi_status": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Distribusi Status"
+          },
+          "sorotan": {
+            "items": {
+              "$ref": "#/components/schemas/StatusWilayah"
+            },
+            "type": "array",
+            "title": "Sorotan",
+            "description": "5 wilayah dengan skor EWS tertinggi"
+          },
+          "tanggal_data": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tanggal Data"
+          }
+        },
+        "type": "object",
+        "required": [
+          "judul",
+          "jumlah_wilayah",
+          "jumlah_komoditas",
+          "distribusi_status",
+          "sorotan",
+          "tanggal_data"
+        ],
+        "title": "RingkasanLandingData"
+      },
+      "StatusWilayah": {
+        "properties": {
+          "kode_kemendagri": {
+            "type": "string",
+            "title": "Kode Kemendagri"
+          },
+          "nama": {
+            "type": "string",
+            "title": "Nama"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "aman",
+              "waspada",
+              "kritis",
+              "turun",
+              "tidak_ada_data"
+            ],
+            "title": "Status"
+          },
+          "jenis_acuan": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "HET",
+                  "HAP",
+                  "DINAMIS_MEDIAN_90H"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Jenis Acuan"
+          },
+          "harga_aktual_rp": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Harga Aktual Rp",
+            "description": "null bila tidak ada data"
+          },
+          "harga_acuan_rp": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Harga Acuan Rp"
+          },
+          "harga_prediksi_h7_rp": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Harga Prediksi H7 Rp"
+          },
+          "selisih_persen": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Selisih Persen",
+            "description": "Gap terhadap acuan (%)"
+          },
+          "skor_ews": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 100.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Skor Ews"
+          }
+        },
+        "type": "object",
+        "required": [
+          "kode_kemendagri",
+          "nama",
+          "status"
+        ],
+        "title": "StatusWilayah",
+        "example": {
+          "harga_acuan_rp": 12500,
+          "harga_aktual_rp": 15900,
+          "harga_prediksi_h7_rp": 16350,
+          "jenis_acuan": "HET",
+          "kode_kemendagri": "32.75",
+          "nama": "Kota Bekasi",
+          "selisih_persen": 27.2,
+          "skor_ews": 78,
+          "status": "kritis"
+        }
+      },
+      "Success_DetailWilayahData_": {
+        "properties": {
+          "ok": {
+            "type": "boolean",
+            "const": true,
+            "title": "Ok",
+            "default": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/DetailWilayahData"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "Success[DetailWilayahData]"
+      },
+      "Success_LaporanSekitarData_": {
+        "properties": {
+          "ok": {
+            "type": "boolean",
+            "const": true,
+            "title": "Ok",
+            "default": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/LaporanSekitarData"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "Success[LaporanSekitarData]"
+      },
+      "Success_LaporanWargaCreated_": {
+        "properties": {
+          "ok": {
+            "type": "boolean",
+            "const": true,
+            "title": "Ok",
+            "default": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/LaporanWargaCreated"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "Success[LaporanWargaCreated]"
+      },
+      "Success_PetaStatusData_": {
+        "properties": {
+          "ok": {
+            "type": "boolean",
+            "const": true,
+            "title": "Ok",
+            "default": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/PetaStatusData"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "Success[PetaStatusData]"
+      },
+      "Success_RingkasanLandingData_": {
+        "properties": {
+          "ok": {
+            "type": "boolean",
+            "const": true,
+            "title": "Ok",
+            "default": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/RingkasanLandingData"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "Success[RingkasanLandingData]"
+      },
+      "Success_list_Komoditas__": {
+        "properties": {
+          "ok": {
+            "type": "boolean",
+            "const": true,
+            "title": "Ok",
+            "default": true
+          },
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/Komoditas"
+            },
+            "type": "array",
+            "title": "Data"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "Success[list[Komoditas]]"
+      },
+      "Success_list_Wilayah__": {
+        "properties": {
+          "ok": {
+            "type": "boolean",
+            "const": true,
+            "title": "Ok",
+            "default": true
+          },
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/Wilayah"
+            },
+            "type": "array",
+            "title": "Data"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "Success[list[Wilayah]]"
+      },
+      "TitikPrakiraan": {
+        "properties": {
+          "tanggal": {
+            "type": "string",
+            "format": "date",
+            "title": "Tanggal"
+          },
+          "harga_rp": {
+            "type": "integer",
+            "title": "Harga Rp"
+          },
+          "batas_bawah_rp": {
+            "type": "integer",
+            "title": "Batas Bawah Rp"
+          },
+          "batas_atas_rp": {
+            "type": "integer",
+            "title": "Batas Atas Rp"
+          }
+        },
+        "type": "object",
+        "required": [
+          "tanggal",
+          "harga_rp",
+          "batas_bawah_rp",
+          "batas_atas_rp"
+        ],
+        "title": "TitikPrakiraan"
+      },
+      "TitikSeri": {
+        "properties": {
+          "tanggal": {
+            "type": "string",
+            "format": "date",
+            "title": "Tanggal"
+          },
+          "harga_rp": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Harga Rp"
+          }
+        },
+        "type": "object",
+        "required": [
+          "tanggal",
+          "harga_rp"
+        ],
+        "title": "TitikSeri"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "Wilayah": {
+        "properties": {
+          "kode_kemendagri": {
+            "type": "string",
+            "title": "Kode Kemendagri",
+            "description": "PK, format NN.NN",
+            "examples": [
+              "32.75"
+            ]
+          },
+          "kode_bps": {
+            "type": "string",
+            "title": "Kode Bps",
+            "description": "Kode BPS 4 digit",
+            "examples": [
+              "3275"
+            ]
+          },
+          "nama": {
+            "type": "string",
+            "title": "Nama",
+            "examples": [
+              "Kota Bekasi"
+            ]
+          },
+          "jenis": {
+            "type": "string",
+            "enum": [
+              "kabupaten",
+              "kota"
+            ],
+            "title": "Jenis"
+          },
+          "provinsi": {
+            "type": "string",
+            "title": "Provinsi",
+            "default": "Jawa Barat"
+          },
+          "centroid": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array",
+            "title": "Centroid",
+            "description": "[lat, lng] pusat pemerintahan"
+          },
+          "status_geometri": {
+            "type": "string",
+            "enum": [
+              "lengkap",
+              "hilang",
+              "diganti_manual"
+            ],
+            "title": "Status Geometri",
+            "default": "lengkap"
+          }
+        },
+        "type": "object",
+        "required": [
+          "kode_kemendagri",
+          "kode_bps",
+          "nama",
+          "jenis",
+          "centroid"
+        ],
+        "title": "Wilayah",
+        "example": {
+          "centroid": [
+            -6.2647,
+            106.9899
+          ],
+          "jenis": "kota",
+          "kode_bps": "3275",
+          "kode_kemendagri": "32.75",
+          "nama": "Kota Bekasi",
+          "provinsi": "Jawa Barat",
+          "status_geometri": "lengkap"
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Data publik (tanpa auth)",
+      "description": "Data publik (tanpa auth)"
+    },
+    {
+      "name": "Peta status harga",
+      "description": "Peta status harga"
+    },
+    {
+      "name": "Detail wilayah",
+      "description": "Detail wilayah"
+    },
+    {
+      "name": "Laporan warga (verifikasi)",
+      "description": "Laporan warga (verifikasi)"
+    },
+    {
+      "name": "Kesehatan layanan",
+      "description": "Kesehatan layanan"
+    }
+  ]
+}

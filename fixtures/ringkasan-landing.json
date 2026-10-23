@@ -1,0 +1,86 @@
+{
+  "ok": true,
+  "data": {
+    "judul": "Radar Pangan — peringatan dini harga pangan Jawa Barat",
+    "jumlah_wilayah": 27,
+    "jumlah_komoditas": 5,
+    "distribusi_status": {
+      "aman": 9,
+      "waspada": 13,
+      "kritis": 2,
+      "turun": 2,
+      "tidak_ada_data": 1
+    },
+    "sorotan": [
+      {
+        "kode_kemendagri": "32.15",
+        "nama": "Kab. Karawang",
+        "status": "kritis",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 17330,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 17590,
+        "selisih_persen": 11.81,
+        "skor_ews": 72
+      },
+      {
+        "kode_kemendagri": "32.74",
+        "nama": "Kota Cirebon",
+        "status": "waspada",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 16898,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 17151,
+        "selisih_persen": 9.02,
+        "skor_ews": 72
+      },
+      {
+        "kode_kemendagri": "32.76",
+        "nama": "Kota Depok",
+        "status": "waspada",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 16707,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 16958,
+        "selisih_persen": 7.79,
+        "skor_ews": 69
+      },
+      {
+        "kode_kemendagri": "32.77",
+        "nama": "Kota Cimahi",
+        "status": "waspada",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 16767,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 17019,
+        "selisih_persen": 8.17,
+        "skor_ews": 69
+      },
+      {
+        "kode_kemendagri": "32.02",
+        "nama": "Kab. Sukabumi",
+        "status": "waspada",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 16860,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 17113,
+        "selisih_persen": 8.77,
+        "skor_ews": 68
+      }
+    ],
+    "tanggal_data": "2026-10-23"
+  },
+  "meta": {
+    "tanggal_data": "2026-10-23",
+    "diperbarui_pada": "2026-10-23T08:04:20.976571+00:00",
+    "sumber": [
+      "PIHPS BI"
+    ],
+    "is_simulasi": false,
+    "mode_data": "demo",
+    "peringatan_kualitas": [
+      "HET_ILUSTRATIF",
+      "DATA_DEMO_BERLABEL"
+    ]
+  }
+}

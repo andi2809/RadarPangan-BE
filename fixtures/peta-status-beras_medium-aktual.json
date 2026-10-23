@@ -1,0 +1,327 @@
+{
+  "ok": true,
+  "data": {
+    "komoditas": "beras_medium",
+    "layer": "aktual",
+    "jumlah_wilayah": 27,
+    "distribusi_status": {
+      "aman": 9,
+      "waspada": 13,
+      "kritis": 2,
+      "turun": 2,
+      "tidak_ada_data": 1
+    },
+    "wilayah": [
+      {
+        "kode_kemendagri": "32.01",
+        "nama": "Kab. Bogor",
+        "status": "aman",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 15485,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 15717,
+        "selisih_persen": -0.1,
+        "skor_ews": 52
+      },
+      {
+        "kode_kemendagri": "32.02",
+        "nama": "Kab. Sukabumi",
+        "status": "waspada",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 16860,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 17113,
+        "selisih_persen": 8.77,
+        "skor_ews": 68
+      },
+      {
+        "kode_kemendagri": "32.03",
+        "nama": "Kab. Cianjur",
+        "status": "waspada",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 16539,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 16787,
+        "selisih_persen": 6.7,
+        "skor_ews": 65
+      },
+      {
+        "kode_kemendagri": "32.04",
+        "nama": "Kab. Bandung",
+        "status": "aman",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 16066,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 16307,
+        "selisih_persen": 3.65,
+        "skor_ews": 63
+      },
+      {
+        "kode_kemendagri": "32.05",
+        "nama": "Kab. Garut",
+        "status": "aman",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 14974,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 15199,
+        "selisih_persen": -3.39,
+        "skor_ews": 38
+      },
+      {
+        "kode_kemendagri": "32.06",
+        "nama": "Kab. Tasikmalaya",
+        "status": "waspada",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 16442,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 16689,
+        "selisih_persen": 6.08,
+        "skor_ews": 60
+      },
+      {
+        "kode_kemendagri": "32.07",
+        "nama": "Kab. Ciamis",
+        "status": "aman",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 15900,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 16138,
+        "selisih_persen": 2.58,
+        "skor_ews": 56
+      },
+      {
+        "kode_kemendagri": "32.08",
+        "nama": "Kab. Kuningan",
+        "status": "turun",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 14408,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 14624,
+        "selisih_persen": -7.05,
+        "skor_ews": 29
+      },
+      {
+        "kode_kemendagri": "32.09",
+        "nama": "Kab. Cirebon",
+        "status": "waspada",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 16701,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 16952,
+        "selisih_persen": 7.75,
+        "skor_ews": 63
+      },
+      {
+        "kode_kemendagri": "32.10",
+        "nama": "Kab. Majalengka",
+        "status": "aman",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 15601,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 15835,
+        "selisih_persen": 0.65,
+        "skor_ews": 54
+      },
+      {
+        "kode_kemendagri": "32.11",
+        "nama": "Kab. Sumedang",
+        "status": "aman",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 14926,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 15150,
+        "selisih_persen": -3.7,
+        "skor_ews": 48
+      },
+      {
+        "kode_kemendagri": "32.12",
+        "nama": "Kab. Indramayu",
+        "status": "kritis",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 17054,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 17310,
+        "selisih_persen": 10.03,
+        "skor_ews": 65
+      },
+      {
+        "kode_kemendagri": "32.13",
+        "nama": "Kab. Subang",
+        "status": "waspada",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 16284,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 16528,
+        "selisih_persen": 5.06,
+        "skor_ews": 54
+      },
+      {
+        "kode_kemendagri": "32.14",
+        "nama": "Kab. Purwakarta",
+        "status": "aman",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 15016,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 15241,
+        "selisih_persen": -3.12,
+        "skor_ews": 48
+      },
+      {
+        "kode_kemendagri": "32.15",
+        "nama": "Kab. Karawang",
+        "status": "kritis",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 17330,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 17590,
+        "selisih_persen": 11.81,
+        "skor_ews": 72
+      },
+      {
+        "kode_kemendagri": "32.16",
+        "nama": "Kab. Bekasi",
+        "status": "waspada",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 16548,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 16796,
+        "selisih_persen": 6.76,
+        "skor_ews": 64
+      },
+      {
+        "kode_kemendagri": "32.17",
+        "nama": "Kab. Bandung Barat",
+        "status": "waspada",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 16314,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 16559,
+        "selisih_persen": 5.25,
+        "skor_ews": 63
+      },
+      {
+        "kode_kemendagri": "32.18",
+        "nama": "Kab. Pangandaran",
+        "status": "tidak_ada_data",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": null,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": null,
+        "selisih_persen": null,
+        "skor_ews": null
+      },
+      {
+        "kode_kemendagri": "32.71",
+        "nama": "Kota Bogor",
+        "status": "aman",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 15349,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 15579,
+        "selisih_persen": -0.97,
+        "skor_ews": 50
+      },
+      {
+        "kode_kemendagri": "32.72",
+        "nama": "Kota Sukabumi",
+        "status": "waspada",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 16691,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 16941,
+        "selisih_persen": 7.68,
+        "skor_ews": 67
+      },
+      {
+        "kode_kemendagri": "32.73",
+        "nama": "Kota Bandung",
+        "status": "aman",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 15080,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 15306,
+        "selisih_persen": -2.71,
+        "skor_ews": 42
+      },
+      {
+        "kode_kemendagri": "32.74",
+        "nama": "Kota Cirebon",
+        "status": "waspada",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 16898,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 17151,
+        "selisih_persen": 9.02,
+        "skor_ews": 72
+      },
+      {
+        "kode_kemendagri": "32.75",
+        "nama": "Kota Bekasi",
+        "status": "turun",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 14384,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 14600,
+        "selisih_persen": -7.2,
+        "skor_ews": 36
+      },
+      {
+        "kode_kemendagri": "32.76",
+        "nama": "Kota Depok",
+        "status": "waspada",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 16707,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 16958,
+        "selisih_persen": 7.79,
+        "skor_ews": 69
+      },
+      {
+        "kode_kemendagri": "32.77",
+        "nama": "Kota Cimahi",
+        "status": "waspada",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 16767,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 17019,
+        "selisih_persen": 8.17,
+        "skor_ews": 69
+      },
+      {
+        "kode_kemendagri": "32.78",
+        "nama": "Kota Tasikmalaya",
+        "status": "waspada",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 16855,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 17108,
+        "selisih_persen": 8.74,
+        "skor_ews": 61
+      },
+      {
+        "kode_kemendagri": "32.79",
+        "nama": "Kota Banjar",
+        "status": "waspada",
+        "jenis_acuan": "HET",
+        "harga_aktual_rp": 16555,
+        "harga_acuan_rp": 15500,
+        "harga_prediksi_h7_rp": 16803,
+        "selisih_persen": 6.81,
+        "skor_ews": 60
+      }
+    ]
+  },
+  "meta": {
+    "tanggal_data": "2026-10-23",
+    "diperbarui_pada": "2026-10-23T08:04:20.977335+00:00",
+    "sumber": [
+      "PIHPS BI"
+    ],
+    "is_simulasi": false,
+    "mode_data": "demo",
+    "peringatan_kualitas": [
+      "HET_ILUSTRATIF",
+      "DATA_DEMO_BERLABEL"
+    ]
+  }
+}

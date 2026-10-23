@@ -1,0 +1,342 @@
+{
+  "ok": true,
+  "data": [
+    {
+      "kode_kemendagri": "32.01",
+      "kode_bps": "3201",
+      "nama": "Kab. Bogor",
+      "jenis": "kabupaten",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -6.4819,
+        106.854
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.02",
+      "kode_bps": "3202",
+      "nama": "Kab. Sukabumi",
+      "jenis": "kabupaten",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -6.9277,
+        106.93
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.03",
+      "kode_bps": "3203",
+      "nama": "Kab. Cianjur",
+      "jenis": "kabupaten",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -6.817,
+        107.142
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.04",
+      "kode_bps": "3204",
+      "nama": "Kab. Bandung",
+      "jenis": "kabupaten",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -7.021,
+        107.518
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.05",
+      "kode_bps": "3205",
+      "nama": "Kab. Garut",
+      "jenis": "kabupaten",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -7.21,
+        107.9
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.06",
+      "kode_bps": "3206",
+      "nama": "Kab. Tasikmalaya",
+      "jenis": "kabupaten",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -7.35,
+        108.22
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.07",
+      "kode_bps": "3207",
+      "nama": "Kab. Ciamis",
+      "jenis": "kabupaten",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -7.33,
+        108.35
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.08",
+      "kode_bps": "3208",
+      "nama": "Kab. Kuningan",
+      "jenis": "kabupaten",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -6.976,
+        108.484
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.09",
+      "kode_bps": "3209",
+      "nama": "Kab. Cirebon",
+      "jenis": "kabupaten",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -6.75,
+        108.48
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.10",
+      "kode_bps": "3210",
+      "nama": "Kab. Majalengka",
+      "jenis": "kabupaten",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -6.836,
+        108.227
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.11",
+      "kode_bps": "3211",
+      "nama": "Kab. Sumedang",
+      "jenis": "kabupaten",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -6.858,
+        107.92
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.12",
+      "kode_bps": "3212",
+      "nama": "Kab. Indramayu",
+      "jenis": "kabupaten",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -6.326,
+        108.32
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.13",
+      "kode_bps": "3213",
+      "nama": "Kab. Subang",
+      "jenis": "kabupaten",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -6.571,
+        107.758
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.14",
+      "kode_bps": "3214",
+      "nama": "Kab. Purwakarta",
+      "jenis": "kabupaten",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -6.557,
+        107.443
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.15",
+      "kode_bps": "3215",
+      "nama": "Kab. Karawang",
+      "jenis": "kabupaten",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -6.301,
+        107.306
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.16",
+      "kode_bps": "3216",
+      "nama": "Kab. Bekasi",
+      "jenis": "kabupaten",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -6.26,
+        107.15
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.17",
+      "kode_bps": "3217",
+      "nama": "Kab. Bandung Barat",
+      "jenis": "kabupaten",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -6.83,
+        107.48
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.18",
+      "kode_bps": "3218",
+      "nama": "Kab. Pangandaran",
+      "jenis": "kabupaten",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -7.69,
+        108.49
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.71",
+      "kode_bps": "3271",
+      "nama": "Kota Bogor",
+      "jenis": "kota",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -6.595,
+        106.816
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.72",
+      "kode_bps": "3272",
+      "nama": "Kota Sukabumi",
+      "jenis": "kota",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -6.92,
+        106.927
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.73",
+      "kode_bps": "3273",
+      "nama": "Kota Bandung",
+      "jenis": "kota",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -6.9175,
+        107.6191
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.74",
+      "kode_bps": "3274",
+      "nama": "Kota Cirebon",
+      "jenis": "kota",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -6.732,
+        108.552
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.75",
+      "kode_bps": "3275",
+      "nama": "Kota Bekasi",
+      "jenis": "kota",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -6.2647,
+        106.9899
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.76",
+      "kode_bps": "3276",
+      "nama": "Kota Depok",
+      "jenis": "kota",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -6.4025,
+        106.7942
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.77",
+      "kode_bps": "3277",
+      "nama": "Kota Cimahi",
+      "jenis": "kota",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -6.873,
+        107.5425
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.78",
+      "kode_bps": "3278",
+      "nama": "Kota Tasikmalaya",
+      "jenis": "kota",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -7.3274,
+        108.2207
+      ],
+      "status_geometri": "lengkap"
+    },
+    {
+      "kode_kemendagri": "32.79",
+      "kode_bps": "3279",
+      "nama": "Kota Banjar",
+      "jenis": "kota",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -7.3667,
+        108.5333
+      ],
+      "status_geometri": "lengkap"
+    }
+  ],
+  "meta": {
+    "tanggal_data": "2026-10-23",
+    "diperbarui_pada": "2026-10-23T08:04:20.976580+00:00",
+    "sumber": [
+      "PIHPS BI"
+    ],
+    "is_simulasi": false,
+    "mode_data": "demo",
+    "peringatan_kualitas": [
+      "HET_ILUSTRATIF",
+      "DATA_DEMO_BERLABEL"
+    ]
+  }
+}

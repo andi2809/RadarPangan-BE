@@ -1,0 +1,141 @@
+{
+  "ok": true,
+  "data": {
+    "wilayah": {
+      "kode_kemendagri": "32.75",
+      "kode_bps": "3275",
+      "nama": "Kota Bekasi",
+      "jenis": "kota",
+      "provinsi": "Jawa Barat",
+      "centroid": [
+        -6.2647,
+        106.9899
+      ],
+      "status_geometri": "lengkap"
+    },
+    "komoditas": "beras_medium",
+    "status": "turun",
+    "jenis_acuan": "HET",
+    "harga_acuan_rp": 15500,
+    "harga_aktual_rp": 14384,
+    "harga_prediksi_h7_rp": 15153,
+    "selisih_persen": -7.2,
+    "skor_ews": 35,
+    "seri_historis": [
+      {
+        "tanggal": "2026-10-10",
+        "harga_rp": null
+      },
+      {
+        "tanggal": "2026-10-11",
+        "harga_rp": null
+      },
+      {
+        "tanggal": "2026-10-12",
+        "harga_rp": 14059
+      },
+      {
+        "tanggal": "2026-10-13",
+        "harga_rp": 13969
+      },
+      {
+        "tanggal": "2026-10-14",
+        "harga_rp": 14587
+      },
+      {
+        "tanggal": "2026-10-15",
+        "harga_rp": 14258
+      },
+      {
+        "tanggal": "2026-10-16",
+        "harga_rp": 14330
+      },
+      {
+        "tanggal": "2026-10-17",
+        "harga_rp": null
+      },
+      {
+        "tanggal": "2026-10-18",
+        "harga_rp": null
+      },
+      {
+        "tanggal": "2026-10-19",
+        "harga_rp": 14587
+      },
+      {
+        "tanggal": "2026-10-20",
+        "harga_rp": 14205
+      },
+      {
+        "tanggal": "2026-10-21",
+        "harga_rp": 14154
+      },
+      {
+        "tanggal": "2026-10-22",
+        "harga_rp": 14039
+      },
+      {
+        "tanggal": "2026-10-23",
+        "harga_rp": 14525
+      }
+    ],
+    "prakiraan": [
+      {
+        "tanggal": "2026-10-24",
+        "harga_rp": 14491,
+        "batas_bawah_rp": 14057,
+        "batas_atas_rp": 14926
+      },
+      {
+        "tanggal": "2026-10-25",
+        "harga_rp": 14600,
+        "batas_bawah_rp": 13980,
+        "batas_atas_rp": 15219
+      },
+      {
+        "tanggal": "2026-10-26",
+        "harga_rp": 14709,
+        "batas_bawah_rp": 13945,
+        "batas_atas_rp": 15473
+      },
+      {
+        "tanggal": "2026-10-27",
+        "harga_rp": 14819,
+        "batas_bawah_rp": 13930,
+        "batas_atas_rp": 15708
+      },
+      {
+        "tanggal": "2026-10-28",
+        "harga_rp": 14929,
+        "batas_bawah_rp": 13928,
+        "batas_atas_rp": 15931
+      },
+      {
+        "tanggal": "2026-10-29",
+        "harga_rp": 15041,
+        "batas_bawah_rp": 13936,
+        "batas_atas_rp": 16146
+      },
+      {
+        "tanggal": "2026-10-30",
+        "harga_rp": 15153,
+        "batas_bawah_rp": 13951,
+        "batas_atas_rp": 16356
+      }
+    ],
+    "catatan_kondisi_khusus": null
+  },
+  "meta": {
+    "tanggal_data": "2026-10-23",
+    "diperbarui_pada": "2026-10-23T08:04:20.977484+00:00",
+    "sumber": [
+      "PIHPS BI"
+    ],
+    "is_simulasi": false,
+    "mode_data": "demo",
+    "peringatan_kualitas": [
+      "HET_ILUSTRATIF",
+      "DATA_DEMO_BERLABEL"
+    ]
+  }
+}

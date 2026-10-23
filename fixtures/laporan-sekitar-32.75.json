@@ -1,0 +1,77 @@
+{
+  "ok": true,
+  "data": {
+    "pusat_pencarian": [
+      -6.2647,
+      106.9899
+    ],
+    "radius_m": 3000,
+    "laporan": [
+      {
+        "komoditas": "beras_medium",
+        "harga_rp": 15616,
+        "satuan": "kg",
+        "jarak_m": 2435,
+        "dilaporkan_pada": "2026-10-23T07:16:00+07:00",
+        "status_klaster": "sedang_berjalan"
+      },
+      {
+        "komoditas": "beras_medium",
+        "harga_rp": 15732,
+        "satuan": "kg",
+        "jarak_m": 1900,
+        "dilaporkan_pada": "2026-10-23T06:41:00+07:00",
+        "status_klaster": "sedang_berjalan"
+      },
+      {
+        "komoditas": "beras_medium",
+        "harga_rp": 16143,
+        "satuan": "kg",
+        "jarak_m": 642,
+        "dilaporkan_pada": "2026-10-23T07:51:00+07:00",
+        "status_klaster": "sedang_berjalan"
+      },
+      {
+        "komoditas": "beras_medium",
+        "harga_rp": 16135,
+        "satuan": "kg",
+        "jarak_m": 1753,
+        "dilaporkan_pada": "2026-10-23T07:52:00+07:00",
+        "status_klaster": "sedang_berjalan"
+      },
+      {
+        "komoditas": "beras_medium",
+        "harga_rp": 15468,
+        "satuan": "kg",
+        "jarak_m": 756,
+        "dilaporkan_pada": "2026-10-23T06:03:00+07:00",
+        "status_klaster": "sedang_berjalan"
+      }
+    ],
+    "klaster": {
+      "pusat": [
+        -6.265,
+        106.99
+      ],
+      "radius_m": 3000,
+      "jumlah_laporan": 5,
+      "minimal_laporan": 10,
+      "status": "sedang_berjalan",
+      "harga_konsensus_rp": null
+    }
+  },
+  "meta": {
+    "tanggal_data": "2026-10-23",
+    "diperbarui_pada": "2026-10-23T08:04:20.977567+00:00",
+    "sumber": [
+      "PIHPS BI",
+      "Laporan Warga"
+    ],
+    "is_simulasi": false,
+    "mode_data": "demo",
+    "peringatan_kualitas": [
+      "HET_ILUSTRATIF",
+      "DATA_DEMO_BERLABEL"
+    ]
+  }
+}
