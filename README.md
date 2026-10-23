@@ -48,7 +48,7 @@ Menghasilkan `openapi.json` (untuk `openapi-typescript` + lampiran proposal) dan
 | Hal | Keputusan |
 |---|---|
 | Beras | `beras_medium` |
-| Minyak goreng | `minyakita` |
+| Minyak goreng | `minyak_goreng_curah` (MVP) — PIHPS tidak memisahkan Minyakita |
 | PK wilayah | Kemendagri `NN.NN` (+ kolom `kode_bps`) |
 | Target model | regresi harga absolut; gap ke acuan dilaporkan di `selisih_persen` |
 | Daya beli | UMK Jawa Barat 2026 |
@@ -82,6 +82,28 @@ Katalog & batasan lengkap: [`data/README.md`](data/README.md).
 - Ganti `app/data.py` (data demo) dengan hasil pipeline → `mode_data="nyata"`
 - Perhitungan status & skor EWS di SQL (satu sumber logika)
 - Sumber kedua untuk menutup 18 kab/kota yang kosong (Bapanas saat pulih / SP2KP)
+
+## Deploy ke Hugging Face Spaces (gratis, tanpa kartu)
+
+Prasyarat sekali saja di browser:
+1. Daftar di <https://huggingface.co> (tidak perlu kartu).
+2. **New → Space** → **SDK: Docker** → **Visibility: Public** → nama `radar-pangan-api`.
+3. Buat **Write token**: <https://huggingface.co/settings/tokens>.
+
+Lalu dari mesin ini:
+
+```bash
+export HF_TOKEN=hf_xxxxxxxxxxxxxxxx
+./deploy/hf_push.sh <username>/radar-pangan-api
+```
+
+Script `deploy/hf_push.sh` menyalin `app/`, `requirements.txt`, `Dockerfile`, lalu menulis
+`README.md` Space dengan metadata Docker (`app_port: 7860`) dan mendorongnya.
+Build otomatis; URL biasanya `https://<username>-radar-pangan-api.hf.space`.
+
+- Swagger: `/docs` · Health: `/api/health`
+- Secret: **Space Settings → Variables and secrets** → tambahkan `RADAR_API_KEY`
+- Free tier: 2 vCPU / 16 GB, **tidur setelah 48 jam idle**, storage ephemeral.
 
 ## Deploy ke Render (status: belum dilakukan)
 

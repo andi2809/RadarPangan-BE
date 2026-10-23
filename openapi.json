@@ -118,7 +118,7 @@
                   },
                   "meta": {
                     "tanggal_data": "2026-10-23",
-                    "diperbarui_pada": "2026-10-23T08:04:20.860571+00:00",
+                    "diperbarui_pada": "2026-10-23T09:24:35.149435+00:00",
                     "sumber": [
                       "PIHPS BI"
                     ],
@@ -187,17 +187,17 @@
                       "keterangan_acuan": "Median nasional 90 hari — telur tidak punya HET"
                     },
                     {
-                      "kode": "minyakita",
-                      "nama": "Minyakita",
-                      "satuan": "liter",
-                      "jenis_acuan": "HET",
-                      "harga_acuan_rp": 15700,
-                      "keterangan_acuan": "HET Minyakita (perlu verifikasi regulasi terbaru)"
+                      "kode": "minyak_goreng_curah",
+                      "nama": "Minyak Goreng Curah",
+                      "satuan": "kg",
+                      "jenis_acuan": "DINAMIS_MEDIAN_90H",
+                      "harga_acuan_rp": 18500,
+                      "keterangan_acuan": "Median 90 hari — PIHPS tidak memisahkan Minyakita; curah dipakai untuk MVP"
                     }
                   ],
                   "meta": {
                     "tanggal_data": "2026-10-23",
-                    "diperbarui_pada": "2026-10-23T08:04:20.863061+00:00",
+                    "diperbarui_pada": "2026-10-23T09:24:35.151818+00:00",
                     "sumber": [
                       "PIHPS BI"
                     ],
@@ -292,7 +292,7 @@
                   ],
                   "meta": {
                     "tanggal_data": "2026-10-23",
-                    "diperbarui_pada": "2026-10-23T08:04:20.864990+00:00",
+                    "diperbarui_pada": "2026-10-23T09:24:35.153617+00:00",
                     "sumber": [
                       "PIHPS BI"
                     ],
@@ -696,7 +696,7 @@
                   },
                   "meta": {
                     "tanggal_data": "2026-10-23",
-                    "diperbarui_pada": "2026-10-23T08:04:20.868502+00:00",
+                    "diperbarui_pada": "2026-10-23T09:24:35.156990+00:00",
                     "sumber": [
                       "PIHPS BI"
                     ],
@@ -884,7 +884,7 @@
                   },
                   "meta": {
                     "tanggal_data": "2026-10-23",
-                    "diperbarui_pada": "2026-10-23T08:04:20.873494+00:00",
+                    "diperbarui_pada": "2026-10-23T09:24:35.161357+00:00",
                     "sumber": [
                       "PIHPS BI"
                     ],
@@ -1040,7 +1040,7 @@
                   },
                   "meta": {
                     "tanggal_data": "2026-10-23",
-                    "diperbarui_pada": "2026-10-23T08:04:20.876715+00:00",
+                    "diperbarui_pada": "2026-10-23T09:24:35.164692+00:00",
                     "sumber": [
                       "PIHPS BI",
                       "Laporan Warga"
@@ -1122,7 +1122,7 @@
                   },
                   "meta": {
                     "tanggal_data": "2026-10-23",
-                    "diperbarui_pada": "2026-10-23T08:04:20.879890+00:00",
+                    "diperbarui_pada": "2026-10-23T09:24:35.167851+00:00",
                     "sumber": [
                       "Laporan Warga"
                     ],

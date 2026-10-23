@@ -49,7 +49,8 @@ TARGET_KOMODITAS = {
     "cabai_rawit_merah": "Cabai Rawit Merah",
     "bawang_merah": "Bawang Merah",
     "telur_ayam_ras": "Telur Ayam Ras",
-    "minyakita": "Minyakita",
+    # PIHPS tidak memisahkan Minyakita -> pakai curah (keputusan MVP: data tersedia dulu)
+    "minyak_goreng_curah": "Minyak Goreng Curah",
 }
 
 _opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(CookieJar()))

@@ -34,17 +34,17 @@
       "keterangan_acuan": "Median nasional 90 hari — telur tidak punya HET"
     },
     {
-      "kode": "minyakita",
-      "nama": "Minyakita",
-      "satuan": "liter",
-      "jenis_acuan": "HET",
-      "harga_acuan_rp": 15700,
-      "keterangan_acuan": "HET Minyakita (perlu verifikasi regulasi terbaru)"
+      "kode": "minyak_goreng_curah",
+      "nama": "Minyak Goreng Curah",
+      "satuan": "kg",
+      "jenis_acuan": "DINAMIS_MEDIAN_90H",
+      "harga_acuan_rp": 18500,
+      "keterangan_acuan": "Median 90 hari — PIHPS tidak memisahkan Minyakita; curah dipakai untuk MVP"
     }
   ],
   "meta": {
     "tanggal_data": "2026-10-23",
-    "diperbarui_pada": "2026-10-23T08:04:20.976578+00:00",
+    "diperbarui_pada": "2026-10-23T09:24:35.262251+00:00",
     "sumber": [
       "PIHPS BI"
     ],

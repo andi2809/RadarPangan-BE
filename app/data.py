@@ -105,12 +105,12 @@ KOMODITAS: list[Komoditas] = [
         keterangan_acuan="Median nasional 90 hari — telur tidak punya HET",
     ),
     Komoditas(
-        kode="minyakita",
-        nama="Minyakita",
-        satuan="liter",
-        jenis_acuan="HET",
-        harga_acuan_rp=15700,
-        keterangan_acuan="HET Minyakita (perlu verifikasi regulasi terbaru)",
+        kode="minyak_goreng_curah",
+        nama="Minyak Goreng Curah",
+        satuan="kg",
+        jenis_acuan="DINAMIS_MEDIAN_90H",
+        harga_acuan_rp=18500,
+        keterangan_acuan="Median 90 hari — PIHPS tidak memisahkan Minyakita; curah dipakai untuk MVP",
     ),
 ]
 
@@ -119,7 +119,7 @@ _HARGA_PASAR = {
     "cabai_rawit_merah": 102250,
     "bawang_merah": 41000,
     "telur_ayam_ras": 28400,
-    "minyakita": 17200,
+    "minyak_goreng_curah": 17400,
 }
 
 STATUS_ORDER = ["aman", "waspada", "kritis", "turun", "tidak_ada_data"]
