@@ -71,25 +71,35 @@ Menghasilkan `openapi.json` (untuk `openapi-typescript` + lampiran proposal) dan
 - Perhitungan status & skor EWS di SQL (satu sumber logika)
 - Ganti fixture dengan snapshot hasil pipeline
 
-## Deploy (belum dilakukan — status 23 Okt 15:20)
+## Deploy ke Render (status: belum dilakukan)
 
-**Belum live.** Repo ini masih lokal: belum di-push ke `RadarPangan/RadarPangan-Server`,
-belum ada URL publik.
+Repo sudah ter-push (commit `8245709`, 23 Okt 2026). Tinggal 5 langkah di akun Render
+**milik ketua/anggota** (tidak bisa dibuatkan orang lain):
 
-Langkah membuatnya live:
+1. Daftar di <https://render.com> → **Sign in with GitHub** (tidak perlu kartu kredit untuk Free).
+2. Install **Render GitHub App** → beri akses ke organisasi `RadarPangan` dan repo
+   `RadarPangan-Server` (repo masih privat, jadi akses ini wajib).
+3. Dashboard Render → **New** → **Blueprint** → pilih `RadarPangan-Server`.
+4. Render membaca `render.yaml` (runtime python, `uvicorn app.main:app --host 0.0.0.0 --port $PORT`,
+   health check `/api/health`) → isi nilai `RADAR_API_KEY` saat diminta → **Apply**.
+5. Tunggu build selesai, lalu verifikasi:
+   `https://<nama-service>.onrender.com/docs` dan `/api/health`.
 
-1. **Push** (dari mesin yang punya akses SSH):
-   ```bash
-   git init && git add . && git commit -m "feat: kerangka FastAPI + Swagger + fixtures"
-   git branch -M main
-   git remote add origin git@github.com:RadarPangan/RadarPangan-Server.git
-   git push -u origin main
-   ```
-2. **Deploy ke Render** (gratis): Dashboard → *New* → **Blueprint** → pilih repo
-   `RadarPangan-Server`. Blueprint `render.yaml` sudah disiapkan (runtime python,
-   `uvicorn app.main:app --host 0.0.0.0 --port $PORT`, health check `/api/health`).
-3. Set `RADAR_API_KEY` di Environment Render (jangan pernah commit nilainya).
-4. Verifikasi: buka `https://<service>.onrender.com/docs` dan `/api/health`.
+### Batas Free tier yang perlu diketahui
 
-⚠️ Free tier Render **tidur setelah idle** (cold start ±30–60 detik). Karena itu
-Dashboard wajib punya fallback ke `fixtures/*.json` — bukan sekadar nice-to-have.
+- **RAM 512 MB**, **spin-down setelah ±15 menit idle** → cold start **30–60 detik**.
+- 750 jam instance/bulan (cukup untuk 1 service).
+- Kalau region `singapore` ditolak, ganti ke `oregon` di `render.yaml`.
+
+Karena spin-down itu, Dashboard **wajib** punya fallback ke `fixtures/*.json`
+(atau snapshot statis) — jangan bergantung pada API saat juri membuka halaman pertama kali.
+
+### Alternatif bila Render tidak jadi dipakai
+
+| Opsi | Untuk apa | Catatan |
+|---|---|---|
+| **ngrok** (ide Andi) | Ekspos FastAPI lokal ke publik saat testing/mentoring | URL berubah tiap restart di free; VM harus selalu hidup; tidak disarankan untuk penjurian |
+| Fly.io / Koyeb | Host proses Python | Perlu akun + kartu (Fly) |
+| Vercel (Python runtime) | Bisa, tapi serverless | Cold start tiap request; lebih repot untuk FastAPI |
+| **Supabase** | **Database** (Postgres), bukan tempat menjalankan FastAPI | Edge Functions = Deno, bukan Python |
+| Netlify | **Situs statis** (Landing) | Tidak bisa menjalankan proses Python |
