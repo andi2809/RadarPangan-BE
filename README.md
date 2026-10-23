@@ -95,6 +95,31 @@ dan `vercel.json` meneruskan semua path ke fungsi itu (region `sin1` = Singapura
 4. **Deploy** → URL `https://<project>.vercel.app`.
 5. Verifikasi `/docs`, `/api/health`, `/api/v1/peta/status?komoditas=beras_medium`.
 
+### Jalur cepat tanpa GitHub App (Vercel CLI)
+
+Kalau import lewat dashboard meminta persetujuan GitHub App di org `RadarPangan`
+(harus disetujui Andi), pakai CLI — ia meng-upload folder lokal, tidak menyentuh izin org:
+
+```bash
+cd ~/lomba/web-in-action-2026/radar-pangan-server
+npx --yes vercel@latest login          # sekali saja (interaktif: email / GitHub)
+npx --yes vercel@latest --prod         # deploy produksi dari folder ini
+```
+
+Saat diminta, pilih: *scope* akunmu, *link to existing project* → **No** (buat baru,
+nama mis. `radar-pangan-api`), *directory* → `./`.
+Setelah selesai, CLI mencetak URL produksi.
+
+Tambahkan environment variable:
+
+```bash
+npx --yes vercel@latest env add RADAR_API_KEY production
+npx --yes vercel@latest --prod          # redeploy agar env terpakai
+```
+
+`.vercelignore` sudah disiapkan agar `.venv/`, `data/`, `pipeline/`, dan `fixtures/`
+tidak ikut ter-upload.
+
 Batas Hobby yang relevan: **durasi fungsi 10 detik**, 1 GB RAM, dan cold start
 ±0,5–2 detik setelah idle (lebih lambat dari Node karena interpreter Python + import
 FastAPI/Pydantic). Setelah instance hangat, request berikutnya cepat — bukan "tiap request".
