@@ -65,11 +65,23 @@ Menghasilkan `openapi.json` (untuk `openapi-typescript` + lampiran proposal) dan
 4. Sebelum final: ganti angka acuan dengan Perbadan/regulasi resmi, dan pindahkan
    `mode_data` ke `"nyata"` hanya bila pipeline sudah menarik data resmi.
 
+## Status data (23 Okt 2026)
+
+✅ **Pipeline sudah menarik data nyata** dari PIHPS Bank Indonesia:
+`data/raw/pihps_jabar_2026-10-20_2026-10-23.csv` — 144 baris (9 kab/kota × 4 komoditas × 4 hari).
+Katalog & batasan lengkap: [`data/README.md`](data/README.md).
+
+⚠️ **Dua temuan yang perlu keputusan:**
+1. PIHPS hanya mencakup **9 dari 27** kab/kota Jawa Barat → 18 wilayah wajib tampil
+   `tidak_ada_data` (tidak diimputasi).
+2. PIHPS **tidak memisahkan Minyakita** (tersedia: curah, kemasan bermerk 1/2) →
+   kode komoditas `minyakita` perlu diganti atau sumbernya dialihkan ke Bapanas.
+
 ## Selanjutnya
 
-- Pipeline `ingest/` (PIHPS JSON → normalisasi → `harga_harian`)
+- Ganti `app/data.py` (data demo) dengan hasil pipeline → `mode_data="nyata"`
 - Perhitungan status & skor EWS di SQL (satu sumber logika)
-- Ganti fixture dengan snapshot hasil pipeline
+- Sumber kedua untuk menutup 18 kab/kota yang kosong (Bapanas saat pulih / SP2KP)
 
 ## Deploy ke Render (status: belum dilakukan)
 
