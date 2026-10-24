@@ -1,0 +1,6 @@
+commodity_id,name,jenis_acuan,harga_acuan_rp,satuan,dasar_hukum
+beras_medium,Beras Medium,HET,13500,kg,Perbadan No 5/2024 Zonasi 1
+cabai_rawit_merah,Cabai Rawit Merah,HAP,45000,kg,Perbadan No 12/2024
+bawang_merah,Bawang Merah,HAP,32000,kg,Perbadan No 12/2024
+telur_ayam_ras,Telur Ayam Ras,DINAMIS_MEDIAN_90H,29500,kg,Moving Median 90 Hari
+minyakita,Minyakita,HET,15700,liter,Permendag No 18/2024

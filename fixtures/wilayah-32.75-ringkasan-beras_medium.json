@@ -1,141 +1,238 @@
 {
   "ok": true,
   "data": {
-    "wilayah": {
+    "region": {
+      "id": "32.75",
+      "code_bps": "3275",
+      "name": "Kota Bekasi",
+      "type": "KOTA",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 5612800,
+      "garis_kemiskinan_rp": 640000,
+      "populasi": 2620000,
+      "lat": -6.305788,
+      "lng": 106.96035,
       "kode_kemendagri": "32.75",
       "kode_bps": "3275",
       "nama": "Kota Bekasi",
       "jenis": "kota",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -6.2647,
-        106.9899
+        -6.305788,
+        106.96035
       ],
       "status_geometri": "lengkap"
     },
-    "komoditas": "beras_medium",
-    "status": "turun",
-    "jenis_acuan": "HET",
-    "harga_acuan_rp": 15500,
-    "harga_aktual_rp": 14384,
-    "harga_prediksi_h7_rp": 15153,
-    "selisih_persen": -7.2,
-    "skor_ews": 35,
+    "commodity": {
+      "id": "beras_medium",
+      "name": "Beras Medium",
+      "category": "Beras",
+      "satuan": "kg",
+      "jenis_acuan": "HET",
+      "harga_acuan_rp": 13500,
+      "deskripsi": "Beras butir patah maks 25%, acuan HET Zonasi I Jawa Barat (Perbadan 5/2024)",
+      "kode": "beras_medium",
+      "nama": "Beras Medium",
+      "keterangan_acuan": "Beras butir patah maks 25%, acuan HET Zonasi I Jawa Barat (Perbadan 5/2024)"
+    },
+    "harga_aktual_rp": 13800,
+    "harga_acuan_rp": 13500,
+    "harga_prediksi_h7_rp": 14200,
+    "selisih_persen": 2.22,
+    "status": "aman",
+    "ews_score": 24,
+    "risk_level": "LOW",
+    "history_14d": [
+      {
+        "date": "2026-10-09",
+        "harga_rp": 13200
+      },
+      {
+        "date": "2026-10-10",
+        "harga_rp": 13300
+      },
+      {
+        "date": "2026-10-11",
+        "harga_rp": 13300
+      },
+      {
+        "date": "2026-10-12",
+        "harga_rp": 13300
+      },
+      {
+        "date": "2026-10-13",
+        "harga_rp": 13400
+      },
+      {
+        "date": "2026-10-14",
+        "harga_rp": 13400
+      },
+      {
+        "date": "2026-10-15",
+        "harga_rp": 13500
+      },
+      {
+        "date": "2026-10-16",
+        "harga_rp": 13500
+      },
+      {
+        "date": "2026-10-17",
+        "harga_rp": 13600
+      },
+      {
+        "date": "2026-10-18",
+        "harga_rp": 13600
+      },
+      {
+        "date": "2026-10-19",
+        "harga_rp": 13600
+      },
+      {
+        "date": "2026-10-20",
+        "harga_rp": 13700
+      },
+      {
+        "date": "2026-10-21",
+        "harga_rp": 13700
+      },
+      {
+        "date": "2026-10-22",
+        "harga_rp": 13800
+      },
+      {
+        "date": "2026-10-23",
+        "harga_rp": 13800
+      }
+    ],
+    "supply_balance": {
+      "stok_ton": 27510,
+      "kebutuhan_ton": 25152,
+      "status_neraca": "seimbang",
+      "hari_ketahanan": 28.5
+    },
+    "affordability": {
+      "umk_ratio_basket_pct": 16.9,
+      "kategori": "TERJANGKAU"
+    },
     "seri_historis": [
       {
+        "tanggal": "2026-10-09",
+        "harga_rp": 13200
+      },
+      {
         "tanggal": "2026-10-10",
-        "harga_rp": null
+        "harga_rp": 13300
       },
       {
         "tanggal": "2026-10-11",
-        "harga_rp": null
+        "harga_rp": 13300
       },
       {
         "tanggal": "2026-10-12",
-        "harga_rp": 14059
+        "harga_rp": 13300
       },
       {
         "tanggal": "2026-10-13",
-        "harga_rp": 13969
+        "harga_rp": 13400
       },
       {
         "tanggal": "2026-10-14",
-        "harga_rp": 14587
+        "harga_rp": 13400
       },
       {
         "tanggal": "2026-10-15",
-        "harga_rp": 14258
+        "harga_rp": 13500
       },
       {
         "tanggal": "2026-10-16",
-        "harga_rp": 14330
+        "harga_rp": 13500
       },
       {
         "tanggal": "2026-10-17",
-        "harga_rp": null
+        "harga_rp": 13600
       },
       {
         "tanggal": "2026-10-18",
-        "harga_rp": null
+        "harga_rp": 13600
       },
       {
         "tanggal": "2026-10-19",
-        "harga_rp": 14587
+        "harga_rp": 13600
       },
       {
         "tanggal": "2026-10-20",
-        "harga_rp": 14205
+        "harga_rp": 13700
       },
       {
         "tanggal": "2026-10-21",
-        "harga_rp": 14154
+        "harga_rp": 13700
       },
       {
         "tanggal": "2026-10-22",
-        "harga_rp": 14039
+        "harga_rp": 13800
       },
       {
         "tanggal": "2026-10-23",
-        "harga_rp": 14525
+        "harga_rp": 13800
       }
     ],
     "prakiraan": [
       {
         "tanggal": "2026-10-24",
-        "harga_rp": 14491,
-        "batas_bawah_rp": 14057,
-        "batas_atas_rp": 14926
+        "harga_rp": 13855,
+        "batas_bawah_rp": 13578,
+        "batas_atas_rp": 14132
       },
       {
         "tanggal": "2026-10-25",
-        "harga_rp": 14600,
-        "batas_bawah_rp": 13980,
-        "batas_atas_rp": 15219
+        "harga_rp": 13910,
+        "batas_bawah_rp": 13517,
+        "batas_atas_rp": 14303
       },
       {
         "tanggal": "2026-10-26",
-        "harga_rp": 14709,
-        "batas_bawah_rp": 13945,
-        "batas_atas_rp": 15473
+        "harga_rp": 13966,
+        "batas_bawah_rp": 13482,
+        "batas_atas_rp": 14450
       },
       {
         "tanggal": "2026-10-27",
-        "harga_rp": 14819,
-        "batas_bawah_rp": 13930,
-        "batas_atas_rp": 15708
+        "harga_rp": 14021,
+        "batas_bawah_rp": 13460,
+        "batas_atas_rp": 14582
       },
       {
         "tanggal": "2026-10-28",
-        "harga_rp": 14929,
-        "batas_bawah_rp": 13928,
-        "batas_atas_rp": 15931
+        "harga_rp": 14076,
+        "batas_bawah_rp": 13447,
+        "batas_atas_rp": 14705
       },
       {
         "tanggal": "2026-10-29",
-        "harga_rp": 15041,
-        "batas_bawah_rp": 13936,
-        "batas_atas_rp": 16146
+        "harga_rp": 14131,
+        "batas_bawah_rp": 13439,
+        "batas_atas_rp": 14823
       },
       {
         "tanggal": "2026-10-30",
-        "harga_rp": 15153,
-        "batas_bawah_rp": 13951,
-        "batas_atas_rp": 16356
+        "harga_rp": 14186,
+        "batas_bawah_rp": 13435,
+        "batas_atas_rp": 14937
       }
     ],
+    "skor_ews": 24,
     "catatan_kondisi_khusus": null
   },
   "meta": {
     "tanggal_data": "2026-10-23",
-    "diperbarui_pada": "2026-10-23T09:24:35.263082+00:00",
+    "diperbarui_pada": "2026-10-24T05:49:23.298787+00:00",
     "sumber": [
-      "PIHPS BI"
+      "PIHPS BI",
+      "Bapanas"
     ],
     "is_simulasi": false,
     "mode_data": "demo",
-    "peringatan_kualitas": [
-      "HET_ILUSTRATIF",
-      "DATA_DEMO_BERLABEL"
-    ]
+    "peringatan_kualitas": []
   }
 }

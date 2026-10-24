@@ -1,10 +1,10 @@
 """Ekspor `openapi.json` + `fixtures/*.json` dari aplikasi FastAPI.
 
 Cara pakai (dari root repo RadarPangan-Server):
-    .venv/bin/python scripts/export_openapi.py
+    PYTHONPATH=. python3 scripts/export_openapi.py
 Hasil:
-    openapi.json                      -> untuk Andi (sinkronisasi tipe) + lampiran proposal
-    fixtures/*.json                   -> contoh respons untuk membangun FE tanpa backend
+    openapi.json    -> skema OpenAPI v3
+    fixtures/*.json -> contoh respons nyata untuk mock front end
 """
 
 from __future__ import annotations
@@ -13,13 +13,11 @@ import json
 import pathlib
 import sys
 
-from fastapi.encoders import jsonable_encoder
-
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))  # agar `app` bisa diimpor saat dijalankan dari scripts/
+sys.path.insert(0, str(ROOT))
 
-from app import data  # noqa: E402
-from app.main import app  # noqa: E402
+from app.main import app
+from fastapi.testclient import TestClient
 
 FIXTURES = ROOT / "fixtures"
 
@@ -30,38 +28,31 @@ def _write(path: pathlib.Path, payload) -> None:
 
 
 def main() -> None:
+    client = TestClient(app)
+
+    # 1. Export OpenAPI spec
     spec = app.openapi()
     _write(ROOT / "openapi.json", spec)
 
-    contoh = {
-        "ringkasan-landing.json": {
-            "ok": True,
-            "data": data.ringkasan_landing(),
-            "meta": data.meta(),
-        },
-        "komoditas.json": {"ok": True, "data": data.KOMODITAS, "meta": data.meta()},
-        "wilayah.json": {"ok": True, "data": data.WILAYAH, "meta": data.meta()},
-        "peta-status-beras_medium-aktual.json": {
-            "ok": True,
-            "data": data.peta_status("beras_medium", "aktual"),
-            "meta": data.meta(),
-        },
-        "wilayah-32.75-ringkasan-beras_medium.json": {
-            "ok": True,
-            "data": data.detail_wilayah("32.75", "beras_medium"),
-            "meta": data.meta(),
-        },
-        "laporan-sekitar-32.75.json": {
-            "ok": True,
-            "data": data.laporan_sekitar(-6.2647, 106.9899, "beras_medium"),
-            "meta": data.meta(["PIHPS BI", "Laporan Warga"]),
-        },
+    # 2. Export Real HTTP Responses via TestClient
+    endpoints = {
+        "ringkasan-landing.json": "/api/v1/publik/ringkasan-landing",
+        "komoditas.json": "/api/v1/komoditas",
+        "wilayah.json": "/api/v1/wilayah",
+        "peta-status-beras_medium-aktual.json": "/api/v1/peta/status?komoditas=beras_medium&layer=aktual",
+        "wilayah-32.75-ringkasan-beras_medium.json": "/api/v1/wilayah/32.75/ringkasan?komoditas=beras_medium",
+        "laporan-sekitar-32.75.json": "/api/v1/laporan-warga/sekitar?lat=-6.2647&lng=106.9899",
     }
-    for nama, payload in contoh.items():
-        _write(FIXTURES / nama, jsonable_encoder(payload))
 
-    print(f"openapi.json: {len(spec.get('paths', {}))} path")
-    print(f"fixtures: {len(contoh)} file -> {FIXTURES}")
+    for filename, path in endpoints.items():
+        resp = client.get(path)
+        if resp.status_code == 200:
+            _write(FIXTURES / filename, resp.json())
+        else:
+            print(f"Warning: Failed to fetch {path}: status {resp.status_code}")
+
+    print(f"openapi.json: {len(spec.get('paths', {}))} paths exported")
+    print(f"fixtures: {len(endpoints)} files exported -> {FIXTURES}")
 
 
 if __name__ == "__main__":

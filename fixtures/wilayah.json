@@ -2,341 +2,636 @@
   "ok": true,
   "data": [
     {
+      "id": "32.01",
+      "code_bps": "3201",
+      "name": "Kab. Bogor",
+      "type": "KABUPATEN",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 4820000,
+      "garis_kemiskinan_rp": 520000,
+      "populasi": 5520000,
+      "lat": -6.557929,
+      "lng": 106.791692,
       "kode_kemendagri": "32.01",
       "kode_bps": "3201",
       "nama": "Kab. Bogor",
       "jenis": "kabupaten",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -6.4819,
-        106.854
+        -6.557929,
+        106.791692
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.02",
+      "code_bps": "3202",
+      "name": "Kab. Sukabumi",
+      "type": "KABUPATEN",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 3580000,
+      "garis_kemiskinan_rp": 480000,
+      "populasi": 2760000,
+      "lat": -7.023312,
+      "lng": 106.711137,
       "kode_kemendagri": "32.02",
       "kode_bps": "3202",
       "nama": "Kab. Sukabumi",
       "jenis": "kabupaten",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -6.9277,
-        106.93
+        -7.023312,
+        106.711137
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.03",
+      "code_bps": "3203",
+      "name": "Kab. Cianjur",
+      "type": "KABUPATEN",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 3050000,
+      "garis_kemiskinan_rp": 490000,
+      "populasi": 2510000,
+      "lat": -7.080135,
+      "lng": 107.147082,
       "kode_kemendagri": "32.03",
       "kode_bps": "3203",
       "nama": "Kab. Cianjur",
       "jenis": "kabupaten",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -6.817,
-        107.142
+        -7.080135,
+        107.147082
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.04",
+      "code_bps": "3204",
+      "name": "Kab. Bandung",
+      "type": "KABUPATEN",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 3715000,
+      "garis_kemiskinan_rp": 510000,
+      "populasi": 3750000,
+      "lat": -7.034896,
+      "lng": 107.629412,
       "kode_kemendagri": "32.04",
       "kode_bps": "3204",
       "nama": "Kab. Bandung",
       "jenis": "kabupaten",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -7.021,
-        107.518
+        -7.034896,
+        107.629412
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.05",
+      "code_bps": "3205",
+      "name": "Kab. Garut",
+      "type": "KABUPATEN",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 2350000,
+      "garis_kemiskinan_rp": 460000,
+      "populasi": 2650000,
+      "lat": -7.327802,
+      "lng": 107.808356,
       "kode_kemendagri": "32.05",
       "kode_bps": "3205",
       "nama": "Kab. Garut",
       "jenis": "kabupaten",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -7.21,
-        107.9
+        -7.327802,
+        107.808356
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.06",
+      "code_bps": "3206",
+      "name": "Kab. Tasikmalaya",
+      "type": "KABUPATEN",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 2720000,
+      "garis_kemiskinan_rp": 470000,
+      "populasi": 1890000,
+      "lat": -7.412598,
+      "lng": 108.171288,
       "kode_kemendagri": "32.06",
       "kode_bps": "3206",
       "nama": "Kab. Tasikmalaya",
       "jenis": "kabupaten",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -7.35,
-        108.22
+        -7.412598,
+        108.171288
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.07",
+      "code_bps": "3207",
+      "name": "Kab. Ciamis",
+      "type": "KABUPATEN",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 2220000,
+      "garis_kemiskinan_rp": 460000,
+      "populasi": 1240000,
+      "lat": -7.317138,
+      "lng": 108.447086,
       "kode_kemendagri": "32.07",
       "kode_bps": "3207",
       "nama": "Kab. Ciamis",
       "jenis": "kabupaten",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -7.33,
-        108.35
+        -7.317138,
+        108.447086
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.08",
+      "code_bps": "3208",
+      "name": "Kab. Kuningan",
+      "type": "KABUPATEN",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 2200000,
+      "garis_kemiskinan_rp": 450000,
+      "populasi": 1210000,
+      "lat": -7.017134,
+      "lng": 108.577414,
       "kode_kemendagri": "32.08",
       "kode_bps": "3208",
       "nama": "Kab. Kuningan",
       "jenis": "kabupaten",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -6.976,
-        108.484
+        -7.017134,
+        108.577414
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.09",
+      "code_bps": "3209",
+      "name": "Kab. Cirebon",
+      "type": "KABUPATEN",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 2680000,
+      "garis_kemiskinan_rp": 480000,
+      "populasi": 2320000,
+      "lat": -6.774823,
+      "lng": 108.573417,
       "kode_kemendagri": "32.09",
       "kode_bps": "3209",
       "nama": "Kab. Cirebon",
       "jenis": "kabupaten",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -6.75,
-        108.48
+        -6.774823,
+        108.573417
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.10",
+      "code_bps": "3210",
+      "name": "Kab. Majalengka",
+      "type": "KABUPATEN",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 2380000,
+      "garis_kemiskinan_rp": 470000,
+      "populasi": 1330000,
+      "lat": -6.814706,
+      "lng": 108.235427,
       "kode_kemendagri": "32.10",
       "kode_bps": "3210",
       "nama": "Kab. Majalengka",
       "jenis": "kabupaten",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -6.836,
-        108.227
+        -6.814706,
+        108.235427
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.11",
+      "code_bps": "3211",
+      "name": "Kab. Sumedang",
+      "type": "KABUPATEN",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 3620000,
+      "garis_kemiskinan_rp": 500000,
+      "populasi": 1170000,
+      "lat": -6.834976,
+      "lng": 107.978011,
       "kode_kemendagri": "32.11",
       "kode_bps": "3211",
       "nama": "Kab. Sumedang",
       "jenis": "kabupaten",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -6.858,
-        107.92
+        -6.834976,
+        107.978011
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.12",
+      "code_bps": "3212",
+      "name": "Kab. Indramayu",
+      "type": "KABUPATEN",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 2750000,
+      "garis_kemiskinan_rp": 470000,
+      "populasi": 1880000,
+      "lat": -6.489813,
+      "lng": 108.160182,
       "kode_kemendagri": "32.12",
       "kode_bps": "3212",
       "nama": "Kab. Indramayu",
       "jenis": "kabupaten",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -6.326,
-        108.32
+        -6.489813,
+        108.160182
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.13",
+      "code_bps": "3213",
+      "name": "Kab. Subang",
+      "type": "KABUPATEN",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 3520000,
+      "garis_kemiskinan_rp": 490000,
+      "populasi": 1620000,
+      "lat": -6.507841,
+      "lng": 107.749626,
       "kode_kemendagri": "32.13",
       "kode_bps": "3213",
       "nama": "Kab. Subang",
       "jenis": "kabupaten",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -6.571,
-        107.758
+        -6.507841,
+        107.749626
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.14",
+      "code_bps": "3214",
+      "name": "Kab. Purwakarta",
+      "type": "KABUPATEN",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 4725000,
+      "garis_kemiskinan_rp": 530000,
+      "populasi": 1020000,
+      "lat": -6.618183,
+      "lng": 107.44085,
       "kode_kemendagri": "32.14",
       "kode_bps": "3214",
       "nama": "Kab. Purwakarta",
       "jenis": "kabupaten",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -6.557,
-        107.443
+        -6.618183,
+        107.44085
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.15",
+      "code_bps": "3215",
+      "name": "Kab. Karawang",
+      "type": "KABUPATEN",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 5519800,
+      "garis_kemiskinan_rp": 560000,
+      "populasi": 2480000,
+      "lat": -6.258139,
+      "lng": 107.322659,
       "kode_kemendagri": "32.15",
       "kode_bps": "3215",
       "nama": "Kab. Karawang",
       "jenis": "kabupaten",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -6.301,
-        107.306
+        -6.258139,
+        107.322659
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.16",
+      "code_bps": "3216",
+      "name": "Kab. Bekasi",
+      "type": "KABUPATEN",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 5488400,
+      "garis_kemiskinan_rp": 570000,
+      "populasi": 3210000,
+      "lat": -6.211131,
+      "lng": 107.092119,
       "kode_kemendagri": "32.16",
       "kode_bps": "3216",
       "nama": "Kab. Bekasi",
       "jenis": "kabupaten",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -6.26,
-        107.15
+        -6.211131,
+        107.092119
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.17",
+      "code_bps": "3217",
+      "name": "Kab. Bandung Barat",
+      "type": "KABUPATEN",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 3720000,
+      "garis_kemiskinan_rp": 505000,
+      "populasi": 1820000,
+      "lat": -6.878538,
+      "lng": 107.462007,
       "kode_kemendagri": "32.17",
       "kode_bps": "3217",
       "nama": "Kab. Bandung Barat",
       "jenis": "kabupaten",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -6.83,
-        107.48
+        -6.878538,
+        107.462007
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.18",
+      "code_bps": "3218",
+      "name": "Kab. Pangandaran",
+      "type": "KABUPATEN",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 2210000,
+      "garis_kemiskinan_rp": 450000,
+      "populasi": 435000,
+      "lat": -7.637842,
+      "lng": 108.528111,
       "kode_kemendagri": "32.18",
       "kode_bps": "3218",
       "nama": "Kab. Pangandaran",
       "jenis": "kabupaten",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -7.69,
-        108.49
+        -7.637842,
+        108.528111
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.71",
+      "code_bps": "3271",
+      "name": "Kota Bogor",
+      "type": "KOTA",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 5085000,
+      "garis_kemiskinan_rp": 590000,
+      "populasi": 1100000,
+      "lat": -6.620751,
+      "lng": 106.818367,
       "kode_kemendagri": "32.71",
       "kode_bps": "3271",
       "nama": "Kota Bogor",
       "jenis": "kota",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -6.595,
-        106.816
+        -6.620751,
+        106.818367
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.72",
+      "code_bps": "3272",
+      "name": "Kota Sukabumi",
+      "type": "KOTA",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 2980000,
+      "garis_kemiskinan_rp": 510000,
+      "populasi": 355000,
+      "lat": -6.937822,
+      "lng": 106.9218,
       "kode_kemendagri": "32.72",
       "kode_bps": "3272",
       "nama": "Kota Sukabumi",
       "jenis": "kota",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -6.92,
-        106.927
+        -6.937822,
+        106.9218
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.73",
+      "code_bps": "3273",
+      "name": "Kota Bandung",
+      "type": "KOTA",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 4410000,
+      "garis_kemiskinan_rp": 580000,
+      "populasi": 2510000,
+      "lat": -6.915483,
+      "lng": 107.612744,
       "kode_kemendagri": "32.73",
       "kode_bps": "3273",
       "nama": "Kota Bandung",
       "jenis": "kota",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -6.9175,
-        107.6191
+        -6.915483,
+        107.612744
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.74",
+      "code_bps": "3274",
+      "name": "Kota Cirebon",
+      "type": "KOTA",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 2690000,
+      "garis_kemiskinan_rp": 520000,
+      "populasi": 340000,
+      "lat": -6.727906,
+      "lng": 108.553662,
       "kode_kemendagri": "32.74",
       "kode_bps": "3274",
       "nama": "Kota Cirebon",
       "jenis": "kota",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -6.732,
-        108.552
+        -6.727906,
+        108.553662
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.75",
+      "code_bps": "3275",
+      "name": "Kota Bekasi",
+      "type": "KOTA",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 5612800,
+      "garis_kemiskinan_rp": 640000,
+      "populasi": 2620000,
+      "lat": -6.305788,
+      "lng": 106.96035,
       "kode_kemendagri": "32.75",
       "kode_bps": "3275",
       "nama": "Kota Bekasi",
       "jenis": "kota",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -6.2647,
-        106.9899
+        -6.305788,
+        106.96035
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.76",
+      "code_bps": "3276",
+      "name": "Kota Depok",
+      "type": "KOTA",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 5124000,
+      "garis_kemiskinan_rp": 620000,
+      "populasi": 2150000,
+      "lat": -6.383166,
+      "lng": 106.820318,
       "kode_kemendagri": "32.76",
       "kode_bps": "3276",
       "nama": "Kota Depok",
       "jenis": "kota",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -6.4025,
-        106.7942
+        -6.383166,
+        106.820318
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.77",
+      "code_bps": "3277",
+      "name": "Kota Cimahi",
+      "type": "KOTA",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 3615000,
+      "garis_kemiskinan_rp": 530000,
+      "populasi": 575000,
+      "lat": -6.896776,
+      "lng": 107.54183,
       "kode_kemendagri": "32.77",
       "kode_bps": "3277",
       "nama": "Kota Cimahi",
       "jenis": "kota",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -6.873,
-        107.5425
+        -6.896776,
+        107.54183
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.78",
+      "code_bps": "3278",
+      "name": "Kota Tasikmalaya",
+      "type": "KOTA",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 2810000,
+      "garis_kemiskinan_rp": 490000,
+      "populasi": 735000,
+      "lat": -7.341846,
+      "lng": 108.237543,
       "kode_kemendagri": "32.78",
       "kode_bps": "3278",
       "nama": "Kota Tasikmalaya",
       "jenis": "kota",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -7.3274,
-        108.2207
+        -7.341846,
+        108.237543
       ],
       "status_geometri": "lengkap"
     },
     {
+      "id": "32.79",
+      "code_bps": "3279",
+      "name": "Kota Banjar",
+      "type": "KOTA",
+      "province_id": "32",
+      "province_name": "Jawa Barat",
+      "umk_2026_rp": 2190000,
+      "garis_kemiskinan_rp": 460000,
+      "populasi": 208000,
+      "lat": -7.368695,
+      "lng": 108.573265,
       "kode_kemendagri": "32.79",
       "kode_bps": "3279",
       "nama": "Kota Banjar",
       "jenis": "kota",
       "provinsi": "Jawa Barat",
       "centroid": [
-        -7.3667,
-        108.5333
+        -7.368695,
+        108.573265
       ],
       "status_geometri": "lengkap"
     }
   ],
   "meta": {
     "tanggal_data": "2026-10-23",
-    "diperbarui_pada": "2026-10-23T09:24:35.262253+00:00",
+    "diperbarui_pada": "2026-10-24T05:49:23.294340+00:00",
     "sumber": [
-      "PIHPS BI"
+      "PIHPS BI",
+      "Bapanas"
     ],
     "is_simulasi": false,
     "mode_data": "demo",
-    "peringatan_kualitas": [
-      "HET_ILUSTRATIF",
-      "DATA_DEMO_BERLABEL"
-    ]
+    "peringatan_kualitas": []
   }
 }

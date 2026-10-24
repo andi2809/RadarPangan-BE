@@ -2,57 +2,75 @@
   "ok": true,
   "data": [
     {
-      "kode": "beras_medium",
-      "nama": "Beras Medium",
+      "id": "beras_medium",
+      "name": "Beras Medium",
+      "category": "Beras",
       "satuan": "kg",
       "jenis_acuan": "HET",
-      "harga_acuan_rp": 15500,
-      "keterangan_acuan": "HET beras medium (ILUSTRATIF — ganti dengan Perbadan terbaru)"
+      "harga_acuan_rp": 13500,
+      "deskripsi": "Beras butir patah maks 25%, acuan HET Zonasi I Jawa Barat (Perbadan 5/2024)",
+      "kode": "beras_medium",
+      "nama": "Beras Medium",
+      "keterangan_acuan": "Beras butir patah maks 25%, acuan HET Zonasi I Jawa Barat (Perbadan 5/2024)"
     },
     {
+      "id": "cabai_rawit_merah",
+      "name": "Cabai Rawit Merah",
+      "category": "Hortikultura",
+      "satuan": "kg",
+      "jenis_acuan": "HAP",
+      "harga_acuan_rp": 45000,
+      "deskripsi": "Cabai rawit merah segar tingkat konsumen, acuan HAP (Perbadan 12/2024)",
       "kode": "cabai_rawit_merah",
       "nama": "Cabai Rawit Merah",
-      "satuan": "kg",
-      "jenis_acuan": "HAP",
-      "harga_acuan_rp": 95000,
-      "keterangan_acuan": "HAP konsumen Perbadan 12/2024 (ILUSTRATIF per zona)"
+      "keterangan_acuan": "Cabai rawit merah segar tingkat konsumen, acuan HAP (Perbadan 12/2024)"
     },
     {
+      "id": "bawang_merah",
+      "name": "Bawang Merah",
+      "category": "Hortikultura",
+      "satuan": "kg",
+      "jenis_acuan": "HAP",
+      "harga_acuan_rp": 32000,
+      "deskripsi": "Bawang merah rogol kering panen, acuan HAP konsumen (Perbadan 12/2024)",
       "kode": "bawang_merah",
       "nama": "Bawang Merah",
-      "satuan": "kg",
-      "jenis_acuan": "HAP",
-      "harga_acuan_rp": 42000,
-      "keterangan_acuan": "HAP konsumen Perbadan 12/2024 (ILUSTRATIF per zona)"
+      "keterangan_acuan": "Bawang merah rogol kering panen, acuan HAP konsumen (Perbadan 12/2024)"
     },
     {
+      "id": "telur_ayam_ras",
+      "name": "Telur Ayam Ras",
+      "category": "Peternakan",
+      "satuan": "kg",
+      "jenis_acuan": "DINAMIS_MEDIAN_90H",
+      "harga_acuan_rp": 29500,
+      "deskripsi": "Telur ayam ras segar, acuan dinamis moving-median 90 hari kalender",
       "kode": "telur_ayam_ras",
       "nama": "Telur Ayam Ras",
-      "satuan": "kg",
-      "jenis_acuan": "DINAMIS_MEDIAN_90H",
-      "harga_acuan_rp": 28500,
-      "keterangan_acuan": "Median nasional 90 hari — telur tidak punya HET"
+      "keterangan_acuan": "Telur ayam ras segar, acuan dinamis moving-median 90 hari kalender"
     },
     {
-      "kode": "minyak_goreng_curah",
-      "nama": "Minyak Goreng Curah",
-      "satuan": "kg",
-      "jenis_acuan": "DINAMIS_MEDIAN_90H",
-      "harga_acuan_rp": 18500,
-      "keterangan_acuan": "Median 90 hari — PIHPS tidak memisahkan Minyakita; curah dipakai untuk MVP"
+      "id": "minyakita",
+      "name": "Minyakita",
+      "category": "Minyak Nabati",
+      "satuan": "liter",
+      "jenis_acuan": "HET",
+      "harga_acuan_rp": 15700,
+      "deskripsi": "Minyak goreng kemasan bantal/botol rakyat, acuan HET (Permendag 18/2024)",
+      "kode": "minyakita",
+      "nama": "Minyakita",
+      "keterangan_acuan": "Minyak goreng kemasan bantal/botol rakyat, acuan HET (Permendag 18/2024)"
     }
   ],
   "meta": {
     "tanggal_data": "2026-10-23",
-    "diperbarui_pada": "2026-10-23T09:24:35.262251+00:00",
+    "diperbarui_pada": "2026-10-24T05:49:23.292377+00:00",
     "sumber": [
-      "PIHPS BI"
+      "PIHPS BI",
+      "Bapanas"
     ],
     "is_simulasi": false,
     "mode_data": "demo",
-    "peringatan_kualitas": [
-      "HET_ILUSTRATIF",
-      "DATA_DEMO_BERLABEL"
-    ]
+    "peringatan_kualitas": []
   }
 }

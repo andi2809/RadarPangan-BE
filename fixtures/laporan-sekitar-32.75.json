@@ -1,77 +1,42 @@
 {
   "ok": true,
-  "data": {
-    "pusat_pencarian": [
-      -6.2647,
-      106.9899
-    ],
-    "radius_m": 3000,
-    "laporan": [
-      {
-        "komoditas": "beras_medium",
-        "harga_rp": 15616,
-        "satuan": "kg",
-        "jarak_m": 2435,
-        "dilaporkan_pada": "2026-10-23T07:16:00+07:00",
-        "status_klaster": "sedang_berjalan"
-      },
-      {
-        "komoditas": "beras_medium",
-        "harga_rp": 15732,
-        "satuan": "kg",
-        "jarak_m": 1900,
-        "dilaporkan_pada": "2026-10-23T06:41:00+07:00",
-        "status_klaster": "sedang_berjalan"
-      },
-      {
-        "komoditas": "beras_medium",
-        "harga_rp": 16143,
-        "satuan": "kg",
-        "jarak_m": 642,
-        "dilaporkan_pada": "2026-10-23T07:51:00+07:00",
-        "status_klaster": "sedang_berjalan"
-      },
-      {
-        "komoditas": "beras_medium",
-        "harga_rp": 16135,
-        "satuan": "kg",
-        "jarak_m": 1753,
-        "dilaporkan_pada": "2026-10-23T07:52:00+07:00",
-        "status_klaster": "sedang_berjalan"
-      },
-      {
-        "komoditas": "beras_medium",
-        "harga_rp": 15468,
-        "satuan": "kg",
-        "jarak_m": 756,
-        "dilaporkan_pada": "2026-10-23T06:03:00+07:00",
-        "status_klaster": "sedang_berjalan"
-      }
-    ],
-    "klaster": {
-      "pusat": [
-        -6.265,
-        106.99
-      ],
-      "radius_m": 3000,
-      "jumlah_laporan": 5,
-      "minimal_laporan": 10,
-      "status": "sedang_berjalan",
-      "harga_konsensus_rp": null
+  "data": [
+    {
+      "id": "rep-bdg-01",
+      "region_id": "32.73",
+      "region_name": "Kota Bandung",
+      "commodity_id": "cabai_rawit_merah",
+      "harga_rp": 51500,
+      "nama_pasar": "Pasar Induk Caringin",
+      "lat": -6.9421,
+      "lng": 107.5758,
+      "verified": true,
+      "status_konsensus": "VERIFIED_SPIKE",
+      "created_at": "2026-10-23T07:15:00Z"
+    },
+    {
+      "id": "rep-bks-01",
+      "region_id": "32.75",
+      "region_name": "Kota Bekasi",
+      "commodity_id": "bawang_merah",
+      "harga_rp": 36000,
+      "nama_pasar": "Pasar Kranji",
+      "lat": -6.2285,
+      "lng": 106.9782,
+      "verified": true,
+      "status_konsensus": "VERIFIED_SPIKE",
+      "created_at": "2026-10-23T08:30:00Z"
     }
-  },
+  ],
   "meta": {
     "tanggal_data": "2026-10-23",
-    "diperbarui_pada": "2026-10-23T09:24:35.263185+00:00",
+    "diperbarui_pada": "2026-10-24T05:49:23.299830+00:00",
     "sumber": [
       "PIHPS BI",
-      "Laporan Warga"
+      "Bapanas"
     ],
     "is_simulasi": false,
     "mode_data": "demo",
-    "peringatan_kualitas": [
-      "HET_ILUSTRATIF",
-      "DATA_DEMO_BERLABEL"
-    ]
+    "peringatan_kualitas": []
   }
 }
