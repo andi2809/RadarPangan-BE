@@ -74,3 +74,22 @@ Konsekuensi: dengan ambang yang dikunci (kritis > +10%), **seluruh 9 wilayah ber
 Ini bukan bug perhitungan, ini temuan lapangan: HET tidak mencerminkan harga pasar saat ini.
 Perlu keputusan tim: (a) tampilkan apa adanya (jujur & kuat untuk narasi transparansi),
 atau (b) tambahkan acuan dinamis (median 90 hari) sebagai pembanding di UI.
+
+## Catatan Minyak Goreng (temuan 26 Okt 2026)
+
+PIHPS **tidak punya entri "Minyakita"**. Yang tersedia di `GetRefCommodityAndCategory`:
+`Minyak Goreng` (kategori `cat_9`), `Minyak Goreng Curah` (`com_17`),
+`Minyak Goreng Kemasan Bermerk 1` (`com_18`), `Minyak Goreng Kemasan Bermerk 2` (`com_19`).
+
+Uji 26 Okt 2026 (`tipe_laporan=1`, tipe harga Pasar Tradisional):
+
+| Wilayah | com_17 (curah) | com_18 (kemasan 1) | com_19 (kemasan 2) |
+|---|---|---|---|
+| Kota Bandung | 23.400 | 23.400 | 23.400 |
+| Kota Bekasi | 22.350 | 22.350 | 22.350 |
+| Kota Bogor | 23.300 | 23.300 | 23.300 |
+
+Angka **identik** untuk ketiga id → sumber melaporkan satu seri minyak lalu menduplikasinya.
+**Konsekuensi:** Minyakita tidak dapat dipisahkan dari data PIHPS; label "Minyakita" pada
+API/FE tidak didukung sumber, terlebih harga 23.400 jauh di atas HET Minyakita 15.700.
+Keputusan penamaan (id & label) menunggu tim.
