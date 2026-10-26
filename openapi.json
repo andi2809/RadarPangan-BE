@@ -163,7 +163,7 @@
           "Peta"
         ],
         "summary": "Get Peta Status",
-        "description": "Mengembalikan array status harga dan EWS untuk 27 Kabupaten/Kota Jawa Barat\nyang langsung dikonsumsi layer choropleth pada front end.",
+        "description": "Status harga + skor EWS untuk 27 kab/kota Jawa Barat.\n\nHarga diambil dari snapshot PIHPS (`data/raw/pihps_jabar_*.csv`).\nWilayah tanpa data dikembalikan `status=\"tidak_ada_data\"` — tidak dikarang.",
         "operationId": "get_peta_status_api_v1_peta_status_get",
         "parameters": [
           {
@@ -942,19 +942,41 @@
             "$ref": "#/components/schemas/CommoditySchema"
           },
           "harga_aktual_rp": {
-            "type": "integer",
-            "title": "Harga Aktual Rp"
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Harga Aktual Rp",
+            "description": "null bila tidak ada data"
           },
           "harga_acuan_rp": {
             "type": "integer",
             "title": "Harga Acuan Rp"
           },
           "harga_prediksi_h7_rp": {
-            "type": "integer",
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Harga Prediksi H7 Rp"
           },
           "selisih_persen": {
-            "type": "number",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Selisih Persen"
           },
           "status": {
@@ -969,7 +991,14 @@
             "title": "Status"
           },
           "ews_score": {
-            "type": "integer",
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Ews Score"
           },
           "risk_level": {
@@ -1050,13 +1079,8 @@
         "required": [
           "region",
           "commodity",
-          "harga_aktual_rp",
           "harga_acuan_rp",
-          "harga_prediksi_h7_rp",
-          "selisih_persen",
           "status",
-          "ews_score",
-          "history_14d",
           "supply_balance",
           "affordability"
         ],
@@ -1443,20 +1467,35 @@
             "title": "Status"
           },
           "ews_score": {
-            "type": "integer",
-            "maximum": 100.0,
-            "minimum": 0.0,
-            "title": "Ews Score"
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 100.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ews Score",
+            "description": "null bila tidak ada data"
           },
           "status_neraca": {
-            "type": "string",
-            "enum": [
-              "surplus",
-              "seimbang",
-              "defisit"
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "surplus",
+                  "seimbang",
+                  "defisit"
+                ]
+              },
+              {
+                "type": "null"
+              }
             ],
             "title": "Status Neraca",
-            "default": "seimbang"
+            "description": "null bila data neraca belum tersedia"
           },
           "kode_kemendagri": {
             "anyOf": [
@@ -1499,8 +1538,7 @@
           "commodity_id",
           "harga_acuan_rp",
           "jenis_acuan",
-          "status",
-          "ews_score"
+          "status"
         ],
         "title": "StatusPetaItem"
       },

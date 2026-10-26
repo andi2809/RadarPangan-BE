@@ -6,6 +6,7 @@ from typing import List, Optional
 from fastapi import APIRouter, HTTPException, Query
 from app.schemas import EnvelopeResponse, RegionSchema, RegionDetailRingkasan, CommoditySchema, TitikPrakiraan
 from app.routers.komoditas import COMMODITIES_DATA
+from app.services import harga as harga_service
 
 router = APIRouter(prefix="/api/v1/wilayah", tags=["Wilayah"])
 
@@ -78,46 +79,57 @@ async def get_wilayah_ringkasan(kode: str, komoditas: str = Query("beras_medium"
     }
     harga_acuan, jenis = acuan_map.get(clean_komoditas, (13500, "HET"))
 
-    # Produce realistic values
-    is_hotspot = kode in ["32.73", "32.75", "32.76"] and clean_komoditas == "cabai_rawit_merah"
-    harga_aktual = round((harga_acuan * (1.14 if is_hotspot else 1.02)) / 100) * 100
-    selisih_persen = round(((harga_aktual - harga_acuan) / harga_acuan) * 100, 2)
-    harga_prediksi_h7 = round((harga_aktual * 1.03) / 100) * 100
+    # Harga nyata dari snapshot PIHPS; wilayah tanpa data tidak dikarang.
+    titik = harga_service.terakhir(target_reg.name, clean_komoditas)
+    seri = harga_service.seri(target_reg.name, clean_komoditas, limit=14)
 
-    status = "aman"
-    if selisih_persen > 10:
-        status = "kritis"
-    elif selisih_persen > 5:
-        status = "waspada"
-    elif selisih_persen < -5:
-        status = "turun"
+    if titik is None:
+        harga_aktual = None
+        selisih_persen = None
+        harga_prediksi_h7 = None
+        status = "tidak_ada_data"
+        ews_score = None
+        risk_level = "TIDAK_DIKETAHUI"
+        base_date = date.today()
+        history: list[dict] = []
+        prakiraan: list[TitikPrakiraan] = []
+    else:
+        tanggal_data, harga_aktual = titik
+        base_date = date.fromisoformat(tanggal_data)
+        nilai = [v for _t, v in seri]
+        if len(nilai) >= 2 and nilai[0] > 0:
+            laju = (nilai[-1] - nilai[0]) / max(1, len(nilai) - 1) / nilai[0]
+        else:
+            laju = 0.0
+        harga_prediksi_h7 = round(harga_aktual * (1 + laju * 7))
+        selisih_persen = round((harga_aktual - harga_acuan) / harga_acuan * 100, 2)
 
-    ews_score = 68 if status == "kritis" else (48 if status == "waspada" else 24)
+        status = "aman"
+        if selisih_persen > 10:
+            status = "kritis"
+        elif selisih_persen > 5:
+            status = "waspada"
+        elif selisih_persen < -5:
+            status = "turun"
 
-    # Synthetic 14-day history
-    base_date = date(2026, 10, 23)
-    history = []
-    for i in range(14, -1, -1):
-        d = base_date - timedelta(days=i)
-        history.append({
-            "date": d.isoformat(),
-            "harga_rp": round((harga_aktual * (1 - (i * 0.003))) / 100) * 100
-        })
+        ews_score = min(100, max(0, int(50 + selisih_persen * 2)))
+        risk_level = "TINGGI" if ews_score > 65 else ("SEDANG" if ews_score > 45 else "RENDAH")
 
-    # H+1 s/d H+7 confidence interval forecast
-    prakiraan = []
-    for h in range(1, 8):
-        d = base_date + timedelta(days=h)
-        val = round(harga_aktual * (1 + (0.004 * h)))
-        margin = round(val * 0.02 * (h ** 0.5))
-        prakiraan.append(
-            TitikPrakiraan(
-                tanggal=d.isoformat(),
-                harga_rp=val,
-                batas_bawah_rp=val - margin,
-                batas_atas_rp=val + margin
+        history = [{"date": t, "tanggal": t, "harga_rp": v} for t, v in seri]
+
+        prakiraan = []
+        for h in range(1, 8):
+            d = base_date + timedelta(days=h)
+            val = round(harga_aktual * (1 + laju * h))
+            margin = round(val * 0.02 * (h ** 0.5))
+            prakiraan.append(
+                TitikPrakiraan(
+                    tanggal=d.isoformat(),
+                    harga_rp=val,
+                    batas_bawah_rp=val - margin,
+                    batas_atas_rp=val + margin,
+                )
             )
-        )
 
     comm_found = next((c for c in COMMODITIES_DATA if c.id == clean_komoditas), None)
     if not comm_found:
@@ -140,18 +152,17 @@ async def get_wilayah_ringkasan(kode: str, komoditas: str = Query("beras_medium"
         selisih_persen=selisih_persen,
         status=status,
         ews_score=ews_score,
-        risk_level="HIGH" if ews_score > 55 else ("MEDIUM" if ews_score > 35 else "LOW"),
+        risk_level=risk_level,
         history_14d=history,
         prakiraan=prakiraan,
         supply_balance={
-            "stok_ton": round(target_reg.populasi * 0.00035 * 30),
-            "kebutuhan_ton": round(target_reg.populasi * 0.00032 * 30),
-            "status_neraca": "defisit" if is_hotspot else "seimbang",
-            "hari_ketahanan": 28.5
+            # Data neraca pasokan belum tersedia -> jangan mengarang angka.
+            "status_neraca": None,
+            "keterangan": "Data neraca pasokan belum tersedia",
         },
         affordability={
             "umk_ratio_basket_pct": round((950000 / target_reg.umk_2026_rp) * 100, 1),
-            "kategori": "RENTAN" if is_hotspot else "TERJANGKAU"
+            "kategori": "RENTAN" if (harga_aktual or 0) > harga_acuan else "TERJANGKAU"
         }
     )
 

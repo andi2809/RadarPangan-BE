@@ -5,7 +5,7 @@ keterbatasan. Tanpa entri di sini, data tidak boleh dipakai di UI.
 
 ---
 
-## 1. `raw/pihps_jabar_2026-10-20_2026-10-23.csv`
+## 1. `raw/pihps_jabar_2026-08-01_2026-10-23.csv`
 
 | | |
 |---|---|
@@ -13,8 +13,8 @@ keterbatasan. Tanpa entri di sini, data tidak boleh dipakai di UI.
 | Endpoint | `GET /hargapangan/WebSite/TabelHarga/GetGridDataDaerah` |
 | Parameter kunci | `comcat_id, price_type_id=1, province_id=12, regency_id=<ID PIHPS>, tipe_laporan=1, start_date, end_date` |
 | Tanggal tarik | 2026-10-23 |
-| Periode data | 2026-10-20 s/d 2026-10-23 (4 hari, hari kerja) |
-| Baris | 144 (9 kab/kota × 4 komoditas × 4 hari) |
+| Periode data | 2026-08-01 s/d 2026-10-23 (60 tanggal, hari kerja saja) |
+| Baris | 2.700 (9 kab/kota × 5 komoditas × 60 tanggal) |
 | Kolom | `tanggal, regency_id_pihps, wilayah, komoditas, harga_rp, sumber` |
 | Satuan | Rupiah per **kg** (kecuali bila sumber menyatakan lain) |
 | Pengolah | `pipeline/pihps_fetch.py` |
@@ -61,3 +61,16 @@ Tanggal wajib **ISO (`YYYY-MM-DD`)** — format `DD/MM/YYYY` menghasilkan HTTP 3
 `tipe_laporan=1` = harian; `tipe_laporan=2` = periode bulanan.
 `GetGridDataKomoditas` hanya mengembalikan level provinsi; data kab/kota harus lewat
 `GetGridDataDaerah` dengan `regency_id` (ID internal PIHPS, **bukan** kode BPS/Kemendagri).
+
+---
+
+## 3. Temuan penting: harga pasar di atas HET
+
+HET beras medium **Zona 1 (Jawa) = Rp13.500/kg** (Perbadan 5/2024 jo. kenaikan Agustus 2025).
+Harga pasar PIHPS di 9 kab/kota Jabar berkisar **Rp15.400–16.600/kg** (23 Okt 2026) —
+artinya **+14% s/d +23% di atas HET**.
+
+Konsekuensi: dengan ambang yang dikunci (kritis > +10%), **seluruh 9 wilayah berstatus `kritis`**.
+Ini bukan bug perhitungan, ini temuan lapangan: HET tidak mencerminkan harga pasar saat ini.
+Perlu keputusan tim: (a) tampilkan apa adanya (jujur & kuat untuk narasi transparansi),
+atau (b) tambahkan acuan dinamis (median 90 hari) sebagai pembanding di UI.

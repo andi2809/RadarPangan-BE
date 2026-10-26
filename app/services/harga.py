@@ -1,0 +1,79 @@
+"""Akses harga nyata dari snapshot PIHPS (data/raw/pihps_jabar_*.csv).
+
+Prinsip:
+- Hanya membaca berkas hasil `pipeline/pihps_fetch.py` (data resmi PIHPS BI).
+- Wilayah yang tidak ada di berkas **tidak dikarang**: pemanggil harus mengembalikan
+  `status="tidak_ada_data"`.
+- Komoditas `minyakita` dipetakan ke `minyak_goreng_curah` karena PIHPS tidak
+  memisahkan Minyakita (lihat data/README.md).
+"""
+
+from __future__ import annotations
+
+import csv
+from functools import lru_cache
+from pathlib import Path
+
+DATA_DIR = Path(__file__).resolve().parents[2] / "data"
+RAW_DIR = DATA_DIR / "raw"
+
+_ALIAS_KOMODITAS = {
+    "minyakita": "minyak_goreng_curah",
+    "minyak_goreng_curah": "minyak_goreng_curah",
+}
+
+
+def _kode(komoditas: str) -> str:
+    return _ALIAS_KOMODITAS.get(komoditas, komoditas)
+
+
+def _wilayah(nama: str) -> str:
+    return " ".join(str(nama).lower().replace(".", "").split())
+
+
+def _berkas_terbaru() -> Path | None:
+    berkas = sorted(RAW_DIR.glob("pihps_jabar_*.csv"))
+    return berkas[-1] if berkas else None
+
+
+@lru_cache(maxsize=1)
+def _muat() -> dict:
+    """Kembalikan {harga: {(wilayah, komoditas): [(tanggal, harga)]}, sumber: nama file}."""
+    path = _berkas_terbaru()
+    harga: dict[tuple[str, str], list[tuple[str, int]]] = {}
+    if path is None:
+        return {"harga": harga, "sumber": None}
+
+    with path.open(encoding="utf-8") as fh:
+        for row in csv.DictReader(fh):
+            nilai = (row.get("harga_rp") or "").strip()
+            if not nilai.isdigit():
+                continue
+            kunci = (_wilayah(row["wilayah"]), _kode(row["komoditas"]))
+            harga.setdefault(kunci, []).append((row["tanggal"], int(nilai)))
+
+    for seri in harga.values():
+        seri.sort()
+    return {"harga": harga, "sumber": path.name}
+
+
+def seri(nama_wilayah: str, komoditas: str, limit: int | None = None) -> list[tuple[str, int]]:
+    data = _muat()["harga"].get((_wilayah(nama_wilayah), _kode(komoditas)), [])
+    return data[-limit:] if limit else list(data)
+
+
+def terakhir(nama_wilayah: str, komoditas: str) -> tuple[str, int] | None:
+    data = seri(nama_wilayah, komoditas)
+    return data[-1] if data else None
+
+
+def cakupan() -> dict:
+    """Ringkasan cakupan data — dipakai untuk meta.peringatan_kualitas."""
+    muat = _muat()
+    wilayah = {w for (w, _k) in muat["harga"]}
+    tanggal = [t for seri in muat["harga"].values() for t, _ in seri]
+    return {
+        "sumber": muat["sumber"],
+        "jumlah_wilayah": len(wilayah),
+        "periode": (min(tanggal), max(tanggal)) if tanggal else None,
+    }

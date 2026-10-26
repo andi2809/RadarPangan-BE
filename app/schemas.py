@@ -167,8 +167,10 @@ class StatusPetaItem(BaseModel):
     jenis_acuan: AcuanType
     selisih_persen: Optional[float] = Field(None, description="Gap terhadap acuan (%)")
     status: PriceStatus
-    ews_score: int = Field(..., ge=0, le=100)
-    status_neraca: Literal["surplus", "seimbang", "defisit"] = "seimbang"
+    ews_score: Optional[int] = Field(None, ge=0, le=100, description="null bila tidak ada data")
+    status_neraca: Optional[Literal["surplus", "seimbang", "defisit"]] = Field(
+        None, description="null bila data neraca belum tersedia"
+    )
 
     # Aliases for compatibility
     kode_kemendagri: Optional[str] = None
@@ -215,14 +217,14 @@ class TitikPrakiraan(BaseModel):
 class RegionDetailRingkasan(BaseModel):
     region: RegionSchema
     commodity: CommoditySchema
-    harga_aktual_rp: int
+    harga_aktual_rp: Optional[int] = Field(None, description="null bila tidak ada data")
     harga_acuan_rp: int
-    harga_prediksi_h7_rp: int
-    selisih_persen: float
+    harga_prediksi_h7_rp: Optional[int] = None
+    selisih_persen: Optional[float] = None
     status: PriceStatus
-    ews_score: int
+    ews_score: Optional[int] = None
     risk_level: str = "LOW"
-    history_14d: List[Dict[str, Any]]
+    history_14d: List[Dict[str, Any]] = Field(default_factory=list)
     supply_balance: Dict[str, Any]
     affordability: Dict[str, Any]
 
