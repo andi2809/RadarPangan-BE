@@ -11,6 +11,7 @@ Setiap penambahan sumber **wajib** memperbarui dokumen ini.
 | SP2KP Kemendag (`/report/api/hnt`) | **HNT** — rata-rata nasional **tertimbang** konsumsi | Rp/kg | nasional | harian |
 | SP2KP (`province-comparison`) | rata-rata **provinsi** | Rp/kg | provinsi | harian |
 | SP2KP (`het-ha`) | HET/HA resmi pemerintah | Rp/kg | nasional/provinsi | per kebijakan |
+| SP2KP Tabulasi Harga (**Tableau**) | harga per **kab/kota**, termasuk Minyakita | Rp/kg | kab/kota | harian |
 | Panel Harga NFA | harga pasar rakyat per komoditas | Rp/kg | kab/kota (target) | harian |
 
 **Konsekuensi:** angka PIHPS dan SP2KP **tidak setara**. PIHPS = harga kab/kota; SP2KP = agregat
@@ -55,3 +56,23 @@ Aturan: `turunan` dan `estimasi` **tidak boleh** masuk ke lapisan peta "aktual" 
 - Rekonsiliasi lintas sumber: `data/derived/rekonsiliasi_<tanggal>.json`
 - Backtest EWS: `data/derived/backtest_<tanggal>.json`
 - API: `GET /api/v1/meta/sumber`, `/meta/konsistensi`, `/meta/backtest`
+
+
+## 6. Koreksi 26 Okt 2026 — SP2KP punya data kab/kota (di Tableau)
+
+Halaman `sp2kp.kemendag.go.id/statistik/tabulasi-harga` menampilkan harga **per kabupaten/kota**
+(mis. Kab. Bogor, Kab. Sukabumi, Kab. Cianjur, Kab. Bandung, Kab. Garut, Kab. Tasikmalaya) dan
+**memuat Minyakita** (HET Rp15.700).
+
+Mekanismenya bukan JSON API: halaman menanam **dashboard Tableau** (`analitik.kemendag.go.id`)
+dan mengambil token publik dari `api-sp2kp.kemendag.go.id/report/api/tableau/token-harga-public`.
+Token itu **bukan** Personal Access Token — percobaan `POST /api/2.8/auth/signin` dijawab
+`400 missing credentials or site elements`, jadi tidak bisa dipakai untuk REST.
+
+Konsekuensi:
+1. Pernyataan sebelumnya "SP2KP hanya nasional/provinsi" **salah sebagai generalisasi**; yang benar,
+   *JSON API*-nya hanya nasional/provinsi.
+2. Data kab/kota layak dipakai **hanya lewat ekspor manual** (crosstab/CSV dari dashboard) —
+   bukan scraping otomatis. Simpan sebagai snapshot bertanggal + catat di `runs.jsonl`.
+3. Bila ekspor tersedia, cakupan bisa naik dari 9/27 ke seluruh kab/kota dan label Minyakita
+   punya dasar data (bukan hanya HET).
