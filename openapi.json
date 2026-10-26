@@ -389,6 +389,28 @@
         }
       }
     },
+    "/api/v1/meta/backtest": {
+      "get": {
+        "tags": [
+          "Metadata"
+        ],
+        "summary": "Get Backtest",
+        "description": "Hasil backtest EWS terbaru (kinerja ambang, bukan klaim akurasi).",
+        "operationId": "get_backtest_api_v1_meta_backtest_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnvelopeResponse_Dict_str__Any__"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/meta/konsistensi": {
       "get": {
         "tags": [

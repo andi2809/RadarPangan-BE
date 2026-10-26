@@ -1,0 +1,309 @@
+{
+  "tanggal_data": "2026-10-26",
+  "definisi": {
+    "horizon_hari": 7,
+    "kejadian": "harga naik >= 3.0% dalam 7 hari",
+    "alarm": "selisih terhadap acuan (HET/HAP) > 10.0%",
+    "catatan": "hasil ini mengukur kinerja ambang, bukan kualitas produk; sampel kecil (9 wilayah, 60 hari)"
+  },
+  "komoditas": [
+    {
+      "komoditas": "beras_medium",
+      "ambang_persen": 10.0,
+      "n_observasi": 478,
+      "tp": 1,
+      "fp": 470,
+      "fn": 1,
+      "tn": 6,
+      "precision_pct": 0.2,
+      "recall_pct": 50.0,
+      "lead_time_median_hari": 7,
+      "contoh_alarm_benar": [
+        {
+          "wilayah": "Kab. Tasikmalaya",
+          "tanggal": "2026-08-21",
+          "selisih": 10.7,
+          "naik_h7": 3.0
+        }
+      ]
+    },
+    {
+      "komoditas": "cabai_rawit_merah",
+      "ambang_persen": 10.0,
+      "n_observasi": 478,
+      "tp": 277,
+      "fp": 177,
+      "fn": 21,
+      "tn": 3,
+      "precision_pct": 61.0,
+      "recall_pct": 93.0,
+      "lead_time_median_hari": 6,
+      "contoh_alarm_benar": [
+        {
+          "wilayah": "Kab. Tasikmalaya",
+          "tanggal": "2026-08-03",
+          "selisih": 11.1,
+          "naik_h7": 10.0
+        },
+        {
+          "wilayah": "Kab. Tasikmalaya",
+          "tanggal": "2026-08-04",
+          "selisih": 11.1,
+          "naik_h7": 10.0
+        },
+        {
+          "wilayah": "Kab. Tasikmalaya",
+          "tanggal": "2026-08-05",
+          "selisih": 11.1,
+          "naik_h7": 10.0
+        }
+      ]
+    },
+    {
+      "komoditas": "bawang_merah",
+      "ambang_persen": 10.0,
+      "n_observasi": 478,
+      "tp": 25,
+      "fp": 141,
+      "fn": 98,
+      "tn": 214,
+      "precision_pct": 15.1,
+      "recall_pct": 20.3,
+      "lead_time_median_hari": 5,
+      "contoh_alarm_benar": [
+        {
+          "wilayah": "Kota Bandung",
+          "tanggal": "2026-08-13",
+          "selisih": 25.0,
+          "naik_h7": 3.1
+        },
+        {
+          "wilayah": "Kota Bandung",
+          "tanggal": "2026-08-14",
+          "selisih": 25.0,
+          "naik_h7": 3.1
+        },
+        {
+          "wilayah": "Kota Bandung",
+          "tanggal": "2026-08-17",
+          "selisih": 25.0,
+          "naik_h7": 3.1
+        }
+      ]
+    },
+    {
+      "komoditas": "telur_ayam_ras",
+      "ambang_persen": 10.0,
+      "n_observasi": 478,
+      "tp": 0,
+      "fp": 0,
+      "fn": 81,
+      "tn": 397,
+      "precision_pct": null,
+      "recall_pct": 0.0,
+      "lead_time_median_hari": null,
+      "contoh_alarm_benar": []
+    },
+    {
+      "komoditas": "minyak_goreng_curah",
+      "ambang_persen": 10.0,
+      "n_observasi": 478,
+      "tp": 0,
+      "fp": 478,
+      "fn": 0,
+      "tn": 0,
+      "precision_pct": 0.0,
+      "recall_pct": null,
+      "lead_time_median_hari": null,
+      "contoh_alarm_benar": []
+    }
+  ],
+  "sinyal_momentum": {
+    "1.0": [
+      {
+        "komoditas": "beras_medium",
+        "ambang_persen": 1.0,
+        "n": 208,
+        "tp": 0,
+        "fp": 26,
+        "fn": 0,
+        "tn": 182,
+        "precision_pct": 0.0,
+        "recall_pct": null,
+        "lead_time_median_hari": null
+      },
+      {
+        "komoditas": "cabai_rawit_merah",
+        "ambang_persen": 1.0,
+        "n": 208,
+        "tp": 114,
+        "fp": 88,
+        "fn": 6,
+        "tn": 0,
+        "precision_pct": 56.4,
+        "recall_pct": 95.0,
+        "lead_time_median_hari": 6.0
+      },
+      {
+        "komoditas": "bawang_merah",
+        "ambang_persen": 1.0,
+        "n": 208,
+        "tp": 12,
+        "fp": 73,
+        "fn": 54,
+        "tn": 69,
+        "precision_pct": 14.1,
+        "recall_pct": 18.2,
+        "lead_time_median_hari": 3.5
+      },
+      {
+        "komoditas": "telur_ayam_ras",
+        "ambang_persen": 1.0,
+        "n": 208,
+        "tp": 0,
+        "fp": 84,
+        "fn": 1,
+        "tn": 123,
+        "precision_pct": 0.0,
+        "recall_pct": 0.0,
+        "lead_time_median_hari": null
+      },
+      {
+        "komoditas": "minyak_goreng_curah",
+        "ambang_persen": 1.0,
+        "n": 208,
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "tn": 207,
+        "precision_pct": 0.0,
+        "recall_pct": null,
+        "lead_time_median_hari": null
+      }
+    ],
+    "2.0": [
+      {
+        "komoditas": "beras_medium",
+        "ambang_persen": 2.0,
+        "n": 208,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 208,
+        "precision_pct": null,
+        "recall_pct": null,
+        "lead_time_median_hari": null
+      },
+      {
+        "komoditas": "cabai_rawit_merah",
+        "ambang_persen": 2.0,
+        "n": 208,
+        "tp": 113,
+        "fp": 88,
+        "fn": 7,
+        "tn": 0,
+        "precision_pct": 56.2,
+        "recall_pct": 94.2,
+        "lead_time_median_hari": 6
+      },
+      {
+        "komoditas": "bawang_merah",
+        "ambang_persen": 2.0,
+        "n": 208,
+        "tp": 8,
+        "fp": 51,
+        "fn": 58,
+        "tn": 91,
+        "precision_pct": 13.6,
+        "recall_pct": 12.1,
+        "lead_time_median_hari": 3.5
+      },
+      {
+        "komoditas": "telur_ayam_ras",
+        "ambang_persen": 2.0,
+        "n": 208,
+        "tp": 0,
+        "fp": 60,
+        "fn": 1,
+        "tn": 147,
+        "precision_pct": 0.0,
+        "recall_pct": 0.0,
+        "lead_time_median_hari": null
+      },
+      {
+        "komoditas": "minyak_goreng_curah",
+        "ambang_persen": 2.0,
+        "n": 208,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 208,
+        "precision_pct": null,
+        "recall_pct": null,
+        "lead_time_median_hari": null
+      }
+    ],
+    "3.0": [
+      {
+        "komoditas": "beras_medium",
+        "ambang_persen": 3.0,
+        "n": 208,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 208,
+        "precision_pct": null,
+        "recall_pct": null,
+        "lead_time_median_hari": null
+      },
+      {
+        "komoditas": "cabai_rawit_merah",
+        "ambang_persen": 3.0,
+        "n": 208,
+        "tp": 111,
+        "fp": 87,
+        "fn": 9,
+        "tn": 1,
+        "precision_pct": 56.1,
+        "recall_pct": 92.5,
+        "lead_time_median_hari": 6
+      },
+      {
+        "komoditas": "bawang_merah",
+        "ambang_persen": 3.0,
+        "n": 208,
+        "tp": 6,
+        "fp": 44,
+        "fn": 60,
+        "tn": 98,
+        "precision_pct": 12.0,
+        "recall_pct": 9.1,
+        "lead_time_median_hari": 3.0
+      },
+      {
+        "komoditas": "telur_ayam_ras",
+        "ambang_persen": 3.0,
+        "n": 208,
+        "tp": 0,
+        "fp": 46,
+        "fn": 1,
+        "tn": 161,
+        "precision_pct": 0.0,
+        "recall_pct": 0.0,
+        "lead_time_median_hari": null
+      },
+      {
+        "komoditas": "minyak_goreng_curah",
+        "ambang_persen": 3.0,
+        "n": 208,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 208,
+        "precision_pct": null,
+        "recall_pct": null,
+        "lead_time_median_hari": null
+      }
+    ]
+  }
+}

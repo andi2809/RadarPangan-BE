@@ -93,6 +93,22 @@ async def get_sumber():
     )
 
 
+@router.get("/backtest", response_model=EnvelopeResponse[Dict[str, Any]])
+async def get_backtest():
+    """Hasil backtest EWS terbaru (kinerja ambang, bukan klaim akurasi)."""
+    berkas = sorted(DERIVED.glob("backtest_*.json"))
+    if not berkas:
+        return EnvelopeResponse(
+            data={"tersedia": False, "catatan": "belum ada hasil backtest"},
+            meta=harga_service.meta_terkini(),
+        )
+    isi = _baca_json(berkas[-1], {})
+    return EnvelopeResponse(
+        data={"tersedia": True, "berkas": berkas[-1].name, **isi},
+        meta=harga_service.meta_terkini(),
+    )
+
+
 @router.get("/konsistensi", response_model=EnvelopeResponse[Dict[str, Any]])
 async def get_konsistensi():
     """Laporan rekonsiliasi lintas sumber terbaru (PIHPS vs SP2KP)."""
