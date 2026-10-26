@@ -31,30 +31,30 @@ def _wilayah(nama: str) -> str:
     return " ".join(str(nama).lower().replace(".", "").split())
 
 
-def _berkas_terbaru() -> Path | None:
-    berkas = sorted(RAW_DIR.glob("pihps_jabar_*.csv"))
-    return berkas[-1] if berkas else None
+def _berkas_semua() -> list[Path]:
+    return sorted(RAW_DIR.glob("pihps_jabar_*.csv"))
 
 
 @lru_cache(maxsize=1)
 def _muat() -> dict:
-    """Kembalikan {harga: {(wilayah, komoditas): [(tanggal, harga)]}, sumber: nama file}."""
-    path = _berkas_terbaru()
-    harga: dict[tuple[str, str], list[tuple[str, int]]] = {}
-    if path is None:
-        return {"harga": harga, "sumber": None}
+    """Gabungkan SEMUA snapshot CSV (bukan hanya yang terakhir).
 
-    with path.open(encoding="utf-8") as fh:
-        for row in csv.DictReader(fh):
-            nilai = (row.get("harga_rp") or "").strip()
-            if not nilai.isdigit():
-                continue
-            kunci = (_wilayah(row["wilayah"]), _kode(row["komoditas"]))
-            harga.setdefault(kunci, []).append((row["tanggal"], int(nilai)))
+    Snapshot boleh tumpang tindih; untuk (tanggal, wilayah, komoditas) yang sama,
+    berkas dengan nama paling akhir menang (dianggap paling baru).
+    """
+    harga: dict[tuple[str, str], dict[str, int]] = {}
+    berkas = _berkas_semua()
+    for path in berkas:
+        with path.open(encoding="utf-8") as fh:
+            for row in csv.DictReader(fh):
+                nilai = (row.get("harga_rp") or "").strip()
+                if not nilai.isdigit():
+                    continue
+                kunci = (_wilayah(row["wilayah"]), _kode(row["komoditas"]))
+                harga.setdefault(kunci, {})[row["tanggal"]] = int(nilai)
 
-    for seri in harga.values():
-        seri.sort()
-    return {"harga": harga, "sumber": path.name}
+    seri_harga = {kunci: sorted(nilai.items()) for kunci, nilai in harga.items()}
+    return {"harga": seri_harga, "sumber": [p.name for p in berkas]}
 
 
 def seri(nama_wilayah: str, komoditas: str, limit: int | None = None) -> list[tuple[str, int]]:
