@@ -1,10 +1,30 @@
 # RadarPangan-Server
 
 Backend **Radar Pangan** — FastAPI + pipeline data. Repo ini bagian dari 3 repo org `RadarPangan`
-(Landing · Dashboard · **Server**).
+(Dashboard · **Server**).
 
-Status: **kerangka MVP** (23 Okt 2026). Data di dalamnya **demo berlabel** — belum tersambung ke
-PIHPS/pipeline sungguhan.
+Status: **MVP berjalan di produksi** (26 Okt 2026) dengan data **nyata** PIHPS untuk 9 dari 27
+kab/kota Jawa Barat; 18 wilayah sisanya ditampilkan `tidak_ada_data` (tidak diimputasi).
+
+
+> ## ✅ STATUS: LIVE DI PRODUKSI (26 Okt 2026)
+>
+> **https://radar-pangan-server.vercel.app** · Swagger: [`/docs`](https://radar-pangan-server.vercel.app/docs)
+>
+> | Uji dari internet | Hasil |
+> |---|---|
+> | `/api/health`, `/docs`, `/openapi.json` | 200 |
+> | `/api/v1/peta/status` | 27 wilayah — 9 berisi harga **nyata** (PIHPS), 18 `tidak_ada_data` |
+> | `/api/v1/wilayah/32.75/ringkasan` | 200 — histori 14 hari + prakiraan H+7 |
+> | CORS + preflight `POST` | `access-control-allow-origin: *` |
+> | `POST /api/v1/laporan-warga` | 200 |
+>
+> **Kontrak untuk Front End:** [`docs/KONTRAK-FE.md`](docs/KONTRAK-FE.md)
+> **Katalog data & cakupan:** [`data/README.md`](data/README.md)
+>
+> ⚠️ Dua hal yang belum ditutup: (1) `POST /laporan-warga` belum menolak tanpa
+> `X-API-Key` dan belum ada rate-limit; (2) deploy dilakukan via **Vercel CLI**
+> (upload folder), belum terhubung Git — jalankan `vercel --prod` untuk rilis berikutnya.
 
 ## Jalankan
 
