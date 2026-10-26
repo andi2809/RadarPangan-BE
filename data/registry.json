@@ -1,0 +1,71 @@
+{
+  "diperbarui": "2026-10-26",
+  "catatan": "Registry sumber data Radar Pangan. Satu-satunya tempat mendaftarkan sumber baru.",
+  "sumber": [
+    {
+      "id": "pihps_bi",
+      "nama": "PIHPS Bank Indonesia",
+      "url": "https://www.bi.go.id/hargapangan",
+      "adapter": "pipeline/pihps_fetch.py",
+      "tier": "kabkota",
+      "granularitas": "kabupaten/kota",
+      "frekuensi": "harian",
+      "akses": "terbuka",
+      "cakupan_jabar": "9 dari 27",
+      "komoditas": 5,
+      "catatan": "harga pasar tradisional (price_type_id=1); tipe produsen tidak berisi data"
+    },
+    {
+      "id": "sp2kp_kemendag",
+      "nama": "SP2KP Kementerian Perdagangan",
+      "url": "https://api-sp2kp.kemendag.go.id",
+      "adapter": "pipeline/rekonsiliasi.py",
+      "tier": "provinsi",
+      "granularitas": "nasional + provinsi",
+      "frekuensi": "harian",
+      "akses": "terbuka",
+      "cakupan_jabar": "1 provinsi",
+      "komoditas": 6,
+      "catatan": "HNT (nasional tertimbang) + perbandingan 38 provinsi + HET/HA resmi"
+    },
+    {
+      "id": "bapanas_dataset",
+      "nama": "Portal Dataset Bapanas",
+      "url": "https://data.badanpangan.go.id/datasetpublications",
+      "adapter": null,
+      "tier": "provinsi",
+      "granularitas": "provinsi/bulanan",
+      "frekuensi": "bulanan",
+      "akses": "unduh manual",
+      "cakupan_jabar": "parsial",
+      "komoditas": null,
+      "catatan": "UI Livewire; unduhan per dataset tersedia"
+    },
+    {
+      "id": "nfa_webapi",
+      "nama": "Web API NFA (Panel Harga)",
+      "url": "https://webapi.badanpangan.go.id",
+      "adapter": null,
+      "tier": "kabkota",
+      "granularitas": "kabupaten/kota",
+      "frekuensi": "harian",
+      "akses": "API key (pengajuan)",
+      "cakupan_jabar": "target 27",
+      "komoditas": null,
+      "catatan": "pendaftaran 26 Okt 2026, menunggu verifikasi Pusdatin"
+    },
+    {
+      "id": "bps",
+      "nama": "BPS (Web API)",
+      "url": "https://webapi.bps.go.id",
+      "adapter": null,
+      "tier": "kabkota",
+      "granularitas": "kabupaten/kota (produsen)",
+      "frekuensi": "bulanan",
+      "akses": "API key",
+      "cakupan_jabar": "27",
+      "komoditas": null,
+      "catatan": "bukan harga retail harian"
+    }
+  ]
+}

@@ -367,6 +367,50 @@
         }
       }
     },
+    "/api/v1/meta/sumber": {
+      "get": {
+        "tags": [
+          "Metadata"
+        ],
+        "summary": "Get Sumber",
+        "description": "Registry sumber + run terakhir + status kesegaran.",
+        "operationId": "get_sumber_api_v1_meta_sumber_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnvelopeResponse_Dict_str__Any__"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/meta/konsistensi": {
+      "get": {
+        "tags": [
+          "Metadata"
+        ],
+        "summary": "Get Konsistensi",
+        "description": "Laporan rekonsiliasi lintas sumber terbaru (PIHPS vs SP2KP).",
+        "operationId": "get_konsistensi_api_v1_meta_konsistensi_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnvelopeResponse_Dict_str__Any__"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/ai/briefing": {
       "post": {
         "tags": [
@@ -571,6 +615,28 @@
           "harga_acuan_rp"
         ],
         "title": "CommoditySchema"
+      },
+      "EnvelopeResponse_Dict_str__Any__": {
+        "properties": {
+          "ok": {
+            "type": "boolean",
+            "title": "Ok",
+            "default": true
+          },
+          "data": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Data"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "EnvelopeResponse[Dict[str, Any]]"
       },
       "EnvelopeResponse_List_CommoditySchema__": {
         "properties": {

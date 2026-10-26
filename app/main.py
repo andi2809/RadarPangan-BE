@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import publik, komoditas, wilayah, peta, laporan, ai_advisor
+from app.routers import publik, komoditas, wilayah, peta, laporan, ai_advisor, meta
 
 app = FastAPI(
     title="Radar Pangan API — Early Warning & Decision Support System",
@@ -41,6 +41,7 @@ app.include_router(komoditas.router)
 app.include_router(wilayah.router)
 app.include_router(peta.router)
 app.include_router(laporan.router)
+app.include_router(meta.router)
 app.include_router(ai_advisor.router)
 
 

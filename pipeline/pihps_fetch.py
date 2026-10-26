@@ -30,6 +30,8 @@ Keluaran: data/raw/pihps_jabar_<start>_<end>.csv
 from __future__ import annotations
 
 import argparse
+
+import runlog
 import csv
 import json
 import pathlib
@@ -143,6 +145,7 @@ def main() -> int:
     ap.add_argument("--end", required=True, help="YYYY-MM-DD")
     args = ap.parse_args()
 
+    ctx = runlog.mulai("pihps_bi")
     _warm_session()
     kab = daftar_kabupaten()
     kom = peta_komoditas()
@@ -150,6 +153,7 @@ def main() -> int:
     print(f"komoditas dipetakan: {len(kom)}/5 -> {kom}")
     if not kab or not kom:
         print("Tidak ada data referensi; hentikan.")
+        runlog.selesai(ctx, status="gagal", pesan="referensi kosong")
         return 1
 
     akar = pathlib.Path(__file__).resolve().parents[1]
@@ -173,6 +177,7 @@ def main() -> int:
                 time.sleep(1.5)  # sopan terhadap portal pemerintah
     print(f"selesai: {jumlah} baris -> {tujuan}")
     print("CATATAN: wilayah yang tidak muncul = tidak ada data di PIHPS (jangan diimputasi).")
+    runlog.selesai(ctx, status="ok" if jumlah else "kosong", berkas=tujuan, jumlah_baris=jumlah)
     return 0
 
 
