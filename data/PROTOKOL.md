@@ -128,3 +128,11 @@ Karena level harga sebagian komoditas datar, diuji sinyal alternatif: sebaran ha
 Kesimpulan: disparitas **bisa** jadi sinyal, tetapi hanya pada sumber yang harganya
 benar-benar bervariasi. Untuk beras & minyak, SP2KP datar pada level **dan** sebaran
 (min/max tetap), sehingga tidak informatif. PIHPS bergerak pada semua komoditas.
+
+
+## 10. Provenance sampai level baris (26 Okt 2026)
+
+`GET /api/v1/peta/status` menerima `sumber=pihps|sp2kp`, dan **setiap item** membawa
+`sumber` + `jenis_harga` (`pasar`|`acuan`) — termasuk item `tidak_ada_data`.
+Pemetaan `jenis_harga`: PIHPS selalu `pasar`; SP2KP `pasar` hanya untuk cabai & bawang,
+selain itu `acuan`. Ini mencegah UI mencampur harga pasar dengan angka acuan.

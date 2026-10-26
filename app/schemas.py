@@ -172,6 +172,12 @@ class StatusPetaItem(BaseModel):
         None, description="null bila data neraca belum tersedia"
     )
 
+    # Provenance per fakta (aditif)
+    sumber: Optional[str] = Field(None, description="pihps | sp2kp")
+    jenis_harga: Optional[Literal["pasar", "acuan"]] = Field(
+        None, description="pasar = hasil survei harga; acuan = angka menempel HET/program"
+    )
+
     # Aliases for compatibility
     kode_kemendagri: Optional[str] = None
     nama: Optional[str] = None

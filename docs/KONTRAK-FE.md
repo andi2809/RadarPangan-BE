@@ -25,7 +25,7 @@ bila request gagal / cold start.
 | GET | `/api/v1/publik/ringkasan-landing` | agregat untuk landing (data nyata) |
 | GET | `/api/v1/komoditas` | 5 komoditas + acuan |
 | GET | `/api/v1/wilayah` | 27 kab/kota Jabar (+ UMK, garis kemiskinan, populasi, centroid) |
-| GET | `/api/v1/peta/status?komoditas=&tanggal=&layer=aktual\|h7` | array status per wilayah |
+| GET | `/api/v1/peta/status?komoditas=&tanggal=&layer=aktual\|h7&sumber=pihps\|sp2kp` | array status per wilayah |
 | GET | `/api/v1/wilayah/{kode}/ringkasan?komoditas=` | detail + histori 14 hari + prakiraan H+7 |
 | GET | `/api/v1/laporan-warga/sekitar?lat=&lng=&komoditas=` | harga sekitar + progres klaster (simulasi) |
 | POST | `/api/v1/laporan-warga` | kirim laporan |
@@ -77,6 +77,7 @@ Semua respons GET memakai amplop `{ ok, data, meta }`.
 | `status` | `status` (`aman`/`waspada`/`kritis`/`turun`/`tidak_ada_data`) |
 | `movingAvg7d` | *(tidak ada)* — pakai `history_14d` di endpoint detail |
 | `ews_score` | `ews_score` / `skor_ews` |
+| — | `sumber` (`pihps`/`sp2kp`) dan `jenis_harga` (`pasar`/`acuan`) — **wajib ditampilkan** sebagai badge |
 
 ### 3.4 Histori & prakiraan → `GET /api/v1/wilayah/{kode}/ringkasan`
 
@@ -114,6 +115,9 @@ field → rawan bingung.
   telur `DINAMIS 29.500`, minyak `HET 15.700`. Label **Minyakita vs Minyak Goreng Curah
   masih menunggu keputusan tim** — jangan hardcode di FE.
 - Kode komoditas: API memakai `minyakita` dan menerima alias `minyak_goreng_curah`.
+- `sumber=sp2kp` memberi **27/27 wilayah**, tetapi untuk beras/telur/minyakita
+  `jenis_harga = "acuan"` (angka menempel HET) — jangan diberi label "harga pasar".
+  Cabai & bawang dari SP2KP tetap `pasar` karena memang bergerak.
 - Selalu tampilkan `meta.mode_data` sebagai badge; bila `peringatan_kualitas` berisi
   `CAKUPAN_SEBAGIAN_9_DARI_27_WILAYAH`, tampilkan catatan cakupan.
 - Data PIHPS hanya mencakup **9 dari 27** kab/kota → wilayah lain `tidak_ada_data`,

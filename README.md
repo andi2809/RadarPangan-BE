@@ -50,7 +50,7 @@ Amplop respons seragam `{ ok, data, meta }`. `meta` selalu memuat `tanggal_data`
 | GET | `/api/v1/komoditas` | 5 komoditas + acuan (HET/HAP) |
 | GET | `/api/v1/wilayah` | 27 kab/kota (kode Kemendagri + BPS) |
 | GET | `/api/v1/wilayah/{kode}/ringkasan` | detail wilayah + histori 14 hari + prakiraan H+7 |
-| GET | `/api/v1/peta/status` | status harga + skor EWS 27 wilayah (`layer=aktual\|h7`) |
+| GET | `/api/v1/peta/status` | status harga + skor EWS 27 wilayah (`layer=aktual\|h7`, `sumber=pihps\|sp2kp`) |
 | GET | `/api/v1/laporan-warga/sekitar` | laporan warga di sekitar titik (simulasi) |
 | POST | `/api/v1/laporan-warga` | kirim laporan warga |
 | GET | `/api/v1/publik/ringkasan-landing` | ringkasan landing, dihitung dari data nyata |
@@ -99,6 +99,10 @@ Kontrak untuk front end: [`docs/KONTRAK-FE.md`](docs/KONTRAK-FE.md).
 | `pipeline/disparitas.py` → `data/derived/disparitas.json` | sebaran harga antarwilayah per hari (sinyal alternatif) |
 | [`docs/HASIL_BACKTEST_EWS.md`](docs/HASIL_BACKTEST_EWS.md) | laporan naratif + tabel hasil |
 | [`docs/STRATEGI_SUMBER_DATA.md`](docs/STRATEGI_SUMBER_DATA.md) | strategi federasi sumber + lineage |
+
+Setiap baris `/peta/status` kini membawa `sumber` dan `jenis_harga` (`pasar`|`acuan`):
+PIHPS = `pasar` (9/27 wilayah berisi); SP2KP = 27/27, tetapi beras/telur/minyakita ditandai
+`acuan` karena angkanya menempel HET, sedangkan cabai & bawang ditandai `pasar`.
 
 Ringkasan temuan (26 Okt 2026): status "kritis" mengukur **kepatuhan HET**, bukan sinyal dini —
 beras & minyak nyaris selalu di atas HET sehingga tidak informatif; cabai informatif (presisi 61%,

@@ -13,6 +13,8 @@
       "status": "tidak_ada_data",
       "ews_score": null,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.01",
       "nama": "Kab. Bogor",
       "skor_ews": null
@@ -29,6 +31,8 @@
       "status": "tidak_ada_data",
       "ews_score": null,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.02",
       "nama": "Kab. Sukabumi",
       "skor_ews": null
@@ -45,6 +49,8 @@
       "status": "tidak_ada_data",
       "ews_score": null,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.03",
       "nama": "Kab. Cianjur",
       "skor_ews": null
@@ -61,6 +67,8 @@
       "status": "tidak_ada_data",
       "ews_score": null,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.04",
       "nama": "Kab. Bandung",
       "skor_ews": null
@@ -77,6 +85,8 @@
       "status": "tidak_ada_data",
       "ews_score": null,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.05",
       "nama": "Kab. Garut",
       "skor_ews": null
@@ -93,6 +103,8 @@
       "status": "kritis",
       "ews_score": 78,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.06",
       "nama": "Kab. Tasikmalaya",
       "skor_ews": 78
@@ -109,6 +121,8 @@
       "status": "tidak_ada_data",
       "ews_score": null,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.07",
       "nama": "Kab. Ciamis",
       "skor_ews": null
@@ -125,6 +139,8 @@
       "status": "tidak_ada_data",
       "ews_score": null,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.08",
       "nama": "Kab. Kuningan",
       "skor_ews": null
@@ -141,6 +157,8 @@
       "status": "kritis",
       "ews_score": 83,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.09",
       "nama": "Kab. Cirebon",
       "skor_ews": 83
@@ -157,6 +175,8 @@
       "status": "tidak_ada_data",
       "ews_score": null,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.10",
       "nama": "Kab. Majalengka",
       "skor_ews": null
@@ -173,6 +193,8 @@
       "status": "tidak_ada_data",
       "ews_score": null,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.11",
       "nama": "Kab. Sumedang",
       "skor_ews": null
@@ -189,6 +211,8 @@
       "status": "tidak_ada_data",
       "ews_score": null,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.12",
       "nama": "Kab. Indramayu",
       "skor_ews": null
@@ -205,6 +229,8 @@
       "status": "tidak_ada_data",
       "ews_score": null,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.13",
       "nama": "Kab. Subang",
       "skor_ews": null
@@ -221,6 +247,8 @@
       "status": "tidak_ada_data",
       "ews_score": null,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.14",
       "nama": "Kab. Purwakarta",
       "skor_ews": null
@@ -237,6 +265,8 @@
       "status": "tidak_ada_data",
       "ews_score": null,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.15",
       "nama": "Kab. Karawang",
       "skor_ews": null
@@ -253,6 +283,8 @@
       "status": "tidak_ada_data",
       "ews_score": null,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.16",
       "nama": "Kab. Bekasi",
       "skor_ews": null
@@ -269,6 +301,8 @@
       "status": "tidak_ada_data",
       "ews_score": null,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.17",
       "nama": "Kab. Bandung Barat",
       "skor_ews": null
@@ -285,6 +319,8 @@
       "status": "tidak_ada_data",
       "ews_score": null,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.18",
       "nama": "Kab. Pangandaran",
       "skor_ews": null
@@ -301,6 +337,8 @@
       "status": "kritis",
       "ews_score": 95,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.71",
       "nama": "Kota Bogor",
       "skor_ews": 95
@@ -317,6 +355,8 @@
       "status": "kritis",
       "ews_score": 71,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.72",
       "nama": "Kota Sukabumi",
       "skor_ews": 71
@@ -333,6 +373,8 @@
       "status": "kritis",
       "ews_score": 81,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.73",
       "nama": "Kota Bandung",
       "skor_ews": 81
@@ -349,6 +391,8 @@
       "status": "kritis",
       "ews_score": 81,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.74",
       "nama": "Kota Cirebon",
       "skor_ews": 81
@@ -365,6 +409,8 @@
       "status": "kritis",
       "ews_score": 75,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.75",
       "nama": "Kota Bekasi",
       "skor_ews": 75
@@ -381,6 +427,8 @@
       "status": "kritis",
       "ews_score": 88,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.76",
       "nama": "Kota Depok",
       "skor_ews": 88
@@ -397,6 +445,8 @@
       "status": "tidak_ada_data",
       "ews_score": null,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.77",
       "nama": "Kota Cimahi",
       "skor_ews": null
@@ -413,6 +463,8 @@
       "status": "kritis",
       "ews_score": 75,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.78",
       "nama": "Kota Tasikmalaya",
       "skor_ews": 75
@@ -429,6 +481,8 @@
       "status": "tidak_ada_data",
       "ews_score": null,
       "status_neraca": null,
+      "sumber": "pihps",
+      "jenis_harga": "pasar",
       "kode_kemendagri": "32.79",
       "nama": "Kota Banjar",
       "skor_ews": null
@@ -436,7 +490,7 @@
   ],
   "meta": {
     "tanggal_data": "2026-10-26",
-    "diperbarui_pada": "2026-10-26T06:47:58.329518+00:00",
+    "diperbarui_pada": "2026-10-26T08:31:33.550643+00:00",
     "sumber": [
       "PIHPS BI"
     ],

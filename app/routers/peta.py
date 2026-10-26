@@ -5,6 +5,7 @@ from typing import List, Optional, Literal
 from fastapi import APIRouter, Query
 
 from app.schemas import AcuanType, EnvelopeResponse, Meta, PriceStatus, StatusPetaItem
+from app.services import fakta as fakta_service
 from app.services import harga as harga_service
 
 router = APIRouter(prefix="/api/v1/peta", tags=["Peta"])
@@ -39,7 +40,9 @@ def _status_dari_selisih(selisih: Optional[float]) -> PriceStatus:
     return "aman"
 
 
-def _item_kosong(kode: str, nama: str, komoditas: str, acuan: int, jenis: AcuanType) -> StatusPetaItem:
+def _item_kosong(
+    kode: str, nama: str, komoditas: str, acuan: int, jenis: AcuanType, sumber: str | None = None
+) -> StatusPetaItem:
     return StatusPetaItem(
         region_id=kode,
         region_name=nama,
@@ -55,6 +58,8 @@ def _item_kosong(kode: str, nama: str, komoditas: str, acuan: int, jenis: AcuanT
         kode_kemendagri=kode,
         nama=nama,
         skor_ews=None,
+        sumber=sumber,
+        jenis_harga=fakta_service.jenis_harga(sumber, komoditas) if sumber else None,
     )
 
 
@@ -63,12 +68,17 @@ async def get_peta_status(
     komoditas: str = Query("beras_medium", description="ID komoditas kanonik"),
     tanggal: Optional[str] = Query(None, description="Tanggal observasi YYYY-MM-DD"),
     layer: Literal["aktual", "h7"] = Query("aktual", description="Lapisan visualisasi data (aktual | h7)"),
+    sumber: Literal["pihps", "sp2kp"] = Query("pihps", description="Sumber fakta harga"),
 ):
     """Status harga + skor EWS untuk 27 kab/kota Jawa Barat.
 
     Harga diambil dari snapshot PIHPS (`data/raw/pihps_jabar_*.csv`).
     Wilayah tanpa data dikembalikan `status="tidak_ada_data"` — tidak dikarang.
     """
+    # Saat dipanggil langsung (bukan lewat HTTP), default parameter masih berupa objek Query.
+    sumber = sumber if isinstance(sumber, str) else "pihps"
+    layer = layer if isinstance(layer, str) else "aktual"
+    komoditas = komoditas if isinstance(komoditas, str) else "beras_medium"
     komoditas_kanonik = _normalize_commodity_code(komoditas)
     acuan, jenis_acuan = ACUAN.get(komoditas_kanonik, (13500, "HET"))
 
@@ -85,18 +95,22 @@ async def get_peta_status(
             kode = row["kode_kemendagri"]
             nama = row["nama_wilayah"]
 
-            titik = harga_service.terakhir(nama, komoditas_kanonik)
+            if sumber == "sp2kp":
+                titik = fakta_service.terakhir(nama, komoditas_kanonik, "sp2kp")
+            else:
+                titik = harga_service.terakhir(nama, komoditas_kanonik)
             if titik is None:
-                items.append(_item_kosong(kode, nama, komoditas_kanonik, acuan, jenis_acuan))
+                items.append(_item_kosong(kode, nama, komoditas_kanonik, acuan, jenis_acuan, sumber))
                 continue
 
             tanggal_data, harga = titik
             if tanggal and tanggal != tanggal_data:
-                items.append(_item_kosong(kode, nama, komoditas_kanonik, acuan, jenis_acuan))
+                items.append(_item_kosong(kode, nama, komoditas_kanonik, acuan, jenis_acuan, sumber))
                 continue
 
             # Prakiraan H+7: tren linear dari 3 titik terakhir (baseline, bukan ML).
-            seri = harga_service.seri(nama, komoditas_kanonik, limit=3)
+            seri = (fakta_service.seri(nama, komoditas_kanonik, "sp2kp", limit=3)
+                    if sumber == "sp2kp" else harga_service.seri(nama, komoditas_kanonik, limit=3))
             if len(seri) >= 2 and seri[0][1] > 0:
                 laju = (seri[-1][1] - seri[0][1]) / max(1, len(seri) - 1) / seri[0][1]
             else:
@@ -124,6 +138,8 @@ async def get_peta_status(
                     kode_kemendagri=kode,
                     nama=nama,
                     skor_ews=ews,
+                    sumber=sumber,
+                    jenis_harga=fakta_service.jenis_harga(sumber, komoditas_kanonik),
                 )
             )
 

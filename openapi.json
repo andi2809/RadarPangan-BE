@@ -211,6 +211,22 @@
               "title": "Layer"
             },
             "description": "Lapisan visualisasi data (aktual | h7)"
+          },
+          {
+            "name": "sumber",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "pihps",
+                "sp2kp"
+              ],
+              "type": "string",
+              "description": "Sumber fakta harga",
+              "default": "pihps",
+              "title": "Sumber"
+            },
+            "description": "Sumber fakta harga"
           }
         ],
         "responses": {
@@ -1584,6 +1600,34 @@
             ],
             "title": "Status Neraca",
             "description": "null bila data neraca belum tersedia"
+          },
+          "sumber": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sumber",
+            "description": "pihps | sp2kp"
+          },
+          "jenis_harga": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "pasar",
+                  "acuan"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Jenis Harga",
+            "description": "pasar = hasil survei harga; acuan = angka menempel HET/program"
           },
           "kode_kemendagri": {
             "anyOf": [
