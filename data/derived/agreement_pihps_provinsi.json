@@ -1,0 +1,71 @@
+{
+  "metode": "median 9 kab/kota (PIHPS) vs seri provinsi Jawa Barat (PIHPS), hari yang sama",
+  "catatan": "Spearman mengukur kesamaan arah; Bland–Altman mengukur bias dan rentang kesepakatan (Rp).",
+  "komoditas": [
+    {
+      "komoditas": "beras_medium",
+      "n_hari": 61,
+      "spearman": 0.932,
+      "bland_altman": {
+        "bias_rp": -256.6,
+        "simpangan_baku_rp": 43.5,
+        "loa_bawah_rp": -341.9,
+        "loa_atas_rp": -171.3,
+        "n": 61
+      },
+      "median_selisih_persen": -1.58
+    },
+    {
+      "komoditas": "cabai_rawit_merah",
+      "n_hari": 61,
+      "spearman": 0.915,
+      "bland_altman": {
+        "bias_rp": -11420.1,
+        "simpangan_baku_rp": 5713.8,
+        "loa_bawah_rp": -22619.1,
+        "loa_atas_rp": -221.1,
+        "n": 61
+      },
+      "median_selisih_persen": -17.06
+    },
+    {
+      "komoditas": "bawang_merah",
+      "n_hari": 61,
+      "spearman": 0.507,
+      "bland_altman": {
+        "bias_rp": -1127.5,
+        "simpangan_baku_rp": 1149.9,
+        "loa_bawah_rp": -3381.2,
+        "loa_atas_rp": 1126.3,
+        "n": 61
+      },
+      "median_selisih_persen": -3.43
+    },
+    {
+      "komoditas": "telur_ayam_ras",
+      "n_hari": 61,
+      "spearman": 0.97,
+      "bland_altman": {
+        "bias_rp": 44.3,
+        "simpangan_baku_rp": 91.9,
+        "loa_bawah_rp": -135.9,
+        "loa_atas_rp": 224.4,
+        "n": 61
+      },
+      "median_selisih_persen": 0.19
+    },
+    {
+      "komoditas": "minyak_goreng_curah",
+      "n_hari": 61,
+      "spearman": 0.141,
+      "bland_altman": {
+        "bias_rp": 754.1,
+        "simpangan_baku_rp": 163.9,
+        "loa_bawah_rp": 432.8,
+        "loa_atas_rp": 1075.4,
+        "n": 61
+      },
+      "median_selisih_persen": 3.25
+    }
+  ]
+}
