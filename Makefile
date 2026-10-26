@@ -1,0 +1,40 @@
+# Radar Pangan — perintah operasional (jalankan dari root repo)
+PY ?= .venv/bin/python
+TANGGAL ?= $(shell date +%F)
+
+.PHONY: help test integrity fetch rekonsiliasi backtest exports deploy semua
+
+help:
+	@echo "make test          # seluruh uji (pytest)"
+	@echo "make integrity     # uji integritas data saja"
+	@echo "make fetch         # tarik PIHPS hari ini (START/END bisa di-override)"
+	@echo "make rekonsiliasi  # bandingkan PIHPS vs SP2KP (TANGGAL=YYYY-MM-DD)"
+	@echo "make backtest      # backtest ambang EWS"
+	@echo "make exports       # regenerasi openapi.json + fixtures"
+	@echo "make deploy        # deploy ke Vercel produksi"
+	@echo "make semua         # test + rekonsiliasi + backtest + exports"
+
+test:
+	$(PY) -m pytest -q
+
+integrity:
+	$(PY) -m pytest tests/test_data_integrity.py -q
+
+START ?= $(TANGGAL)
+END ?= $(TANGGAL)
+fetch:
+	$(PY) pipeline/pihps_fetch.py --start $(START) --end $(END)
+
+rekonsiliasi:
+	$(PY) pipeline/rekonsiliasi.py --tanggal $(TANGGAL)
+
+backtest:
+	$(PY) pipeline/backtest.py
+
+exports:
+	PYTHONPATH=. $(PY) scripts/export_openapi.py
+
+deploy:
+	npx --yes vercel@latest --prod --yes
+
+semua: test rekonsiliasi backtest exports
