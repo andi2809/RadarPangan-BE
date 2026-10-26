@@ -3,18 +3,31 @@
 Aturan: **setiap dataset dicatat di sini** — sumber, URL, tanggal tarikan, cakupan, dan
 keterbatasan. Tanpa entri di sini, data tidak boleh dipakai di UI.
 
+> **Acuan normatif: [`PROTOKOL.md`](PROTOKOL.md)** — definisi "harga" per sumber, aturan agregasi
+> (median, bukan mean), dan bias terukur. Dokumen ini katalog; PROTOKOL yang mengikat.
+
 ---
 
-## 1. `raw/pihps_jabar_2026-08-01_2026-10-23.csv`
+## 1. Snapshot PIHPS (banyak berkas, digabung loader)
+
+| Berkas | Periode | Baris |
+|---|---|---|
+| `raw/pihps_jabar_2026-08-01_2026-10-23.csv` | 3 Agu – 23 Okt | 2.700 |
+| `raw/pihps_jabar_2026-10-24_2026-10-26.csv` | 26 Okt | 45 |
+| `raw/pihps_jabar_2026-10-26_2026-10-26.csv` | 26 Okt (tarikan ulang) | 45 |
+
+Loader `app/services/harga.py` **menggabungkan semua snapshot**; untuk kunci yang sama
+(`tanggal, wilayah, komoditas`), berkas dengan nama paling akhir menang. Total: **61 tanggal
+unik, 3 Agu – 26 Okt 2026**.
 
 | | |
 |---|---|
 | Sumber | **PIHPS Bank Indonesia** — `bi.go.id/hargapangan` (kanal harga pasar tradisional per daerah) |
 | Endpoint | `GET /hargapangan/WebSite/TabelHarga/GetGridDataDaerah` |
 | Parameter kunci | `comcat_id, price_type_id=1, province_id=12, regency_id=<ID PIHPS>, tipe_laporan=1, start_date, end_date` |
-| Tanggal tarik | 2026-10-23 |
-| Periode data | 2026-08-01 s/d 2026-10-23 (60 tanggal, hari kerja saja) |
-| Baris | 2.700 (9 kab/kota × 5 komoditas × 60 tanggal) |
+| Tanggal tarik terakhir | 2026-10-26 |
+| Periode data | 2026-08-03 s/d 2026-10-26 (**61 tanggal**, hari bursa saja) |
+| Baris | 2.790 baris gabungan (9 kab/kota × 5 komoditas × 61 tanggal + tarikan ulang) |
 | Kolom | `tanggal, regency_id_pihps, wilayah, komoditas, harga_rp, sumber` |
 | Satuan | Rupiah per **kg** (kecuali bila sumber menyatakan lain) |
 | Pengolah | `pipeline/pihps_fetch.py` |
@@ -26,7 +39,8 @@ keterbatasan. Tanpa entri di sini, data tidak boleh dipakai di UI.
   Kota Cirebon, Kota Depok, Kota Sukabumi, Kota Tasikmalaya, Kab. Cirebon, Kab. Tasikmalaya.
 - **18 kab/kota lain tidak punya data** → di UI wajib tampil `status="tidak_ada_data"`,
   **tidak boleh** diimputasi dari provinsi/tetangga.
-- Akhir pekan sering kosong (contoh: 17–18 Okt tidak ada baris).
+- **Akhir pekan tidak pernah ada data.** Dari 85 hari kalender (3 Agu – 26 Okt), hanya 61 yang
+  berisi; **24 hari kosong dan semuanya Sabtu–Minggu**. Jangan menginterpolasi.
 
 ### Komoditas
 
@@ -36,7 +50,10 @@ keterbatasan. Tanpa entri di sini, data tidak boleh dipakai di UI.
 | `cabai_rawit_merah` | Cabai Rawit Merah | `com_16` |
 | `bawang_merah` | Bawang Merah | `com_11` |
 | `telur_ayam_ras` | Telur Ayam Ras Segar | `com_10` |
-| `minyakita` | **TIDAK ADA di PIHPS** | — |
+| `minyak_goreng_curah` | Minyak Goreng Curah | `com_17` |
+
+Catatan: kode `minyakita` masih dipakai di API (kompatibilitas FE) dan dipetakan ke
+`minyak_goreng_curah`; labelnya menunggu keputusan tim.
 
 ⚠️ **Temuan yang bertentangan dengan keputusan terkunci:** Andi mengunci komoditas
 `minyakita`, tetapi PIHPS tidak memisahkan Minyakita. Yang tersedia: `Minyak Goreng Curah`
@@ -67,13 +84,15 @@ Tanggal wajib **ISO (`YYYY-MM-DD`)** — format `DD/MM/YYYY` menghasilkan HTTP 3
 ## 3. Temuan penting: harga pasar di atas HET
 
 HET beras medium **Zona 1 (Jawa) = Rp13.500/kg** (Perbadan 5/2024 jo. kenaikan Agustus 2025).
-Harga pasar PIHPS di 9 kab/kota Jabar berkisar **Rp15.400–16.600/kg** (23 Okt 2026) —
-artinya **+14% s/d +23% di atas HET**.
+Harga pasar PIHPS di 9 kab/kota Jabar: **26 Okt 2026** median **Rp15.600/kg**
+(kisaran Rp14.950–16.600) — artinya **+15,6% di atas HET** (median; rentang +10,7% s/d +23,0%).
 
 Konsekuensi: dengan ambang yang dikunci (kritis > +10%), **seluruh 9 wilayah berstatus `kritis`**.
 Ini bukan bug perhitungan, ini temuan lapangan: HET tidak mencerminkan harga pasar saat ini.
-Perlu keputusan tim: (a) tampilkan apa adanya (jujur & kuat untuk narasi transparansi),
-atau (b) tambahkan acuan dinamis (median 90 hari) sebagai pembanding di UI.
+**Sudah diukur, bukan diperdebatkan:** backtest 60 hari menunjukkan sinyal level-vs-HET
+**tidak punya daya beda** untuk beras (presisi 0,2%) dan minyak (0%) — hanya cabai yang
+informatif (presisi 61%, recall 93%, jeda 6 hari). Detail: [`../docs/HASIL_BACKTEST_EWS.md`](../docs/HASIL_BACKTEST_EWS.md).
+Rekomendasi: pisahkan *status kebijakan* (vs HET) dari *sinyal dini* (momentum).
 
 ## Catatan Minyak Goreng (temuan 26 Okt 2026)
 
