@@ -13,6 +13,8 @@
       "pihps_median_kabkota_rp": 15600,
       "pihps_jumlah_wilayah": 9,
       "sp2kp_provinsi_rp": 13261.57,
+      "pihps_provinsi_rp": 15850.0,
+      "selisih_vs_pihps_provinsi_persen": -1.58,
       "selisih_persen": 17.63,
       "status": "waspada"
     },
@@ -22,6 +24,8 @@
       "pihps_median_kabkota_rp": 67500,
       "pihps_jumlah_wilayah": 9,
       "sp2kp_provinsi_rp": 71009.26,
+      "pihps_provinsi_rp": 76500.0,
+      "selisih_vs_pihps_provinsi_persen": -11.76,
       "selisih_persen": -4.94,
       "status": "sehat"
     },
@@ -31,6 +35,8 @@
       "pihps_median_kabkota_rp": 33750,
       "pihps_jumlah_wilayah": 9,
       "sp2kp_provinsi_rp": 31413.58,
+      "pihps_provinsi_rp": 33450.0,
+      "selisih_vs_pihps_provinsi_persen": 0.9,
       "selisih_persen": 7.44,
       "status": "sehat"
     },
@@ -40,6 +46,8 @@
       "pihps_median_kabkota_rp": 25400,
       "pihps_jumlah_wilayah": 9,
       "sp2kp_provinsi_rp": 25506.17,
+      "pihps_provinsi_rp": 25500.0,
+      "selisih_vs_pihps_provinsi_persen": -0.39,
       "selisih_persen": -0.42,
       "status": "sehat"
     },
@@ -49,6 +57,8 @@
       "pihps_median_kabkota_rp": 22350,
       "pihps_jumlah_wilayah": 9,
       "sp2kp_provinsi_rp": 19865.43,
+      "pihps_provinsi_rp": 21600.0,
+      "selisih_vs_pihps_provinsi_persen": 3.47,
       "selisih_persen": 12.51,
       "status": "waspada"
     }

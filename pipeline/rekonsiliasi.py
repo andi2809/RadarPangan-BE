@@ -21,6 +21,7 @@ from datetime import date
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
 import runlog  # noqa: E402
+import pihps_fetch  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -55,6 +56,41 @@ def harga_provinsi(tanggal: str, variant_id: int) -> float | None:
         if str(item.get("kode_provinsi")) == PROV_JABAR:
             harga = item.get("harga")
             return round(float(harga), 2) if isinstance(harga, (int, float)) else None
+    return None
+
+
+def _angka_pihps(nilai) -> float:
+    """'15,850' -> 15850 (koma = ribuan); '15.850,00' -> 15850.0 (gaya Indonesia)."""
+    teks = str(nilai).strip()
+    if "." in teks and "," in teks:
+        teks = teks.replace(".", "").replace(",", ".")
+    elif "," in teks:
+        kiri, kanan = teks.rsplit(",", 1)
+        teks = teks.replace(",", "") if len(kanan) == 3 else teks.replace(",", ".")
+    return float(teks)
+
+
+def harga_provinsi_pihps(komoditas: str, tanggal: str) -> float | None:
+    """Harga level provinsi dari PIHPS sendiri (pembanding spasial sumber yang sama)."""
+    kode = pihps_fetch.peta_komoditas().get(komoditas)
+    if not kode:
+        return None
+    pihps_fetch._warm_session()
+    data = pihps_fetch._get(
+        f"/WebSite/TabelHarga/GetGridDataKomoditas?comcat_id={kode}&price_type_id=1"
+        f"&province_id={pihps_fetch.JABAR_PROVINCE_ID}&tipe_laporan=1"
+        f"&start_date={tanggal}&end_date={tanggal}"
+    )
+    for row in data.get("data") or []:
+        if "jawa barat" not in str(row.get("name", "")).lower():
+            continue
+        for kunci, nilai in row.items():
+            if "/" not in str(kunci):
+                continue
+            try:
+                return round(_angka_pihps(nilai), 2)
+            except (TypeError, ValueError):
+                return None
     return None
 
 
@@ -107,9 +143,18 @@ def main() -> int:
             prov = None
             print(f"  ! {komoditas}: gagal ambil SP2KP ({exc})")
 
+        try:
+            prov_pihps = harga_provinsi_pihps(komoditas, tanggal)
+        except Exception as exc:
+            prov_pihps = None
+            print(f"  ! {komoditas}: gagal ambil provinsi PIHPS ({exc})")
+
         selisih = None
         if median and prov:
             selisih = round((median - prov) / prov * 100, 2)
+        selisih_pihps = None
+        if median and prov_pihps:
+            selisih_pihps = round((median - prov_pihps) / prov_pihps * 100, 2)
 
         baris.append(
             {
@@ -118,11 +163,13 @@ def main() -> int:
                 "pihps_median_kabkota_rp": median,
                 "pihps_jumlah_wilayah": jumlah,
                 "sp2kp_provinsi_rp": prov,
+                "pihps_provinsi_rp": prov_pihps,
+                "selisih_vs_pihps_provinsi_persen": selisih_pihps,
                 "selisih_persen": selisih,
                 "status": klasifikasi(selisih),
             }
         )
-        print(f"  {komoditas:20s} median={median} (n={jumlah})  provinsi={prov}  selisih={selisih}%")
+        print(f"  {komoditas:20s} median={median} (n={jumlah})  provSP2KP={prov} ({selisih}%)  provPIHPS={prov_pihps} ({selisih_pihps}%)")
 
     tujuan = ROOT / "data" / "derived" / f"rekonsiliasi_{tanggal}.json"
     tujuan.parent.mkdir(parents=True, exist_ok=True)
