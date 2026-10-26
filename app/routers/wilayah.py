@@ -57,7 +57,7 @@ async def list_wilayah(q: Optional[str] = Query(None, description="Cari nama wil
     regions = _load_regions_from_csv()
     if q:
         regions = [r for r in regions if q.lower() in r.name.lower()]
-    return EnvelopeResponse(data=regions)
+    return EnvelopeResponse(data=regions, meta=harga_service.meta_terkini())
 
 @router.get("/{kode}/ringkasan", response_model=EnvelopeResponse[RegionDetailRingkasan])
 async def get_wilayah_ringkasan(kode: str, komoditas: str = Query("beras_medium", description="ID komoditas")):
@@ -166,4 +166,4 @@ async def get_wilayah_ringkasan(kode: str, komoditas: str = Query("beras_medium"
         }
     )
 
-    return EnvelopeResponse(data=data)
+    return EnvelopeResponse(data=data, meta=harga_service.meta_terkini())

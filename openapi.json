@@ -12,7 +12,7 @@
           "Publik"
         ],
         "summary": "Get Ringkasan Landing",
-        "description": "Mengembalikan data ringkas statistik dan stabilitas pangan Jawa Barat untuk Landing Page.",
+        "description": "Ringkasan landing dari snapshot PIHPS nyata (bukan angka demo).\n\nBentuk respons dipertahankan agar kompatibel dengan front end; angka yang belum\npunya sumber (mis. laporan warga) dikembalikan 0 dan ditandai di meta.",
         "operationId": "get_ringkasan_landing_api_v1_publik_ringkasan_landing_get",
         "responses": {
           "200": {

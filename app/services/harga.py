@@ -77,3 +77,19 @@ def cakupan() -> dict:
         "jumlah_wilayah": len(wilayah),
         "periode": (min(tanggal), max(tanggal)) if tanggal else None,
     }
+
+
+def meta_terkini(sumber: list[str] | None = None):
+    """Meta standar berisi tanggal data terakhir + peringatan cakupan (satu sumber kebenaran)."""
+    from ..schemas import Meta
+
+    cak = cakupan()
+    peringatan = ["DATA_PIHPS_SNAPSHOT"] if cak["sumber"] else ["SNAPSHOT_PIHPS_TIDAK_ADA"]
+    if cak["sumber"] and cak["jumlah_wilayah"] and cak["jumlah_wilayah"] < 27:
+        peringatan.append(f"CAKUPAN_SEBAGIAN_{cak['jumlah_wilayah']}_DARI_27_WILAYAH")
+    return Meta(
+        tanggal_data=cak["periode"][1] if cak["periode"] else None,
+        sumber=sumber or ["PIHPS BI"],
+        mode_data="nyata" if cak["sumber"] else "demo",
+        peringatan_kualitas=peringatan,
+    )

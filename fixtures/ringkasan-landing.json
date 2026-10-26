@@ -2,44 +2,47 @@
   "ok": true,
   "data": {
     "provinsi": "Jawa Barat",
-    "tanggal_data": "2026-10-23",
+    "tanggal_data": "2026-10-26",
     "total_kabkota": 27,
-    "kestabilan_wilayah_pct": 77.8,
-    "jumlah_aman": 21,
-    "jumlah_waspada": 4,
-    "jumlah_kritis": 2,
+    "kestabilan_wilayah_pct": 0.0,
+    "jumlah_aman": 0,
+    "jumlah_waspada": 0,
+    "jumlah_kritis": 9,
     "komoditas_sorotan": {
-      "nama": "Cabai Rawit Merah",
-      "harga_rata_rata_rp": 64200,
-      "status_jabar": "waspada",
-      "sentra_surplus": "Kab. Garut (Rp 54.000)",
-      "hotspot_kritis": "Kab. Pangandaran (Rp 78.000)"
+      "nama": "Beras Medium",
+      "harga_rata_rata_rp": 15611,
+      "status_jabar": "kritis",
+      "sentra_surplus": "Kota Sukabumi (Rp 14.950)",
+      "hotspot_kritis": "Kota Bogor (Rp 16.600)"
     },
     "laporan_warga": {
-      "total_terverifikasi_hari_ini": 84,
-      "akurasi_konsensus_pct": 94.2
+      "total_terverifikasi_hari_ini": 0,
+      "akurasi_konsensus_pct": null
     },
     "judul": "Radar Pangan — peringatan dini harga pangan Jawa Barat",
     "jumlah_wilayah": 27,
     "jumlah_komoditas": 5,
     "distribusi_status": {
-      "aman": 21,
-      "waspada": 4,
-      "kritis": 2,
+      "aman": 0,
+      "waspada": 0,
+      "kritis": 9,
       "turun": 0,
-      "tidak_ada_data": 0
+      "tidak_ada_data": 18
     },
     "sorotan": null
   },
   "meta": {
-    "tanggal_data": "2026-10-23",
-    "diperbarui_pada": "2026-10-26T02:35:26.459616+00:00",
+    "tanggal_data": "2026-10-26",
+    "diperbarui_pada": "2026-10-26T05:24:14.224776+00:00",
     "sumber": [
-      "PIHPS BI",
-      "Bapanas"
+      "PIHPS BI"
     ],
     "is_simulasi": false,
-    "mode_data": "demo",
-    "peringatan_kualitas": []
+    "mode_data": "nyata",
+    "peringatan_kualitas": [
+      "DATA_PIHPS_SNAPSHOT",
+      "LAPORAN_WARGA_BELUM_TERSEDIA",
+      "CAKUPAN_SEBAGIAN_9_DARI_27_WILAYAH"
+    ]
   }
 }
