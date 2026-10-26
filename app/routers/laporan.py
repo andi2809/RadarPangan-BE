@@ -1,8 +1,20 @@
 from fastapi import APIRouter, Header, Query
 from typing import List, Optional
 from app.schemas import EnvelopeResponse, LaporanWargaInput
+from app.services import harga as harga_service
 
 router = APIRouter(prefix="/api/v1/laporan-warga", tags=["Laporan Warga"])
+
+
+def _meta_laporan():
+    """Laporan warga masih simulasi — ditandai eksplisit, tanggal ikut snapshot terakhir."""
+    dasar = harga_service.meta_terkini(sumber=["Laporan Warga (simulasi)", "PIHPS BI"])
+    return dasar.model_copy(
+        update={
+            "mode_data": "demo",
+            "peringatan_kualitas": dasar.peringatan_kualitas + ["LAPORAN_WARGA_SIMULASI"],
+        }
+    )
 
 # In-memory mock store
 REPORTS_DB = [
@@ -41,7 +53,7 @@ async def get_laporan_sekitar(
     radius_km: float = Query(3.0, description="Radius klaster konsensus")
 ):
     """Mengambil riwayat laporan warga dalam radius geografis tertentu untuk audit konsensus."""
-    return EnvelopeResponse(data=REPORTS_DB)
+    return EnvelopeResponse(data=REPORTS_DB, meta=_meta_laporan())
 
 @router.post("", response_model=EnvelopeResponse[dict])
 async def submit_laporan_warga(
@@ -68,5 +80,6 @@ async def submit_laporan_warga(
             "status": "DITERIMA",
             "id": new_entry["id"],
             "pesan": "Laporan berhasil dicatat dan masuk ke dalam klaster audit konsensus anti-spekulan (radius 3 km)."
-        }
+        },
+        meta=_meta_laporan(),
     )

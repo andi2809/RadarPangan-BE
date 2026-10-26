@@ -29,14 +29,18 @@
     }
   ],
   "meta": {
-    "tanggal_data": "2026-10-23",
-    "diperbarui_pada": "2026-10-26T05:24:14.269199+00:00",
+    "tanggal_data": "2026-10-26",
+    "diperbarui_pada": "2026-10-26T05:26:54.044084+00:00",
     "sumber": [
-      "PIHPS BI",
-      "Bapanas"
+      "Laporan Warga (simulasi)",
+      "PIHPS BI"
     ],
     "is_simulasi": false,
     "mode_data": "demo",
-    "peringatan_kualitas": []
+    "peringatan_kualitas": [
+      "DATA_PIHPS_SNAPSHOT",
+      "CAKUPAN_SEBAGIAN_9_DARI_27_WILAYAH",
+      "LAPORAN_WARGA_SIMULASI"
+    ]
   }
 }
