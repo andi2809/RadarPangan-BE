@@ -19,14 +19,14 @@
       "id": "sp2kp_kemendag",
       "nama": "SP2KP Kementerian Perdagangan",
       "url": "https://api-sp2kp.kemendag.go.id",
-      "adapter": "pipeline/rekonsiliasi.py + pipeline/sp2kp_import.py",
-      "tier": "kabkota (lewat Tableau) + provinsi/nasional (JSON API)",
-      "granularitas": "kab/kota via dashboard Tableau; nasional/provinsi via JSON API",
+      "adapter": "pipeline/sp2kp_fetch.py · pipeline/sp2kp_import.py · pipeline/rekonsiliasi.py",
+      "tier": "kabkota",
+      "granularitas": "kabupaten/kota (level=2) · provinsi (level=1) · pasar (level=3)",
       "frekuensi": "harian",
-      "akses": "terbuka (JSON API) · Tableau perlu ekspor manual",
-      "cakupan_jabar": "kab/kota lengkap di Tableau (termasuk Minyakita)",
+      "akses": "terbuka (endpoint ekspor Excel, tanpa API key)",
+      "cakupan_jabar": "27 dari 27",
       "komoditas": 6,
-      "catatan": "JSON API /report/api/* hanya nasional+provinsi. Data kab/kota ada di dashboard Tableau https://sp2kp.kemendag.go.id/statistik/tabulasi-harga (token publik /report/api/tableau/token-harga-public; token bukan PAT, REST signin ditolak). Ambil lewat ekspor manual (crosstab/CSV)."
+      "catatan": "POST /report/api/average-price/export-area-daily-excel (multipart). Terverifikasi 26 Okt: 27/27 wilayah, 5 komoditas, termasuk Minyakita. HATI-HATI: seri 'Beras Medium' ≈ harga program/HET (11 wilayah persis 13.500), bukan harga pasar bebas seperti PIHPS."
     },
     {
       "id": "bapanas_dataset",

@@ -63,7 +63,11 @@ def _angka(teks) -> float | None:
 
 
 def _tanggal(kolom: str) -> str | None:
-    m = re.fullmatch(r"\s*(\d{1,2})/(\d{1,2})/(\d{4})\s*", kolom)
+    """Terima 'dd/mm/yyyy' (ekspor UI) maupun 'yyyy-mm-dd' (ekspor API)."""
+    teks = str(kolom).strip()
+    if re.fullmatch(r"\d{4}-\d{2}-\d{2}", teks):
+        return teks
+    m = re.fullmatch(r"(\d{1,2})/(\d{1,2})/(\d{4})", teks)
     if not m:
         return None
     hari, bulan, tahun = m.groups()
@@ -97,22 +101,18 @@ def baca_xlsx(berkas: pathlib.Path) -> list[list[str]]:
             for si in akar.findall("m:si", NS):
                 bersama.append("".join(t.text or "" for t in si.iter(f"{{{NS['m']}}}t")))
 
-        sheet = "xl/worksheets/sheet1.xml"
-        if "xl/workbook.xml" in nama and "xl/_rels/workbook.xml.rels" in nama:
-            wb = ET.fromstring(z.read("xl/workbook.xml"))
-            pertama = wb.find("m:sheets/m:sheet", NS)
-            rid = pertama.get("{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id") if pertama is not None else None
-            rels = ET.fromstring(z.read("xl/_rels/workbook.xml.rels"))
-            for rel in rels:
-                if rel.get("Id") == rid:
-                    target = rel.get("Target", "").lstrip("/")
-                    sheet = target if target.startswith("xl/") else f"xl/{target}"
-
-        if sheet not in nama:
-            kandidat = sorted(n for n in nama if n.startswith("xl/worksheets/sheet"))
-            if not kandidat:
-                raise SystemExit(f"tidak ada worksheet di {berkas.name}")
-            sheet = kandidat[0]
+        # Pilih worksheet dengan isi terbanyak (berkas ekspor sering punya sheet kosong).
+        kandidat = sorted(n for n in nama if n.startswith("xl/worksheets/sheet") and n.endswith(".xml"))
+        if not kandidat:
+            raise SystemExit(f"tidak ada worksheet di {berkas.name}")
+        sheet, terbaik = kandidat[0], -1
+        for calon in kandidat:
+            try:
+                jumlah = len(ET.fromstring(z.read(calon)).findall(".//m:sheetData/m:row", NS))
+            except ET.ParseError:
+                continue
+            if jumlah > terbaik:
+                sheet, terbaik = calon, jumlah
 
         akar = ET.fromstring(z.read(sheet))
         hasil: list[list[str]] = []

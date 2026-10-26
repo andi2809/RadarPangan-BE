@@ -76,3 +76,21 @@ Konsekuensi:
    bukan scraping otomatis. Simpan sebagai snapshot bertanggal + catat di `runs.jsonl`.
 3. Bila ekspor tersedia, cakupan bisa naik dari 9/27 ke seluruh kab/kota dan label Minyakita
    punya dasar data (bukan hanya HET).
+
+
+## 7. Temuan 26 Okt 2026 — SP2KP bisa diotomasi, dan semantik harganya beda
+
+Endpoint aplikasi (bukan Tableau) berhasil dipanggil:
+`POST /report/api/average-price/export-area-daily-excel` (multipart form).
+- `level=1` → agregat provinsi · `level=2` + `kode_kab_kota` → **kab/kota** · `level=3` + `pasar_id` → pasar
+- Hasil 26 Okt: **27/27 kab/kota**, 5 komoditas, termasuk **Minyakita** (Rp15.700)
+
+**Peringatan semantik (penting untuk status):** seri **"Beras Medium"** SP2KP bukan harga pasar bebas.
+Sebaran 26 Okt: **11 dari 27 wilayah persis Rp13.500** (nilai HET), sisanya Rp12.667–14.000.
+Bandingkan dengan PIHPS "Beras Kualitas Medium I" di wilayah yang sama: Rp15.400–16.600
+(median selisih **−14,3%**). Jadi SP2KP beras ≈ **harga program/HET**, PIHPS ≈ **harga pasar**.
+
+Konsekuensi: memakai SP2KP untuk beras akan membuat peta tampak "aman" (mendekati HET),
+sedangkan PIHPS menunjukkan "+15,6% di atas HET". Keduanya benar untuk pertanyaan berbeda.
+Wajib dibedakan lewat field `jenis_harga`: `pasar` (PIHPS) vs `program` (SP2KP beras).
+Untuk cabai/bawang/telur/minyak, selisih median vs PIHPS hanya −6,2% / +0,0% / −1,0%.

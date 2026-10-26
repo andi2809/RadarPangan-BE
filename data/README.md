@@ -148,3 +148,20 @@ varian Minyakita — hanya pada level nasional/provinsi, bukan kab/kota.
 
 Aturan: berkas ini **tidak** dicampur otomatis ke loader PIHPS. Pemakaiannya harus eksplisit
 (analisis atau penambahan layer) agar provenance dua sumber tidak tertukar.
+
+
+---
+
+## 5. `raw/sp2kp_jabar_<start>_<end>.csv` (tarikan otomatis API SP2KP)
+
+| | |
+|---|---|
+| Sumber | SP2KP Kemendag, endpoint `POST /report/api/average-price/export-area-daily-excel` |
+| Pengolah | `pipeline/sp2kp_fetch.py` (`make sp2kp-fetch START=… END=…`) |
+| Level | **kab/kota** (`level=2`), 27 wilayah Jawa Barat |
+| Kolom | `tanggal, wilayah, komoditas, harga_rp, sumber` |
+| Hasil 19–26 Okt 2026 | 810 baris (27 wilayah × 5 komoditas × 6 hari bursa) |
+| Catatan | `skip_sat_sun=true` → Sabtu/Minggu tidak ditarik |
+
+⚠️ **Semantik:** `beras_medium` dari SP2KP mendekati **harga program/HET** (11/27 wilayah persis
+Rp13.500), bukan harga pasar bebas seperti PIHPS. Lihat `PROTOKOL.md` bagian 7.
