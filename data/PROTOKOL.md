@@ -94,3 +94,14 @@ Konsekuensi: memakai SP2KP untuk beras akan membuat peta tampak "aman" (mendekat
 sedangkan PIHPS menunjukkan "+15,6% di atas HET". Keduanya benar untuk pertanyaan berbeda.
 Wajib dibedakan lewat field `jenis_harga`: `pasar` (PIHPS) vs `program` (SP2KP beras).
 Untuk cabai/bawang/telur/minyak, selisih median vs PIHPS hanya −6,2% / +0,0% / −1,0%.
+
+## 8. Uji level pasar SP2KP (26 Okt 2026)
+
+`level=3` + `pasar_id` menerima permintaan, tetapi hasilnya **identik** dengan `level=2`
+(kab/kota). Contoh Pasar Cibinong (`pasar_id=163`, Kab. Bogor), 19–26 Okt:
+beras 12.813 (tetap), cabai 65.000→63.333, bawang 30.333, Minyakita 15.700, telur 26.000 —
+sama persis dengan angka kab/kota.
+
+Kesimpulan: SP2KP **tidak** memberi variasi antar-pasar; satu angka per wilayah per hari.
+Yang bergerak hanya cabai (dan sebagian bawang); beras/telur/minyak menempel angka acuan.
+Untuk "harga pasar" berlapis wilayah, PIHPS tetap satu-satunya sumber yang bergerak (9/27).
