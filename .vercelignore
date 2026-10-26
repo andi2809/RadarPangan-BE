@@ -4,6 +4,5 @@ __pycache__/
 .git/
 deploy/
 fixtures/
-data/
 pipeline/
 tests/
