@@ -69,9 +69,10 @@ Kontrak untuk front end: [`docs/KONTRAK-FE.md`](docs/KONTRAK-FE.md).
   `data/raw/pihps_jabar_*.csv`. Loader menggabungkan **semua** snapshot (tanggal sama: berkas
   terbaru menang).
 - **Pembanding resmi:** SP2KP Kemendag (nasional/provinsi) — `pipeline/rekonsiliasi.py`.
-- **SP2KP kab/kota (Tableau):** dashboard `sp2kp.kemendag.go.id/statistik/tabulasi-harga` punya
+- **SP2KP kab/kota:** dashboard `sp2kp.kemendag.go.id/statistik/tabulasi-harga` dan
+  `/statistik/area` punya
   data per kab/kota + Minyakita, tetapi hanya bisa diakses lewat **ekspor manual** (bukan REST).
-  Impor ekspornya dengan `make sp2kp-import BERKAS=ekspor.csv` → `data/raw/sp2kp_jabar_<tgl>.csv`.
+  Impor ekspornya dengan `make sp2kp-import BERKAS=ekspor.csv` (atau `.xlsx`) → `data/raw/sp2kp_jabar_<tgl>.csv`.
 - **Registry sumber:** [`data/registry.json`](data/registry.json) — tier, granularitas, akses, cakupan.
 - **Jejak tarikan (lineage):** `data/derived/runs.jsonl` — `run_id`, status, jumlah baris, `sha256`.
 - **Protokol pengukuran:** [`data/PROTOKOL.md`](data/PROTOKOL.md) — definisi "harga" per sumber,

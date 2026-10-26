@@ -140,7 +140,7 @@ varian Minyakita — hanya pada level nasional/provinsi, bukan kab/kota.
 | | |
 |---|---|
 | Sumber | SP2KP Kemendag — dashboard **Tabulasi Harga** (`sp2kp.kemendag.go.id/statistik/tabulasi-harga`) |
-| Cara ambil | **ekspor manual** (Tableau: Download → Crosstab → CSV), bukan API |
+| Cara ambil | **ekspor manual** (tombol Download di halaman area/Tableau) — berkas `.csv` maupun `.xlsx` didukung |
 | Pengolah | `pipeline/sp2kp_import.py` (`make sp2kp-import BERKAS=...`) |
 | Kolom | `tanggal, wilayah, komoditas, harga_rp, sumber` |
 | Level | **kabupaten/kota** (termasuk `minyakita`) |

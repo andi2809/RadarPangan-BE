@@ -15,6 +15,9 @@ Keluaran: data/raw/sp2kp_jabar_<tanggal>.csv
 from __future__ import annotations
 
 import argparse
+import re as _re
+import zipfile
+from xml.etree import ElementTree as ET
 import csv
 import pathlib
 import re
@@ -72,11 +75,86 @@ def _wilayah_sah() -> set[str]:
         return {r["nama_wilayah"] for r in csv.DictReader(fh)}
 
 
+NS = {"m": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
+
+
+def _kolom(ref: str) -> int:
+    huruf = _re.match(r"([A-Z]+)", ref or "A").group(1)
+    nilai = 0
+    for ch in huruf:
+        nilai = nilai * 26 + (ord(ch) - 64)
+    return nilai - 1
+
+
+def baca_xlsx(berkas: pathlib.Path) -> list[list[str]]:
+    """Pembaca xlsx minimal (stdlib): sharedStrings + sheet pertama."""
+    with zipfile.ZipFile(berkas) as z:
+        nama = set(z.namelist())
+
+        bersama: list[str] = []
+        if "xl/sharedStrings.xml" in nama:
+            akar = ET.fromstring(z.read("xl/sharedStrings.xml"))
+            for si in akar.findall("m:si", NS):
+                bersama.append("".join(t.text or "" for t in si.iter(f"{{{NS['m']}}}t")))
+
+        sheet = "xl/worksheets/sheet1.xml"
+        if "xl/workbook.xml" in nama and "xl/_rels/workbook.xml.rels" in nama:
+            wb = ET.fromstring(z.read("xl/workbook.xml"))
+            pertama = wb.find("m:sheets/m:sheet", NS)
+            rid = pertama.get("{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id") if pertama is not None else None
+            rels = ET.fromstring(z.read("xl/_rels/workbook.xml.rels"))
+            for rel in rels:
+                if rel.get("Id") == rid:
+                    target = rel.get("Target", "").lstrip("/")
+                    sheet = target if target.startswith("xl/") else f"xl/{target}"
+
+        if sheet not in nama:
+            kandidat = sorted(n for n in nama if n.startswith("xl/worksheets/sheet"))
+            if not kandidat:
+                raise SystemExit(f"tidak ada worksheet di {berkas.name}")
+            sheet = kandidat[0]
+
+        akar = ET.fromstring(z.read(sheet))
+        hasil: list[list[str]] = []
+        for row in akar.findall(".//m:sheetData/m:row", NS):
+            sel: dict[int, str] = {}
+            for c in row.findall("m:c", NS):
+                idx = _kolom(c.get("r", "A1"))
+                tipe = c.get("t")
+                if tipe == "s":
+                    v = c.find("m:v", NS)
+                    sel[idx] = bersama[int(v.text)] if v is not None and v.text else ""
+                elif tipe == "inlineStr":
+                    sel[idx] = "".join(x.text or "" for x in c.iter(f"{{{NS['m']}}}t"))
+                else:
+                    v = c.find("m:v", NS)
+                    sel[idx] = v.text if v is not None and v.text else ""
+            lebar = max(sel) + 1 if sel else 0
+            hasil.append([sel.get(i, "") for i in range(lebar)])
+        return hasil
+
+
 def baca(berkas: pathlib.Path) -> list[dict]:
+    if berkas.suffix.lower() in {".xlsx", ".xlsm"}:
+        return _dari_baris(baca_xlsx(berkas))
+    return _dari_csv(berkas)
+
+
+def _dari_baris(baris: list[list[str]]) -> list[dict]:
+    class _P:
+        pass
+    p = _P(); p.baris = baris
+    return _parse_baris(baris)
+
+
+def _dari_csv(berkas: pathlib.Path) -> list[dict]:
     teks = berkas.read_text(encoding="utf-8-sig", errors="replace")
     contoh = teks[:2000].replace(";", ",")
     pembaca = csv.Sniffer().sniff(contoh, delimiters=",;\t") if "," in contoh or ";" in contoh else csv.excel
-    baris = list(csv.reader(teks.splitlines(), pembaca))
+    return _parse_baris(list(csv.reader(teks.splitlines(), pembaca)))
+
+
+def _parse_baris(baris: list[list[str]]) -> list[dict]:
     if not baris:
         return []
 
@@ -118,8 +196,8 @@ def main() -> int:
     berkas = pathlib.Path(args.berkas).expanduser()
     if not berkas.is_file():
         raise SystemExit(f"berkas tidak ada: {berkas}")
-    if berkas.suffix.lower() in {".xlsx", ".xls"}:
-        raise SystemExit("Simpan ekspor sebagai CSV dulu (Tableau: Download → Crosstab → CSV).")
+    if berkas.suffix.lower() == ".xls":
+        raise SystemExit("Format .xls lama belum didukung — simpan ulang sebagai .xlsx atau CSV.")
 
     ctx = None if args.keluar else runlog.mulai("sp2kp_kemendag")
     data = baca(berkas)

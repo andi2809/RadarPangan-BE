@@ -9,7 +9,7 @@ help:
 	@echo "make integrity     # uji integritas data saja"
 	@echo "make fetch         # tarik PIHPS hari ini (START/END bisa di-override)"
 	@echo "make rekonsiliasi  # bandingkan PIHPS vs SP2KP (TANGGAL=YYYY-MM-DD)"
-	@echo "make sp2kp-import BERKAS=ekspor.csv  # impor ekspor Tableau SP2KP"
+	@echo "make sp2kp-import BERKAS=ekspor.csv|xlsx  # impor ekspor SP2KP (CSV/XLSX)"
 	@echo "make backtest      # backtest ambang EWS"
 	@echo "make exports       # regenerasi openapi.json + fixtures"
 	@echo "make deploy        # deploy ke Vercel produksi"
