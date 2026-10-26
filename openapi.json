@@ -259,7 +259,7 @@
           "Laporan Warga"
         ],
         "summary": "Get Laporan Sekitar",
-        "description": "Mengambil riwayat laporan warga dalam radius geografis tertentu untuk audit konsensus.",
+        "description": "Riwayat laporan warga dalam radius tertentu (nyata dari pengguna, bukan simulasi).",
         "operationId": "get_laporan_sekitar_api_v1_laporan_warga_sekitar_get",
         "parameters": [
           {
@@ -391,6 +391,28 @@
         "summary": "Get Sumber",
         "description": "Registry sumber + run terakhir + status kesegaran.",
         "operationId": "get_sumber_api_v1_meta_sumber_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnvelopeResponse_Dict_str__Any__"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/meta/disparitas": {
+      "get": {
+        "tags": [
+          "Metadata"
+        ],
+        "summary": "Get Disparitas",
+        "description": "Sebaran harga antarwilayah per hari — sinyal alternatif saat level harga datar.",
+        "operationId": "get_disparitas_api_v1_meta_disparitas_get",
         "responses": {
           "200": {
             "description": "Successful Response",

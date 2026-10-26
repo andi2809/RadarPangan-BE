@@ -32,6 +32,7 @@ bila request gagal / cold start.
 | GET | `/api/v1/meta/sumber` | registry sumber + kesegaran + run terakhir |
 | GET | `/api/v1/meta/konsistensi` | rekonsiliasi PIHPS vs SP2KP (per komoditas) |
 | GET | `/api/v1/meta/backtest` | presisi/recall/jeda deteksi ambang EWS |
+| GET | `/api/v1/meta/disparitas` | sebaran harga antarwilayah per hari |
 | GET | `/` | info layanan (redirect ke `/docs`) |
 | POST | `/api/v1/ai/briefing` | AI Policy Advisor (butuh `GEMINI_API_KEY` di server) |
 
@@ -96,8 +97,10 @@ Semua respons GET memakai amplop `{ ok, data, meta }`.
 | `statusKonsensus` | `klaster.status` (`belum_terverifikasi`/`sedang_berjalan`/`terverifikasi`) |
 | `lat`, `lng` | `laporan[].jarak_m` + `pusat_pencarian` |
 
-Endpoint ini **simulasi** — `meta.mode_data = "demo"` dan `meta.peringatan_kualitas` memuat
-`LAPORAN_WARGA_SIMULASI`. Jangan ditampilkan seolah data warga sungguhan.
+Endpoint ini **tidak lagi disimulasikan**. Daftar kosong sampai ada pengiriman nyata
+(`peringatan_kualitas` memuat `BELUM_ADA_LAPORAN`), dan penyimpanan masih in-memory
+(`LAPORAN_WARGA_PENYIMPANAN_SEMENTARA`) sehingga hilang saat layanan restart.
+Tampilkan apa adanya — jangan mengisi angka contoh.
 
 ## 4. Dua cara menyambung (pilih satu)
 

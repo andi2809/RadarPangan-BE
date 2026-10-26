@@ -136,3 +136,15 @@ benar-benar bervariasi. Untuk beras & minyak, SP2KP datar pada level **dan** seb
 `sumber` + `jenis_harga` (`pasar`|`acuan`) — termasuk item `tidak_ada_data`.
 Pemetaan `jenis_harga`: PIHPS selalu `pasar`; SP2KP `pasar` hanya untuk cabai & bawang,
 selain itu `acuan`. Ini mencegah UI mencampur harga pasar dengan angka acuan.
+
+
+## 11. Laporan warga: dari simulasi ke nyata (26 Okt 2026)
+
+Data laporan warga yang sebelumnya diisi contoh **dihapus**. Endpoint
+`/api/v1/laporan-warga/sekitar` kini:
+- mengembalikan daftar kosong sampai ada kiriman nyata, dengan `BELUM_ADA_LAPORAN`;
+- memfilter berdasarkan radius (haversine), bukan menampilkan semua;
+- menandai `LAPORAN_WARGA_PENYIMPANAN_SEMENTARA` (in-memory, hilang saat restart).
+
+Konsekuensi untuk UI/demo: jangan menampilkan "jumlah laporan terverifikasi" apa pun
+sebelum pengguna benar-benar mengirim.

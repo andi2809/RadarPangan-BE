@@ -7,44 +7,17 @@ router = APIRouter(prefix="/api/v1/laporan-warga", tags=["Laporan Warga"])
 
 
 def _meta_laporan():
-    """Laporan warga masih simulasi — ditandai eksplisit, tanggal ikut snapshot terakhir."""
+    """Laporan warga dari pengguna nyata; penyimpanan masih in-memory (hilang saat restart)."""
     dasar = harga_service.meta_terkini(sumber=["Laporan Warga (simulasi)", "PIHPS BI"])
     return dasar.model_copy(
         update={
             "mode_data": "demo",
-            "peringatan_kualitas": dasar.peringatan_kualitas + ["LAPORAN_WARGA_SIMULASI"],
+            "peringatan_kualitas": dasar.peringatan_kualitas + ["LAPORAN_WARGA_PENYIMPANAN_SEMENTARA"],
         }
     )
 
 # In-memory mock store
-REPORTS_DB = [
-    {
-        "id": "rep-bdg-01",
-        "region_id": "32.73",
-        "region_name": "Kota Bandung",
-        "commodity_id": "cabai_rawit_merah",
-        "harga_rp": 51500,
-        "nama_pasar": "Pasar Induk Caringin",
-        "lat": -6.9421,
-        "lng": 107.5758,
-        "verified": True,
-        "status_konsensus": "VERIFIED_SPIKE",
-        "created_at": "2026-10-23T07:15:00Z"
-    },
-    {
-        "id": "rep-bks-01",
-        "region_id": "32.75",
-        "region_name": "Kota Bekasi",
-        "commodity_id": "bawang_merah",
-        "harga_rp": 36000,
-        "nama_pasar": "Pasar Kranji",
-        "lat": -6.2285,
-        "lng": 106.9782,
-        "verified": True,
-        "status_konsensus": "VERIFIED_SPIKE",
-        "created_at": "2026-10-23T08:30:00Z"
-    }
-]
+REPORTS_DB: list[dict] = []  # kosong: laporan warga harus datang dari pengguna nyata
 
 @router.get("/sekitar", response_model=EnvelopeResponse[List[dict]])
 async def get_laporan_sekitar(
@@ -52,8 +25,27 @@ async def get_laporan_sekitar(
     lng: float = Query(107.6191, description="Longitude GPS pelapor"),
     radius_km: float = Query(3.0, description="Radius klaster konsensus")
 ):
-    """Mengambil riwayat laporan warga dalam radius geografis tertentu untuk audit konsensus."""
-    return EnvelopeResponse(data=REPORTS_DB, meta=_meta_laporan())
+    """Riwayat laporan warga dalam radius tertentu (nyata dari pengguna, bukan simulasi)."""
+
+    def jarak_km(lat2: float, lng2: float) -> float:
+        from math import asin, cos, radians, sin, sqrt
+
+        dlat = radians(lat2 - lat)
+        dlng = radians(lng2 - lng)
+        a = sin(dlat / 2) ** 2 + cos(radians(lat)) * cos(radians(lat2)) * sin(dlng / 2) ** 2
+        return 2 * 6371 * asin(sqrt(a))
+
+    sekitar = [
+        {**r, "jarak_km": round(jarak_km(r["lat"], r["lng"]), 2)}
+        for r in REPORTS_DB
+        if jarak_km(r["lat"], r["lng"]) <= radius_km
+    ]
+    meta = _meta_laporan()
+    if not sekitar:
+        meta = meta.model_copy(update={
+            "peringatan_kualitas": meta.peringatan_kualitas + ["BELUM_ADA_LAPORAN"]
+        })
+    return EnvelopeResponse(data=sekitar, meta=meta)
 
 @router.post("", response_model=EnvelopeResponse[dict])
 async def submit_laporan_warga(

@@ -93,6 +93,21 @@ async def get_sumber():
     )
 
 
+@router.get("/disparitas", response_model=EnvelopeResponse[Dict[str, Any]])
+async def get_disparitas():
+    """Sebaran harga antarwilayah per hari — sinyal alternatif saat level harga datar."""
+    berkas = DERIVED / "disparitas.json"
+    if not berkas.is_file():
+        return EnvelopeResponse(
+            data={"tersedia": False, "catatan": "belum ada hasil disparitas"},
+            meta=harga_service.meta_terkini(),
+        )
+    return EnvelopeResponse(
+        data={"tersedia": True, "berkas": berkas.name, **_baca_json(berkas, {})},
+        meta=harga_service.meta_terkini(),
+    )
+
+
 @router.get("/backtest", response_model=EnvelopeResponse[Dict[str, Any]])
 async def get_backtest():
     """Hasil backtest EWS terbaru (kinerja ambang, bukan klaim akurasi)."""

@@ -45,3 +45,34 @@ def test_sp2kp_minyakita_ada_dan_acuan():
     berharga = [i for i in data if i["harga_aktual_rp"]]
     assert berharga, "SP2KP menyediakan Minyakita"
     assert all(i["jenis_harga"] == "acuan" for i in berharga)
+
+
+def test_laporan_warga_kosong_dan_jujur():
+    """Data laporan warga tidak boleh disimulasikan."""
+    # koordinat jauh dari laporan mana pun -> harus kosong (tidak bergantung urutan tes)
+    r = klien.get("/api/v1/laporan-warga/sekitar?lat=-8.5000&lng=112.0000&radius_km=3")
+    assert r.status_code == 200
+    body = r.json()
+    assert body["data"] == [], "tidak boleh ada laporan karangan"
+    peringatan = body["meta"]["peringatan_kualitas"]
+    assert "BELUM_ADA_LAPORAN" in peringatan
+    assert "LAPORAN_WARGA_SIMULASI" not in peringatan
+
+
+def test_laporan_warga_masuk_setelah_dikirim():
+    klien.post("/api/v1/laporan-warga", json={
+        "region_id": "32.73", "commodity_id": "beras_medium", "harga_rp": 15000,
+        "lat": -6.9175, "lng": 107.6191,
+    })
+    r = klien.get("/api/v1/laporan-warga/sekitar?lat=-6.9175&lng=107.6191&radius_km=3")
+    assert len(r.json()["data"]) >= 1
+
+
+def test_disparitas_tersedia():
+    r = klien.get("/api/v1/meta/disparitas")
+    assert r.status_code == 200
+    data = r.json()["data"]
+    assert data["tersedia"] is True
+    assert "pihps" in data and "sp2kp" in data
+    assert data["sp2kp"]["komoditas"]["beras_medium"]["bergerak"] is False
+    assert data["pihps"]["komoditas"]["beras_medium"]["bergerak"] is True

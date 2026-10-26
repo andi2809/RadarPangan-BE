@@ -1,36 +1,9 @@
 {
   "ok": true,
-  "data": [
-    {
-      "id": "rep-bdg-01",
-      "region_id": "32.73",
-      "region_name": "Kota Bandung",
-      "commodity_id": "cabai_rawit_merah",
-      "harga_rp": 51500,
-      "nama_pasar": "Pasar Induk Caringin",
-      "lat": -6.9421,
-      "lng": 107.5758,
-      "verified": true,
-      "status_konsensus": "VERIFIED_SPIKE",
-      "created_at": "2026-10-23T07:15:00Z"
-    },
-    {
-      "id": "rep-bks-01",
-      "region_id": "32.75",
-      "region_name": "Kota Bekasi",
-      "commodity_id": "bawang_merah",
-      "harga_rp": 36000,
-      "nama_pasar": "Pasar Kranji",
-      "lat": -6.2285,
-      "lng": 106.9782,
-      "verified": true,
-      "status_konsensus": "VERIFIED_SPIKE",
-      "created_at": "2026-10-23T08:30:00Z"
-    }
-  ],
+  "data": [],
   "meta": {
     "tanggal_data": "2026-10-26",
-    "diperbarui_pada": "2026-10-26T08:31:33.566806+00:00",
+    "diperbarui_pada": "2026-10-26T08:34:46.437394+00:00",
     "sumber": [
       "Laporan Warga (simulasi)",
       "PIHPS BI"
@@ -40,7 +13,8 @@
     "peringatan_kualitas": [
       "DATA_PIHPS_SNAPSHOT",
       "CAKUPAN_SEBAGIAN_9_DARI_27_WILAYAH",
-      "LAPORAN_WARGA_SIMULASI"
+      "LAPORAN_WARGA_PENYIMPANAN_SEMENTARA",
+      "BELUM_ADA_LAPORAN"
     ]
   }
 }

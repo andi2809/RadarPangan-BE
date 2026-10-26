@@ -51,12 +51,13 @@ Amplop respons seragam `{ ok, data, meta }`. `meta` selalu memuat `tanggal_data`
 | GET | `/api/v1/wilayah` | 27 kab/kota (kode Kemendagri + BPS) |
 | GET | `/api/v1/wilayah/{kode}/ringkasan` | detail wilayah + histori 14 hari + prakiraan H+7 |
 | GET | `/api/v1/peta/status` | status harga + skor EWS 27 wilayah (`layer=aktual\|h7`, `sumber=pihps\|sp2kp`) |
-| GET | `/api/v1/laporan-warga/sekitar` | laporan warga di sekitar titik (simulasi) |
+| GET | `/api/v1/laporan-warga/sekitar` | laporan warga di sekitar titik (kosong sampai ada kiriman nyata) |
 | POST | `/api/v1/laporan-warga` | kirim laporan warga |
 | GET | `/api/v1/publik/ringkasan-landing` | ringkasan landing, dihitung dari data nyata |
 | GET | `/api/v1/meta/sumber` | registry sumber + run terakhir + kesegaran |
 | GET | `/api/v1/meta/konsistensi` | rekonsiliasi lintas sumber |
 | GET | `/api/v1/meta/backtest` | hasil backtest ambang EWS |
+| GET | `/api/v1/meta/disparitas` | sebaran harga antarwilayah per hari (PIHPS & SP2KP) |
 | GET | `/openapi.json` · `/docs` | skema & Swagger UI |
 
 Kontrak untuk front end: [`docs/KONTRAK-FE.md`](docs/KONTRAK-FE.md).
