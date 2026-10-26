@@ -19,7 +19,7 @@
       "id": "sp2kp_kemendag",
       "nama": "SP2KP Kementerian Perdagangan",
       "url": "https://api-sp2kp.kemendag.go.id",
-      "adapter": "pipeline/rekonsiliasi.py",
+      "adapter": "pipeline/rekonsiliasi.py + pipeline/sp2kp_import.py",
       "tier": "kabkota (lewat Tableau) + provinsi/nasional (JSON API)",
       "granularitas": "kab/kota via dashboard Tableau; nasional/provinsi via JSON API",
       "frekuensi": "harian",

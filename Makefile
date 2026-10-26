@@ -2,13 +2,14 @@
 PY ?= .venv/bin/python
 TANGGAL ?= $(shell date +%F)
 
-.PHONY: help test integrity fetch rekonsiliasi backtest exports deploy semua
+.PHONY: help test integrity fetch rekonsiliasi sp2kp-import backtest exports deploy semua
 
 help:
 	@echo "make test          # seluruh uji (pytest)"
 	@echo "make integrity     # uji integritas data saja"
 	@echo "make fetch         # tarik PIHPS hari ini (START/END bisa di-override)"
 	@echo "make rekonsiliasi  # bandingkan PIHPS vs SP2KP (TANGGAL=YYYY-MM-DD)"
+	@echo "make sp2kp-import BERKAS=ekspor.csv  # impor ekspor Tableau SP2KP"
 	@echo "make backtest      # backtest ambang EWS"
 	@echo "make exports       # regenerasi openapi.json + fixtures"
 	@echo "make deploy        # deploy ke Vercel produksi"
@@ -27,6 +28,9 @@ fetch:
 
 rekonsiliasi:
 	$(PY) pipeline/rekonsiliasi.py --tanggal $(TANGGAL)
+
+sp2kp-import:
+	$(PY) pipeline/sp2kp_import.py --berkas $(BERKAS)
 
 backtest:
 	$(PY) pipeline/backtest.py

@@ -131,3 +131,20 @@ Curah `16` → 19.494 · **Minyakita `18` → 15.844** (HET resmi **Rp15.700**, 
 **Koreksi catatan sebelumnya:** "Minyakita tidak ada di sumber mana pun" tidak tepat.
 PIHPS BI dan Panel Harga Bapanas tidak memisahkannya, tetapi **Kemendag (SP2KP) punya**
 varian Minyakita — hanya pada level nasional/provinsi, bukan kab/kota.
+
+
+---
+
+## 4. `raw/sp2kp_jabar_<tanggal>.csv` (impor ekspor Tableau)
+
+| | |
+|---|---|
+| Sumber | SP2KP Kemendag — dashboard **Tabulasi Harga** (`sp2kp.kemendag.go.id/statistik/tabulasi-harga`) |
+| Cara ambil | **ekspor manual** (Tableau: Download → Crosstab → CSV), bukan API |
+| Pengolah | `pipeline/sp2kp_import.py` (`make sp2kp-import BERKAS=...`) |
+| Kolom | `tanggal, wilayah, komoditas, harga_rp, sumber` |
+| Level | **kabupaten/kota** (termasuk `minyakita`) |
+| Catatan | token publik Tableau bukan PAT → REST signin ditolak; jangan scraping |
+
+Aturan: berkas ini **tidak** dicampur otomatis ke loader PIHPS. Pemakaiannya harus eksplisit
+(analisis atau penambahan layer) agar provenance dua sumber tidak tertukar.

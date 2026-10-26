@@ -69,6 +69,9 @@ Kontrak untuk front end: [`docs/KONTRAK-FE.md`](docs/KONTRAK-FE.md).
   `data/raw/pihps_jabar_*.csv`. Loader menggabungkan **semua** snapshot (tanggal sama: berkas
   terbaru menang).
 - **Pembanding resmi:** SP2KP Kemendag (nasional/provinsi) — `pipeline/rekonsiliasi.py`.
+- **SP2KP kab/kota (Tableau):** dashboard `sp2kp.kemendag.go.id/statistik/tabulasi-harga` punya
+  data per kab/kota + Minyakita, tetapi hanya bisa diakses lewat **ekspor manual** (bukan REST).
+  Impor ekspornya dengan `make sp2kp-import BERKAS=ekspor.csv` → `data/raw/sp2kp_jabar_<tgl>.csv`.
 - **Registry sumber:** [`data/registry.json`](data/registry.json) — tier, granularitas, akses, cakupan.
 - **Jejak tarikan (lineage):** `data/derived/runs.jsonl` — `run_id`, status, jumlah baris, `sha256`.
 - **Protokol pengukuran:** [`data/PROTOKOL.md`](data/PROTOKOL.md) — definisi "harga" per sumber,
@@ -133,7 +136,7 @@ Tiga jebakan yang pernah terjadi:
 ```
 app/            FastAPI — routers, schemas, services/harga.py
 api/index.py    entrypoint Vercel
-pipeline/       pihps_fetch · rekonsiliasi · backtest · agreement · runlog
+pipeline/       pihps_fetch · sp2kp_import · rekonsiliasi · backtest · agreement · runlog
 data/           raw snapshot · referensi · derived · registry.json · PROTOKOL.md
 docs/           KONTRAK-FE.md
 scripts/        export_openapi.py
