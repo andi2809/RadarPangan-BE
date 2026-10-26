@@ -93,3 +93,22 @@ Angka **identik** untuk ketiga id → sumber melaporkan satu seri minyak lalu me
 **Konsekuensi:** Minyakita tidak dapat dipisahkan dari data PIHPS; label "Minyakita" pada
 API/FE tidak didukung sumber, terlebih harga 23.400 jauh di atas HET Minyakita 15.700.
 Keputusan penamaan (id & label) menunggu tim.
+
+### Sumber pembanding: SP2KP Kemendag (diuji 26 Okt 2026)
+
+`https://api-sp2kp.kemendag.go.id` — **terbuka tanpa API key**, harian.
+Granularitas: **nasional (HNT) + provinsi**, bukan kab/kota.
+
+| Endpoint | Isi |
+|---|---|
+| `/report/api/hnt?tanggal=YYYY-MM-DD` | HNT semua komoditas pada satu tanggal |
+| `/report/api/average-price/province-comparison?tanggal=…&variant_id=…` | harga per provinsi |
+| `/report/api/het-ha/latest?variant_id=…` | HET/HA resmi |
+
+Varian yang relevan (HNT 26 Okt 2026): Beras Medium `52` → 13.999 · Cabai Rawit Merah `10`
+→ 77.108 · Bawang Merah `13` → 32.959 · Telur Ayam Ras `25` → 26.571 · Minyak Goreng Sawit
+Curah `16` → 19.494 · **Minyakita `18` → 15.844** (HET resmi **Rp15.700**, berlaku 2025-07-01).
+
+**Koreksi catatan sebelumnya:** "Minyakita tidak ada di sumber mana pun" tidak tepat.
+PIHPS BI dan Panel Harga Bapanas tidak memisahkannya, tetapi **Kemendag (SP2KP) punya**
+varian Minyakita — hanya pada level nasional/provinsi, bukan kab/kota.
