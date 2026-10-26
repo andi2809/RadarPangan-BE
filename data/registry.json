@@ -66,6 +66,19 @@
       "cakupan_jabar": "27",
       "komoditas": null,
       "catatan": "bukan harga retail harian"
+    },
+    {
+      "id": "tepas_jabar",
+      "nama": "TEPAS — Dashboard Pangan Jawa Barat",
+      "url": "https://tepas.jabarprov.go.id/id/dashboard-static/pangan",
+      "adapter": null,
+      "tier": "belum diketahui",
+      "granularitas": "belum diketahui",
+      "frekuensi": "belum diketahui",
+      "akses": "terbuka di browser, TAPI diblokir Cloudflare/JabarCloud dari VM (403)",
+      "cakupan_jabar": "belum diverifikasi",
+      "komoditas": null,
+      "catatan": "26 Okt: seluruh rute (termasuk /api/*) 403 'Under Attack'; tidak ada arsip Wayback. Perlu tangkapan Network dari browser pengguna sebelum dipakai. Dugaan: dashboard statis (hanya harga terkini), tanpa histori."
     }
   ]
 }
