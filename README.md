@@ -100,6 +100,7 @@ Kontrak untuk front end: [`docs/KONTRAK-FE.md`](docs/KONTRAK-FE.md).
 | `pipeline/disparitas.py` → `data/derived/disparitas.json` | sebaran harga antarwilayah per hari (sinyal alternatif) |
 | [`docs/HASIL_BACKTEST_EWS.md`](docs/HASIL_BACKTEST_EWS.md) | laporan naratif + tabel hasil |
 | [`docs/STRATEGI_SUMBER_DATA.md`](docs/STRATEGI_SUMBER_DATA.md) | strategi federasi sumber + lineage |
+| [`docs/KESIMPULAN_METODOLOGI.md`](docs/KESIMPULAN_METODOLOGI.md) | kesimpulan metodologi + lima perubahan implementasi |
 
 Setiap baris `/peta/status` kini membawa `sumber` dan `jenis_harga` (`pasar`|`acuan`):
 PIHPS = `pasar` (9/27 wilayah berisi); SP2KP = 27/27, tetapi beras/telur/minyakita ditandai

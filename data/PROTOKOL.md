@@ -148,3 +148,11 @@ Data laporan warga yang sebelumnya diisi contoh **dihapus**. Endpoint
 
 Konsekuensi untuk UI/demo: jangan menampilkan "jumlah laporan terverifikasi" apa pun
 sebelum pengguna benar-benar mengirim.
+
+
+## 12. Rujukan kesimpulan metodologi
+
+Ringkasan lengkap (tiga kesimpulan besar, fakta terverifikasi, lima perubahan implementasi, dan
+daftar yang **tidak** akan dilakukan) ada di [`../docs/KESIMPULAN_METODOLOGI.md`](../docs/KESIMPULAN_METODOLOGI.md).
+Dokumen itu menjadi dasar keputusan implementasi berikutnya dan wajib diperbarui bila ada temuan
+baru yang mengubah kesimpulan.
