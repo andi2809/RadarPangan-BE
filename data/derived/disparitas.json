@@ -1,0 +1,5127 @@
+{
+  "sp2kp": {
+    "berkas": "sp2kp_jabar_2026-10-19_2026-10-26.csv",
+    "komoditas": {
+      "bawang_merah": {
+        "n_hari": 6,
+        "sebaran_median_persen": 42.86,
+        "sebaran_min_persen": 42.86,
+        "sebaran_max_persen": 72.53,
+        "bergerak": true,
+        "harian": [
+          {
+            "tanggal": "2026-10-19",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Garut",
+              "harga_rp": 25000
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 38000
+            },
+            "median_rp": 30333,
+            "sebaran_rp": 13000,
+            "sebaran_persen": 42.86
+          },
+          {
+            "tanggal": "2026-10-20",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Garut",
+              "harga_rp": 25000
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 38000
+            },
+            "median_rp": 30333,
+            "sebaran_rp": 13000,
+            "sebaran_persen": 42.86
+          },
+          {
+            "tanggal": "2026-10-21",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Garut",
+              "harga_rp": 25000
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 38000
+            },
+            "median_rp": 30000,
+            "sebaran_rp": 13000,
+            "sebaran_persen": 43.33
+          },
+          {
+            "tanggal": "2026-10-22",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Garut",
+              "harga_rp": 25000
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 38000
+            },
+            "median_rp": 30333,
+            "sebaran_rp": 13000,
+            "sebaran_persen": 42.86
+          },
+          {
+            "tanggal": "2026-10-23",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Garut",
+              "harga_rp": 25000
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 38000
+            },
+            "median_rp": 30333,
+            "sebaran_rp": 13000,
+            "sebaran_persen": 42.86
+          },
+          {
+            "tanggal": "2026-10-26",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Garut",
+              "harga_rp": 25000
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Ciamis",
+              "harga_rp": 47000
+            },
+            "median_rp": 30333,
+            "sebaran_rp": 22000,
+            "sebaran_persen": 72.53
+          }
+        ]
+      },
+      "beras_medium": {
+        "n_hari": 6,
+        "sebaran_median_persen": 10.02,
+        "sebaran_min_persen": 10.02,
+        "sebaran_max_persen": 10.02,
+        "bergerak": false,
+        "harian": [
+          {
+            "tanggal": "2026-10-19",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 12667
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Ciamis",
+              "harga_rp": 14000
+            },
+            "median_rp": 13300,
+            "sebaran_rp": 1333,
+            "sebaran_persen": 10.02
+          },
+          {
+            "tanggal": "2026-10-20",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 12667
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Ciamis",
+              "harga_rp": 14000
+            },
+            "median_rp": 13300,
+            "sebaran_rp": 1333,
+            "sebaran_persen": 10.02
+          },
+          {
+            "tanggal": "2026-10-21",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 12667
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Ciamis",
+              "harga_rp": 14000
+            },
+            "median_rp": 13300,
+            "sebaran_rp": 1333,
+            "sebaran_persen": 10.02
+          },
+          {
+            "tanggal": "2026-10-22",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 12667
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Ciamis",
+              "harga_rp": 14000
+            },
+            "median_rp": 13300,
+            "sebaran_rp": 1333,
+            "sebaran_persen": 10.02
+          },
+          {
+            "tanggal": "2026-10-23",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 12667
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Ciamis",
+              "harga_rp": 14000
+            },
+            "median_rp": 13300,
+            "sebaran_rp": 1333,
+            "sebaran_persen": 10.02
+          },
+          {
+            "tanggal": "2026-10-26",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 12667
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Ciamis",
+              "harga_rp": 14000
+            },
+            "median_rp": 13300,
+            "sebaran_rp": 1333,
+            "sebaran_persen": 10.02
+          }
+        ]
+      },
+      "cabai_rawit_merah": {
+        "n_hari": 6,
+        "sebaran_median_persen": 50.0,
+        "sebaran_min_persen": 48.28,
+        "sebaran_max_persen": 50.0,
+        "bergerak": true,
+        "harian": [
+          {
+            "tanggal": "2026-10-19",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Bandung Barat",
+              "harga_rp": 55000
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 90000
+            },
+            "median_rp": 70000,
+            "sebaran_rp": 35000,
+            "sebaran_persen": 50.0
+          },
+          {
+            "tanggal": "2026-10-20",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Bandung Barat",
+              "harga_rp": 55000
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 90000
+            },
+            "median_rp": 70000,
+            "sebaran_rp": 35000,
+            "sebaran_persen": 50.0
+          },
+          {
+            "tanggal": "2026-10-21",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Bandung Barat",
+              "harga_rp": 55000
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Majalengka",
+              "harga_rp": 90000
+            },
+            "median_rp": 70000,
+            "sebaran_rp": 35000,
+            "sebaran_persen": 50.0
+          },
+          {
+            "tanggal": "2026-10-22",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Bandung Barat",
+              "harga_rp": 55000
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Majalengka",
+              "harga_rp": 90000
+            },
+            "median_rp": 70000,
+            "sebaran_rp": 35000,
+            "sebaran_persen": 50.0
+          },
+          {
+            "tanggal": "2026-10-23",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Bandung Barat",
+              "harga_rp": 55000
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Majalengka",
+              "harga_rp": 90000
+            },
+            "median_rp": 72500,
+            "sebaran_rp": 35000,
+            "sebaran_persen": 48.28
+          },
+          {
+            "tanggal": "2026-10-26",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Bandung Barat",
+              "harga_rp": 55000
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Majalengka",
+              "harga_rp": 90000
+            },
+            "median_rp": 70000,
+            "sebaran_rp": 35000,
+            "sebaran_persen": 50.0
+          }
+        ]
+      },
+      "minyakita": {
+        "n_hari": 6,
+        "sebaran_median_persen": 0.0,
+        "sebaran_min_persen": 0.0,
+        "sebaran_max_persen": 0.0,
+        "bergerak": false,
+        "harian": [
+          {
+            "tanggal": "2026-10-19",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Bandung",
+              "harga_rp": 15700
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Bandung",
+              "harga_rp": 15700
+            },
+            "median_rp": 15700,
+            "sebaran_rp": 0,
+            "sebaran_persen": 0.0
+          },
+          {
+            "tanggal": "2026-10-20",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Bandung",
+              "harga_rp": 15700
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Bandung",
+              "harga_rp": 15700
+            },
+            "median_rp": 15700,
+            "sebaran_rp": 0,
+            "sebaran_persen": 0.0
+          },
+          {
+            "tanggal": "2026-10-21",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Bandung",
+              "harga_rp": 15700
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Bandung",
+              "harga_rp": 15700
+            },
+            "median_rp": 15700,
+            "sebaran_rp": 0,
+            "sebaran_persen": 0.0
+          },
+          {
+            "tanggal": "2026-10-22",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Bandung",
+              "harga_rp": 15700
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Bandung",
+              "harga_rp": 15700
+            },
+            "median_rp": 15700,
+            "sebaran_rp": 0,
+            "sebaran_persen": 0.0
+          },
+          {
+            "tanggal": "2026-10-23",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Bandung",
+              "harga_rp": 15700
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Bandung",
+              "harga_rp": 15700
+            },
+            "median_rp": 15700,
+            "sebaran_rp": 0,
+            "sebaran_persen": 0.0
+          },
+          {
+            "tanggal": "2026-10-26",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Bandung",
+              "harga_rp": 15700
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Bandung",
+              "harga_rp": 15700
+            },
+            "median_rp": 15700,
+            "sebaran_rp": 0,
+            "sebaran_persen": 0.0
+          }
+        ]
+      },
+      "telur_ayam_ras": {
+        "n_hari": 6,
+        "sebaran_median_persen": 13.46,
+        "sebaran_min_persen": 12.82,
+        "sebaran_max_persen": 13.55,
+        "bergerak": false,
+        "harian": [
+          {
+            "tanggal": "2026-10-19",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Bandung",
+              "harga_rp": 24000
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Cianjur",
+              "harga_rp": 27333
+            },
+            "median_rp": 26000,
+            "sebaran_rp": 3333,
+            "sebaran_persen": 12.82
+          },
+          {
+            "tanggal": "2026-10-20",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Bandung",
+              "harga_rp": 24000
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Cianjur",
+              "harga_rp": 27333
+            },
+            "median_rp": 26000,
+            "sebaran_rp": 3333,
+            "sebaran_persen": 12.82
+          },
+          {
+            "tanggal": "2026-10-21",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kota Cirebon",
+              "harga_rp": 23500
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Purwakarta",
+              "harga_rp": 27000
+            },
+            "median_rp": 26000,
+            "sebaran_rp": 3500,
+            "sebaran_persen": 13.46
+          },
+          {
+            "tanggal": "2026-10-22",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kota Cirebon",
+              "harga_rp": 23500
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Purwakarta",
+              "harga_rp": 27000
+            },
+            "median_rp": 26000,
+            "sebaran_rp": 3500,
+            "sebaran_persen": 13.46
+          },
+          {
+            "tanggal": "2026-10-23",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Bandung",
+              "harga_rp": 23500
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Purwakarta",
+              "harga_rp": 27000
+            },
+            "median_rp": 26000,
+            "sebaran_rp": 3500,
+            "sebaran_persen": 13.46
+          },
+          {
+            "tanggal": "2026-10-26",
+            "n_wilayah": 27,
+            "terendah": {
+              "wilayah": "Kab. Bandung",
+              "harga_rp": 23500
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Purwakarta",
+              "harga_rp": 27000
+            },
+            "median_rp": 25833,
+            "sebaran_rp": 3500,
+            "sebaran_persen": 13.55
+          }
+        ]
+      }
+    }
+  },
+  "pihps": {
+    "berkas": "pihps (gabungan snapshot)",
+    "komoditas": {
+      "bawang_merah": {
+        "n_hari": 61,
+        "sebaran_median_persen": 40.0,
+        "sebaran_min_persen": 6.67,
+        "sebaran_max_persen": 52.42,
+        "bergerak": true,
+        "harian": [
+          {
+            "tanggal": "2026-08-03",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 31000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 45000
+            },
+            "median_rp": 35000,
+            "sebaran_rp": 14000,
+            "sebaran_persen": 40.0
+          },
+          {
+            "tanggal": "2026-08-04",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 31000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 45000
+            },
+            "median_rp": 35000,
+            "sebaran_rp": 14000,
+            "sebaran_persen": 40.0
+          },
+          {
+            "tanggal": "2026-08-05",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 31000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 45000
+            },
+            "median_rp": 35000,
+            "sebaran_rp": 14000,
+            "sebaran_persen": 40.0
+          },
+          {
+            "tanggal": "2026-08-06",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 31000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 45000
+            },
+            "median_rp": 35000,
+            "sebaran_rp": 14000,
+            "sebaran_persen": 40.0
+          },
+          {
+            "tanggal": "2026-08-07",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 31000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 45000
+            },
+            "median_rp": 35000,
+            "sebaran_rp": 14000,
+            "sebaran_persen": 40.0
+          },
+          {
+            "tanggal": "2026-08-10",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Cirebon",
+              "harga_rp": 30000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 45000
+            },
+            "median_rp": 34250,
+            "sebaran_rp": 15000,
+            "sebaran_persen": 43.8
+          },
+          {
+            "tanggal": "2026-08-11",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Cirebon",
+              "harga_rp": 30500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 45000
+            },
+            "median_rp": 35250,
+            "sebaran_rp": 14500,
+            "sebaran_persen": 41.13
+          },
+          {
+            "tanggal": "2026-08-12",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Cirebon",
+              "harga_rp": 30500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 45000
+            },
+            "median_rp": 34000,
+            "sebaran_rp": 14500,
+            "sebaran_persen": 42.65
+          },
+          {
+            "tanggal": "2026-08-13",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Cirebon",
+              "harga_rp": 30000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 45000
+            },
+            "median_rp": 32500,
+            "sebaran_rp": 15000,
+            "sebaran_persen": 46.15
+          },
+          {
+            "tanggal": "2026-08-14",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Cirebon",
+              "harga_rp": 29500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 45000
+            },
+            "median_rp": 32500,
+            "sebaran_rp": 15500,
+            "sebaran_persen": 47.69
+          },
+          {
+            "tanggal": "2026-08-17",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Cirebon",
+              "harga_rp": 29500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 45000
+            },
+            "median_rp": 32500,
+            "sebaran_rp": 15500,
+            "sebaran_persen": 47.69
+          },
+          {
+            "tanggal": "2026-08-18",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Cirebon",
+              "harga_rp": 29500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 45000
+            },
+            "median_rp": 32000,
+            "sebaran_rp": 15500,
+            "sebaran_persen": 48.44
+          },
+          {
+            "tanggal": "2026-08-19",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Cirebon",
+              "harga_rp": 29500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 45000
+            },
+            "median_rp": 32000,
+            "sebaran_rp": 15500,
+            "sebaran_persen": 48.44
+          },
+          {
+            "tanggal": "2026-08-20",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 30000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 45000
+            },
+            "median_rp": 31500,
+            "sebaran_rp": 15000,
+            "sebaran_persen": 47.62
+          },
+          {
+            "tanggal": "2026-08-21",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 29500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 45000
+            },
+            "median_rp": 31500,
+            "sebaran_rp": 15500,
+            "sebaran_persen": 49.21
+          },
+          {
+            "tanggal": "2026-08-24",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 29500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 45000
+            },
+            "median_rp": 31500,
+            "sebaran_rp": 15500,
+            "sebaran_persen": 49.21
+          },
+          {
+            "tanggal": "2026-08-25",
+            "n_wilayah": 4,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 29500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 31500
+            },
+            "median_rp": 30000.0,
+            "sebaran_rp": 2000,
+            "sebaran_persen": 6.67
+          },
+          {
+            "tanggal": "2026-08-26",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 29500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 45000
+            },
+            "median_rp": 31500,
+            "sebaran_rp": 15500,
+            "sebaran_persen": 49.21
+          },
+          {
+            "tanggal": "2026-08-27",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 29500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 45000
+            },
+            "median_rp": 31750,
+            "sebaran_rp": 15500,
+            "sebaran_persen": 48.82
+          },
+          {
+            "tanggal": "2026-08-28",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 29500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 45000
+            },
+            "median_rp": 31750,
+            "sebaran_rp": 15500,
+            "sebaran_persen": 48.82
+          },
+          {
+            "tanggal": "2026-08-31",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 28500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 43250
+            },
+            "median_rp": 31250,
+            "sebaran_rp": 14750,
+            "sebaran_persen": 47.2
+          },
+          {
+            "tanggal": "2026-09-01",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 28500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 43250
+            },
+            "median_rp": 31250,
+            "sebaran_rp": 14750,
+            "sebaran_persen": 47.2
+          },
+          {
+            "tanggal": "2026-09-02",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 28500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 43250
+            },
+            "median_rp": 31250,
+            "sebaran_rp": 14750,
+            "sebaran_persen": 47.2
+          },
+          {
+            "tanggal": "2026-09-03",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 29000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 43250
+            },
+            "median_rp": 31250,
+            "sebaran_rp": 14250,
+            "sebaran_persen": 45.6
+          },
+          {
+            "tanggal": "2026-09-04",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 29000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 43250
+            },
+            "median_rp": 31500,
+            "sebaran_rp": 14250,
+            "sebaran_persen": 45.24
+          },
+          {
+            "tanggal": "2026-09-07",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 28500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 43250
+            },
+            "median_rp": 31250,
+            "sebaran_rp": 14750,
+            "sebaran_persen": 47.2
+          },
+          {
+            "tanggal": "2026-09-08",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 28500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 42000
+            },
+            "median_rp": 31250,
+            "sebaran_rp": 13500,
+            "sebaran_persen": 43.2
+          },
+          {
+            "tanggal": "2026-09-09",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 28500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 40500
+            },
+            "median_rp": 31250,
+            "sebaran_rp": 12000,
+            "sebaran_persen": 38.4
+          },
+          {
+            "tanggal": "2026-09-10",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 29000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 40500
+            },
+            "median_rp": 31250,
+            "sebaran_rp": 11500,
+            "sebaran_persen": 36.8
+          },
+          {
+            "tanggal": "2026-09-11",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 28500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 40500
+            },
+            "median_rp": 31250,
+            "sebaran_rp": 12000,
+            "sebaran_persen": 38.4
+          },
+          {
+            "tanggal": "2026-09-14",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 28250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 40500
+            },
+            "median_rp": 31000,
+            "sebaran_rp": 12250,
+            "sebaran_persen": 39.52
+          },
+          {
+            "tanggal": "2026-09-15",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 27750
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 40500
+            },
+            "median_rp": 31000,
+            "sebaran_rp": 12750,
+            "sebaran_persen": 41.13
+          },
+          {
+            "tanggal": "2026-09-16",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 27750
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 40500
+            },
+            "median_rp": 31000,
+            "sebaran_rp": 12750,
+            "sebaran_persen": 41.13
+          },
+          {
+            "tanggal": "2026-09-17",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 27750
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 40500
+            },
+            "median_rp": 31000,
+            "sebaran_rp": 12750,
+            "sebaran_persen": 41.13
+          },
+          {
+            "tanggal": "2026-09-18",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 27750
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 44000
+            },
+            "median_rp": 31000,
+            "sebaran_rp": 16250,
+            "sebaran_persen": 52.42
+          },
+          {
+            "tanggal": "2026-09-21",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 29500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 44500
+            },
+            "median_rp": 33500,
+            "sebaran_rp": 15000,
+            "sebaran_persen": 44.78
+          },
+          {
+            "tanggal": "2026-09-22",
+            "n_wilayah": 7,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 29500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 43750
+            },
+            "median_rp": 34000,
+            "sebaran_rp": 14250,
+            "sebaran_persen": 41.91
+          },
+          {
+            "tanggal": "2026-09-23",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 29500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 43750
+            },
+            "median_rp": 34000,
+            "sebaran_rp": 14250,
+            "sebaran_persen": 41.91
+          },
+          {
+            "tanggal": "2026-09-24",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 29500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 43750
+            },
+            "median_rp": 34000,
+            "sebaran_rp": 14250,
+            "sebaran_persen": 41.91
+          },
+          {
+            "tanggal": "2026-09-25",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 29500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 43250
+            },
+            "median_rp": 34000,
+            "sebaran_rp": 13750,
+            "sebaran_persen": 40.44
+          },
+          {
+            "tanggal": "2026-09-28",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 29500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 42500
+            },
+            "median_rp": 33500,
+            "sebaran_rp": 13000,
+            "sebaran_persen": 38.81
+          },
+          {
+            "tanggal": "2026-09-29",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 29500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 42500
+            },
+            "median_rp": 33500,
+            "sebaran_rp": 13000,
+            "sebaran_persen": 38.81
+          },
+          {
+            "tanggal": "2026-09-30",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 29500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 42500
+            },
+            "median_rp": 34000,
+            "sebaran_rp": 13000,
+            "sebaran_persen": 38.24
+          },
+          {
+            "tanggal": "2026-10-01",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 29500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 42500
+            },
+            "median_rp": 34000,
+            "sebaran_rp": 13000,
+            "sebaran_persen": 38.24
+          },
+          {
+            "tanggal": "2026-10-02",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 29500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 42000
+            },
+            "median_rp": 34000,
+            "sebaran_rp": 12500,
+            "sebaran_persen": 36.76
+          },
+          {
+            "tanggal": "2026-10-05",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 29000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 42000
+            },
+            "median_rp": 33750,
+            "sebaran_rp": 13000,
+            "sebaran_persen": 38.52
+          },
+          {
+            "tanggal": "2026-10-06",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 29000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 42000
+            },
+            "median_rp": 33750,
+            "sebaran_rp": 13000,
+            "sebaran_persen": 38.52
+          },
+          {
+            "tanggal": "2026-10-07",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 30000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 40000
+            },
+            "median_rp": 33750,
+            "sebaran_rp": 10000,
+            "sebaran_persen": 29.63
+          },
+          {
+            "tanggal": "2026-10-08",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 30000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 38750
+            },
+            "median_rp": 33750,
+            "sebaran_rp": 8750,
+            "sebaran_persen": 25.93
+          },
+          {
+            "tanggal": "2026-10-09",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 30000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 38750
+            },
+            "median_rp": 33750,
+            "sebaran_rp": 8750,
+            "sebaran_persen": 25.93
+          },
+          {
+            "tanggal": "2026-10-12",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 30000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 38750
+            },
+            "median_rp": 34000,
+            "sebaran_rp": 8750,
+            "sebaran_persen": 25.74
+          },
+          {
+            "tanggal": "2026-10-13",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 30000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 38750
+            },
+            "median_rp": 34000,
+            "sebaran_rp": 8750,
+            "sebaran_persen": 25.74
+          },
+          {
+            "tanggal": "2026-10-14",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 30000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 38750
+            },
+            "median_rp": 33500,
+            "sebaran_rp": 8750,
+            "sebaran_persen": 26.12
+          },
+          {
+            "tanggal": "2026-10-15",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 30000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 38750
+            },
+            "median_rp": 33500,
+            "sebaran_rp": 8750,
+            "sebaran_persen": 26.12
+          },
+          {
+            "tanggal": "2026-10-16",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 30000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 38750
+            },
+            "median_rp": 33750,
+            "sebaran_rp": 8750,
+            "sebaran_persen": 25.93
+          },
+          {
+            "tanggal": "2026-10-19",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 30000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 37500
+            },
+            "median_rp": 33750,
+            "sebaran_rp": 7500,
+            "sebaran_persen": 22.22
+          },
+          {
+            "tanggal": "2026-10-20",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 30000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 37500
+            },
+            "median_rp": 33750,
+            "sebaran_rp": 7500,
+            "sebaran_persen": 22.22
+          },
+          {
+            "tanggal": "2026-10-21",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 30000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 37500
+            },
+            "median_rp": 33750,
+            "sebaran_rp": 7500,
+            "sebaran_persen": 22.22
+          },
+          {
+            "tanggal": "2026-10-22",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 30000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 37500
+            },
+            "median_rp": 33750,
+            "sebaran_rp": 7500,
+            "sebaran_persen": 22.22
+          },
+          {
+            "tanggal": "2026-10-23",
+            "n_wilayah": 8,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 30000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 37500
+            },
+            "median_rp": 34375.0,
+            "sebaran_rp": 7500,
+            "sebaran_persen": 21.82
+          },
+          {
+            "tanggal": "2026-10-26",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 29500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 37500
+            },
+            "median_rp": 33750,
+            "sebaran_rp": 8000,
+            "sebaran_persen": 23.7
+          }
+        ]
+      },
+      "beras_medium": {
+        "n_hari": 61,
+        "sebaran_median_persen": 10.58,
+        "sebaran_min_persen": 3.58,
+        "sebaran_max_persen": 12.05,
+        "bergerak": true,
+        "harian": [
+          {
+            "tanggal": "2026-08-03",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 14550
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16150
+            },
+            "median_rp": 15350,
+            "sebaran_rp": 1600,
+            "sebaran_persen": 10.42
+          },
+          {
+            "tanggal": "2026-08-04",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 14550
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16400
+            },
+            "median_rp": 15350,
+            "sebaran_rp": 1850,
+            "sebaran_persen": 12.05
+          },
+          {
+            "tanggal": "2026-08-05",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 14550
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16400
+            },
+            "median_rp": 15350,
+            "sebaran_rp": 1850,
+            "sebaran_persen": 12.05
+          },
+          {
+            "tanggal": "2026-08-06",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 14550
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16400
+            },
+            "median_rp": 15350,
+            "sebaran_rp": 1850,
+            "sebaran_persen": 12.05
+          },
+          {
+            "tanggal": "2026-08-07",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 14550
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16400
+            },
+            "median_rp": 15350,
+            "sebaran_rp": 1850,
+            "sebaran_persen": 12.05
+          },
+          {
+            "tanggal": "2026-08-10",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16400
+            },
+            "median_rp": 15350,
+            "sebaran_rp": 1450,
+            "sebaran_persen": 9.45
+          },
+          {
+            "tanggal": "2026-08-11",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16400
+            },
+            "median_rp": 15450,
+            "sebaran_rp": 1450,
+            "sebaran_persen": 9.39
+          },
+          {
+            "tanggal": "2026-08-12",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16400
+            },
+            "median_rp": 15450,
+            "sebaran_rp": 1450,
+            "sebaran_persen": 9.39
+          },
+          {
+            "tanggal": "2026-08-13",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16400
+            },
+            "median_rp": 15450,
+            "sebaran_rp": 1450,
+            "sebaran_persen": 9.39
+          },
+          {
+            "tanggal": "2026-08-14",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16400
+            },
+            "median_rp": 15450,
+            "sebaran_rp": 1450,
+            "sebaran_persen": 9.39
+          },
+          {
+            "tanggal": "2026-08-17",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16400
+            },
+            "median_rp": 15450,
+            "sebaran_rp": 1450,
+            "sebaran_persen": 9.39
+          },
+          {
+            "tanggal": "2026-08-18",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16400
+            },
+            "median_rp": 15450,
+            "sebaran_rp": 1450,
+            "sebaran_persen": 9.39
+          },
+          {
+            "tanggal": "2026-08-19",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16400
+            },
+            "median_rp": 15450,
+            "sebaran_rp": 1450,
+            "sebaran_persen": 9.39
+          },
+          {
+            "tanggal": "2026-08-20",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16400
+            },
+            "median_rp": 15450,
+            "sebaran_rp": 1450,
+            "sebaran_persen": 9.39
+          },
+          {
+            "tanggal": "2026-08-21",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16400
+            },
+            "median_rp": 15450,
+            "sebaran_rp": 1450,
+            "sebaran_persen": 9.39
+          },
+          {
+            "tanggal": "2026-08-24",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16400
+            },
+            "median_rp": 15450,
+            "sebaran_rp": 1450,
+            "sebaran_persen": 9.39
+          },
+          {
+            "tanggal": "2026-08-25",
+            "n_wilayah": 4,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 15200
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 15750
+            },
+            "median_rp": 15375.0,
+            "sebaran_rp": 550,
+            "sebaran_persen": 3.58
+          },
+          {
+            "tanggal": "2026-08-26",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16400
+            },
+            "median_rp": 15450,
+            "sebaran_rp": 1450,
+            "sebaran_persen": 9.39
+          },
+          {
+            "tanggal": "2026-08-27",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16400
+            },
+            "median_rp": 15450,
+            "sebaran_rp": 1450,
+            "sebaran_persen": 9.39
+          },
+          {
+            "tanggal": "2026-08-28",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16400
+            },
+            "median_rp": 15450,
+            "sebaran_rp": 1450,
+            "sebaran_persen": 9.39
+          },
+          {
+            "tanggal": "2026-08-31",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16400
+            },
+            "median_rp": 15450,
+            "sebaran_rp": 1450,
+            "sebaran_persen": 9.39
+          },
+          {
+            "tanggal": "2026-09-01",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16400
+            },
+            "median_rp": 15450,
+            "sebaran_rp": 1450,
+            "sebaran_persen": 9.39
+          },
+          {
+            "tanggal": "2026-09-02",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16500
+            },
+            "median_rp": 15450,
+            "sebaran_rp": 1550,
+            "sebaran_persen": 10.03
+          },
+          {
+            "tanggal": "2026-09-03",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15450,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.68
+          },
+          {
+            "tanggal": "2026-09-04",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15450,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.68
+          },
+          {
+            "tanggal": "2026-09-07",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15450,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.68
+          },
+          {
+            "tanggal": "2026-09-08",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15550,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.61
+          },
+          {
+            "tanggal": "2026-09-09",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15550,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.61
+          },
+          {
+            "tanggal": "2026-09-10",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15550,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.61
+          },
+          {
+            "tanggal": "2026-09-11",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15550,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.61
+          },
+          {
+            "tanggal": "2026-09-14",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-09-15",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-09-16",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-09-17",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-09-18",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-09-21",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-09-22",
+            "n_wilayah": 7,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15400,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.71
+          },
+          {
+            "tanggal": "2026-09-23",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-09-24",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-09-25",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-09-28",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-09-29",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-09-30",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-10-01",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-10-02",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-10-05",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-10-06",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-10-07",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-10-08",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-10-09",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-10-12",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-10-13",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-10-14",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-10-15",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-10-16",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-10-19",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-10-20",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-10-21",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-10-22",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          },
+          {
+            "tanggal": "2026-10-23",
+            "n_wilayah": 8,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 15200
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15625.0,
+            "sebaran_rp": 1400,
+            "sebaran_persen": 8.96
+          },
+          {
+            "tanggal": "2026-10-26",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 14950
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 16600
+            },
+            "median_rp": 15600,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 10.58
+          }
+        ]
+      },
+      "cabai_rawit_merah": {
+        "n_hari": 61,
+        "sebaran_median_persen": 25.16,
+        "sebaran_min_persen": 12.6,
+        "sebaran_max_persen": 34.24,
+        "bergerak": true,
+        "harian": [
+          {
+            "tanggal": "2026-08-03",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 48500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 61350
+            },
+            "median_rp": 51150,
+            "sebaran_rp": 12850,
+            "sebaran_persen": 25.12
+          },
+          {
+            "tanggal": "2026-08-04",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 47650
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 61350
+            },
+            "median_rp": 51000,
+            "sebaran_rp": 13700,
+            "sebaran_persen": 26.86
+          },
+          {
+            "tanggal": "2026-08-05",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 48900
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 61350
+            },
+            "median_rp": 52000,
+            "sebaran_rp": 12450,
+            "sebaran_persen": 23.94
+          },
+          {
+            "tanggal": "2026-08-06",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 49750
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 61950
+            },
+            "median_rp": 52250,
+            "sebaran_rp": 12200,
+            "sebaran_persen": 23.35
+          },
+          {
+            "tanggal": "2026-08-07",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 49750
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 61950
+            },
+            "median_rp": 52500,
+            "sebaran_rp": 12200,
+            "sebaran_persen": 23.24
+          },
+          {
+            "tanggal": "2026-08-10",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 46650
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 58250
+            },
+            "median_rp": 52500,
+            "sebaran_rp": 11600,
+            "sebaran_persen": 22.1
+          },
+          {
+            "tanggal": "2026-08-11",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 46650
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 58250
+            },
+            "median_rp": 52250,
+            "sebaran_rp": 11600,
+            "sebaran_persen": 22.2
+          },
+          {
+            "tanggal": "2026-08-12",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 46650
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 57700
+            },
+            "median_rp": 51000,
+            "sebaran_rp": 11050,
+            "sebaran_persen": 21.67
+          },
+          {
+            "tanggal": "2026-08-13",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 46650
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 57700
+            },
+            "median_rp": 51000,
+            "sebaran_rp": 11050,
+            "sebaran_persen": 21.67
+          },
+          {
+            "tanggal": "2026-08-14",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 46400
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 58950
+            },
+            "median_rp": 51000,
+            "sebaran_rp": 12550,
+            "sebaran_persen": 24.61
+          },
+          {
+            "tanggal": "2026-08-17",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 46400
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 58950
+            },
+            "median_rp": 51000,
+            "sebaran_rp": 12550,
+            "sebaran_persen": 24.61
+          },
+          {
+            "tanggal": "2026-08-18",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 48500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 58950
+            },
+            "median_rp": 52500,
+            "sebaran_rp": 10450,
+            "sebaran_persen": 19.9
+          },
+          {
+            "tanggal": "2026-08-19",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 48500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 58950
+            },
+            "median_rp": 53250,
+            "sebaran_rp": 10450,
+            "sebaran_persen": 19.62
+          },
+          {
+            "tanggal": "2026-08-20",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 48250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 59550
+            },
+            "median_rp": 53150,
+            "sebaran_rp": 11300,
+            "sebaran_persen": 21.26
+          },
+          {
+            "tanggal": "2026-08-21",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 48250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 62050
+            },
+            "median_rp": 53150,
+            "sebaran_rp": 13800,
+            "sebaran_persen": 25.96
+          },
+          {
+            "tanggal": "2026-08-24",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 50250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 61400
+            },
+            "median_rp": 53150,
+            "sebaran_rp": 11150,
+            "sebaran_persen": 20.98
+          },
+          {
+            "tanggal": "2026-08-25",
+            "n_wilayah": 4,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 51000
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 57500
+            },
+            "median_rp": 51575.0,
+            "sebaran_rp": 6500,
+            "sebaran_persen": 12.6
+          },
+          {
+            "tanggal": "2026-08-26",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 51150
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 62600
+            },
+            "median_rp": 54400,
+            "sebaran_rp": 11450,
+            "sebaran_persen": 21.05
+          },
+          {
+            "tanggal": "2026-08-27",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 52500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 62600
+            },
+            "median_rp": 57500,
+            "sebaran_rp": 10100,
+            "sebaran_persen": 17.57
+          },
+          {
+            "tanggal": "2026-08-28",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 52900
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 62600
+            },
+            "median_rp": 57500,
+            "sebaran_rp": 9700,
+            "sebaran_persen": 16.87
+          },
+          {
+            "tanggal": "2026-08-31",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 53400
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 68650
+            },
+            "median_rp": 56250,
+            "sebaran_rp": 15250,
+            "sebaran_persen": 27.11
+          },
+          {
+            "tanggal": "2026-09-01",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 53400
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 68650
+            },
+            "median_rp": 56900,
+            "sebaran_rp": 15250,
+            "sebaran_persen": 26.8
+          },
+          {
+            "tanggal": "2026-09-02",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 55500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 67450
+            },
+            "median_rp": 58750,
+            "sebaran_rp": 11950,
+            "sebaran_persen": 20.34
+          },
+          {
+            "tanggal": "2026-09-03",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 55400
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 67450
+            },
+            "median_rp": 59150,
+            "sebaran_rp": 12050,
+            "sebaran_persen": 20.37
+          },
+          {
+            "tanggal": "2026-09-04",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 55500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 68650
+            },
+            "median_rp": 62000,
+            "sebaran_rp": 13150,
+            "sebaran_persen": 21.21
+          },
+          {
+            "tanggal": "2026-09-07",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 59400
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 72350
+            },
+            "median_rp": 63250,
+            "sebaran_rp": 12950,
+            "sebaran_persen": 20.47
+          },
+          {
+            "tanggal": "2026-09-08",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 59400
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 72350
+            },
+            "median_rp": 62250,
+            "sebaran_rp": 12950,
+            "sebaran_persen": 20.8
+          },
+          {
+            "tanggal": "2026-09-09",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 59400
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 73600
+            },
+            "median_rp": 62250,
+            "sebaran_rp": 14200,
+            "sebaran_persen": 22.81
+          },
+          {
+            "tanggal": "2026-09-10",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 59400
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 74150
+            },
+            "median_rp": 62400,
+            "sebaran_rp": 14750,
+            "sebaran_persen": 23.64
+          },
+          {
+            "tanggal": "2026-09-11",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 59400
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 74150
+            },
+            "median_rp": 62650,
+            "sebaran_rp": 14750,
+            "sebaran_persen": 23.54
+          },
+          {
+            "tanggal": "2026-09-14",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Bekasi",
+              "harga_rp": 59400
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 75350
+            },
+            "median_rp": 63400,
+            "sebaran_rp": 15950,
+            "sebaran_persen": 25.16
+          },
+          {
+            "tanggal": "2026-09-15",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 60000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 75350
+            },
+            "median_rp": 63400,
+            "sebaran_rp": 15350,
+            "sebaran_persen": 24.21
+          },
+          {
+            "tanggal": "2026-09-16",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 59400
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 74150
+            },
+            "median_rp": 63500,
+            "sebaran_rp": 14750,
+            "sebaran_persen": 23.23
+          },
+          {
+            "tanggal": "2026-09-17",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 58750
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 74150
+            },
+            "median_rp": 63250,
+            "sebaran_rp": 15400,
+            "sebaran_persen": 24.35
+          },
+          {
+            "tanggal": "2026-09-18",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 58150
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 74150
+            },
+            "median_rp": 63150,
+            "sebaran_rp": 16000,
+            "sebaran_persen": 25.34
+          },
+          {
+            "tanggal": "2026-09-21",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 60000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 76600
+            },
+            "median_rp": 63500,
+            "sebaran_rp": 16600,
+            "sebaran_persen": 26.14
+          },
+          {
+            "tanggal": "2026-09-22",
+            "n_wilayah": 7,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 60650
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 77850
+            },
+            "median_rp": 64400,
+            "sebaran_rp": 17200,
+            "sebaran_persen": 26.71
+          },
+          {
+            "tanggal": "2026-09-23",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 60650
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 78450
+            },
+            "median_rp": 64900,
+            "sebaran_rp": 17800,
+            "sebaran_persen": 27.43
+          },
+          {
+            "tanggal": "2026-09-24",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 60650
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 79700
+            },
+            "median_rp": 64400,
+            "sebaran_rp": 19050,
+            "sebaran_persen": 29.58
+          },
+          {
+            "tanggal": "2026-09-25",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 58750
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 79700
+            },
+            "median_rp": 63750,
+            "sebaran_rp": 20950,
+            "sebaran_persen": 32.86
+          },
+          {
+            "tanggal": "2026-09-28",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 61900
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 82150
+            },
+            "median_rp": 65000,
+            "sebaran_rp": 20250,
+            "sebaran_persen": 31.15
+          },
+          {
+            "tanggal": "2026-09-29",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 62500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 82800
+            },
+            "median_rp": 65000,
+            "sebaran_rp": 20300,
+            "sebaran_persen": 31.23
+          },
+          {
+            "tanggal": "2026-09-30",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 62500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 81550
+            },
+            "median_rp": 65000,
+            "sebaran_rp": 19050,
+            "sebaran_persen": 29.31
+          },
+          {
+            "tanggal": "2026-10-01",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 62500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 81550
+            },
+            "median_rp": 66900,
+            "sebaran_rp": 19050,
+            "sebaran_persen": 28.48
+          },
+          {
+            "tanggal": "2026-10-02",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 62500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 79750
+            },
+            "median_rp": 66900,
+            "sebaran_rp": 17250,
+            "sebaran_persen": 25.78
+          },
+          {
+            "tanggal": "2026-10-05",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 64000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 82150
+            },
+            "median_rp": 67500,
+            "sebaran_rp": 18150,
+            "sebaran_persen": 26.89
+          },
+          {
+            "tanggal": "2026-10-06",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 63900
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 82800
+            },
+            "median_rp": 68750,
+            "sebaran_rp": 18900,
+            "sebaran_persen": 27.49
+          },
+          {
+            "tanggal": "2026-10-07",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 64400
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 82800
+            },
+            "median_rp": 68750,
+            "sebaran_rp": 18400,
+            "sebaran_persen": 26.76
+          },
+          {
+            "tanggal": "2026-10-08",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 65000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 82800
+            },
+            "median_rp": 70000,
+            "sebaran_rp": 17800,
+            "sebaran_persen": 25.43
+          },
+          {
+            "tanggal": "2026-10-09",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 65000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 82800
+            },
+            "median_rp": 68500,
+            "sebaran_rp": 17800,
+            "sebaran_persen": 25.99
+          },
+          {
+            "tanggal": "2026-10-12",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 66500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 84550
+            },
+            "median_rp": 69250,
+            "sebaran_rp": 18050,
+            "sebaran_persen": 26.06
+          },
+          {
+            "tanggal": "2026-10-13",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 66500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 84550
+            },
+            "median_rp": 69400,
+            "sebaran_rp": 18050,
+            "sebaran_persen": 26.01
+          },
+          {
+            "tanggal": "2026-10-14",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 65900
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 85800
+            },
+            "median_rp": 68750,
+            "sebaran_rp": 19900,
+            "sebaran_persen": 28.95
+          },
+          {
+            "tanggal": "2026-10-15",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 66250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 86400
+            },
+            "median_rp": 68150,
+            "sebaran_rp": 20150,
+            "sebaran_persen": 29.57
+          },
+          {
+            "tanggal": "2026-10-16",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 65000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 86400
+            },
+            "median_rp": 68150,
+            "sebaran_rp": 21400,
+            "sebaran_persen": 31.4
+          },
+          {
+            "tanggal": "2026-10-19",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 63150
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 86400
+            },
+            "median_rp": 67900,
+            "sebaran_rp": 23250,
+            "sebaran_persen": 34.24
+          },
+          {
+            "tanggal": "2026-10-20",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 63150
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 85200
+            },
+            "median_rp": 67500,
+            "sebaran_rp": 22050,
+            "sebaran_persen": 32.67
+          },
+          {
+            "tanggal": "2026-10-21",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 63750
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 85200
+            },
+            "median_rp": 67500,
+            "sebaran_rp": 21450,
+            "sebaran_persen": 31.78
+          },
+          {
+            "tanggal": "2026-10-22",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 62500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 85200
+            },
+            "median_rp": 68500,
+            "sebaran_rp": 22700,
+            "sebaran_persen": 33.14
+          },
+          {
+            "tanggal": "2026-10-23",
+            "n_wilayah": 8,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 66250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 85200
+            },
+            "median_rp": 68950.0,
+            "sebaran_rp": 18950,
+            "sebaran_persen": 27.48
+          },
+          {
+            "tanggal": "2026-10-26",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 65650
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 81500
+            },
+            "median_rp": 67500,
+            "sebaran_rp": 15850,
+            "sebaran_persen": 23.48
+          }
+        ]
+      },
+      "minyak_goreng_curah": {
+        "n_hari": 61,
+        "sebaran_median_persen": 9.15,
+        "sebaran_min_persen": 7.02,
+        "sebaran_max_persen": 9.4,
+        "bergerak": true,
+        "harian": [
+          {
+            "tanggal": "2026-08-03",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23250
+            },
+            "median_rp": 22350,
+            "sebaran_rp": 2000,
+            "sebaran_persen": 8.95
+          },
+          {
+            "tanggal": "2026-08-04",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23250
+            },
+            "median_rp": 22500,
+            "sebaran_rp": 2000,
+            "sebaran_persen": 8.89
+          },
+          {
+            "tanggal": "2026-08-05",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23250
+            },
+            "median_rp": 22500,
+            "sebaran_rp": 2000,
+            "sebaran_persen": 8.89
+          },
+          {
+            "tanggal": "2026-08-06",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23250
+            },
+            "median_rp": 22500,
+            "sebaran_rp": 2000,
+            "sebaran_persen": 8.89
+          },
+          {
+            "tanggal": "2026-08-07",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23250
+            },
+            "median_rp": 22500,
+            "sebaran_rp": 2000,
+            "sebaran_persen": 8.89
+          },
+          {
+            "tanggal": "2026-08-10",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23250
+            },
+            "median_rp": 22500,
+            "sebaran_rp": 2000,
+            "sebaran_persen": 8.89
+          },
+          {
+            "tanggal": "2026-08-11",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23250
+            },
+            "median_rp": 22500,
+            "sebaran_rp": 2000,
+            "sebaran_persen": 8.89
+          },
+          {
+            "tanggal": "2026-08-12",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23250
+            },
+            "median_rp": 22500,
+            "sebaran_rp": 2000,
+            "sebaran_persen": 8.89
+          },
+          {
+            "tanggal": "2026-08-13",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23250
+            },
+            "median_rp": 22500,
+            "sebaran_rp": 2000,
+            "sebaran_persen": 8.89
+          },
+          {
+            "tanggal": "2026-08-14",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23250
+            },
+            "median_rp": 22250,
+            "sebaran_rp": 2000,
+            "sebaran_persen": 8.99
+          },
+          {
+            "tanggal": "2026-08-17",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23250
+            },
+            "median_rp": 22250,
+            "sebaran_rp": 2000,
+            "sebaran_persen": 8.99
+          },
+          {
+            "tanggal": "2026-08-18",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23250
+            },
+            "median_rp": 22250,
+            "sebaran_rp": 2000,
+            "sebaran_persen": 8.99
+          },
+          {
+            "tanggal": "2026-08-19",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23250
+            },
+            "median_rp": 22250,
+            "sebaran_rp": 2000,
+            "sebaran_persen": 8.99
+          },
+          {
+            "tanggal": "2026-08-20",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23250
+            },
+            "median_rp": 22250,
+            "sebaran_rp": 2000,
+            "sebaran_persen": 8.99
+          },
+          {
+            "tanggal": "2026-08-21",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23250
+            },
+            "median_rp": 22250,
+            "sebaran_rp": 2000,
+            "sebaran_persen": 8.99
+          },
+          {
+            "tanggal": "2026-08-24",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23250
+            },
+            "median_rp": 22250,
+            "sebaran_rp": 2000,
+            "sebaran_persen": 8.99
+          },
+          {
+            "tanggal": "2026-08-25",
+            "n_wilayah": 4,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 22800
+            },
+            "median_rp": 22075.0,
+            "sebaran_rp": 1550,
+            "sebaran_persen": 7.02
+          },
+          {
+            "tanggal": "2026-08-26",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23250
+            },
+            "median_rp": 22250,
+            "sebaran_rp": 2000,
+            "sebaran_persen": 8.99
+          },
+          {
+            "tanggal": "2026-08-27",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21300
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23250
+            },
+            "median_rp": 22300,
+            "sebaran_rp": 1950,
+            "sebaran_persen": 8.74
+          },
+          {
+            "tanggal": "2026-08-28",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21300
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 23300
+            },
+            "median_rp": 22300,
+            "sebaran_rp": 2000,
+            "sebaran_persen": 8.97
+          },
+          {
+            "tanggal": "2026-08-31",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21300
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22350,
+            "sebaran_rp": 2100,
+            "sebaran_persen": 9.4
+          },
+          {
+            "tanggal": "2026-09-01",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21300
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22350,
+            "sebaran_rp": 2100,
+            "sebaran_persen": 9.4
+          },
+          {
+            "tanggal": "2026-09-02",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21300
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22350,
+            "sebaran_rp": 2100,
+            "sebaran_persen": 9.4
+          },
+          {
+            "tanggal": "2026-09-03",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21300
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22350,
+            "sebaran_rp": 2100,
+            "sebaran_persen": 9.4
+          },
+          {
+            "tanggal": "2026-09-04",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21300
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2100,
+            "sebaran_persen": 9.38
+          },
+          {
+            "tanggal": "2026-09-07",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-09-08",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-09-09",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-09-10",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-09-11",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-09-14",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-09-15",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-09-16",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-09-17",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-09-18",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-09-21",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-09-22",
+            "n_wilayah": 7,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22900,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 8.95
+          },
+          {
+            "tanggal": "2026-09-23",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-09-24",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-09-25",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-09-28",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-09-29",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-09-30",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-10-01",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-10-02",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-10-05",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-10-06",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-10-07",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-10-08",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-10-09",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-10-12",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-10-13",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22400,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.15
+          },
+          {
+            "tanggal": "2026-10-14",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22350,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.17
+          },
+          {
+            "tanggal": "2026-10-15",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22350,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.17
+          },
+          {
+            "tanggal": "2026-10-16",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22350,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.17
+          },
+          {
+            "tanggal": "2026-10-19",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22350,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.17
+          },
+          {
+            "tanggal": "2026-10-20",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22350,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.17
+          },
+          {
+            "tanggal": "2026-10-21",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22350,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.17
+          },
+          {
+            "tanggal": "2026-10-22",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22350,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.17
+          },
+          {
+            "tanggal": "2026-10-23",
+            "n_wilayah": 8,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22525.0,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.1
+          },
+          {
+            "tanggal": "2026-10-26",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 21350
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 23400
+            },
+            "median_rp": 22350,
+            "sebaran_rp": 2050,
+            "sebaran_persen": 9.17
+          }
+        ]
+      },
+      "telur_ayam_ras": {
+        "n_hari": 61,
+        "sebaran_median_persen": 5.35,
+        "sebaran_min_persen": 2.03,
+        "sebaran_max_persen": 8.43,
+        "bergerak": true,
+        "harian": [
+          {
+            "tanggal": "2026-08-03",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Cirebon",
+              "harga_rp": 24900
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 26650
+            },
+            "median_rp": 25500,
+            "sebaran_rp": 1750,
+            "sebaran_persen": 6.86
+          },
+          {
+            "tanggal": "2026-08-04",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 24750
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 26650
+            },
+            "median_rp": 25500,
+            "sebaran_rp": 1900,
+            "sebaran_persen": 7.45
+          },
+          {
+            "tanggal": "2026-08-05",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Cirebon",
+              "harga_rp": 24500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 26650
+            },
+            "median_rp": 25500,
+            "sebaran_rp": 2150,
+            "sebaran_persen": 8.43
+          },
+          {
+            "tanggal": "2026-08-06",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Cirebon",
+              "harga_rp": 24500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 26650
+            },
+            "median_rp": 25500,
+            "sebaran_rp": 2150,
+            "sebaran_persen": 8.43
+          },
+          {
+            "tanggal": "2026-08-07",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 24750
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 26650
+            },
+            "median_rp": 25500,
+            "sebaran_rp": 1900,
+            "sebaran_persen": 7.45
+          },
+          {
+            "tanggal": "2026-08-10",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 24500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 26650
+            },
+            "median_rp": 25500,
+            "sebaran_rp": 2150,
+            "sebaran_persen": 8.43
+          },
+          {
+            "tanggal": "2026-08-11",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 24500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 26650
+            },
+            "median_rp": 25500,
+            "sebaran_rp": 2150,
+            "sebaran_persen": 8.43
+          },
+          {
+            "tanggal": "2026-08-12",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 24500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 26650
+            },
+            "median_rp": 25500,
+            "sebaran_rp": 2150,
+            "sebaran_persen": 8.43
+          },
+          {
+            "tanggal": "2026-08-13",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 24500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 26650
+            },
+            "median_rp": 25500,
+            "sebaran_rp": 2150,
+            "sebaran_persen": 8.43
+          },
+          {
+            "tanggal": "2026-08-14",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 24500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 26650
+            },
+            "median_rp": 25500,
+            "sebaran_rp": 2150,
+            "sebaran_persen": 8.43
+          },
+          {
+            "tanggal": "2026-08-17",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 24500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 26650
+            },
+            "median_rp": 25500,
+            "sebaran_rp": 2150,
+            "sebaran_persen": 8.43
+          },
+          {
+            "tanggal": "2026-08-18",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 24250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 26250
+            },
+            "median_rp": 25400,
+            "sebaran_rp": 2000,
+            "sebaran_persen": 7.87
+          },
+          {
+            "tanggal": "2026-08-19",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 24250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 26250
+            },
+            "median_rp": 25000,
+            "sebaran_rp": 2000,
+            "sebaran_persen": 8.0
+          },
+          {
+            "tanggal": "2026-08-20",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 24250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 26250
+            },
+            "median_rp": 25000,
+            "sebaran_rp": 2000,
+            "sebaran_persen": 8.0
+          },
+          {
+            "tanggal": "2026-08-21",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 24250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 25750
+            },
+            "median_rp": 25000,
+            "sebaran_rp": 1500,
+            "sebaran_persen": 6.0
+          },
+          {
+            "tanggal": "2026-08-24",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 24250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 25900
+            },
+            "median_rp": 25000,
+            "sebaran_rp": 1650,
+            "sebaran_persen": 6.6
+          },
+          {
+            "tanggal": "2026-08-25",
+            "n_wilayah": 4,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 24250
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 24750
+            },
+            "median_rp": 24625.0,
+            "sebaran_rp": 500,
+            "sebaran_persen": 2.03
+          },
+          {
+            "tanggal": "2026-08-26",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Cirebon",
+              "harga_rp": 24250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 25650
+            },
+            "median_rp": 25000,
+            "sebaran_rp": 1400,
+            "sebaran_persen": 5.6
+          },
+          {
+            "tanggal": "2026-08-27",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Sukabumi",
+              "harga_rp": 25000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 25900
+            },
+            "median_rp": 25500,
+            "sebaran_rp": 900,
+            "sebaran_persen": 3.53
+          },
+          {
+            "tanggal": "2026-08-28",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 25250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 26400
+            },
+            "median_rp": 25900,
+            "sebaran_rp": 1150,
+            "sebaran_persen": 4.44
+          },
+          {
+            "tanggal": "2026-08-31",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 25500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 26650
+            },
+            "median_rp": 26150,
+            "sebaran_rp": 1150,
+            "sebaran_persen": 4.4
+          },
+          {
+            "tanggal": "2026-09-01",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Cirebon",
+              "harga_rp": 25500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 26650
+            },
+            "median_rp": 26150,
+            "sebaran_rp": 1150,
+            "sebaran_persen": 4.4
+          },
+          {
+            "tanggal": "2026-09-02",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Cirebon",
+              "harga_rp": 25650
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 26750
+            },
+            "median_rp": 26150,
+            "sebaran_rp": 1100,
+            "sebaran_persen": 4.21
+          },
+          {
+            "tanggal": "2026-09-03",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 25650
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 27000
+            },
+            "median_rp": 26150,
+            "sebaran_rp": 1350,
+            "sebaran_persen": 5.16
+          },
+          {
+            "tanggal": "2026-09-04",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 25650
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 27000
+            },
+            "median_rp": 26150,
+            "sebaran_rp": 1350,
+            "sebaran_persen": 5.16
+          },
+          {
+            "tanggal": "2026-09-07",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Cirebon",
+              "harga_rp": 25500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 27000
+            },
+            "median_rp": 26150,
+            "sebaran_rp": 1500,
+            "sebaran_persen": 5.74
+          },
+          {
+            "tanggal": "2026-09-08",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Cirebon",
+              "harga_rp": 25500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 27000
+            },
+            "median_rp": 26150,
+            "sebaran_rp": 1500,
+            "sebaran_persen": 5.74
+          },
+          {
+            "tanggal": "2026-09-09",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 25650
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 27000
+            },
+            "median_rp": 26150,
+            "sebaran_rp": 1350,
+            "sebaran_persen": 5.16
+          },
+          {
+            "tanggal": "2026-09-10",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 25650
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 27000
+            },
+            "median_rp": 26150,
+            "sebaran_rp": 1350,
+            "sebaran_persen": 5.16
+          },
+          {
+            "tanggal": "2026-09-11",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 25750
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 27150
+            },
+            "median_rp": 26750,
+            "sebaran_rp": 1400,
+            "sebaran_persen": 5.23
+          },
+          {
+            "tanggal": "2026-09-14",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 26250
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 27400
+            },
+            "median_rp": 27000,
+            "sebaran_rp": 1150,
+            "sebaran_persen": 4.26
+          },
+          {
+            "tanggal": "2026-09-15",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 26250
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 27400
+            },
+            "median_rp": 27000,
+            "sebaran_rp": 1150,
+            "sebaran_persen": 4.26
+          },
+          {
+            "tanggal": "2026-09-16",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 26250
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 27400
+            },
+            "median_rp": 27000,
+            "sebaran_rp": 1150,
+            "sebaran_persen": 4.26
+          },
+          {
+            "tanggal": "2026-09-17",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 26250
+            },
+            "tertinggi": {
+              "wilayah": "Kab. Tasikmalaya",
+              "harga_rp": 27400
+            },
+            "median_rp": 27150,
+            "sebaran_rp": 1150,
+            "sebaran_persen": 4.24
+          },
+          {
+            "tanggal": "2026-09-18",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 26250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 27500
+            },
+            "median_rp": 27150,
+            "sebaran_rp": 1250,
+            "sebaran_persen": 4.6
+          },
+          {
+            "tanggal": "2026-09-21",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 26150
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 27500
+            },
+            "median_rp": 27000,
+            "sebaran_rp": 1350,
+            "sebaran_persen": 5.0
+          },
+          {
+            "tanggal": "2026-09-22",
+            "n_wilayah": 7,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 26000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 27500
+            },
+            "median_rp": 27150,
+            "sebaran_rp": 1500,
+            "sebaran_persen": 5.52
+          },
+          {
+            "tanggal": "2026-09-23",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 26000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 27250
+            },
+            "median_rp": 26500,
+            "sebaran_rp": 1250,
+            "sebaran_persen": 4.72
+          },
+          {
+            "tanggal": "2026-09-24",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 26000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 27250
+            },
+            "median_rp": 26500,
+            "sebaran_rp": 1250,
+            "sebaran_persen": 4.72
+          },
+          {
+            "tanggal": "2026-09-25",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 26000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Depok",
+              "harga_rp": 27000
+            },
+            "median_rp": 26500,
+            "sebaran_rp": 1000,
+            "sebaran_persen": 3.77
+          },
+          {
+            "tanggal": "2026-09-28",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 25500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 26900
+            },
+            "median_rp": 26150,
+            "sebaran_rp": 1400,
+            "sebaran_persen": 5.35
+          },
+          {
+            "tanggal": "2026-09-29",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 25500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 26900
+            },
+            "median_rp": 26000,
+            "sebaran_rp": 1400,
+            "sebaran_persen": 5.38
+          },
+          {
+            "tanggal": "2026-09-30",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 25500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 26900
+            },
+            "median_rp": 26000,
+            "sebaran_rp": 1400,
+            "sebaran_persen": 5.38
+          },
+          {
+            "tanggal": "2026-10-01",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Cirebon",
+              "harga_rp": 25500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 26500
+            },
+            "median_rp": 25900,
+            "sebaran_rp": 1000,
+            "sebaran_persen": 3.86
+          },
+          {
+            "tanggal": "2026-10-02",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 25400
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 26500
+            },
+            "median_rp": 26000,
+            "sebaran_rp": 1100,
+            "sebaran_persen": 4.23
+          },
+          {
+            "tanggal": "2026-10-05",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 25250
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 26400
+            },
+            "median_rp": 26000,
+            "sebaran_rp": 1150,
+            "sebaran_persen": 4.42
+          },
+          {
+            "tanggal": "2026-10-06",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 25000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 26400
+            },
+            "median_rp": 25750,
+            "sebaran_rp": 1400,
+            "sebaran_persen": 5.44
+          },
+          {
+            "tanggal": "2026-10-07",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 24900
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 26400
+            },
+            "median_rp": 25750,
+            "sebaran_rp": 1500,
+            "sebaran_persen": 5.83
+          },
+          {
+            "tanggal": "2026-10-08",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 24900
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 26150
+            },
+            "median_rp": 25750,
+            "sebaran_rp": 1250,
+            "sebaran_persen": 4.85
+          },
+          {
+            "tanggal": "2026-10-09",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 24900
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 26150
+            },
+            "median_rp": 25650,
+            "sebaran_rp": 1250,
+            "sebaran_persen": 4.87
+          },
+          {
+            "tanggal": "2026-10-12",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 24900
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 26400
+            },
+            "median_rp": 25650,
+            "sebaran_rp": 1500,
+            "sebaran_persen": 5.85
+          },
+          {
+            "tanggal": "2026-10-13",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 24900
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 26500
+            },
+            "median_rp": 25750,
+            "sebaran_rp": 1600,
+            "sebaran_persen": 6.21
+          },
+          {
+            "tanggal": "2026-10-14",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 24900
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 26500
+            },
+            "median_rp": 25750,
+            "sebaran_rp": 1600,
+            "sebaran_persen": 6.21
+          },
+          {
+            "tanggal": "2026-10-15",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 25000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bandung",
+              "harga_rp": 26500
+            },
+            "median_rp": 25750,
+            "sebaran_rp": 1500,
+            "sebaran_persen": 5.83
+          },
+          {
+            "tanggal": "2026-10-16",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 25000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 26750
+            },
+            "median_rp": 25750,
+            "sebaran_rp": 1750,
+            "sebaran_persen": 6.8
+          },
+          {
+            "tanggal": "2026-10-19",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 25000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 26250
+            },
+            "median_rp": 25750,
+            "sebaran_rp": 1250,
+            "sebaran_persen": 4.85
+          },
+          {
+            "tanggal": "2026-10-20",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 25000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 26250
+            },
+            "median_rp": 26000,
+            "sebaran_rp": 1250,
+            "sebaran_persen": 4.81
+          },
+          {
+            "tanggal": "2026-10-21",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 25000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 26250
+            },
+            "median_rp": 26000,
+            "sebaran_rp": 1250,
+            "sebaran_persen": 4.81
+          },
+          {
+            "tanggal": "2026-10-22",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Tasikmalaya",
+              "harga_rp": 25000
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 26250
+            },
+            "median_rp": 25750,
+            "sebaran_rp": 1250,
+            "sebaran_persen": 4.85
+          },
+          {
+            "tanggal": "2026-10-23",
+            "n_wilayah": 8,
+            "terendah": {
+              "wilayah": "Kota Cirebon",
+              "harga_rp": 24900
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 26250
+            },
+            "median_rp": 25625.0,
+            "sebaran_rp": 1350,
+            "sebaran_persen": 5.27
+          },
+          {
+            "tanggal": "2026-10-26",
+            "n_wilayah": 9,
+            "terendah": {
+              "wilayah": "Kota Cirebon",
+              "harga_rp": 24500
+            },
+            "tertinggi": {
+              "wilayah": "Kota Bogor",
+              "harga_rp": 26250
+            },
+            "median_rp": 25400,
+            "sebaran_rp": 1750,
+            "sebaran_persen": 6.89
+          }
+        ]
+      }
+    }
+  }
+}

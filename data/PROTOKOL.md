@@ -105,3 +105,26 @@ sama persis dengan angka kab/kota.
 Kesimpulan: SP2KP **tidak** memberi variasi antar-pasar; satu angka per wilayah per hari.
 Yang bergerak hanya cabai (dan sebagian bawang); beras/telur/minyak menempel angka acuan.
 Untuk "harga pasar" berlapis wilayah, PIHPS tetap satu-satunya sumber yang bergerak (9/27).
+
+
+## 9. Uji indikator disparitas antarwilayah (26 Okt 2026)
+
+Karena level harga sebagian komoditas datar, diuji sinyal alternatif: sebaran harga
+(tertinggi−terendah)/median pada hari yang sama.
+
+| Sumber | Komoditas | Sebaran median | Rentang antarhari | Bergerak? |
+|---|---|---|---|---|
+| SP2KP | bawang merah | 42,9% | 42,9–72,5% | ya |
+| SP2KP | cabai rawit | 50,0% | 48,3–50,0% | ya |
+| SP2KP | beras medium | 10,0% | tetap 10,0% | tidak |
+| SP2KP | minyakita | 0,0% | tetap 0,0% | tidak |
+| SP2KP | telur ayam | 13,5% | 12,8–13,6% | hampir tidak |
+| PIHPS | beras medium | 10,6% | 3,6–12,1% | ya |
+| PIHPS | cabai rawit | 25,2% | 12,6–34,2% | ya |
+| PIHPS | bawang merah | 40,0% | 6,7–52,4% | ya |
+| PIHPS | minyak curah | 9,2% | 7,0–9,4% | ya |
+| PIHPS | telur ayam | 5,4% | 2,0–8,4% | ya |
+
+Kesimpulan: disparitas **bisa** jadi sinyal, tetapi hanya pada sumber yang harganya
+benar-benar bervariasi. Untuk beras & minyak, SP2KP datar pada level **dan** sebaran
+(min/max tetap), sehingga tidak informatif. PIHPS bergerak pada semua komoditas.

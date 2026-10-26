@@ -96,6 +96,7 @@ Kontrak untuk front end: [`docs/KONTRAK-FE.md`](docs/KONTRAK-FE.md).
 | `pipeline/backtest.py` → `data/derived/backtest_*.json` | presisi / recall / jeda deteksi per komoditas |
 | `pipeline/agreement.py` → `data/derived/agreement_pihps_provinsi.json` | Spearman + Bland–Altman (kab/kota vs provinsi) |
 | `pipeline/rekonsiliasi.py` → `data/derived/rekonsiliasi_*.json` | selisih vs provinsi PIHPS & SP2KP |
+| `pipeline/disparitas.py` → `data/derived/disparitas.json` | sebaran harga antarwilayah per hari (sinyal alternatif) |
 | [`docs/HASIL_BACKTEST_EWS.md`](docs/HASIL_BACKTEST_EWS.md) | laporan naratif + tabel hasil |
 | [`docs/STRATEGI_SUMBER_DATA.md`](docs/STRATEGI_SUMBER_DATA.md) | strategi federasi sumber + lineage |
 
