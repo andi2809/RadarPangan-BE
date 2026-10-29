@@ -89,3 +89,37 @@ bergerak. Menambah sumber terus-menerus tidak menyelesaikan ini; yang menyelesai
 - **Menambah sumber keempat** sebelum tiga yang ada dirapikan.
 - **Menyamakan harga acuan dengan harga pasar** di UI, walau angkanya berdekatan.
 - **Menampilkan "jumlah laporan warga"** sebelum ada kiriman nyata.
+
+---
+
+## 6. Mengapa dua sumber "laporan petugas" bisa berbeda
+
+Kedua sumber sama-sama berasal dari pelaporan manusia, tetapi berbeda pada lima hal struktural:
+
+| Aspek | PIHPS (BI) | SP2KP (Kemendag) |
+|---|---|---|
+| Institusi pelapor | Kantor perwakilan BI daerah | Dinas Perdagangan kab/kota |
+| Definisi komoditas | grade spesifik (mis. Beras Kualitas Medium I) | "Beras Medium" (sub-jenis: Medium/Premium/SPHP/IG) |
+| Pasar sampel | pasar di kota sampel (Jabar: 9) | "pasar pantau" yang ditunjuk dinas |
+| Agregasi | rata-rata beberapa pasar per wilayah | satu angka per wilayah per hari |
+| Pemanfaatan | kebijakan moneter | IPH / rakor pengendalian inflasi daerah |
+
+### Bukti: keduanya sepakat ketika benar-benar mengukur harga pasar
+
+Kota Bandung, 26 Okt 2026:
+
+| Komoditas | PIHPS | SP2KP | Selisih |
+|---|---|---|---|
+| Cabai rawit merah | 81.500 | 79.500 | −2,5% |
+| Bawang merah | 35.000 | 36.167 | +3,3% |
+| Telur ayam ras | 26.250 | 25.833 | −1,6% |
+| **Beras medium** | **15.600** | **13.500** | **−13,5%** |
+
+**Kesimpulan:** selisih besar **bukan** derau pengukuran — pada tiga komoditas yang bergerak, kedua
+sumber sepakat dalam 1–3%. Divergensi hanya muncul pada beras, tepat pada seri yang di SP2KP
+datarnya ekstrem (11/27 wilayah persis Rp13.500 selama 6 hari). Karena itu diagnosis yang benar
+adalah *"apa yang dilaporkan berbeda"*, bukan *"dua petugas melihat harga berbeda"*.
+
+**Batas kejujuran:** penjelasan "petugas mengisi angka HET" adalah inferensi dari pola, bukan
+pernyataan resmi. Yang terverifikasi adalah definisi komoditas, institusi pelapor, agregasi, dan
+pola angkanya.
