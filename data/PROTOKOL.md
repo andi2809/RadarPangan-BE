@@ -177,3 +177,13 @@ Yang cepat bergerak adalah **cabai** (dan sebagian bawang/telur). **Beras dan mi
 "lengket"** — bertahan puluhan hari bursa tanpa berubah, meski bukan sedatar SP2KP.
 Implikasi: EWS yang andal harus fokus pada komoditas yang bergerak, dan untuk beras/minyak
 mengandalkan indikator *disparitas antarwilayah*, bukan perubahan level.
+
+
+## 14. `sumber=utama` — satu permintaan, dua sumber (29 Okt 2026)
+
+`/api/v1/peta/status?sumber=utama` mengembalikan 27 wilayah dengan aturan:
+PIHPS dipakai bila ada, selebihnya SP2KP. **Tidak ada perata-rataan.**
+
+Hasil 26 Okt: beras → 27/27 (9 `pasar` dari PIHPS + 18 `acuan` dari SP2KP);
+cabai → 27/27, seluruhnya `pasar` (9 PIHPS + 18 SP2KP).
+Karena itu UI **wajib** membaca `jenis_harga` per baris, bukan menganggap satu respons homogen.

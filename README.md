@@ -50,7 +50,7 @@ Amplop respons seragam `{ ok, data, meta }`. `meta` selalu memuat `tanggal_data`
 | GET | `/api/v1/komoditas` | 5 komoditas + acuan (HET/HAP) |
 | GET | `/api/v1/wilayah` | 27 kab/kota (kode Kemendagri + BPS) |
 | GET | `/api/v1/wilayah/{kode}/ringkasan` | detail wilayah + histori 14 hari + prakiraan H+7 |
-| GET | `/api/v1/peta/status` | status harga + skor EWS 27 wilayah (`layer=aktual\|h7`, `sumber=pihps\|sp2kp`) |
+| GET | `/api/v1/peta/status` | status harga + skor EWS 27 wilayah (`layer=aktual\|h7`, `sumber=pihps\|sp2kp\|utama`) |
 | GET | `/api/v1/laporan-warga/sekitar` | laporan warga di sekitar titik (kosong sampai ada kiriman nyata) |
 | POST | `/api/v1/laporan-warga` | kirim laporan warga |
 | GET | `/api/v1/publik/ringkasan-landing` | ringkasan landing, dihitung dari data nyata |

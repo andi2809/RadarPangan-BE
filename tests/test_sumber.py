@@ -88,3 +88,22 @@ def test_flat_days_membedakan_komoditas_bergerak():
     assert median_flat("cabai_rawit_merah", "pihps") <= 2
     assert median_flat("beras_medium", "sp2kp") >= 4
     assert median_flat("beras_medium", "pihps") >= 10
+
+
+def test_sumber_utama_menggabungkan_dengan_prioritas_pihps():
+    data = _peta("beras_medium", "utama")
+    berharga = [i for i in data if i["harga_aktual_rp"]]
+    assert len(berharga) == 27
+    sumber = {i["sumber"] for i in berharga}
+    assert sumber == {"pihps", "sp2kp"}
+    assert sum(1 for i in berharga if i["sumber"] == "pihps") == 9
+    # beras dari SP2KP ditandai acuan, dari PIHPS pasar
+    assert any(i["jenis_harga"] == "acuan" for i in berharga)
+    assert any(i["jenis_harga"] == "pasar" for i in berharga)
+
+
+def test_sumber_utama_cabai_semua_pasar():
+    data = _peta("cabai_rawit_merah", "utama")
+    berharga = [i for i in data if i["harga_aktual_rp"]]
+    assert len(berharga) == 27
+    assert all(i["jenis_harga"] == "pasar" for i in berharga)

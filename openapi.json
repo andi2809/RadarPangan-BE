@@ -219,14 +219,15 @@
             "schema": {
               "enum": [
                 "pihps",
-                "sp2kp"
+                "sp2kp",
+                "utama"
               ],
               "type": "string",
-              "description": "Sumber fakta harga",
+              "description": "pihps | sp2kp | utama (PIHPS prioritas, SP2KP menambal)",
               "default": "pihps",
               "title": "Sumber"
             },
-            "description": "Sumber fakta harga"
+            "description": "pihps | sp2kp | utama (PIHPS prioritas, SP2KP menambal)"
           }
         ],
         "responses": {

@@ -88,3 +88,23 @@ def flat_days(seri: list[tuple[str, int]]) -> int:
             break
         sama += 1
     return max(0, sama - 1)
+
+
+SUMBER_UTAMA = ("pihps", "sp2kp")
+
+
+def terakhir_utama(nama_wilayah: str, komoditas: str) -> tuple[tuple[str, int], str] | None:
+    """Harga terakhir dengan prioritas PIHPS, lalu SP2KP. Mengembalikan (titik, sumber)."""
+    for sumber in SUMBER_UTAMA:
+        titik = terakhir(nama_wilayah, komoditas, sumber)
+        if titik:
+            return titik, sumber
+    return None
+
+
+def seri_utama(nama_wilayah: str, komoditas: str, limit: int | None = None) -> tuple[list[tuple[str, int]], str | None]:
+    for sumber in SUMBER_UTAMA:
+        data = seri(nama_wilayah, komoditas, sumber, limit=limit)
+        if data:
+            return data, sumber
+    return [], None

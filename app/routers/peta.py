@@ -68,7 +68,9 @@ async def get_peta_status(
     komoditas: str = Query("beras_medium", description="ID komoditas kanonik"),
     tanggal: Optional[str] = Query(None, description="Tanggal observasi YYYY-MM-DD"),
     layer: Literal["aktual", "h7"] = Query("aktual", description="Lapisan visualisasi data (aktual | h7)"),
-    sumber: Literal["pihps", "sp2kp"] = Query("pihps", description="Sumber fakta harga"),
+    sumber: Literal["pihps", "sp2kp", "utama"] = Query(
+        "pihps", description="pihps | sp2kp | utama (PIHPS prioritas, SP2KP menambal)"
+    ),
 ):
     """Status harga + skor EWS untuk 27 kab/kota Jawa Barat.
 
@@ -95,7 +97,15 @@ async def get_peta_status(
             kode = row["kode_kemendagri"]
             nama = row["nama_wilayah"]
 
-            if sumber == "sp2kp":
+            asal = sumber
+            if sumber == "utama":
+                hasil_utama = fakta_service.terakhir_utama(nama, komoditas_kanonik)
+                if hasil_utama:
+                    titik, asal = hasil_utama
+                    seri_penuh = fakta_service.seri(nama, komoditas_kanonik, asal)
+                else:
+                    titik, seri_penuh = None, []
+            elif sumber == "sp2kp":
                 titik = fakta_service.terakhir(nama, komoditas_kanonik, "sp2kp")
                 seri_penuh = fakta_service.seri(nama, komoditas_kanonik, "sp2kp")
             else:
@@ -140,8 +150,8 @@ async def get_peta_status(
                     kode_kemendagri=kode,
                     nama=nama,
                     skor_ews=ews,
-                    sumber=sumber,
-                    jenis_harga=fakta_service.jenis_harga(sumber, komoditas_kanonik),
+                    sumber=asal,
+                    jenis_harga=fakta_service.jenis_harga(asal, komoditas_kanonik),
                     flat_days=fakta_service.flat_days(seri_penuh),
                 )
             )
