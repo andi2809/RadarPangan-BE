@@ -2,7 +2,7 @@
 PY ?= .venv/bin/python
 TANGGAL ?= $(shell date +%F)
 
-.PHONY: help test integrity fetch rekonsiliasi sp2kp-fetch sp2kp-import gabung backtest exports deploy semua
+.PHONY: help test integrity fetch rekonsiliasi sp2kp-fetch sp2kp-import gabung harga-utama backtest exports deploy semua
 
 help:
 	@echo "make test          # seluruh uji (pytest)"
@@ -11,6 +11,7 @@ help:
 	@echo "make rekonsiliasi  # bandingkan PIHPS vs SP2KP (TANGGAL=YYYY-MM-DD)"
 	@echo "make sp2kp-fetch START=2026-10-19 END=2026-10-26  # tarik SP2KP 27 kab/kota"
 	@echo "make sp2kp-import BERKAS=ekspor.csv|xlsx  # impor ekspor SP2KP (CSV/XLSX)"
+	@echo "make harga-utama   # satu tabel untuk FE (PIHPS prioritas, SP2KP tambalan)"
 	@echo "make gabung        # gabungkan PIHPS+SP2KP jadi data/derived/gabungan_harga.csv"
 	@echo "make backtest      # backtest ambang EWS"
 	@echo "make exports       # regenerasi openapi.json + fixtures"
@@ -36,6 +37,9 @@ sp2kp-fetch:
 
 sp2kp-import:
 	$(PY) pipeline/sp2kp_import.py --berkas $(BERKAS)
+
+harga-utama:
+	$(PY) pipeline/harga_utama.py
 
 gabung:
 	$(PY) pipeline/gabung_ekspor.py

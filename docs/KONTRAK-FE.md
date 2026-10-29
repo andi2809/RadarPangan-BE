@@ -111,6 +111,12 @@ mengubah `StatusPetaItem[]` menjadi struktur `telemetry` komponen. API tetap kan
 **B. Minta API menambah alias camelCase.** Bisa, tetapi respons lebih gemuk dan ada dua sumber nama
 field → rawan bingung.
 
+## 4b. Kalau butuh satu tabel jadi (tanpa memilih sumber)
+
+Gunakan `data/derived/harga_utama.csv` (`make harga-utama`): satu baris per wilayah × komoditas
+× tanggal, dengan aturan **PIHPS prioritas, SP2KP menambal**. Kolom `sumber` dan `jenis_harga`
+tetap ada — jangan dihapus saat memuat ke UI; itulah yang membedakan "harga pasar" dan "angka acuan".
+
 ## 5. Catatan yang menghemat waktu
 
 - **Angka landing berubah** (26 Okt): kini dihitung dari data nyata → `jumlah_aman 0`,

@@ -180,3 +180,19 @@ Rp13.500), bukan harga pasar bebas seperti PIHPS. Lihat `PROTOKOL.md` bagian 7.
 
 Dipakai untuk berbagi data ke tim FE/analisis: label `sumber` dan `jenis_harga` ikut terbawa,
 sehingga penggabungan tidak menghilangkan provenance.
+
+
+---
+
+## 7. `derived/harga_utama.csv` — satu tabel untuk front end
+
+| | |
+|---|---|
+| Pengolah | `pipeline/harga_utama.py` (`make harga-utama`) |
+| Aturan | PIHPS dipakai bila ada; bila tidak, SP2KP menambal. **Tidak ada perata-rataan dua sumber.** |
+| Kolom | `tanggal, kode_kemendagri, wilayah, komoditas, harga_rp, sumber, jenis_harga` |
+| Hasil 29 Okt 2026 | 3.303 baris · 27 wilayah · sumber: PIHPS 2.705 + SP2KP 598 · jenis: pasar 2.923 + acuan 380 |
+
+Konsekuensi yang harus disadari: untuk **beras**, 9 wilayah berasal dari PIHPS (`pasar`) dan 18
+wilayah dari SP2KP (`acuan`) — peta akan memperlihatkan dua kelompok. Itu bukan bug, melainkan
+batas data; UI disarankan membedakan pola/warna untuk `acuan`.
