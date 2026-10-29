@@ -123,3 +123,22 @@ adalah *"apa yang dilaporkan berbeda"*, bukan *"dua petugas melihat harga berbed
 **Batas kejujuran:** penjelasan "petugas mengisi angka HET" adalah inferensi dari pola, bukan
 pernyataan resmi. Yang terverifikasi adalah definisi komoditas, institusi pelapor, agregasi, dan
 pola angkanya.
+
+
+---
+
+## 7. Koreksi 29 Okt 2026 — "PIHPS bergerak di semua komoditas" terlalu kuat
+
+Setelah menambahkan metrik `flat_days` (jumlah observasi terakhir dengan harga sama), terlihat:
+
+| Sumber | Beras | Cabai | Bawang | Telur | Minyak curah |
+|---|---|---|---|---|---|
+| PIHPS (median) | 37 | 0 | 5 | 3 | 35 |
+| SP2KP (median) | 5* | 1 | 0 | 5* | 5* |
+
+\* batas atas 5 karena SP2KP baru ditarik 6 hari bursa.
+
+**Kesimpulan yang diperbarui:** yang benar-benar bergerak cepat adalah **cabai**; beras dan minyak
+curah juga *lengket* bahkan pada PIHPS (median 35–37 hari bursa tanpa berubah). Karena itu EWS
+harus fokus pada komoditas yang bergerak, dan untuk beras/minyak memakai **disparitas antarwilayah**
+sebagai indikator, bukan perubahan level.

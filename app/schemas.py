@@ -174,6 +174,9 @@ class StatusPetaItem(BaseModel):
 
     # Provenance per fakta (aditif)
     sumber: Optional[str] = Field(None, description="pihps | sp2kp")
+    flat_days: Optional[int] = Field(
+        None, description="Jumlah observasi terakhir dengan harga sama (0 = berubah terakhir)"
+    )
     jenis_harga: Optional[Literal["pasar", "acuan"]] = Field(
         None, description="pasar = hasil survei harga; acuan = angka menempel HET/program"
     )

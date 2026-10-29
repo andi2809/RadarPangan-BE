@@ -97,8 +97,10 @@ async def get_peta_status(
 
             if sumber == "sp2kp":
                 titik = fakta_service.terakhir(nama, komoditas_kanonik, "sp2kp")
+                seri_penuh = fakta_service.seri(nama, komoditas_kanonik, "sp2kp")
             else:
                 titik = harga_service.terakhir(nama, komoditas_kanonik)
+                seri_penuh = harga_service.seri(nama, komoditas_kanonik)
             if titik is None:
                 items.append(_item_kosong(kode, nama, komoditas_kanonik, acuan, jenis_acuan, sumber))
                 continue
@@ -140,6 +142,7 @@ async def get_peta_status(
                     skor_ews=ews,
                     sumber=sumber,
                     jenis_harga=fakta_service.jenis_harga(sumber, komoditas_kanonik),
+                    flat_days=fakta_service.flat_days(seri_penuh),
                 )
             )
 

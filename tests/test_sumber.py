@@ -76,3 +76,15 @@ def test_disparitas_tersedia():
     assert "pihps" in data and "sp2kp" in data
     assert data["sp2kp"]["komoditas"]["beras_medium"]["bergerak"] is False
     assert data["pihps"]["komoditas"]["beras_medium"]["bergerak"] is True
+
+
+def test_flat_days_membedakan_komoditas_bergerak():
+    """cabai bergerak harian; beras cenderung datar (indikator kualitas data)."""
+    def median_flat(komoditas: str, sumber: str) -> int:
+        data = _peta(komoditas, sumber)
+        nilai = sorted(i["flat_days"] for i in data if i["harga_aktual_rp"])
+        return nilai[len(nilai) // 2]
+
+    assert median_flat("cabai_rawit_merah", "pihps") <= 2
+    assert median_flat("beras_medium", "sp2kp") >= 4
+    assert median_flat("beras_medium", "pihps") >= 10

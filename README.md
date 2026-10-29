@@ -103,7 +103,7 @@ Kontrak untuk front end: [`docs/KONTRAK-FE.md`](docs/KONTRAK-FE.md).
 | [`docs/STRATEGI_SUMBER_DATA.md`](docs/STRATEGI_SUMBER_DATA.md) | strategi federasi sumber + lineage |
 | [`docs/KESIMPULAN_METODOLOGI.md`](docs/KESIMPULAN_METODOLOGI.md) | kesimpulan metodologi + lima perubahan implementasi |
 
-Setiap baris `/peta/status` kini membawa `sumber` dan `jenis_harga` (`pasar`|`acuan`):
+Setiap baris `/peta/status` kini membawa `sumber`, `jenis_harga` (`pasar`|`acuan`), dan `flat_days`:
 PIHPS = `pasar` (9/27 wilayah berisi); SP2KP = 27/27, tetapi beras/telur/minyakita ditandai
 `acuan` karena angkanya menempel HET, sedangkan cabai & bawang ditandai `pasar`.
 

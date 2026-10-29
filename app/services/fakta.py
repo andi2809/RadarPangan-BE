@@ -71,3 +71,20 @@ def cakupan(sumber: str) -> dict:
         "jumlah_wilayah": len(wilayah),
         "periode": (min(tanggal), max(tanggal)) if tanggal else None,
     }
+
+
+def flat_days(seri: list[tuple[str, int]]) -> int:
+    """Berapa hari bursa berturut-turut harga terakhir tidak berubah.
+
+    0 = berubah pada observasi terakhir; 5 = lima observasi terakhir sama.
+    Indikator kualitas: seri yang panjang 'flat' biasanya angka acuan, bukan harga pasar.
+    """
+    if not seri:
+        return 0
+    terakhir = seri[-1][1]
+    sama = 0
+    for _tanggal, harga in reversed(seri):
+        if harga != terakhir:
+            break
+        sama += 1
+    return max(0, sama - 1)

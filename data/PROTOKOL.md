@@ -156,3 +156,24 @@ Ringkasan lengkap (tiga kesimpulan besar, fakta terverifikasi, lima perubahan im
 daftar yang **tidak** akan dilakukan) ada di [`../docs/KESIMPULAN_METODOLOGI.md`](../docs/KESIMPULAN_METODOLOGI.md).
 Dokumen itu menjadi dasar keputusan implementasi berikutnya dan wajib diperbarui bila ada temuan
 baru yang mengubah kesimpulan.
+
+
+## 13. `flat_days` — penanda harga tidak bergerak (29 Okt 2026)
+
+Setiap item `/peta/status` membawa `flat_days`: jumlah observasi terakhir berturut-turut dengan
+harga sama (0 = berubah pada observasi terakhir). Dihitung per wilayah × komoditas × sumber.
+
+Median `flat_days` (snapshot terakhir):
+
+| Sumber | Beras | Cabai | Bawang | Telur | Minyak curah |
+|---|---|---|---|---|---|
+| PIHPS | **37** | 0 | 5 | 3 | **35** |
+| SP2KP | 5* | 1 | 0 | 5* | 5* |
+
+\* batas atas 5 karena SP2KP baru ditarik 6 hari bursa.
+
+**Koreksi penting:** pernyataan sebelumnya "PIHPS bergerak di semua komoditas" **terlalu kuat**.
+Yang cepat bergerak adalah **cabai** (dan sebagian bawang/telur). **Beras dan minyak curah juga
+"lengket"** — bertahan puluhan hari bursa tanpa berubah, meski bukan sedatar SP2KP.
+Implikasi: EWS yang andal harus fokus pada komoditas yang bergerak, dan untuk beras/minyak
+mengandalkan indikator *disparitas antarwilayah*, bukan perubahan level.

@@ -1635,6 +1635,18 @@
             "title": "Sumber",
             "description": "pihps | sp2kp"
           },
+          "flat_days": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Flat Days",
+            "description": "Jumlah observasi terakhir dengan harga sama (0 = berubah terakhir)"
+          },
           "jenis_harga": {
             "anyOf": [
               {
