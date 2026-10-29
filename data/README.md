@@ -165,3 +165,18 @@ Aturan: berkas ini **tidak** dicampur otomatis ke loader PIHPS. Pemakaiannya har
 
 ⚠️ **Semantik:** `beras_medium` dari SP2KP mendekati **harga program/HET** (11/27 wilayah persis
 Rp13.500), bukan harga pasar bebas seperti PIHPS. Lihat `PROTOKOL.md` bagian 7.
+
+
+---
+
+## 6. `derived/gabungan_harga.csv` (ekspor siap pakai)
+
+| | |
+|---|---|
+| Pengolah | `pipeline/gabung_ekspor.py` (`make gabung`) |
+| Isi | gabungan PIHPS + SP2KP, satu baris per (tanggal, wilayah, komoditas, sumber) |
+| Kolom | `tanggal, wilayah, komoditas, harga_rp, sumber, jenis_harga` |
+| Hasil 26 Okt 2026 | 3.515 baris · 27 wilayah · 3 Agu–26 Okt (PIHPS 2.705 · SP2KP 810) |
+
+Dipakai untuk berbagi data ke tim FE/analisis: label `sumber` dan `jenis_harga` ikut terbawa,
+sehingga penggabungan tidak menghilangkan provenance.
