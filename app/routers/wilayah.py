@@ -2,11 +2,14 @@ import csv
 import json
 from datetime import date, timedelta
 from pathlib import Path
-from typing import List, Optional
+from typing import List, Literal, Optional
 from fastapi import APIRouter, HTTPException, Query
 from app.schemas import EnvelopeResponse, RegionSchema, RegionDetailRingkasan, CommoditySchema, TitikPrakiraan
 from app.routers.komoditas import COMMODITIES_DATA
+from app.services import fakta as fakta_service
 from app.services import harga as harga_service
+from app.services import prakiraan as prakiraan_service
+from app.services import skor as skor_service
 
 router = APIRouter(prefix="/api/v1/wilayah", tags=["Wilayah"])
 
@@ -60,7 +63,13 @@ async def list_wilayah(q: Optional[str] = Query(None, description="Cari nama wil
     return EnvelopeResponse(data=regions, meta=harga_service.meta_terkini())
 
 @router.get("/{kode}/ringkasan", response_model=EnvelopeResponse[RegionDetailRingkasan])
-async def get_wilayah_ringkasan(kode: str, komoditas: str = Query("beras_medium", description="ID komoditas")):
+async def get_wilayah_ringkasan(
+    kode: str,
+    komoditas: str = Query("beras_medium", description="ID komoditas"),
+    sumber: Literal["pihps", "sp2kp", "utama"] = Query(
+        "pihps", description="pihps | sp2kp | utama (PIHPS prioritas, SP2KP menambal)"
+    ),
+):
     """Mengambil ringkasan telemetri satu wilayah: harga aktual, HET/HAP, H+7, EWS score, tren, dan daya beli UMK."""
     regions = _load_regions_from_csv()
     target_reg = next((r for r in regions if r.id == kode), None)
@@ -79,9 +88,22 @@ async def get_wilayah_ringkasan(kode: str, komoditas: str = Query("beras_medium"
     }
     harga_acuan, jenis = acuan_map.get(clean_komoditas, (13500, "HET"))
 
-    # Harga nyata dari snapshot PIHPS; wilayah tanpa data tidak dikarang.
-    titik = harga_service.terakhir(target_reg.name, clean_komoditas)
-    seri = harga_service.seri(target_reg.name, clean_komoditas, limit=14)
+    # Harga nyata dari snapshot terpilih; wilayah tanpa data tidak dikarang.
+    sumber = sumber if isinstance(sumber, str) else "pihps"
+    if sumber == "utama":
+        hasil = fakta_service.terakhir_utama(target_reg.name, clean_komoditas)
+        titik, asal = hasil if hasil else (None, None)
+    elif sumber == "sp2kp":
+        titik, asal = fakta_service.terakhir(target_reg.name, clean_komoditas, "sp2kp"), "sp2kp"
+    else:
+        titik, asal = harga_service.terakhir(target_reg.name, clean_komoditas), "pihps"
+
+    if asal in ("sp2kp",):
+        seri = fakta_service.seri(target_reg.name, clean_komoditas, "sp2kp", limit=14)
+    elif asal == "pihps":
+        seri = harga_service.seri(target_reg.name, clean_komoditas, limit=14)
+    else:
+        seri = []
 
     if titik is None:
         harga_aktual = None
@@ -90,6 +112,7 @@ async def get_wilayah_ringkasan(kode: str, komoditas: str = Query("beras_medium"
         status = "tidak_ada_data"
         ews_score = None
         risk_level = "TIDAK_DIKETAHUI"
+        rekomendasi_tindakan = None
         base_date = date.today()
         history: list[dict] = []
         prakiraan: list[TitikPrakiraan] = []
@@ -97,31 +120,36 @@ async def get_wilayah_ringkasan(kode: str, komoditas: str = Query("beras_medium"
         tanggal_data, harga_aktual = titik
         base_date = date.fromisoformat(tanggal_data)
         nilai = [v for _t, v in seri]
-        if len(nilai) >= 2 and nilai[0] > 0:
-            laju = (nilai[-1] - nilai[0]) / max(1, len(nilai) - 1) / nilai[0]
-        else:
-            laju = 0.0
-        harga_prediksi_h7 = round(harga_aktual * (1 + laju * 7))
-        selisih_persen = round((harga_aktual - harga_acuan) / harga_acuan * 100, 2)
+        prog = prakiraan_service.prakiraan_h7(
+            seri, fakta_service.flat_days(seri), komoditas=clean_komoditas, sumber=asal
+        )
+        harga_prediksi_h7 = prog["harga_prediksi_h7_rp"] if prog else harga_aktual
 
-        status = "aman"
-        if selisih_persen > 10:
-            status = "kritis"
-        elif selisih_persen > 5:
-            status = "waspada"
-        elif selisih_persen < -5:
-            status = "turun"
-
-        ews_score = min(100, max(0, int(50 + selisih_persen * 2)))
-        risk_level = "TINGGI" if ews_score > 65 else ("SEDANG" if ews_score > 45 else "RENDAH")
+        hasil_skor = skor_service.hitung(
+            harga_rp=harga_aktual,
+            acuan_rp=harga_acuan,
+            seri=seri,
+            umk_rp=target_reg.umk_2026_rp,
+            komoditas=clean_komoditas,
+            flat_days=fakta_service.flat_days(seri),
+        )
+        selisih_persen = hasil_skor["selisih_persen"]
+        status = hasil_skor["status"]
+        ews_score = hasil_skor["ews_score"]
+        risk_level = hasil_skor["risk_level"]
+        rekomendasi_tindakan = hasil_skor["rekomendasi_tindakan"]
 
         history = [{"date": t, "tanggal": t, "harga_rp": v} for t, v in seri]
 
         prakiraan = []
+        lebar_pita = (
+            (prog["batas_atas_rp"] - prog["harga_prediksi_h7_rp"]) / prog["harga_prediksi_h7_rp"]
+            if prog and prog["harga_prediksi_h7_rp"] else 0.02
+        )
         for h in range(1, 8):
             d = base_date + timedelta(days=h)
-            val = round(harga_aktual * (1 + laju * h))
-            margin = round(val * 0.02 * (h ** 0.5))
+            val = round(harga_aktual + (harga_prediksi_h7 - harga_aktual) * h / 7)
+            margin = round(val * lebar_pita * (h / 7) ** 0.5)
             prakiraan.append(
                 TitikPrakiraan(
                     tanggal=d.isoformat(),
@@ -153,6 +181,7 @@ async def get_wilayah_ringkasan(kode: str, komoditas: str = Query("beras_medium"
         status=status,
         ews_score=ews_score,
         risk_level=risk_level,
+        rekomendasi_tindakan=rekomendasi_tindakan,
         history_14d=history,
         prakiraan=prakiraan,
         supply_balance={

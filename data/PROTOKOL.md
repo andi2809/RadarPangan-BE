@@ -187,3 +187,32 @@ PIHPS dipakai bila ada, selebihnya SP2KP. **Tidak ada perata-rataan.**
 Hasil 26 Okt: beras → 27/27 (9 `pasar` dari PIHPS + 18 `acuan` dari SP2KP);
 cabai → 27/27, seluruhnya `pasar` (9 PIHPS + 18 SP2KP).
 Karena itu UI **wajib** membaca `jenis_harga` per baris, bukan menganggap satu respons homogen.
+
+
+## 15. Model prakiraan & skor EWS (30 Okt 2026, direvisi dengan data lengkap)
+
+**Prakiraan H+7** — `app/services/prakiraan.py`
+- **Titik = harga terakhir (naive).** Bukan ML, bukan ARIMA, bukan SES.
+- **Pita = kuantil empiris** perubahan 7 hari per (sumber, komoditas),
+  dari `pipeline/pita_prakiraan.py` → `data/derived/pita_prakiraan.json`.
+  Cakupan uji (30% data terakhir): **84,5%** (target 80% untuk Q10–Q90).
+- Data < 2 titik → tidak ada prakiraan.
+
+Bukti pemilihan: walk-forward **180 seri, 105.771 evaluasi**, horizon 7 (MAPE median):
+
+| sumber \| komoditas | naive | SES .35 | Holt | Holt-Winters | drift-3 (lama) |
+|---|---|---|---|---|---|
+| PIHPS bawang | **5,0%** | 5,8 | 7,3 | 7,1 | 7,5 |
+| PIHPS cabai | **8,0%** | 8,9 | 11,1 | 11,0 | 13,1 |
+| SP2KP bawang | **4,3%** | 5,3 | 7,3 | 7,3 | 8,5 |
+| SP2KP cabai | **12,0%** | 13,1 | 16,2 | 16,0 | **20,0** |
+| PIHPS telur | **1,9%** | 2,3 | 2,6 | 2,5 | 3,0 |
+| Beras & minyak | **0,0%** | 0,0 | 0,1 | 0,1 | 0,0 |
+
+Catatan koreksi: kesimpulan awal "SES terbaik" berasal dari 45 seri/50 evaluasi dan
+**tidak bertahan** pada data lengkap. Pita berbasis sigma juga gugur: cakupan hanya
+69–75%, sehingga diganti kuantil empiris.
+
+**Skor EWS** — `app/services/skor.py` (SSOT)
+- Bobot 45% deviasi + 35% tren + 20% daya beli UMK; tren nol bila seri statis.
+- Dipakai peta dan detail wilayah → satu angka, satu tingkat risiko.

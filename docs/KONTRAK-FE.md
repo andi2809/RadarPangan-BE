@@ -79,6 +79,8 @@ Semua respons GET memakai amplop `{ ok, data, meta }`.
 | `movingAvg7d` | *(tidak ada)* — pakai `history_14d` di endpoint detail |
 | `ews_score` | `ews_score` / `skor_ews` |
 | — | `sumber` (`pihps`/`sp2kp`) dan `jenis_harga` (`pasar`/`acuan`) — **wajib ditampilkan** sebagai badge |
+| — | `rekomendasi_tindakan` & `risk_level` — **wajib ditampilkan**; dihitung backend (SSOT), jangan dihitung ulang di FE |
+| — | `harga_prediksi_h7_rp` = **harga terakhir** (naive); bandingkan dengan `pita` — jangan tampilkan satu angka tanpa rentang |
 | — | `flat_days` — berapa observasi terakhir harga tidak berubah (0 = berubah terakhir). Gunakan untuk memberi catatan "harga stabil N hari" atau menandai seri yang tampak seperti angka acuan |
 
 ### 3.4 Histori & prakiraan → `GET /api/v1/wilayah/{kode}/ringkasan`

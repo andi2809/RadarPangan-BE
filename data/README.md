@@ -196,3 +196,19 @@ sehingga penggabungan tidak menghilangkan provenance.
 Konsekuensi yang harus disadari: untuk **beras**, 9 wilayah berasal dari PIHPS (`pasar`) dan 18
 wilayah dari SP2KP (`acuan`) — peta akan memperlihatkan dua kelompok. Itu bukan bug, melainkan
 batas data; UI disarankan membedakan pola/warna untuk `acuan`.
+
+
+---
+
+## 8. Arsip historis (backfill 30 Okt 2026)
+
+| Berkas | Baris | Wilayah | Rentang | Ukuran |
+|---|---|---|---|---|
+| `raw/pihps_jabar_2023-10-26_2026-10-26.csv` | 35.235 | 9 | 2023-10-26 → 2026-10-26 | ±2,4 MB |
+| `raw/sp2kp_jabar_2024-04-01_2026-10-26.csv` | 83.086 | 27 | 2024-04-01 → 2026-10-30 | 5,0 MB |
+
+Catatan:
+- SP2KP **hanya menyimpan ±2,5 tahun** (uji 2024-01 = kosong, 2024-04 = ada) → arsip ini wajib dijaga.
+- PIHPS tersedia sejak 2018, tetapi arsip dibatasi 3 tahun agar perbandingan acuan tetap sebanding.
+- `derived/pita_prakiraan.json` dihitung dari dua arsip di atas (`make pita`), bukan saat request.
+- Bundel Vercel **tidak** memuat `derived/*.csv` (6–7 MB); lihat `vercel.json`.

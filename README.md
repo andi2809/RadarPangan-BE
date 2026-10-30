@@ -7,6 +7,12 @@ FastAPI, dideploy di Vercel. Repo ini bagian dari organisasi `RadarPangan` (Dash
 
 ---
 
+## Data historis
+
+Arsip 3 tahun: PIHPS 35.235 baris (9 wilayah) + SP2KP 83.086 baris (27 wilayah).
+Bundel Vercel hanya memuat `data/raw`, `data/referensi`, dan `data/derived/*.json` —
+CSV turunan (6–7 MB) tidak ikut. Rincian: `data/README.md` bagian 8.
+
 ## Status
 
 | | |
@@ -99,6 +105,9 @@ Kontrak untuk front end: [`docs/KONTRAK-FE.md`](docs/KONTRAK-FE.md).
 | `pipeline/rekonsiliasi.py` → `data/derived/rekonsiliasi_*.json` | selisih vs provinsi PIHPS & SP2KP |
 | `pipeline/disparitas.py` → `data/derived/disparitas.json` | sebaran harga antarwilayah per hari (sinyal alternatif) |
 | `pipeline/gabung_ekspor.py` → `data/derived/gabungan_harga.csv` | ekspor gabungan PIHPS+SP2KP dengan kolom `sumber` & `jenis_harga` |
+| `app/services/skor.py` | satu sumber skor EWS (peta + detail) |
+| `app/services/prakiraan.py` | **naive** + pita kuantil empiris untuk H+7 |
+| `pipeline/pita_prakiraan.py` | kalibrasi pita dari arsip mentah (`make pita`) |
 | `pipeline/harga_utama.py` → `data/derived/harga_utama.csv` | **satu tabel untuk FE**: PIHPS prioritas, SP2KP menambal 18 wilayah (tanpa merata-ratakan) |
 | [`docs/HASIL_BACKTEST_EWS.md`](docs/HASIL_BACKTEST_EWS.md) | laporan naratif + tabel hasil |
 | [`docs/STRATEGI_SUMBER_DATA.md`](docs/STRATEGI_SUMBER_DATA.md) | strategi federasi sumber + lineage |

@@ -6,6 +6,8 @@ from fastapi import APIRouter, Query
 
 from app.schemas import AcuanType, EnvelopeResponse, Meta, PriceStatus, StatusPetaItem
 from app.services import fakta as fakta_service
+from app.services import prakiraan as prakiraan_service
+from app.services import skor as skor_service
 from app.services import harga as harga_service
 
 router = APIRouter(prefix="/api/v1/peta", tags=["Peta"])
@@ -59,7 +61,7 @@ def _item_kosong(
         nama=nama,
         skor_ews=None,
         sumber=sumber,
-        jenis_harga=fakta_service.jenis_harga(sumber, komoditas) if sumber else None,
+        jenis_harga=fakta_service.metode_data(sumber) if sumber else None,
     )
 
 
@@ -85,6 +87,7 @@ async def get_peta_status(
     acuan, jenis_acuan = ACUAN.get(komoditas_kanonik, (13500, "HET"))
 
     items: List[StatusPetaItem] = []
+    tanggal_terbaru: str | None = None
     csv_path = REF_DIR / "umk_jabar_2026.csv"
     if not csv_path.exists():
         return EnvelopeResponse(
@@ -116,23 +119,41 @@ async def get_peta_status(
                 continue
 
             tanggal_data, harga = titik
+            if tanggal_terbaru is None or tanggal_data > tanggal_terbaru:
+                tanggal_terbaru = tanggal_data
             if tanggal and tanggal != tanggal_data:
                 items.append(_item_kosong(kode, nama, komoditas_kanonik, acuan, jenis_acuan, sumber))
                 continue
 
-            # Prakiraan H+7: tren linear dari 3 titik terakhir (baseline, bukan ML).
-            seri = (fakta_service.seri(nama, komoditas_kanonik, "sp2kp", limit=3)
-                    if sumber == "sp2kp" else harga_service.seri(nama, komoditas_kanonik, limit=3))
-            if len(seri) >= 2 and seri[0][1] > 0:
-                laju = (seri[-1][1] - seri[0][1]) / max(1, len(seri) - 1) / seri[0][1]
-            else:
-                laju = 0.0
-            proyeksi = round(harga * (1 + laju * 7))
+            # Prakiraan H+7: exponential smoothing + pita 95% (lihat services/prakiraan.py).
+            prakiraan = prakiraan_service.prakiraan_h7(
+                seri_penuh,
+                fakta_service.flat_days(seri_penuh),
+                komoditas=komoditas_kanonik,
+                sumber=asal,
+            )
+            if prakiraan:
+                proyeksi = prakiraan["harga_prediksi_h7_rp"]
+            else:  # data terlalu pendek: jangan mengarang proyeksi
+                proyeksi = harga
 
             harga_tampil = proyeksi if layer == "h7" else harga
-            selisih = round((harga_tampil - acuan) / acuan * 100, 2)
-            status = _status_dari_selisih(selisih)
-            ews = min(100, max(0, int(50 + selisih * 2)))
+            flat = fakta_service.flat_days(seri_penuh)
+            try:
+                umk = int(row["umk_2026_rp"])
+            except (KeyError, ValueError):
+                umk = None
+            hasil_skor = skor_service.hitung(
+                harga_rp=harga_tampil,
+                acuan_rp=acuan,
+                seri=seri_penuh,
+                umk_rp=umk,
+                komoditas=komoditas_kanonik,
+                flat_days=flat,
+            )
+            selisih = hasil_skor["selisih_persen"]
+            status = hasil_skor["status"]
+            ews = hasil_skor["ews_score"]
 
             items.append(
                 StatusPetaItem(
@@ -151,21 +172,32 @@ async def get_peta_status(
                     nama=nama,
                     skor_ews=ews,
                     sumber=asal,
-                    jenis_harga=fakta_service.jenis_harga(asal, komoditas_kanonik),
-                    flat_days=fakta_service.flat_days(seri_penuh),
+                    jenis_harga=fakta_service.metode_data(asal),
+                    flat_days=flat,
+                    sifat_seri=fakta_service.sifat_seri(flat),
+                    rekomendasi_tindakan=hasil_skor["rekomendasi_tindakan"],
+                    risk_level=hasil_skor["risk_level"],
                 )
             )
 
     cak = harga_service.cakupan()
-    peringatan = ["DATA_PIHPS_SNAPSHOT"] if cak["sumber"] else ["SNAPSHOT_PIHPS_TIDAK_ADA"]
-    if cak["jumlah_wilayah"] and cak["jumlah_wilayah"] < 27:
-        peringatan.append(f"CAKUPAN_SEBAGIAN_{cak['jumlah_wilayah']}_DARI_27_WILAYAH")
+    jumlah_berisi = sum(1 for i in items if i.harga_aktual_rp is not None)
+    if jumlah_berisi:
+        peringatan = []
+    else:
+        peringatan = ["SNAPSHOT_TIDAK_ADA"]
+    if 0 < jumlah_berisi < 27:
+        peringatan.append(f"CAKUPAN_SEBAGIAN_{jumlah_berisi}_DARI_27_WILAYAH")
 
     return EnvelopeResponse(
         data=items,
         meta=Meta(
-            tanggal_data=cak["periode"][1] if cak["periode"] else None,
-            sumber=["PIHPS BI"],
+            tanggal_data=tanggal_terbaru or (cak["periode"][1] if cak["periode"] else None),
+            sumber=(
+                ["PIHPS BI", "SP2KP Kemendag"] if sumber == "utama"
+                else ["SP2KP Kemendag"] if sumber == "sp2kp"
+                else ["PIHPS BI"]
+            ),
             mode_data="nyata" if cak["sumber"] else "demo",
             peringatan_kualitas=peringatan,
         ),

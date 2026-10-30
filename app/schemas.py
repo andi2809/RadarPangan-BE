@@ -177,9 +177,18 @@ class StatusPetaItem(BaseModel):
     flat_days: Optional[int] = Field(
         None, description="Jumlah observasi terakhir dengan harga sama (0 = berubah terakhir)"
     )
-    jenis_harga: Optional[Literal["pasar", "acuan"]] = Field(
-        None, description="pasar = hasil survei harga; acuan = angka menempel HET/program"
+    jenis_harga: Optional[Literal["survei_pasar", "laporan_daerah"]] = Field(
+        None,
+        description="Fakta asal angka: survei_pasar (PIHPS) atau laporan_daerah (SP2KP)",
+        json_schema_extra={"deprecated": "nama field dipertahankan; nilai kini faktual"},
     )
+    sifat_seri: Optional[Literal["bergerak", "statis"]] = Field(
+        None, description="Turunan flat_days: statis bila >= 3 observasi terakhir sama"
+    )
+    rekomendasi_tindakan: Optional[str] = Field(
+        None, description="Saran tindakan dari skor EWS (SSOT backend)"
+    )
+    risk_level: Optional[str] = Field(None, description="LOW | MEDIUM | HIGH | EXTREME")
 
     # Aliases for compatibility
     kode_kemendagri: Optional[str] = None
@@ -233,6 +242,9 @@ class RegionDetailRingkasan(BaseModel):
     status: PriceStatus
     ews_score: Optional[int] = None
     risk_level: str = "LOW"
+    rekomendasi_tindakan: Optional[str] = Field(
+        None, description="Saran tindakan dari skor EWS (SSOT backend)"
+    )
     history_14d: List[Dict[str, Any]] = Field(default_factory=list)
     supply_balance: Dict[str, Any]
     affordability: Dict[str, Any]

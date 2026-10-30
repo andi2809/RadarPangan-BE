@@ -23,10 +23,14 @@ POLA = {"pihps": "pihps_jabar_*.csv", "sp2kp": "sp2kp_jabar_*.csv"}
 SP2KP_BERGERAK = {"cabai_rawit_merah", "bawang_merah"}
 
 
-def jenis_harga(sumber: str, komoditas: str) -> str:
-    if sumber == "sp2kp" and komoditas not in SP2KP_BERGERAK:
-        return "acuan"
-    return "pasar"
+def metode_data(sumber: str) -> str:
+    """Fakta, bukan tafsir: siapa yang menghasilkan angka ini."""
+    return "survei_pasar" if sumber == "pihps" else "laporan_daerah"
+
+
+def sifat_seri(flat_days: int) -> str:
+    """Turunan dari data: seri bergerak atau statis (bukan klaim soal HET)."""
+    return "statis" if flat_days >= 3 else "bergerak"
 
 
 def _wilayah(nama: str) -> str:
