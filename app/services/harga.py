@@ -11,11 +11,13 @@ Prinsip:
 from __future__ import annotations
 
 import csv
+import gzip
 from functools import lru_cache
 from pathlib import Path
 
 DATA_DIR = Path(__file__).resolve().parents[2] / "data"
 RAW_DIR = DATA_DIR / "raw"
+PAKET = DATA_DIR / "paket" / "pihps.csv.gz"
 
 _ALIAS_KOMODITAS = {
     "minyakita": "minyak_goreng_curah",
@@ -32,6 +34,8 @@ def _wilayah(nama: str) -> str:
 
 
 def _berkas_semua() -> list[Path]:
+    if PAKET.exists():
+        return [PAKET]
     return sorted(RAW_DIR.glob("pihps_jabar_*.csv"))
 
 
@@ -45,7 +49,8 @@ def _muat() -> dict:
     harga: dict[tuple[str, str], dict[str, int]] = {}
     berkas = _berkas_semua()
     for path in berkas:
-        with path.open(encoding="utf-8") as fh:
+        pembuka = gzip.open if path.suffix == ".gz" else open
+        with pembuka(path, "rt", encoding="utf-8") as fh:
             for row in csv.DictReader(fh):
                 nilai = (row.get("harga_rp") or "").strip()
                 if not nilai.isdigit():

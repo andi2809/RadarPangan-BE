@@ -5,7 +5,7 @@
   ],
   "functions": {
     "api/index.py": {
-      "includeFiles": "{app,data/raw,data/referensi,data/derived/*.json}",
+      "includeFiles": "{app,data/paket,data/referensi,data/derived/*.json}",
       "maxDuration": 10
     }
   }

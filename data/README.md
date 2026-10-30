@@ -212,3 +212,27 @@ Catatan:
 - PIHPS tersedia sejak 2018, tetapi arsip dibatasi 3 tahun agar perbandingan acuan tetap sebanding.
 - `derived/pita_prakiraan.json` dihitung dari dua arsip di atas (`make pita`), bukan saat request.
 - Bundel Vercel **tidak** memuat `derived/*.csv` (6–7 MB); lihat `vercel.json`.
+
+
+---
+
+## 9. `paket/*.csv.gz` — berkas yang ikut ke serverless
+
+| | |
+|---|---|
+| Pengolah | `pipeline/paket_kompres.py` (`make paket`) |
+| Isi | `pihps.csv.gz` (35.235 baris) dan `sp2kp.csv.gz` (83.086 baris), sudah digabung & dideduplikasi |
+| Ukuran | **0,40 MB** total (dari 7,4 MB CSV mentah) |
+| Dipakai | `app/services/harga.py` dan `fakta.py` membaca paket ini bila ada; jika tidak, jatuh ke `data/raw/` |
+
+Catatan pengukuran (lokal):
+
+| | raw | paket gzip |
+|---|---|---|
+| Ukuran berkas | 7,4 MB | **0,40 MB** |
+| Waktu parse PIHPS | 114 ms | 123 ms |
+| Waktu parse SP2KP | 255 ms | 280 ms |
+
+Artinya: gzip **tidak** mempercepat parse (sedikit lebih lambat karena dekompresi), tetapi
+memangkas ukuran bundel 18× — itulah yang memengaruhi unduhan/init fungsi serverless.
+Bundel Vercel dibatasi lewat `vercel.json` ke `{app,data/paket,data/referensi,data/derived/*.json}`.

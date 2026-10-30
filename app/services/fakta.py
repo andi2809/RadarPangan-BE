@@ -11,11 +11,13 @@ Prinsip yang dijaga:
 from __future__ import annotations
 
 import csv
+import gzip
 from functools import lru_cache
 from pathlib import Path
 
 DATA_DIR = Path(__file__).resolve().parents[2] / "data"
 RAW_DIR = DATA_DIR / "raw"
+PAKET = DATA_DIR / "paket" / "sp2kp.csv.gz"
 
 POLA = {"pihps": "pihps_jabar_*.csv", "sp2kp": "sp2kp_jabar_*.csv"}
 
@@ -45,8 +47,10 @@ def muat(sumber: str) -> dict:
         raise ValueError(f"sumber tidak dikenal: {sumber}")
 
     data: dict[tuple[str, str], dict[str, int]] = {}
-    for path in sorted(RAW_DIR.glob(pola)):
-        with path.open(encoding="utf-8") as fh:
+    berkas = [PAKET] if "sp2kp" in pola and PAKET.exists() else sorted(RAW_DIR.glob(pola))
+    for path in berkas:
+        pembuka = gzip.open if path.suffix == ".gz" else open
+        with pembuka(path, "rt", encoding="utf-8") as fh:
             for row in csv.DictReader(fh):
                 nilai = (row.get("harga_rp") or "").strip()
                 if not nilai.isdigit():
