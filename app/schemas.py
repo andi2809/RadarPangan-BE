@@ -361,7 +361,3 @@ class LaporanWargaCreated(BaseModel):
 # ------------------------------------------------------- AI Policy Advisor
 
 
-class AiBriefingRequest(BaseModel):
-    region_id: str = "32.73"
-    commodity_id: str = "cabai_rawit_merah"
-    pertanyaan_spesifik: Optional[str] = None

@@ -491,48 +491,6 @@
         }
       }
     },
-    "/api/v1/ai/briefing": {
-      "post": {
-        "tags": [
-          "AI Policy Advisor"
-        ],
-        "summary": "Generate Ai Briefing",
-        "description": "Menghasilkan nota dinas / rekomendasi strategis TPID dan Satgas Pangan\nyang diorkestrasi oleh Autonomous Agent Google Antigravity SDK.",
-        "operationId": "generate_ai_briefing_api_v1_ai_briefing_post",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AiBriefingRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EnvelopeResponse_dict_"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/health": {
       "get": {
         "tags": [
@@ -582,33 +540,6 @@
   },
   "components": {
     "schemas": {
-      "AiBriefingRequest": {
-        "properties": {
-          "region_id": {
-            "type": "string",
-            "title": "Region Id",
-            "default": "32.73"
-          },
-          "commodity_id": {
-            "type": "string",
-            "title": "Commodity Id",
-            "default": "cabai_rawit_merah"
-          },
-          "pertanyaan_spesifik": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Pertanyaan Spesifik"
-          }
-        },
-        "type": "object",
-        "title": "AiBriefingRequest"
-      },
       "CommoditySchema": {
         "properties": {
           "id": {

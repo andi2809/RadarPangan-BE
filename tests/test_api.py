@@ -72,13 +72,10 @@ def test_laporan_warga_anonymous():
     assert body["ok"] is True
     assert body["data"]["status"] == "DITERIMA"
 
-def test_ai_briefing():
+def test_ai_briefing_dicabut():
+    """Endpoint AI advisor sengaja dihapus: datanya mock dan SDK-nya tidak terpasang."""
     response = client.post("/api/v1/ai/briefing", json={
-        "region_id": "32.73",
-        "commodity_id": "cabai_rawit_merah"
+        "region_id": "32.73", "commodity_id": "cabai_rawit_merah", "pertanyaan_spesifik": "uji"
     })
-    assert response.status_code == 200
-    body = response.json()
-    assert body["ok"] is True
-    assert "executive_briefing_markdown" in body["data"]
-    assert "TPID JAWA BARAT" in body["data"]["executive_briefing_markdown"]
+    assert response.status_code == 404
+

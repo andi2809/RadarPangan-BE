@@ -1,3 +1,3 @@
-from . import publik, komoditas, wilayah, peta, laporan, ai_advisor, meta
+from . import publik, komoditas, wilayah, peta, laporan, meta
 
-__all__ = ["publik", "komoditas", "wilayah", "peta", "laporan", "ai_advisor"]
+__all__ = ["publik", "komoditas", "wilayah", "peta", "laporan", "meta"]
