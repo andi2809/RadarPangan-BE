@@ -142,3 +142,36 @@ Setelah menambahkan metrik `flat_days` (jumlah observasi terakhir dengan harga s
 curah juga *lengket* bahkan pada PIHPS (median 35–37 hari bursa tanpa berubah). Karena itu EWS
 harus fokus pada komoditas yang bergerak, dan untuk beras/minyak memakai **disparitas antarwilayah**
 sebagai indikator, bukan perubahan level.
+
+---
+
+## 8. Uji kualitas dataset Bapanas (6 Nov 2026)
+
+Dataset resmi Bapanas (surat 1014/TS.02.03/B.2/11/2026) diperiksa sebelum dipakai sebagai
+sumber tunggal EWS. Hasil pengujian pada `data/paket/bapanas.csv.gz`:
+
+| Pemeriksaan | Hasil |
+|---|---|
+| Baris konsumen | 158.708 (produsen 31.104) |
+| Wilayah | 27 kab/kota |
+| Komoditas | 6 |
+| Hari | 1.014 hari (2024-01-01 → 2026-10-31) |
+| **Kepadatan sel** | 158.708 / 164.268 = **96,6%** |
+| Kepadatan per komoditas | 96,3%–96,9% (merata) |
+| Lonjakan harian > 50% | 153 dari 158.546 transisi = **0,10%** |
+| Duplikat (tanggal × wilayah × komoditas) | 0 |
+
+Artinya: dataset **lengkap dan konsisten** — tidak ada lubang besar per komoditas, dan lonjakan
+ekstrem sangat jarang (0,10%), sehingga layak dipakai tanpa imputasi.
+
+### Perbandingan dengan sumber lama (26 Okt 2026, Kota Bandung)
+
+| Komoditas | Bapanas | SP2KP | Selisih |
+|---|---|---|---|
+| Beras Medium | 13.500 | 13.500 | 0% |
+| Cabai Rawit Merah | 86.667 | 79.500 | +9,0% |
+| Bawang Merah | 35.000 | 36.167 | −3,2% |
+| Telur Ayam Ras | 25.500 | 25.833 | −1,3% |
+
+Kesimpulan: Bapanas dan SP2KP **tidak identik** meski keduanya resmi. Karena itu setiap angka
+tetap membawa label sumber, dan penggantian sumber dicatat sebagai keputusan (`sumber=bapanas`).
