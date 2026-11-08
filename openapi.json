@@ -34,7 +34,7 @@
           "Komoditas"
         ],
         "summary": "Get All Commodities",
-        "description": "Mengambil daftar 5 komoditas pangan pokok strategis beserta harga acuan resmi (HAP/HET).",
+        "description": "Mengambil daftar 6 komoditas pangan pokok strategis beserta harga acuan resmi (HAP/HET).",
         "operationId": "get_all_commodities_api_v1_komoditas_get",
         "responses": {
           "200": {
@@ -131,6 +131,24 @@
               "title": "Komoditas"
             },
             "description": "ID komoditas"
+          },
+          {
+            "name": "sumber",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "bapanas",
+                "pihps",
+                "sp2kp",
+                "utama"
+              ],
+              "type": "string",
+              "description": "pihps | sp2kp | utama (PIHPS prioritas, SP2KP menambal)",
+              "default": "bapanas",
+              "title": "Sumber"
+            },
+            "description": "pihps | sp2kp | utama (PIHPS prioritas, SP2KP menambal)"
           }
         ],
         "responses": {
@@ -218,13 +236,14 @@
             "required": false,
             "schema": {
               "enum": [
+                "bapanas",
                 "pihps",
                 "sp2kp",
                 "utama"
               ],
               "type": "string",
               "description": "pihps | sp2kp | utama (PIHPS prioritas, SP2KP menambal)",
-              "default": "pihps",
+              "default": "bapanas",
               "title": "Sumber"
             },
             "description": "pihps | sp2kp | utama (PIHPS prioritas, SP2KP menambal)"
@@ -1133,6 +1152,18 @@
             "title": "Risk Level",
             "default": "LOW"
           },
+          "rekomendasi_tindakan": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rekomendasi Tindakan",
+            "description": "Saran tindakan dari skor EWS (SSOT backend)"
+          },
           "history_14d": {
             "items": {
               "additionalProperties": true,
@@ -1653,8 +1684,8 @@
               {
                 "type": "string",
                 "enum": [
-                  "pasar",
-                  "acuan"
+                  "survei_pasar",
+                  "laporan_daerah"
                 ]
               },
               {
@@ -1662,7 +1693,47 @@
               }
             ],
             "title": "Jenis Harga",
-            "description": "pasar = hasil survei harga; acuan = angka menempel HET/program"
+            "description": "Fakta asal angka: survei_pasar (PIHPS) / laporan_daerah (SP2KP) / resmi Bapanas"
+          },
+          "sifat_seri": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "bergerak",
+                  "statis"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sifat Seri",
+            "description": "Turunan flat_days: statis bila >= 3 observasi terakhir sama"
+          },
+          "rekomendasi_tindakan": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rekomendasi Tindakan",
+            "description": "Saran tindakan dari skor EWS (SSOT backend)"
+          },
+          "risk_level": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Risk Level",
+            "description": "LOW | MEDIUM | HIGH | EXTREME"
           },
           "kode_kemendagri": {
             "anyOf": [

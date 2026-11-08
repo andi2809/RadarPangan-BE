@@ -179,8 +179,7 @@ class StatusPetaItem(BaseModel):
     )
     jenis_harga: Optional[Literal["survei_pasar", "laporan_daerah"]] = Field(
         None,
-        description="Fakta asal angka: survei_pasar (PIHPS) atau laporan_daerah (SP2KP)",
-        json_schema_extra={"deprecated": "nama field dipertahankan; nilai kini faktual"},
+        description="Fakta asal angka: survei_pasar (PIHPS) / laporan_daerah (SP2KP) / resmi Bapanas",
     )
     sifat_seri: Optional[Literal["bergerak", "statis"]] = Field(
         None, description="Turunan flat_days: statis bila >= 3 observasi terakhir sama"

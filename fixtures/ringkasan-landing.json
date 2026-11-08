@@ -2,18 +2,18 @@
   "ok": true,
   "data": {
     "provinsi": "Jawa Barat",
-    "tanggal_data": "2026-10-26",
+    "tanggal_data": "2026-10-31",
     "total_kabkota": 27,
-    "kestabilan_wilayah_pct": 0.0,
-    "jumlah_aman": 0,
+    "kestabilan_wilayah_pct": 81.5,
+    "jumlah_aman": 22,
     "jumlah_waspada": 0,
-    "jumlah_kritis": 9,
+    "jumlah_kritis": 0,
     "komoditas_sorotan": {
       "nama": "Beras Medium",
-      "harga_rata_rata_rp": 15611,
-      "status_jabar": "kritis",
-      "sentra_surplus": "Kota Sukabumi (Rp 14.950)",
-      "hotspot_kritis": "Kota Bogor (Rp 16.600)"
+      "harga_rata_rata_rp": 13076,
+      "status_jabar": "aman",
+      "sentra_surplus": "Kota Cirebon (Rp 12.450)",
+      "hotspot_kritis": "Kab. Cirebon (Rp 14.000)"
     },
     "laporan_warga": {
       "total_terverifikasi_hari_ini": 0,
@@ -23,17 +23,17 @@
     "jumlah_wilayah": 27,
     "jumlah_komoditas": 5,
     "distribusi_status": {
-      "aman": 0,
+      "aman": 22,
       "waspada": 0,
-      "kritis": 9,
-      "turun": 0,
-      "tidak_ada_data": 18
+      "kritis": 0,
+      "turun": 5,
+      "tidak_ada_data": 0
     },
     "sorotan": null
   },
   "meta": {
-    "tanggal_data": "2026-10-26",
-    "diperbarui_pada": "2026-10-29T16:29:31.137586+00:00",
+    "tanggal_data": "2026-10-31",
+    "diperbarui_pada": "2026-11-08T14:24:30.529771+00:00",
     "sumber": [
       "PIHPS BI"
     ],
