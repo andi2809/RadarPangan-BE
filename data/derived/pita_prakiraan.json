@@ -2,87 +2,55 @@
   "horizon_hari": 7,
   "metode_titik": "naive (harga terakhir)",
   "metode_pita": "kuantil empiris perubahan 7 hari",
-  "cakupan_rata_rata_pct": 84.5,
+  "cakupan_rata_rata_pct": 82.9,
   "per_sumber_komoditas": {
-    "pihps|bawang_merah": {
-      "q10": -0.1111,
+    "bapanas|bawang_merah": {
+      "q10": -0.12,
       "q50": 0.0,
-      "q90": 0.1458,
-      "cakupan_uji_pct": 87.0,
-      "n_latih": 4816,
-      "n_uji": 2070
+      "q90": 0.1351,
+      "cakupan_uji_pct": 87.2,
+      "n_latih": 18349,
+      "n_uji": 7881
     },
-    "pihps|beras_medium": {
-      "q10": -0.0033,
+    "bapanas|beras_medium": {
+      "q10": -0.0192,
       "q50": 0.0,
-      "q90": 0.0036,
-      "cakupan_uji_pct": 89.0,
-      "n_latih": 4816,
-      "n_uji": 2070
+      "q90": 0.0196,
+      "cakupan_uji_pct": 90.4,
+      "n_latih": 18313,
+      "n_uji": 7867
     },
-    "pihps|cabai_rawit_merah": {
-      "q10": -0.1591,
-      "q50": -0.0149,
-      "q90": 0.2096,
-      "cakupan_uji_pct": 84.3,
-      "n_latih": 4816,
-      "n_uji": 2070
-    },
-    "pihps|minyak_goreng_curah": {
-      "q10": -0.0027,
+    "bapanas|cabai_rawit_merah": {
+      "q10": -0.2083,
       "q50": 0.0,
-      "q90": 0.0097,
-      "cakupan_uji_pct": 76.2,
-      "n_latih": 4816,
-      "n_uji": 2070
+      "q90": 0.2857,
+      "cakupan_uji_pct": 86.5,
+      "n_latih": 18369,
+      "n_uji": 7890
     },
-    "pihps|telur_ayam_ras": {
-      "q10": -0.0349,
+    "bapanas|minyak_goreng_curah": {
+      "q10": -0.0159,
       "q50": 0.0,
-      "q90": 0.0493,
+      "q90": 0.0286,
+      "cakupan_uji_pct": 82.6,
+      "n_latih": 18384,
+      "n_uji": 7899
+    },
+    "bapanas|minyak_goreng_kemasan": {
+      "q10": -0.0152,
+      "q50": 0.0,
+      "q90": 0.0292,
       "cakupan_uji_pct": 76.8,
-      "n_latih": 4816,
-      "n_uji": 2070
+      "n_latih": 18392,
+      "n_uji": 7903
     },
-    "sp2kp|bawang_merah": {
-      "q10": -0.1429,
-      "q50": 0.0,
-      "q90": 0.1667,
-      "cakupan_uji_pct": 89.9,
-      "n_latih": 11526,
-      "n_uji": 4948
-    },
-    "sp2kp|beras_medium": {
-      "q10": -0.0065,
-      "q50": 0.0,
-      "q90": 0.0,
-      "cakupan_uji_pct": 89.0,
-      "n_latih": 11534,
-      "n_uji": 4951
-    },
-    "sp2kp|cabai_rawit_merah": {
-      "q10": -0.2462,
-      "q50": 0.0,
-      "q90": 0.3333,
-      "cakupan_uji_pct": 88.6,
-      "n_latih": 11535,
-      "n_uji": 4951
-    },
-    "sp2kp|minyakita": {
-      "q10": 0.0,
-      "q50": 0.0,
-      "q90": 0.0099,
-      "cakupan_uji_pct": 96.9,
-      "n_latih": 11343,
-      "n_uji": 4871
-    },
-    "sp2kp|telur_ayam_ras": {
+    "bapanas|telur_ayam_ras": {
       "q10": -0.0357,
       "q50": 0.0,
-      "q90": 0.0385,
-      "cakupan_uji_pct": 67.2,
-      "n_latih": 11531,
-      "n_uji": 4951
+      "q90": 0.037,
+      "cakupan_uji_pct": 73.7,
+      "n_latih": 18416,
+      "n_uji": 7911
     }
   }
 }

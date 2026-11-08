@@ -216,3 +216,26 @@ Catatan koreksi: kesimpulan awal "SES terbaik" berasal dari 45 seri/50 evaluasi 
 **Skor EWS** — `app/services/skor.py` (SSOT)
 - Bobot 45% deviasi + 35% tren + 20% daya beli UMK; tren nol bila seri statis.
 - Dipakai peta dan detail wilayah → satu angka, satu tingkat risiko.
+
+
+## 16. Bapanas menjadi sumber utama EWS (6 Nov 2026)
+
+Badan Pangan Nasional menyerahkan dataset harga melalui surat No. 1014/TS.02.03/B.2/11/2026
+(5 November 2026). Dataset itu kini menjadi **sumber tunggal untuk prediksi EWS**;
+PIHPS dan SP2KP turun menjadi pembanding.
+
+| Aspek | Isi |
+|---|---|
+| Berkas | `bapanas_jabar_*.xlsx` (2 sheet: Produsen, Konsumen) — **tidak** disimpan di repo publik |
+| Importer | `pipeline/bapanas_import.py` → `data/paket/bapanas.csv.gz` |
+| Hasil | 189.812 baris · 27 kab/kota · konsumen 158.708 · produsen 31.104 |
+| Periode | 2024-01-01 → 2026-10-31 (harian) |
+| Komoditas | beras_medium, cabai_rawit_merah, bawang_merah, telur_ayam_ras, minyak_goreng_curah, minyak_goreng_kemasan |
+| Endpoint | `sumber=bapanas` (default) · `utama` = Bapanas → PIHPS → SP2KP |
+
+Catatan kepatuhan: surat menyatakan data hanya untuk analisis/penelitian dan tunduk pada
+ketentuan perundang-undangan. Karena repo akan publik, **berkas Excel mentah tidak di-commit**;
+yang dipublikasikan hanya turunan (CSV kanonik) dengan atribusi.
+
+Bapanas ≠ SP2KP: contoh 26 Okt 2026 Kota Bandung — cabai Bapanas 86.667 vs SP2KP 79.500 (+9%).
+Karena itu label sumber tetap wajib ditampilkan.

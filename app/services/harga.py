@@ -1,4 +1,4 @@
-"""Akses harga nyata dari snapshot PIHPS (data/raw/pihps_jabar_*.csv).
+"""Akses harga PIHPS (cadangan pembanding). Sumber utama EWS ada di services/bapanas.py.
 
 Prinsip:
 - Hanya membaca berkas hasil `pipeline/pihps_fetch.py` (data resmi PIHPS BI).
@@ -22,6 +22,7 @@ PAKET = DATA_DIR / "paket" / "pihps.csv.gz"
 _ALIAS_KOMODITAS = {
     "minyakita": "minyak_goreng_curah",
     "minyak_goreng_curah": "minyak_goreng_curah",
+    "minyak_goreng_kemasan": "minyak_goreng_kemasan",
 }
 
 

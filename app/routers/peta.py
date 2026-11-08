@@ -5,6 +5,7 @@ from typing import List, Optional, Literal
 from fastapi import APIRouter, Query
 
 from app.schemas import AcuanType, EnvelopeResponse, Meta, PriceStatus, StatusPetaItem
+from app.services import bapanas as bapanas_service
 from app.services import fakta as fakta_service
 from app.services import prakiraan as prakiraan_service
 from app.services import skor as skor_service
@@ -22,11 +23,13 @@ ACUAN: dict[str, tuple[int, AcuanType]] = {
     "bawang_merah": (32000, "HAP"),
     "telur_ayam_ras": (29500, "DINAMIS_MEDIAN_90H"),
     "minyakita": (15700, "HET"),
+    "minyak_goreng_kemasan": (19700, "DINAMIS_MEDIAN_90H"),
+    "minyak_goreng_curah": (15700, "HET"),
 }
 
 
 def _normalize_commodity_code(code: str) -> str:
-    return "minyakita" if code == "minyak_goreng_curah" else code
+    return code
 
 
 def _status_dari_selisih(selisih: Optional[float]) -> PriceStatus:
@@ -70,8 +73,8 @@ async def get_peta_status(
     komoditas: str = Query("beras_medium", description="ID komoditas kanonik"),
     tanggal: Optional[str] = Query(None, description="Tanggal observasi YYYY-MM-DD"),
     layer: Literal["aktual", "h7"] = Query("aktual", description="Lapisan visualisasi data (aktual | h7)"),
-    sumber: Literal["pihps", "sp2kp", "utama"] = Query(
-        "pihps", description="pihps | sp2kp | utama (PIHPS prioritas, SP2KP menambal)"
+    sumber: Literal["bapanas", "pihps", "sp2kp", "utama"] = Query(
+        "bapanas", description="pihps | sp2kp | utama (PIHPS prioritas, SP2KP menambal)"
     ),
 ):
     """Status harga + skor EWS untuk 27 kab/kota Jawa Barat.
@@ -80,7 +83,7 @@ async def get_peta_status(
     Wilayah tanpa data dikembalikan `status="tidak_ada_data"` — tidak dikarang.
     """
     # Saat dipanggil langsung (bukan lewat HTTP), default parameter masih berupa objek Query.
-    sumber = sumber if isinstance(sumber, str) else "pihps"
+    sumber = sumber if isinstance(sumber, str) else "bapanas"
     layer = layer if isinstance(layer, str) else "aktual"
     komoditas = komoditas if isinstance(komoditas, str) else "beras_medium"
     komoditas_kanonik = _normalize_commodity_code(komoditas)
@@ -101,13 +104,20 @@ async def get_peta_status(
             nama = row["nama_wilayah"]
 
             asal = sumber
-            if sumber == "utama":
-                hasil_utama = fakta_service.terakhir_utama(nama, komoditas_kanonik)
-                if hasil_utama:
-                    titik, asal = hasil_utama
-                    seri_penuh = fakta_service.seri(nama, komoditas_kanonik, asal)
+            if sumber in ("bapanas", "utama") and sumber == "bapanas":
+                titik = bapanas_service.terakhir(nama, komoditas_kanonik)
+                seri_penuh = bapanas_service.seri(nama, komoditas_kanonik)
+            elif sumber == "utama":
+                titik = bapanas_service.terakhir(nama, komoditas_kanonik)
+                if titik:
+                    seri_penuh, asal = bapanas_service.seri(nama, komoditas_kanonik), "bapanas"
                 else:
-                    titik, seri_penuh = None, []
+                    hasil_utama = fakta_service.terakhir_utama(nama, komoditas_kanonik)
+                    if hasil_utama:
+                        titik, asal = hasil_utama
+                        seri_penuh = fakta_service.seri(nama, komoditas_kanonik, asal)
+                    else:
+                        titik, seri_penuh = None, []
             elif sumber == "sp2kp":
                 titik = fakta_service.terakhir(nama, komoditas_kanonik, "sp2kp")
                 seri_penuh = fakta_service.seri(nama, komoditas_kanonik, "sp2kp")
@@ -194,7 +204,8 @@ async def get_peta_status(
         meta=Meta(
             tanggal_data=tanggal_terbaru or (cak["periode"][1] if cak["periode"] else None),
             sumber=(
-                ["PIHPS BI", "SP2KP Kemendag"] if sumber == "utama"
+                ["Badan Pangan Nasional"] if sumber == "bapanas"
+                else ["PIHPS BI", "SP2KP Kemendag"] if sumber == "utama"
                 else ["SP2KP Kemendag"] if sumber == "sp2kp"
                 else ["PIHPS BI"]
             ),

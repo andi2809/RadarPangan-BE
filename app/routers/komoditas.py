@@ -43,17 +43,26 @@ COMMODITIES_DATA: List[CommoditySchema] = [
         deskripsi="Telur ayam ras segar, acuan dinamis moving-median 90 hari kalender"
     ),
     CommoditySchema(
-        id="minyakita",
-        name="Minyakita",
+        id="minyak_goreng_curah",
+        name="Minyak Goreng Curah",
         category="Minyak Nabati",
         satuan="liter",
         jenis_acuan="HET",
         harga_acuan_rp=15700,
-        deskripsi="Minyak goreng kemasan bantal/botol rakyat, acuan HET (Permendag 18/2024)"
+        deskripsi="Minyak goreng curah rakyat, acuan HET (Permendag 18/2024)"
+    ),
+    CommoditySchema(
+        id="minyak_goreng_kemasan",
+        name="Minyak Goreng Kemasan",
+        category="Minyak Nabati",
+        satuan="liter",
+        jenis_acuan="DINAMIS_MEDIAN_90H",
+        harga_acuan_rp=19700,
+        deskripsi="Minyak goreng kemasan; acuan mengikuti median 90 hari karena tidak diatur HET"
     )
 ]
 
 @router.get("", response_model=EnvelopeResponse[List[CommoditySchema]])
 async def get_all_commodities():
-    """Mengambil daftar 5 komoditas pangan pokok strategis beserta harga acuan resmi (HAP/HET)."""
+    """Mengambil daftar 6 komoditas pangan pokok strategis beserta harga acuan resmi (HAP/HET)."""
     return EnvelopeResponse(data=COMMODITIES_DATA, meta=harga_service.meta_terkini())

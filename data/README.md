@@ -236,3 +236,19 @@ Catatan pengukuran (lokal):
 Artinya: gzip **tidak** mempercepat parse (sedikit lebih lambat karena dekompresi), tetapi
 memangkas ukuran bundel 18× — itulah yang memengaruhi unduhan/init fungsi serverless.
 Bundel Vercel dibatasi lewat `vercel.json` ke `{app,data/paket,data/referensi,data/derived/*.json}`.
+
+
+---
+
+## 10. `paket/bapanas.csv.gz` — sumber utama EWS
+
+| | |
+|---|---|
+| Asal | Surat Badan Pangan Nasional No. 1014/TS.02.03/B.2/11/2026 (5 Nov 2026) |
+| Importer | `pipeline/bapanas_import.py` (`make bapanas`) |
+| Isi | 189.812 baris · 27 kab/kota · konsumen 158.708 + produsen 31.104 · 2024-01-01 → 2026-10-31 |
+| Komoditas | 6 (termasuk Minyak Goreng Kemasan) |
+| Ukuran | 0,71 MB (gzip) |
+
+Berkas Excel mentah **tidak** ada di repo (repo publik); tersimpan privat di
+`dokumen/data-bapanas-privat/`. PIHPS dan SP2KP tetap disimpan sebagai pembanding.

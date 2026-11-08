@@ -94,27 +94,25 @@ def test_flat_days_membedakan_komoditas_bergerak():
     assert median_flat("beras_medium", "pihps") >= 10
 
 
-def test_sumber_utama_menggabungkan_dengan_prioritas_pihps():
+def test_sumber_bapanas_mencakup_27_wilayah():
+    data = _peta("beras_medium", "bapanas")
+    berharga = [i for i in data if i["harga_aktual_rp"]]
+    assert len(berharga) == 27
+    assert all(i["sumber"] == "bapanas" for i in berharga)
+
+
+def test_sumber_utama_memprioritaskan_bapanas():
     data = _peta("beras_medium", "utama")
     berharga = [i for i in data if i["harga_aktual_rp"]]
     assert len(berharga) == 27
-    sumber = {i["sumber"] for i in berharga}
-    assert sumber == {"pihps", "sp2kp"}
-    assert sum(1 for i in berharga if i["sumber"] == "pihps") == 9
-    assert any(i["jenis_harga"] == "laporan_daerah" for i in berharga)
-    assert any(i["jenis_harga"] == "survei_pasar" for i in berharga)
+    assert all(i["sumber"] == "bapanas" for i in berharga)
 
 
-def test_sumber_utama_cabai_bergerak_di_kedua_sumber():
-    data = _peta("cabai_rawit_merah", "utama")
-    berharga = [i for i in data if i["harga_aktual_rp"]]
-    assert len(berharga) == 27
-    # sumber berbeda, tetapi untuk cabai keduanya benar-benar bergerak
-    assert {i["jenis_harga"] for i in berharga} == {"survei_pasar", "laporan_daerah"}
-    # sebagian wilayah boleh statis; yang penting mayoritas seri cabai bergerak
-    bergerak = sum(1 for i in berharga if i["sifat_seri"] == "bergerak")
-    statis = sum(1 for i in berharga if i["sifat_seri"] == "statis")
-    assert bergerak > statis
+def test_bapanas_lima_komoditas_tersedia():
+    for kom in ("beras_medium", "cabai_rawit_merah", "bawang_merah", "telur_ayam_ras",
+                "minyak_goreng_curah", "minyak_goreng_kemasan"):
+        data = _peta(kom, "bapanas")
+        assert any(i["harga_aktual_rp"] for i in data), kom
 
 
 def test_skor_peta_dan_detail_konsisten():

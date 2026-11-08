@@ -6,6 +6,7 @@ from typing import List, Literal, Optional
 from fastapi import APIRouter, HTTPException, Query
 from app.schemas import EnvelopeResponse, RegionSchema, RegionDetailRingkasan, CommoditySchema, TitikPrakiraan
 from app.routers.komoditas import COMMODITIES_DATA
+from app.services import bapanas as bapanas_service
 from app.services import fakta as fakta_service
 from app.services import harga as harga_service
 from app.services import prakiraan as prakiraan_service
@@ -66,8 +67,8 @@ async def list_wilayah(q: Optional[str] = Query(None, description="Cari nama wil
 async def get_wilayah_ringkasan(
     kode: str,
     komoditas: str = Query("beras_medium", description="ID komoditas"),
-    sumber: Literal["pihps", "sp2kp", "utama"] = Query(
-        "pihps", description="pihps | sp2kp | utama (PIHPS prioritas, SP2KP menambal)"
+    sumber: Literal["bapanas", "pihps", "sp2kp", "utama"] = Query(
+        "bapanas", description="pihps | sp2kp | utama (PIHPS prioritas, SP2KP menambal)"
     ),
 ):
     """Mengambil ringkasan telemetri satu wilayah: harga aktual, HET/HAP, H+7, EWS score, tren, dan daya beli UMK."""
@@ -89,16 +90,25 @@ async def get_wilayah_ringkasan(
     harga_acuan, jenis = acuan_map.get(clean_komoditas, (13500, "HET"))
 
     # Harga nyata dari snapshot terpilih; wilayah tanpa data tidak dikarang.
-    sumber = sumber if isinstance(sumber, str) else "pihps"
-    if sumber == "utama":
-        hasil = fakta_service.terakhir_utama(target_reg.name, clean_komoditas)
-        titik, asal = hasil if hasil else (None, None)
+    sumber = sumber if isinstance(sumber, str) else "bapanas"
+    if sumber == "bapanas":
+        titik = bapanas_service.terakhir(target_reg.name, clean_komoditas)
+        asal = "bapanas"
+    elif sumber == "utama":
+        titik = bapanas_service.terakhir(target_reg.name, clean_komoditas)
+        if titik:
+            asal = "bapanas"
+        else:
+            hasil = fakta_service.terakhir_utama(target_reg.name, clean_komoditas)
+            titik, asal = hasil if hasil else (None, None)
     elif sumber == "sp2kp":
         titik, asal = fakta_service.terakhir(target_reg.name, clean_komoditas, "sp2kp"), "sp2kp"
     else:
         titik, asal = harga_service.terakhir(target_reg.name, clean_komoditas), "pihps"
 
-    if asal in ("sp2kp",):
+    if asal == "bapanas":
+        seri = bapanas_service.seri(target_reg.name, clean_komoditas, limit=14)
+    elif asal in ("sp2kp",):
         seri = fakta_service.seri(target_reg.name, clean_komoditas, "sp2kp", limit=14)
     elif asal == "pihps":
         seri = harga_service.seri(target_reg.name, clean_komoditas, limit=14)

@@ -25,7 +25,7 @@ bila request gagal / cold start.
 | GET | `/api/v1/publik/ringkasan-landing` | agregat untuk landing (data nyata) |
 | GET | `/api/v1/komoditas` | 5 komoditas + acuan |
 | GET | `/api/v1/wilayah` | 27 kab/kota Jabar (+ UMK, garis kemiskinan, populasi, centroid) |
-| GET | `/api/v1/peta/status?komoditas=&tanggal=&layer=aktual\|h7&sumber=pihps\|sp2kp\|utama` | array status per wilayah |
+| GET | `/api/v1/peta/status?komoditas=&tanggal=&layer=aktual\|h7&sumber=bapanas\|pihps\|sp2kp\|utama` | array status per wilayah |
 | GET | `/api/v1/wilayah/{kode}/ringkasan?komoditas=` | detail + histori 14 hari + prakiraan H+7 |
 | GET | `/api/v1/laporan-warga/sekitar?lat=&lng=&komoditas=` | harga sekitar + progres klaster (simulasi) |
 | POST | `/api/v1/laporan-warga` | kirim laporan |
@@ -127,6 +127,8 @@ tetap ada — jangan dihapus saat memuat ke UI; itulah yang membedakan "harga pa
   telur `DINAMIS 29.500`, minyak `HET 15.700`. Label **Minyakita vs Minyak Goreng Curah
   masih menunggu keputusan tim** — jangan hardcode di FE.
 - Kode komoditas: API memakai `minyakita` dan menerima alias `minyak_goreng_curah`.
+- `sumber=bapanas` (default) = dataset resmi Badan Pangan Nasional, **27/27 wilayah**,
+  6 komoditas termasuk `minyak_goreng_kemasan`.
 - `sumber=utama` = **satu tabel jadi**: PIHPS dipakai bila ada, SP2KP menambal sisanya.
   Memberi **27/27 wilayah**; tetap periksa `jenis_harga` per baris (beras: 9 `pasar`, 18 `acuan`).
 - `sumber=sp2kp` memberi **27/27 wilayah**, tetapi untuk beras/telur/minyakita

@@ -14,13 +14,13 @@ def test_get_komoditas():
     assert response.status_code == 200
     body = response.json()
     assert body["ok"] is True
-    assert len(body["data"]) == 5
+    assert len(body["data"]) == 6
     ids = [c["id"] for c in body["data"]]
     assert "beras_medium" in ids
     assert "cabai_rawit_merah" in ids
     assert "bawang_merah" in ids
     assert "telur_ayam_ras" in ids
-    assert "minyakita" in ids
+    assert "minyak_goreng_kemasan" in ids
 
 def test_get_wilayah():
     response = client.get("/api/v1/wilayah")

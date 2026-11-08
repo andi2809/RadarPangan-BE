@@ -9,7 +9,7 @@ FastAPI, dideploy di Vercel. Repo ini bagian dari organisasi `RadarPangan` (Dash
 
 ## Data historis
 
-Arsip 3 tahun: PIHPS 35.235 baris (9 wilayah) + SP2KP 83.086 baris (27 wilayah).
+Sumber utama: **Bapanas 189.812 baris (27 kab/kota, 2024–2026)**. Pembanding: PIHPS 35.235 baris (9 wilayah) + SP2KP 83.086 baris (27 wilayah).
 Bundel Vercel hanya memuat `data/raw`, `data/referensi`, dan `data/derived/*.json` —
 CSV turunan (6–7 MB) tidak ikut. Rincian: `data/README.md` bagian 8.
 
@@ -108,6 +108,7 @@ Kontrak untuk front end: [`docs/KONTRAK-FE.md`](docs/KONTRAK-FE.md).
 | `app/services/skor.py` | satu sumber skor EWS (peta + detail) |
 | `app/services/prakiraan.py` | **naive** + pita kuantil empiris untuk H+7 |
 | `pipeline/pita_prakiraan.py` | kalibrasi pita dari arsip mentah (`make pita`) |
+| `pipeline/bapanas_import.py` | impor Excel Bapanas → `data/paket/bapanas.csv.gz` (sumber utama EWS) |
 | `pipeline/paket_kompres.py` | gabung+gzip arsip untuk bundel serverless (`make paket`, 0,4 MB) |
 | `pipeline/harga_utama.py` → `data/derived/harga_utama.csv` | **satu tabel untuk FE**: PIHPS prioritas, SP2KP menambal 18 wilayah (tanpa merata-ratakan) |
 | [`docs/HASIL_BACKTEST_EWS.md`](docs/HASIL_BACKTEST_EWS.md) | laporan naratif + tabel hasil |
