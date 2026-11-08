@@ -1,0 +1,347 @@
+{
+  "n_seri": 162,
+  "n_forecast": 47351,
+  "per_komoditas": {
+    "bawang_merah": {
+      "naive": {
+        "n": 7881,
+        "mape_median": 4.0,
+        "mape_mean": 5.81,
+        "mase_median": 1.739,
+        "cakupan_pct": 87.2
+      },
+      "seasonal_naive": {
+        "n": 7881,
+        "mape_median": 4.0,
+        "mape_mean": 5.81,
+        "mase_median": 1.739,
+        "cakupan_pct": 87.2
+      },
+      "ses": {
+        "n": 7881,
+        "mape_median": 4.49,
+        "mape_mean": 6.13,
+        "mase_median": 1.9,
+        "cakupan_pct": 87.6
+      },
+      "holt": {
+        "n": 7881,
+        "mape_median": 5.38,
+        "mape_mean": 7.26,
+        "mase_median": 2.31,
+        "cakupan_pct": 83.2
+      },
+      "holt_winters": {
+        "n": 7881,
+        "mape_median": 5.34,
+        "mape_mean": 7.21,
+        "mase_median": 2.298,
+        "cakupan_pct": 83.3
+      },
+      "drift3": {
+        "n": 7881,
+        "mape_median": 8.33,
+        "mape_mean": 12.64,
+        "mase_median": 3.581,
+        "cakupan_pct": 64.2
+      }
+    },
+    "beras_medium": {
+      "naive": {
+        "n": 7867,
+        "mape_median": 0.0,
+        "mape_mean": 0.64,
+        "mase_median": 0.0,
+        "cakupan_pct": 89.6
+      },
+      "seasonal_naive": {
+        "n": 7867,
+        "mape_median": 0.0,
+        "mape_mean": 0.64,
+        "mase_median": 0.0,
+        "cakupan_pct": 89.6
+      },
+      "ses": {
+        "n": 7867,
+        "mape_median": 0.1,
+        "mape_mean": 0.65,
+        "mase_median": 0.212,
+        "cakupan_pct": 90.4
+      },
+      "holt": {
+        "n": 7867,
+        "mape_median": 0.31,
+        "mape_mean": 0.87,
+        "mase_median": 0.672,
+        "cakupan_pct": 86.7
+      },
+      "holt_winters": {
+        "n": 7867,
+        "mape_median": 0.31,
+        "mape_mean": 0.88,
+        "mase_median": 0.674,
+        "cakupan_pct": 86.7
+      },
+      "drift3": {
+        "n": 7867,
+        "mape_median": 0.0,
+        "mape_mean": 1.57,
+        "mase_median": 0.0,
+        "cakupan_pct": 75.7
+      }
+    },
+    "cabai_rawit_merah": {
+      "naive": {
+        "n": 7890,
+        "mape_median": 9.09,
+        "mape_mean": 12.26,
+        "mase_median": 2.435,
+        "cakupan_pct": 86.3
+      },
+      "seasonal_naive": {
+        "n": 7890,
+        "mape_median": 9.09,
+        "mape_mean": 12.26,
+        "mase_median": 2.435,
+        "cakupan_pct": 86.3
+      },
+      "ses": {
+        "n": 7890,
+        "mape_median": 9.96,
+        "mape_mean": 13.18,
+        "mase_median": 2.759,
+        "cakupan_pct": 84.6
+      },
+      "holt": {
+        "n": 7890,
+        "mape_median": 10.78,
+        "mape_mean": 14.78,
+        "mase_median": 2.999,
+        "cakupan_pct": 80.9
+      },
+      "holt_winters": {
+        "n": 7890,
+        "mape_median": 10.68,
+        "mape_mean": 14.66,
+        "mase_median": 2.954,
+        "cakupan_pct": 81.2
+      },
+      "drift3": {
+        "n": 7890,
+        "mape_median": 16.25,
+        "mape_mean": 23.23,
+        "mase_median": 4.602,
+        "cakupan_pct": 64.8
+      }
+    },
+    "minyak_goreng_curah": {
+      "naive": {
+        "n": 7899,
+        "mape_median": 0.0,
+        "mape_mean": 1.21,
+        "mase_median": 0.0,
+        "cakupan_pct": 82.6
+      },
+      "seasonal_naive": {
+        "n": 7899,
+        "mape_median": 0.0,
+        "mape_mean": 1.21,
+        "mase_median": 0.0,
+        "cakupan_pct": 82.6
+      },
+      "ses": {
+        "n": 7899,
+        "mape_median": 0.13,
+        "mape_mean": 1.26,
+        "mase_median": 0.241,
+        "cakupan_pct": 82.0
+      },
+      "holt": {
+        "n": 7899,
+        "mape_median": 0.58,
+        "mape_mean": 1.69,
+        "mase_median": 1.106,
+        "cakupan_pct": 73.7
+      },
+      "holt_winters": {
+        "n": 7899,
+        "mape_median": 0.59,
+        "mape_mean": 1.69,
+        "mase_median": 1.123,
+        "cakupan_pct": 73.8
+      },
+      "drift3": {
+        "n": 7899,
+        "mape_median": 0.0,
+        "mape_mean": 3.08,
+        "mase_median": 0.0,
+        "cakupan_pct": 68.8
+      }
+    },
+    "minyak_goreng_kemasan": {
+      "naive": {
+        "n": 7903,
+        "mape_median": 0.0,
+        "mape_mean": 2.86,
+        "mase_median": 0.0,
+        "cakupan_pct": 76.8
+      },
+      "seasonal_naive": {
+        "n": 7903,
+        "mape_median": 0.0,
+        "mape_mean": 2.86,
+        "mase_median": 0.0,
+        "cakupan_pct": 76.8
+      },
+      "ses": {
+        "n": 7903,
+        "mape_median": 0.41,
+        "mape_mean": 3.26,
+        "mase_median": 0.71,
+        "cakupan_pct": 75.1
+      },
+      "holt": {
+        "n": 7903,
+        "mape_median": 1.18,
+        "mape_mean": 5.04,
+        "mase_median": 2.145,
+        "cakupan_pct": 63.3
+      },
+      "holt_winters": {
+        "n": 7903,
+        "mape_median": 1.19,
+        "mape_mean": 5.0,
+        "mase_median": 2.209,
+        "cakupan_pct": 62.9
+      },
+      "drift3": {
+        "n": 7903,
+        "mape_median": 0.28,
+        "mape_mean": 6.3,
+        "mase_median": 0.432,
+        "cakupan_pct": 62.2
+      }
+    },
+    "telur_ayam_ras": {
+      "naive": {
+        "n": 7911,
+        "mape_median": 1.89,
+        "mape_mean": 3.08,
+        "mase_median": 2.381,
+        "cakupan_pct": 73.0
+      },
+      "seasonal_naive": {
+        "n": 7911,
+        "mape_median": 1.89,
+        "mape_mean": 3.08,
+        "mase_median": 2.381,
+        "cakupan_pct": 73.0
+      },
+      "ses": {
+        "n": 7911,
+        "mape_median": 2.07,
+        "mape_mean": 3.36,
+        "mase_median": 2.682,
+        "cakupan_pct": 71.6
+      },
+      "holt": {
+        "n": 7911,
+        "mape_median": 2.67,
+        "mape_mean": 4.53,
+        "mase_median": 3.487,
+        "cakupan_pct": 62.9
+      },
+      "holt_winters": {
+        "n": 7911,
+        "mape_median": 2.6,
+        "mape_mean": 4.46,
+        "mase_median": 3.434,
+        "cakupan_pct": 63.5
+      },
+      "drift3": {
+        "n": 7911,
+        "mape_median": 3.49,
+        "mape_mean": 6.25,
+        "mase_median": 4.451,
+        "cakupan_pct": 51.3
+      }
+    }
+  },
+  "overall": {
+    "naive": {
+      "n": 47351,
+      "mape_median": 0.95,
+      "mape_mean": 4.31,
+      "mase_median": 0.925,
+      "cakupan_pct": 82.6
+    },
+    "seasonal_naive": {
+      "n": 47351,
+      "mape_median": 0.95,
+      "mape_mean": 4.31,
+      "mase_median": 0.925,
+      "cakupan_pct": 82.6
+    },
+    "ses": {
+      "n": 47351,
+      "mape_median": 1.36,
+      "mape_mean": 4.64,
+      "mase_median": 1.341,
+      "cakupan_pct": 81.9
+    },
+    "holt": {
+      "n": 47351,
+      "mape_median": 2.07,
+      "mape_mean": 5.69,
+      "mase_median": 2.075,
+      "cakupan_pct": 75.1
+    },
+    "holt_winters": {
+      "n": 47351,
+      "mape_median": 2.07,
+      "mape_mean": 5.65,
+      "mase_median": 2.064,
+      "cakupan_pct": 75.2
+    },
+    "drift3": {
+      "n": 47351,
+      "mape_median": 2.7,
+      "mape_mean": 8.84,
+      "mase_median": 2.568,
+      "cakupan_pct": 64.5
+    }
+  },
+  "menang_seri": {
+    "naive": 132,
+    "seasonal_naive": 132,
+    "ses": 22,
+    "holt": 5,
+    "holt_winters": 4,
+    "drift3": 48
+  },
+  "tanggal_data": "2026-10-31",
+  "horizon": 7,
+  "periode_seasonal": 7,
+  "split": "70% observasi terakhir per seri",
+  "step": 1,
+  "parameter_model": {
+    "ses": {
+      "alpha": 0.35
+    },
+    "holt": {
+      "alpha": 0.3,
+      "beta": 0.1
+    },
+    "holt_winters": {
+      "alpha": 0.3,
+      "beta": 0.1,
+      "gamma": 0.1
+    }
+  },
+  "catatan": [
+    "H+7 = 7 observasi/hari pelaporan, bukan 7 hari kalender.",
+    "seasonal_naive pada H=7 identik dengan naive; hanya berbeda untuk H<7.",
+    "Pita empiris dikalibrasi untuk naive; cakupan model lain hanya pembanding.",
+    "MASE memakai skala naive in-sample; seri datar (skala 0) tidak dihitung."
+  ]
+}

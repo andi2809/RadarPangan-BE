@@ -175,3 +175,32 @@ ekstrem sangat jarang (0,10%), sehingga layak dipakai tanpa imputasi.
 
 Kesimpulan: Bapanas dan SP2KP **tidak identik** meski keduanya resmi. Karena itu setiap angka
 tetap membawa label sumber, dan penggantian sumber dicatat sebagai keputusan (`sumber=bapanas`).
+
+---
+
+## 9. Benchmark model prakiraan pada data Bapanas (6 Nov 2026)
+
+Target: harga H+7 per kab/kota per komoditas. Data: `paket/bapanas.csv.gz`
+(162 seri, 1.014 hari, 2024-01-01 → 2026-10-31). Validasi: rolling-origin, horizon 7,
+8.214 evaluasi per model.
+
+| Komoditas | naive | seasonal-7 | SES 0,35 | Holt | Holt-Winters |
+|---|---|---|---|---|---|
+| Bawang merah | **4,6%** | 7,4% | 5,3% | 6,4% | 6,4% |
+| Beras medium | **0,0%** | 0,0% | 0,1% | 0,5% | 0,6% |
+| Cabai rawit | **10,2%** | 14,6% | 11,1% | 13,0% | 13,1% |
+| Minyak curah | **0,0%** | 0,0% | 0,2% | 0,7% | 0,7% |
+| Minyak kemasan | **0,0%** | 0,0% | 0,3% | 0,8% | 1,0% |
+| Telur | **1,3%** | 2,4% | 1,6% | 2,2% | 2,3% |
+
+(MAPE median; MASE memberi urutan yang sama.)
+
+Kesimpulan: **naive (harga terakhir) mengalahkan semua model** pada MAPE maupun MASE.
+Pola musiman mingguan tidak menolong (seasonal-7 justru dua kali lebih buruk untuk bawang dan
+cabai), karena pergerakan harian didominasi derau, bukan siklus.
+
+Konsekuensi produk:
+1. Proyeksi H+7 = harga terakhir + **pita empiris** (kuantil per komoditas).
+2. Nilai tambah dipindah ke **ketidakpastian, gap kebijakan, dan peringatan** — bukan ke
+   kompleksitas model.
+3. Klaim "machine learning" tidak dipakai; tidak ada dasar empiris untuk itu pada data ini.

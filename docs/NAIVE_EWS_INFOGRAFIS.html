@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Naive Forecast — Cara Kerja &amp; Evaluasi</title>
+<style>
+  :root{
+    --ink:#0f172a; --muted:#475569; --faint:#64748b;
+    --paper:#f7f5ef; --card:#ffffff; --line:#d9d4c7;
+    --teal:#0f766e; --teal-soft:#d9f0ec;
+    --amber:#b45309; --amber-soft:#fbe9d2;
+    --red:#b91c1c; --red-soft:#fbe0e0;
+    --blue:#1d4ed8; --blue-soft:#e0e8fb;
+    --mono:"DejaVu Sans Mono", ui-monospace, monospace;
+    --sans:"DejaVu Sans", system-ui, sans-serif;
+    --serif:"DejaVu Serif", Georgia, serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--sans)}
+  body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @page{size:A4;margin:0}
+  .page{
+    width:210mm;height:297mm;padding:13mm 14mm 11mm;background:var(--paper);
+    position:relative;overflow:hidden;page-break-after:always;
+  }
+  .page:last-child{page-break-after:auto}
+  .masthead{display:flex;justify-content:space-between;align-items:flex-start;gap:10mm;border-bottom:1.2pt solid var(--ink);padding-bottom:2.6mm}
+  .eyebrow{font-size:7.4pt;letter-spacing:.14em;font-weight:800;color:var(--teal);text-transform:uppercase}
+  h1{font-family:var(--serif);font-size:24pt;line-height:1.02;margin:1.2mm 0 .8mm;letter-spacing:-.02em}
+  .dek{font-size:9.4pt;color:var(--muted);margin:0;max-width:125mm;line-height:1.35}
+  .page-no{font-family:var(--mono);font-size:8pt;color:var(--faint);white-space:nowrap;padding-top:1mm}
+  .hero{display:grid;grid-template-columns:36mm 1fr 38mm;gap:4mm;align-items:center;background:var(--card);border:1pt solid var(--line);border-radius:2.2mm;padding:3mm 4mm;margin-top:3.4mm}
+  .formula{font-family:var(--mono);font-size:15pt;font-weight:700;color:var(--teal);text-align:center;border-right:1pt solid var(--line);padding-right:3mm}
+  .hero p{font-size:9.2pt;line-height:1.4;margin:0;color:var(--ink)}
+  .hero p span{color:var(--muted);font-size:8.6pt}
+  .badge{display:inline-block;background:var(--ink);color:#fff;font-size:6.9pt;font-weight:800;letter-spacing:.08em;text-align:center;padding:2.2mm 2mm;border-radius:1.4mm;line-height:1.25}
+  .section-title{font-size:7.4pt;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin:3.2mm 0 1.8mm}
+  .section-title .no{font-family:var(--mono);color:var(--faint);margin-right:2mm}
+  figure{margin:0}
+  .timeline{background:var(--card);border:1pt solid var(--line);border-radius:2.2mm;padding:2.4mm 3mm 1mm}
+  .timeline svg{width:100%;height:auto;display:block}
+  .caption{font-size:7.4pt;color:var(--faint);margin:1.2mm 0 0;line-height:1.35}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2.6mm;margin-top:2mm}
+  .step{background:var(--card);border:1pt solid var(--line);border-radius:2mm;padding:2.4mm 2.8mm;position:relative}
+  .step .num{font-family:var(--mono);font-size:7.2pt;font-weight:700;color:var(--teal);letter-spacing:.08em}
+  .step b{display:block;font-size:9.2pt;margin:.8mm 0 .6mm}
+  .step p{font-size:7.9pt;line-height:1.35;color:var(--muted);margin:0}
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1pt solid var(--line);border-radius:2mm;overflow:hidden}
+  th,td{text-align:left;font-size:8.1pt;line-height:1.3;padding:1.65mm 2.4mm;border-bottom:.6pt solid var(--line);vertical-align:top}
+  th{font-size:7pt;text-transform:uppercase;letter-spacing:.07em;color:var(--faint);background:#f1eee5;font-weight:800}
+  tr:last-child td{border-bottom:0}
+  td.naive{color:var(--teal);font-weight:700}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:2.8mm}
+  .mini{background:var(--card);border:1pt solid var(--line);border-radius:2mm;padding:2.4mm 2.8mm}
+  .mini h3{font-size:8.2pt;margin:0 0 1.2mm;letter-spacing:.02em}
+  .mini.yes h3{color:var(--teal)}
+  .mini.no h3{color:var(--amber)}
+  .mini ul{margin:0;padding-left:3.6mm}
+  .mini li{font-size:7.8pt;line-height:1.35;color:var(--muted);margin:.7mm 0}
+  .note{display:grid;grid-template-columns:7mm 1fr;gap:2.4mm;align-items:start;background:var(--teal-soft);border-left:2.4pt solid var(--teal);border-radius:1.6mm;padding:2.2mm 3mm;margin-top:2.6mm}
+  .note .mark{font-family:var(--mono);font-size:11pt;font-weight:700;color:var(--teal);line-height:1}
+  .note p{font-size:8pt;line-height:1.38;margin:0;color:var(--ink)}
+  .note p b{color:var(--teal)}
+
+  /* page 2 */
+  .flow{background:var(--card);border:1pt solid var(--line);border-radius:2.2mm;padding:2.6mm 3mm 1.6mm}
+  .flow svg{width:100%;height:auto;display:block}
+  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:2.6mm}
+  .metric{background:var(--card);border:1pt solid var(--line);border-radius:2mm;padding:2.8mm 3mm}
+  .metric .k{font-size:7pt;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--teal)}
+  .metric .f{font-family:var(--mono);font-size:9pt;margin:1.4mm 0 1.2mm;line-height:1.35;color:var(--ink)}
+  .metric p{font-size:7.9pt;line-height:1.35;color:var(--muted);margin:0}
+  .metric p b{color:var(--ink)}
+  .results{display:grid;grid-template-columns:1.06fr .94fr;gap:3mm;align-items:start}
+  .results table th,.results table td{font-size:7.8pt;padding:1.7mm 2.1mm}
+  .results table td.num{font-family:var(--mono);text-align:right;font-variant-numeric:tabular-nums}
+  .chart{background:var(--card);border:1pt solid var(--line);border-radius:2mm;padding:2.8mm 3mm}
+  .chart h3{font-size:8pt;margin:0 0 2mm;color:var(--ink)}
+  .bar-row{display:grid;grid-template-columns:29mm 1fr 14mm;gap:1.6mm;align-items:center;margin:1.35mm 0}
+  .bar-row .lab{font-size:7.4pt;color:var(--muted);text-align:right;line-height:1.1}
+  .bar-track{height:3.4mm;background:#efebe1;border-radius:1mm;overflow:hidden}
+  .bar{height:100%;background:var(--teal);border-radius:1mm}
+  .bar.cabai{background:var(--amber)}
+  .bar-row .val{font-family:var(--mono);font-size:7.2pt;text-align:right;font-variant-numeric:tabular-nums}
+  .chart .foot{font-size:6.9pt;color:var(--faint);margin-top:1.6mm;line-height:1.3}
+  .matrix{display:grid;grid-template-columns:1fr 1.05fr;gap:3mm;align-items:start}
+  .cm{display:grid;grid-template-columns:24mm 1fr 1fr;grid-template-rows:8mm 12mm 12mm;gap:.8mm;font-size:7.4pt}
+  .cm div{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-radius:1.2mm;padding:1mm;line-height:1.15;gap:.2mm}
+  .cm .h{background:#f1eee5;color:var(--faint);font-weight:800;font-size:6.6pt;text-transform:uppercase;letter-spacing:.05em}
+  .cm .tp{background:var(--teal-soft);color:var(--teal);font-weight:800}
+  .cm .fp{background:var(--amber-soft);color:var(--amber);font-weight:800}
+  .cm .fn{background:var(--red-soft);color:var(--red);font-weight:800}
+  .cm .tn{background:#eeece5;color:var(--muted);font-weight:800}
+  .cm small{display:block;font-weight:400;font-size:6.2pt;margin-top:.5mm}
+  .callout{background:var(--ink);color:#fff;border-radius:2.2mm;padding:3mm 3.6mm;margin-top:3mm}
+  .callout .k{font-size:6.9pt;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#99f6e4;margin-bottom:1mm}
+  .callout p{font-size:8.4pt;line-height:1.4;margin:0;color:#e2e8f0}
+  .callout p b{color:#fff}
+  .footer{position:absolute;left:14mm;right:14mm;bottom:7mm;display:flex;justify-content:space-between;gap:8mm;border-top:.6pt solid var(--line);padding-top:2mm;font-size:6.6pt;color:var(--faint);line-height:1.35}
+  .footer .right{text-align:right;white-space:nowrap}
+</style>
+</head>
+<body>
+
+<section class="page">
+  <header class="masthead">
+    <div>
+      <div class="eyebrow">Radar Pangan · Early Warning System</div>
+      <h1>Naive Forecast</h1>
+      <p class="dek">Cara kerja, alasan dipilih, dan batasnya — untuk prediksi harga H+7 per kab/kota per komoditas.</p>
+    </div>
+    <div class="page-no">01 / 02</div>
+  </header>
+
+  <div class="hero">
+    <div class="formula">ŷ<sub>t+7</sub> = y<sub>t</sub></div>
+    <p><b>Ramalan H+7 = harga terakhir.</b> Tidak ada parameter yang dipelajari, tidak ada loss function, tidak ada training.<br><span>Yang dikalibrasi hanya pita ketidakpastian q10–q90.</span></p>
+    <div class="badge">STATISTIK<br>BUKAN ML</div>
+  </div>
+
+  <div class="section-title"><span class="no">01</span>Cara kerja</div>
+  <figure class="timeline">
+    <svg viewBox="0 0 1000 248" role="img" aria-label="Ilustrasi naive: garis harga historis lalu garis datar untuk H+7">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="#0f766e"/>
+        </marker>
+      </defs>
+      <line x1="42" y1="205" x2="958" y2="205" stroke="#d9d4c7" stroke-width="1.4"/>
+      <line x1="42" y1="34" x2="42" y2="205" stroke="#d9d4c7" stroke-width="1.4"/>
+      <text x="48" y="26" font-family="DejaVu Sans" font-size="11" fill="#64748b">harga (ilustrasi)</text>
+      <text x="958" y="224" text-anchor="end" font-family="DejaVu Sans" font-size="11" fill="#64748b">waktu</text>
+      <line x1="620" y1="34" x2="620" y2="205" stroke="#b45309" stroke-width="1.4" stroke-dasharray="4 4"/>
+      <text x="626" y="30" font-family="DejaVu Sans" font-size="11" font-weight="bold" fill="#b45309">HARI INI (t)</text>
+      <rect x="620" y="70" width="338" height="84" fill="#fbe9d2" opacity=".85" rx="3"/>
+      <text x="790" y="62" text-anchor="middle" font-family="DejaVu Sans" font-size="11" fill="#b45309">pita q10–q90</text>
+      <polyline points="70,178 145,166 220,172 295,150 370,144 445,132 545,120 620,112" fill="none" stroke="#0f766e" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/>
+      <line x1="620" y1="112" x2="958" y2="112" stroke="#b45309" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#arrow)"/>
+      <circle cx="620" cy="112" r="5.4" fill="#b45309"/>
+      <text x="603" y="96" text-anchor="end" font-family="DejaVu Sans" font-size="11.5" font-weight="bold" fill="#0f172a">nilai terakhir</text>
+      <text x="640" y="93" font-family="DejaVu Sans" font-size="10.5" fill="#475569">dibawa datar ke H+7</text>
+      <text x="790" y="192" text-anchor="middle" font-family="DejaVu Sans" font-size="10.5" fill="#475569">ŷ<tspan baseline-shift="sub" font-size="8">t+7</tspan> = y<tspan baseline-shift="sub" font-size="8">t</tspan></text>
+      <text x="70" y="198" font-family="DejaVu Sans" font-size="10.5" fill="#475569">histori</text>
+    </svg>
+    <figcaption class="caption">Ilustrasi, bukan data riil. Garis teal = histori; garis amber putus-putus = ramalan H+7 (datar); kotak amber = pita empiris q10–q90 di sekitar ramalan.</figcaption>
+  </figure>
+
+  <div class="steps">
+    <div class="step"><div class="num">LANGKAH 1</div><b>Ambil harga terakhir</b><p>Harga pada observasi t — bukan rata-rata, bukan regresi.</p></div>
+    <div class="step"><div class="num">LANGKAH 2</div><b>Bawa datar ke H+7</b><p>Nilai yang sama dipakai untuk t+1 sampai t+7.</p></div>
+    <div class="step"><div class="num">LANGKAH 3</div><b>Tambahkan pita</b><p>q10–q90 dari sebaran perubahan 7 observasi, per komoditas.</p></div>
+  </div>
+
+  <div class="section-title"><span class="no">02</span>Naive vs machine learning</div>
+  <table>
+    <thead><tr><th style="width:24%">Aspek</th><th style="width:31%">Naive</th><th>ML (mis. gradient boosting / LSTM)</th></tr></thead>
+    <tbody>
+      <tr><td>Belajar parameter?</td><td class="naive">Tidak</td><td>Ya — bobot/parameter diestimasi dari data</td></tr>
+      <tr><td>Butuh training?</td><td class="naive">Tidak</td><td>Ya — training, validasi, tuning</td></tr>
+      <tr><td>Data minimum</td><td class="naive">Sedikit; cukup 2 titik</td><td>Banyak; butuh ribuan contoh dan fitur</td></tr>
+      <tr><td>Interpretasi</td><td class="naive">Sangat mudah: “harga terakhir”</td><td>Kotak hitam; perlu XAI</td></tr>
+      <tr><td>Risiko overfit</td><td class="naive">Rendah</td><td>Lebih tinggi; perlu uji out-of-sample ketat</td></tr>
+      <tr><td>Kapan cocok</td><td class="naive">Random walk, horizon pendek, data berisik</td><td>Pola non-linear + fitur eksogen (cuaca, hari besar, supply)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="two-col" style="margin-top:3mm">
+    <div class="mini yes">
+      <h3>Naive tepat jika…</h3>
+      <ul>
+        <li>Harga harian mendekati random walk — besok ≈ hari ini.</li>
+        <li>Horizon pendek (H+7), bukan proyeksi bulanan.</li>
+        <li>Butuh baseline transparan dan mudah diaudit.</li>
+        <li>Beras/minyak sering datar; model kompleks hanya menambah derau.</li>
+      </ul>
+    </div>
+    <div class="mini no">
+      <h3>Naive tidak cukup jika…</h3>
+      <ul>
+        <li>Ada pola musiman kuat yang belum tertangkap.</li>
+        <li>Ada fitur eksogen: cuaca, hari besar, gangguan pasokan.</li>
+        <li>Targetnya menangkap lonjakan ekstrem (cabai).</li>
+        <li>Horizon panjang (30–90 hari) — perlu model lain.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note">
+    <div class="mark">!</div>
+    <p><b>Bukan “AI/ML”.</b> Naive adalah baseline statistik. Nilai EWS ada di pipeline data + skor risiko deterministik (45% deviasi, 35% tren, 20% daya beli), bukan di model black-box. Untuk horizon 7 hari, naive sulit dikalahkan — kompleksitas hanya bernilai kalau menang out-of-sample.</p>
+  </div>
+
+  <div class="footer">
+    <div>Radar Pangan · EWS · Naive Forecast</div>
+    <div class="right">Data: Bapanas konsumen · 2024-01-01 – 2026-10-31</div>
+  </div>
+</section>
+
+<section class="page">
+  <header class="masthead">
+    <div>
+      <div class="eyebrow">Validasi &amp; Metrik</div>
+      <h1>Bagaimana naive diuji?</h1>
+      <p class="dek">Rolling-origin, 162 seri, 47.351 forecast — tanpa look-ahead, dengan dua skema pengujian.</p>
+    </div>
+    <div class="page-no">02 / 02</div>
+  </header>
+
+  <div class="section-title"><span class="no">03</span>Data &amp; validasi</div>
+  <figure class="flow">
+    <svg viewBox="0 0 1000 168" role="img" aria-label="Diagram split 70 persen latih dan 30 persen uji dengan rolling origin">
+      <rect x="42" y="46" width="640" height="34" fill="#d9f0ec" rx="3"/>
+      <rect x="682" y="46" width="276" height="34" fill="#fbe9d2" rx="3"/>
+      <text x="362" y="68" text-anchor="middle" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#0f766e">70% latih · kalibrasi pita</text>
+      <text x="820" y="68" text-anchor="middle" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#b45309">30% uji</text>
+      <line x1="42" y1="98" x2="958" y2="98" stroke="#d9d4c7" stroke-width="1.2"/>
+      <g stroke="#0f766e" stroke-width="1.6" fill="none" marker-end="url(#arrow2)">
+        <line x1="700" y1="98" x2="748" y2="98"/><line x1="780" y1="98" x2="828" y2="98"/><line x1="860" y1="98" x2="908" y2="98"/>
+      </g>
+      <defs><marker id="arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0f766e"/></marker></defs>
+      <text x="724" y="88" text-anchor="middle" font-family="DejaVu Sans Mono" font-size="10" fill="#0f766e">t</text>
+      <text x="804" y="88" text-anchor="middle" font-family="DejaVu Sans Mono" font-size="10" fill="#0f766e">t</text>
+      <text x="884" y="88" text-anchor="middle" font-family="DejaVu Sans Mono" font-size="10" fill="#0f766e">t</text>
+      <text x="42" y="122" font-family="DejaVu Sans" font-size="10.5" fill="#475569">tiap origin t: ramalkan t+7 hanya dengan data ≤ t · tidak ada look-ahead</text>
+      <text x="42" y="146" font-family="DejaVu Sans" font-size="10.5" fill="#475569">H+7 = 7 observasi/hari pelaporan, bukan 7 hari kalender (Bapanas punya hari kosong)</text>
+    </svg>
+    <figcaption class="caption">Dua skema: origin harian (47.351 forecast) dan non-overlap 7 hari (6.834 forecast). Keduanya memberi ranking model yang sama.</figcaption>
+  </figure>
+
+  <div class="section-title"><span class="no">04</span>Metrik yang dipakai</div>
+  <div class="metrics">
+    <div class="metric">
+      <div class="k">MAPE</div>
+      <div class="f">|ŷ − y| / y × 100%</div>
+      <p>Semakin kecil semakin baik. <b>Median</b> tahan outlier; <b>mean</b> menunjukkan ekor. Dilaporkan per komoditas, bukan hanya overall.</p>
+    </div>
+    <div class="metric">
+      <div class="k">MASE</div>
+      <div class="f">|ŷ − y| ÷ mean(|y<sub>t</sub>−y<sub>t−1</sub>|)</div>
+      <p>Skala naive in-sample. <b>&lt;1</b> = lebih baik dari naive. Tidak bergantung satuan harga.</p>
+    </div>
+    <div class="metric">
+      <div class="k">Cakupan pita</div>
+      <div class="f">% aktual di dalam q10–q90</div>
+      <p>Menguji ketidakpastian, bukan hanya titik. Target nominal <b>80%</b>; hasil naive <b>82,6–82,8%</b>.</p>
+    </div>
+  </div>
+
+  <div class="section-title"><span class="no">05</span>Hasil benchmark</div>
+  <div class="results">
+    <table>
+      <thead><tr><th>Model</th><th style="text-align:right">MAPE med</th><th style="text-align:right">MAPE mean</th><th style="text-align:right">MASE</th><th style="text-align:right">Cakupan</th></tr></thead>
+      <tbody>
+        <tr><td class="naive">Naive</td><td class="num">0,95%</td><td class="num">4,31%</td><td class="num">0,925</td><td class="num">82,6%</td></tr>
+        <tr><td>SES (α .35)</td><td class="num">1,36%</td><td class="num">4,64%</td><td class="num">1,341</td><td class="num">81,9%</td></tr>
+        <tr><td>Holt</td><td class="num">2,07%</td><td class="num">5,69%</td><td class="num">2,075</td><td class="num">75,1%</td></tr>
+        <tr><td>Holt-Winters</td><td class="num">2,07%</td><td class="num">5,65%</td><td class="num">2,064</td><td class="num">75,2%</td></tr>
+        <tr><td>Drift-3</td><td class="num">2,70%</td><td class="num">8,84%</td><td class="num">2,568</td><td class="num">64,5%</td></tr>
+      </tbody>
+    </table>
+    <div class="chart">
+      <h3>MAPE mean naive per komoditas</h3>
+      <div class="bar-row"><div class="lab">Beras</div><div class="bar-track"><div class="bar" style="width:5.2%"></div></div><div class="val">0,64%</div></div>
+      <div class="bar-row"><div class="lab">Cabai rawit</div><div class="bar-track"><div class="bar cabai" style="width:100%"></div></div><div class="val">12,26%</div></div>
+      <div class="bar-row"><div class="lab">Bawang merah</div><div class="bar-track"><div class="bar" style="width:47.4%"></div></div><div class="val">5,81%</div></div>
+      <div class="bar-row"><div class="lab">Telur ayam</div><div class="bar-track"><div class="bar" style="width:25.1%"></div></div><div class="val">3,08%</div></div>
+      <div class="bar-row"><div class="lab">Minyak curah</div><div class="bar-track"><div class="bar" style="width:9.9%"></div></div><div class="val">1,21%</div></div>
+      <div class="bar-row"><div class="lab">Minyak kemasan</div><div class="bar-track"><div class="bar" style="width:23.3%"></div></div><div class="val">2,86%</div></div>
+      <div class="foot">Naive menang/imbang di 6/6 komoditas. Cabai paling sulit — error 9–12%; di situ fitur eksogen/ML mungkin membantu, tetapi belum diuji.</div>
+    </div>
+  </div>
+
+  <div class="section-title"><span class="no">06</span>Confusion matrix — untuk alert, bukan error harga</div>
+  <div class="matrix">
+    <div class="cm">
+      <div class="h"></div><div class="h">Aktual naik</div><div class="h">Aktual tidak</div>
+      <div class="h">Alarm</div><div class="tp">TP<small>benar waspada</small></div><div class="fp">FP<small>alarm palsu</small></div>
+      <div class="h">Tidak alarm</div><div class="fn">FN<small>serangan lolos</small></div><div class="tn">TN<small>benar aman</small></div>
+    </div>
+    <div>
+      <p style="font-size:8.1pt;line-height:1.42;margin:0;color:var(--muted)">Untuk <b style="color:var(--ink)">klasifikasi alert EWS</b> (aman / waspada / kritis), metrik yang tepat adalah <b style="color:var(--ink)">confusion matrix, precision, recall, F1, dan lead time</b>. Untuk <b style="color:var(--ink)">prakiraan harga kontinu</b>, yang tepat adalah MAPE/MASE/cakupan — bukan confusion matrix. Skor EWS komposit belum diuji sebagai classifier; backtest lama baru level/momentum. Ini langkah berikutnya, bukan klaim yang sudah selesai.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="k">Keputusan</div>
+    <p><b>Pertahankan naive + pita empiris untuk H+7.</b> Tidak perlu training, SES, Holt, Holt-Winters, atau ML untuk titik prakiraan. Model kompleks harus membuktikan diri lebih baik out-of-sample. Batasan: parameter tetap, tanpa fitur eksogen, tanpa uji Diebold-Mariano; H+7 = 7 observasi, bukan 7 hari kalender.</p>
+  </div>
+
+  <div class="footer">
+    <div>Sumber: Bapanas konsumen 2024-01-01–2026-10-31 · 162 seri · 158.708 baris · <span style="font-family:var(--mono)">pipeline/benchmark_ews.py</span></div>
+    <div class="right">Radar Pangan · EWS · 8 Nov 2026</div>
+  </div>
+</section>
+
+</body>
+</html>
