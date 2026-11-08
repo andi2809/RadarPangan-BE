@@ -17,7 +17,7 @@ def test_titik_prediksi_selalu_harga_terakhir():
 
 
 def test_pita_empiris_dipakai_bila_tersedia():
-    hasil = prakiraan.prakiraan_h7(_seri([15600] * 10), komoditas="beras_medium", sumber="pihps")
+    hasil = prakiraan.prakiraan_h7(_seri([15600] * 10), komoditas="beras_medium", sumber="bapanas")
     assert hasil["metode_pita"] == "kuantil_empiris"
     assert hasil["batas_bawah_rp"] < 15600 < hasil["batas_atas_rp"]
 
