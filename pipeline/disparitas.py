@@ -9,6 +9,7 @@ Keluaran: data/derived/disparitas_<sumber>.json
 from __future__ import annotations
 
 import csv
+import gzip
 import json
 import pathlib
 import statistics
@@ -43,6 +44,26 @@ def hitung_pihps() -> dict:
             for tanggal, harga in harga_service.seri(wilayah, komoditas):
                 data.setdefault((tanggal, komoditas), []).append((wilayah, harga))
     return _ringkas(data, "pihps (gabungan snapshot)")
+
+
+def hitung_bapanas() -> dict:
+    """Sumber utama: paket Bapanas (konsumen), dibatasi 180 hari terakhir agar berkas tetap ringan."""
+    paket = ROOT / "data" / "paket" / "bapanas.csv.gz"
+    if not paket.exists():
+        raise SystemExit(f"paket tidak ada: {paket}")
+    data: dict[tuple[str, str], list[tuple[str, int]]] = {}
+    with gzip.open(paket, "rt", encoding="utf-8") as fh:
+        for row in csv.DictReader(fh):
+            if (row.get("tingkat") or "konsumen") != "konsumen":
+                continue
+            data.setdefault((row["tanggal"], row["komoditas"]), []).append(
+                (row["wilayah"], int(row["harga_rp"]))
+            )
+    tanggal = sorted({t for t, _ in data})
+    potong = tanggal[-180:] if len(tanggal) > 180 else tanggal
+    batas = set(potong)
+    data = {k: v for k, v in data.items() if k[0] in batas}
+    return _ringkas(data, "bapanas (paket konsumen, 180 hari terakhir)")
 
 
 def hitung(path: pathlib.Path) -> dict:
@@ -93,6 +114,14 @@ def _ringkas(data: dict, nama: str) -> dict:
 def main() -> int:
     ctx = runlog.mulai("disparitas")
     hasil = {}
+    try:
+        hasil["bapanas"] = hitung_bapanas()
+        print(f"\nBAPANAS ({hasil['bapanas']['berkas']})")
+        for kom, r in hasil["bapanas"]["komoditas"].items():
+            print(f"  {kom:24s} sebaran median {r['sebaran_median_persen']}%")
+    except SystemExit as exc:
+        print(f"  ! bapanas: {exc}")
+
     for label, pola in (("sp2kp", "sp2kp_jabar_*.csv"), ("pihps", None)):
         try:
             path = berkas_terbaru(pola) if pola else None

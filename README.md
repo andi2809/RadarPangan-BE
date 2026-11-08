@@ -108,6 +108,7 @@ Kontrak untuk front end: [`docs/KONTRAK-FE.md`](docs/KONTRAK-FE.md).
 | `app/services/skor.py` | satu sumber skor EWS (peta + detail) |
 | `app/services/prakiraan.py` | **naive** + pita kuantil empiris untuk H+7 |
 | `pipeline/pita_prakiraan.py` | kalibrasi pita dari arsip mentah (`make pita`) |
+| `pipeline/benchmark_ews.py` | benchmark model (naive/SES/Holt/HW) pada data Bapanas |
 | `pipeline/bapanas_import.py` | impor Excel Bapanas → `data/paket/bapanas.csv.gz` (sumber utama EWS) |
 | `pipeline/paket_kompres.py` | gabung+gzip arsip untuk bundel serverless (`make paket`, 0,4 MB) |
 | `pipeline/harga_utama.py` → `data/derived/harga_utama.csv` | **satu tabel untuk FE**: PIHPS prioritas, SP2KP menambal 18 wilayah (tanpa merata-ratakan) |

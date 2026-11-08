@@ -252,3 +252,25 @@ Bundel Vercel dibatasi lewat `vercel.json` ke `{app,data/paket,data/referensi,da
 
 Berkas Excel mentah **tidak** ada di repo (repo publik); tersimpan privat di
 `dokumen/data-bapanas-privat/`. PIHPS dan SP2KP tetap disimpan sebagai pembanding.
+
+
+---
+
+## 11. Analitik Bapanas (6 Nov 2026)
+
+`pipeline/disparitas.py` kini juga menghitung sumber **bapanas** (paket konsumen,
+180 hari terakhir agar berkas tetap ringan) dan menulisnya ke `derived/disparitas.json`
+di samping `sp2kp` dan `pihps`.
+
+Sebaran antarwilayah (median, 180 hari terakhir):
+
+| Komoditas | Sebaran median |
+|---|---|
+| Bawang merah | 56,9% |
+| Cabai rawit | 53,1% |
+| Minyak kemasan | 40,3% |
+| Minyak curah | 25,0% |
+| Beras medium | 15,5% |
+| Telur | 13,9% |
+
+Endpoint `/api/v1/meta/disparitas` mengembalikan kunci `bapanas` beserta dua sumber lama.
