@@ -59,14 +59,16 @@ Amplop respons seragam `{ ok, data, meta }`. `meta` selalu memuat `tanggal_data`
 | Metode | Path | Isi |
 |---|---|---|
 | GET | `/api/health` | status layanan |
-| GET | `/api/v1/komoditas` | 5 komoditas + acuan (HET/HAP) |
+| GET | `/api/v1/komoditas` | 6 komoditas + acuan (HET/HAP, rentang + dasar hukum) |
 | GET | `/api/v1/wilayah` | 27 kab/kota (kode Kemendagri + BPS) |
-| GET | `/api/v1/wilayah/{kode}/ringkasan` | detail wilayah + histori 14 hari + prakiraan H+7 |
+| GET | `/api/v1/peta/status` | status + skor EWS 27 wilayah (`layer=aktual|h7`, `sumber=bapanas`) |
+| GET | `/api/v1/wilayah/{kode}/ringkasan` | detail wilayah + histori 14 hari + prakiraan H+7 + pita |
 | GET | `/api/v1/laporan-warga/sekitar` | laporan warga di sekitar titik (kosong sampai ada kiriman nyata) |
 | POST | `/api/v1/laporan-warga` | kirim laporan warga |
 | GET | `/api/v1/publik/ringkasan-landing` | ringkasan landing, dihitung dari data nyata |
 | GET | `/api/v1/meta/sumber` | registry sumber + run terakhir + kesegaran |
-| GET | `/api/v1/meta/backtest` | hasil backtest ambang EWS |
+| GET | `/api/v1/meta/benchmark` | evaluasi model (MAPE, sMAPE, MASE, Coverage80, Pinball) |
+| GET | `/api/v1/meta/integritas` | pemeriksaan mutu paket Bapanas |
 | GET | `/api/v1/meta/disparitas` | sebaran harga antarwilayah per hari (Bapanas) |
 | GET | `/openapi.json` · `/docs` | skema & Swagger UI |
 
