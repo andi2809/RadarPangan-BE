@@ -124,6 +124,22 @@ async def get_backtest():
     )
 
 
+@router.get("/benchmark", response_model=EnvelopeResponse[Dict[str, Any]])
+async def get_benchmark():
+    """Benchmark model prakiraan pada data Bapanas (naive vs SES/Holt/Holt-Winters)."""
+    berkas = sorted(DERIVED.glob("benchmark_ews_bapanas_*.json"))
+    if not berkas:
+        return EnvelopeResponse(
+            data={"tersedia": False, "catatan": "belum ada benchmark"},
+            meta=harga_service.meta_terkini(),
+        )
+    isi = _baca_json(berkas[-1], {})
+    return EnvelopeResponse(
+        data={"tersedia": True, "berkas": berkas[-1].name, **isi},
+        meta=harga_service.meta_terkini(),
+    )
+
+
 @router.get("/konsistensi", response_model=EnvelopeResponse[Dict[str, Any]])
 async def get_konsistensi():
     """Laporan rekonsiliasi lintas sumber terbaru (PIHPS vs SP2KP)."""
