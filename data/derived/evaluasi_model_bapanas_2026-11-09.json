@@ -1,0 +1,339 @@
+{
+  "tanggal_data": "2026-11-09",
+  "spesifikasi": "DATA_PIPELINE §4.3 (4 fold expanding, h=1..7)",
+  "metrik": [
+    "mape",
+    "smape",
+    "mase",
+    "coverage80",
+    "pinball"
+  ],
+  "gerbang_promosi": "sMAPE <= 98% baseline DAN MASE<1,00 DAN Coverage80 0,72-0,92",
+  "n_seri": 162,
+  "komoditas": {
+    "bawang_merah": {
+      "model": {
+        "naive": {
+          "n": 756,
+          "mape": 2.593,
+          "smape": 2.611,
+          "mase": 0.901,
+          "coverage80": null,
+          "pinball": null
+        },
+        "seasonal_naive7": {
+          "n": 756,
+          "mape": 4.179,
+          "smape": 4.229,
+          "mase": 1.485,
+          "coverage80": null,
+          "pinball": null
+        },
+        "ma7": {
+          "n": 756,
+          "mape": 2.898,
+          "smape": 2.903,
+          "mase": 1.006,
+          "coverage80": null,
+          "pinball": null
+        },
+        "ses": {
+          "n": 756,
+          "mape": 2.68,
+          "smape": 2.681,
+          "mase": 0.936,
+          "coverage80": null,
+          "pinball": null
+        },
+        "holt": {
+          "n": 756,
+          "mape": 3.505,
+          "smape": 3.513,
+          "mase": 1.244,
+          "coverage80": null,
+          "pinball": null
+        },
+        "holt_winters": {
+          "n": 756,
+          "mape": 3.595,
+          "smape": 3.605,
+          "mase": 1.278,
+          "coverage80": null,
+          "pinball": null
+        }
+      },
+      "aktif": "naive",
+      "alasan": "baseline terbaik (tidak ada kandidat kompleks yang lolos gerbang)"
+    },
+    "beras_medium": {
+      "model": {
+        "naive": {
+          "n": 756,
+          "mape": 0.45,
+          "smape": 0.447,
+          "mase": 1.309,
+          "coverage80": null,
+          "pinball": null
+        },
+        "seasonal_naive7": {
+          "n": 756,
+          "mape": 0.892,
+          "smape": 0.888,
+          "mase": 3.256,
+          "coverage80": null,
+          "pinball": null
+        },
+        "ma7": {
+          "n": 756,
+          "mape": 0.677,
+          "smape": 0.674,
+          "mase": 2.456,
+          "coverage80": null,
+          "pinball": null
+        },
+        "ses": {
+          "n": 756,
+          "mape": 0.575,
+          "smape": 0.573,
+          "mase": 1.959,
+          "coverage80": null,
+          "pinball": null
+        },
+        "holt": {
+          "n": 756,
+          "mape": 0.755,
+          "smape": 0.75,
+          "mase": 2.646,
+          "coverage80": null,
+          "pinball": null
+        },
+        "holt_winters": {
+          "n": 756,
+          "mape": 0.765,
+          "smape": 0.761,
+          "mase": 2.652,
+          "coverage80": null,
+          "pinball": null
+        }
+      },
+      "aktif": "naive",
+      "alasan": "baseline terbaik (tidak ada kandidat kompleks yang lolos gerbang)"
+    },
+    "cabai_rawit_merah": {
+      "model": {
+        "naive": {
+          "n": 756,
+          "mape": 4.563,
+          "smape": 4.452,
+          "mase": 1.348,
+          "coverage80": null,
+          "pinball": null
+        },
+        "seasonal_naive7": {
+          "n": 756,
+          "mape": 7.407,
+          "smape": 7.443,
+          "mase": 2.306,
+          "coverage80": null,
+          "pinball": null
+        },
+        "ma7": {
+          "n": 756,
+          "mape": 5.318,
+          "smape": 5.224,
+          "mase": 1.608,
+          "coverage80": null,
+          "pinball": null
+        },
+        "ses": {
+          "n": 756,
+          "mape": 4.819,
+          "smape": 4.706,
+          "mase": 1.453,
+          "coverage80": null,
+          "pinball": null
+        },
+        "holt": {
+          "n": 756,
+          "mape": 5.736,
+          "smape": 5.519,
+          "mase": 1.761,
+          "coverage80": null,
+          "pinball": null
+        },
+        "holt_winters": {
+          "n": 756,
+          "mape": 5.791,
+          "smape": 5.579,
+          "mase": 1.78,
+          "coverage80": null,
+          "pinball": null
+        }
+      },
+      "aktif": "naive",
+      "alasan": "baseline terbaik (tidak ada kandidat kompleks yang lolos gerbang)"
+    },
+    "minyak_goreng_curah": {
+      "model": {
+        "naive": {
+          "n": 756,
+          "mape": 0.771,
+          "smape": 0.769,
+          "mase": 1.272,
+          "coverage80": null,
+          "pinball": null
+        },
+        "seasonal_naive7": {
+          "n": 756,
+          "mape": 0.906,
+          "smape": 0.905,
+          "mase": 1.748,
+          "coverage80": null,
+          "pinball": null
+        },
+        "ma7": {
+          "n": 756,
+          "mape": 0.692,
+          "smape": 0.693,
+          "mase": 1.361,
+          "coverage80": null,
+          "pinball": null
+        },
+        "ses": {
+          "n": 756,
+          "mape": 0.697,
+          "smape": 0.699,
+          "mase": 1.292,
+          "coverage80": null,
+          "pinball": null
+        },
+        "holt": {
+          "n": 756,
+          "mape": 0.778,
+          "smape": 0.781,
+          "mase": 1.507,
+          "coverage80": null,
+          "pinball": null
+        },
+        "holt_winters": {
+          "n": 756,
+          "mape": 0.817,
+          "smape": 0.82,
+          "mase": 1.601,
+          "coverage80": null,
+          "pinball": null
+        }
+      },
+      "aktif": "ma7",
+      "alasan": "baseline terbaik (tidak ada kandidat kompleks yang lolos gerbang)"
+    },
+    "minyak_goreng_kemasan": {
+      "model": {
+        "naive": {
+          "n": 756,
+          "mape": 0.811,
+          "smape": 0.813,
+          "mase": 0.898,
+          "coverage80": null,
+          "pinball": null
+        },
+        "seasonal_naive7": {
+          "n": 756,
+          "mape": 1.583,
+          "smape": 1.546,
+          "mase": 1.62,
+          "coverage80": null,
+          "pinball": null
+        },
+        "ma7": {
+          "n": 756,
+          "mape": 0.95,
+          "smape": 0.944,
+          "mase": 1.04,
+          "coverage80": null,
+          "pinball": null
+        },
+        "ses": {
+          "n": 756,
+          "mape": 0.877,
+          "smape": 0.875,
+          "mase": 0.96,
+          "coverage80": null,
+          "pinball": null
+        },
+        "holt": {
+          "n": 756,
+          "mape": 1.013,
+          "smape": 1.01,
+          "mase": 1.164,
+          "coverage80": null,
+          "pinball": null
+        },
+        "holt_winters": {
+          "n": 756,
+          "mape": 1.068,
+          "smape": 1.066,
+          "mase": 1.267,
+          "coverage80": null,
+          "pinball": null
+        }
+      },
+      "aktif": "naive",
+      "alasan": "baseline terbaik (tidak ada kandidat kompleks yang lolos gerbang)"
+    },
+    "telur_ayam_ras": {
+      "model": {
+        "naive": {
+          "n": 756,
+          "mape": 1.417,
+          "smape": 1.408,
+          "mase": 1.564,
+          "coverage80": null,
+          "pinball": null
+        },
+        "seasonal_naive7": {
+          "n": 756,
+          "mape": 2.135,
+          "smape": 2.106,
+          "mase": 2.52,
+          "coverage80": null,
+          "pinball": null
+        },
+        "ma7": {
+          "n": 756,
+          "mape": 1.586,
+          "smape": 1.573,
+          "mase": 1.821,
+          "coverage80": null,
+          "pinball": null
+        },
+        "ses": {
+          "n": 756,
+          "mape": 1.459,
+          "smape": 1.448,
+          "mase": 1.652,
+          "coverage80": null,
+          "pinball": null
+        },
+        "holt": {
+          "n": 756,
+          "mape": 1.654,
+          "smape": 1.652,
+          "mase": 1.896,
+          "coverage80": null,
+          "pinball": null
+        },
+        "holt_winters": {
+          "n": 756,
+          "mape": 1.657,
+          "smape": 1.656,
+          "mase": 1.9,
+          "coverage80": null,
+          "pinball": null
+        }
+      },
+      "aktif": "naive",
+      "alasan": "baseline terbaik (tidak ada kandidat kompleks yang lolos gerbang)"
+    }
+  }
+}

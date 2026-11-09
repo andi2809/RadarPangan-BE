@@ -269,3 +269,21 @@ klasifikasi status, laporan acuan-vs-riil, dan skor EWS.
 
 Catatan: jagung, daging ayam, gula, dan bawang putih dari regulasi yang sama **tidak** dimasukkan
 karena belum ada data harga pada paket Bapanas kita.
+
+
+## 18. Evaluasi model sesuai DATA_PIPELINE §4.3 (9 Nov 2026)
+
+`pipeline/evaluasi_model.py` menghasilkan `derived/evaluasi_model_bapanas_<tanggal>.json`
+dengan format yang sama seperti tabel `public.evaluasi_model` di dokumen Andi:
+
+- 4 fold *expanding window*, horizon h = 1..7
+- Metrik: MAPE, sMAPE, MASE, Coverage80, Pinball (α = 0,10 / 0,50 / 0,90)
+- Gerbang promosi: sMAPE ≤ 98% baseline terbaik **DAN** MASE < 1,00 **DAN**
+  Coverage80 ∈ [0,72; 0,92]
+
+Hasil 9 Nov 2026 (162 seri): **tidak ada** model kompleks (SES/Holt/Holt-Winters) yang lolos
+gerbang. Model aktif per komoditas: naive untuk 5 komoditas, **ma7** untuk minyak goreng curah
+(seri datar). Ini persis jalur fallback yang ditulis DATA_PIPELINE: *promosikan baseline terbaik
++ interval residual empiris*.
+
+Endpoint: `/api/v1/meta/benchmark` kini menyajikan berkas evaluasi ini (bukan lagi benchmark lama).
