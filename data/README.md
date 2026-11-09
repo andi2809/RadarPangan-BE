@@ -274,3 +274,15 @@ Sebaran antarwilayah (median, 180 hari terakhir):
 | Telur | 13,9% |
 
 Endpoint `/api/v1/meta/disparitas` mengembalikan kunci `bapanas` beserta dua sumber lama.
+
+
+---
+
+## 12. `referensi/het_hap.csv` — skema baru (9 Nov 2026)
+
+Kolom: `commodity_id, name, jenis_acuan, tingkat, harga_acuan_min_rp, harga_acuan_max_rp,
+harga_acuan_rp, satuan, dasar_hukum, catatan`.
+
+`harga_acuan_rp` adalah titik yang dipakai perhitungan (untuk HAP berupa rentang, dipakai titik
+tengah); `min/max` disimpan agar UI bisa menampilkan rentang resmi. Sumber: Kepbadan 299/2025,
+Kepbadan 529/2024, Kepmendag 1028/2024, Perbadan 12/2024.

@@ -5,6 +5,7 @@ from typing import List, Optional, Literal
 from fastapi import APIRouter, Query
 
 from app.schemas import AcuanType, EnvelopeResponse, Meta, PriceStatus, StatusPetaItem
+from app.services import acuan as acuan_service
 from app.services import bapanas as bapanas_service
 from app.services import fakta as fakta_service
 from app.services import prakiraan as prakiraan_service
@@ -17,15 +18,6 @@ DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data"
 REF_DIR = DATA_DIR / "referensi"
 
 # Acuan resmi (lihat data/referensi/het_hap.csv)
-ACUAN: dict[str, tuple[int, AcuanType]] = {
-    "beras_medium": (13500, "HET"),
-    "cabai_rawit_merah": (45000, "HAP"),
-    "bawang_merah": (32000, "HAP"),
-    "telur_ayam_ras": (29500, "DINAMIS_MEDIAN_90H"),
-    "minyakita": (15700, "HET"),
-    "minyak_goreng_kemasan": (19700, "DINAMIS_MEDIAN_90H"),
-    "minyak_goreng_curah": (15700, "HET"),
-}
 
 
 def _normalize_commodity_code(code: str) -> str:
@@ -87,7 +79,9 @@ async def get_peta_status(
     layer = layer if isinstance(layer, str) else "aktual"
     komoditas = komoditas if isinstance(komoditas, str) else "beras_medium"
     komoditas_kanonik = _normalize_commodity_code(komoditas)
-    acuan, jenis_acuan = ACUAN.get(komoditas_kanonik, (13500, "HET"))
+    data_acuan = acuan_service.untuk(komoditas_kanonik)
+    acuan = data_acuan["acuan_rp"] if data_acuan else 13500
+    jenis_acuan = data_acuan["jenis"] if data_acuan else "HET"
 
     items: List[StatusPetaItem] = []
     tanggal_terbaru: str | None = None

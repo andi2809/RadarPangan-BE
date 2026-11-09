@@ -6,6 +6,7 @@ from typing import List, Literal, Optional
 from fastapi import APIRouter, HTTPException, Query
 from app.schemas import EnvelopeResponse, RegionSchema, RegionDetailRingkasan, CommoditySchema, TitikPrakiraan
 from app.routers.komoditas import COMMODITIES_DATA
+from app.services import acuan as acuan_service
 from app.services import bapanas as bapanas_service
 from app.services import fakta as fakta_service
 from app.services import harga as harga_service
@@ -79,15 +80,9 @@ async def get_wilayah_ringkasan(
 
     clean_komoditas = _normalize_commodity_code(komoditas)
 
-    # Acuan mapping
-    acuan_map = {
-        "beras_medium": (13500, "HET"),
-        "cabai_rawit_merah": (45000, "HAP"),
-        "bawang_merah": (32000, "HAP"),
-        "telur_ayam_ras": (29500, "DINAMIS_MEDIAN_90H"),
-        "minyakita": (15700, "HET")
-    }
-    harga_acuan, jenis = acuan_map.get(clean_komoditas, (13500, "HET"))
+    data_acuan = acuan_service.untuk(clean_komoditas)
+    harga_acuan = data_acuan["acuan_rp"] if data_acuan else 13500
+    jenis = data_acuan["jenis"] if data_acuan else "HET"
 
     # Harga nyata dari snapshot terpilih; wilayah tanpa data tidak dikarang.
     sumber = sumber if isinstance(sumber, str) else "bapanas"
@@ -178,6 +173,9 @@ async def get_wilayah_ringkasan(
             satuan="kg",
             jenis_acuan=jenis,
             harga_acuan_rp=harga_acuan,
+        acuan_min_rp=data_acuan["min_rp"] if data_acuan else None,
+        acuan_max_rp=data_acuan["max_rp"] if data_acuan else None,
+        dasar_hukum=data_acuan["dasar_hukum"] if data_acuan else None,
             deskripsi=f"Acuan resmi {jenis}"
         )
 
@@ -186,6 +184,9 @@ async def get_wilayah_ringkasan(
         commodity=comm_found,
         harga_aktual_rp=harga_aktual,
         harga_acuan_rp=harga_acuan,
+        acuan_min_rp=data_acuan["min_rp"] if data_acuan else None,
+        acuan_max_rp=data_acuan["max_rp"] if data_acuan else None,
+        dasar_hukum=data_acuan["dasar_hukum"] if data_acuan else None,
         harga_prediksi_h7_rp=harga_prediksi_h7,
         selisih_persen=selisih_persen,
         status=status,

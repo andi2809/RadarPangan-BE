@@ -1,6 +1,7 @@
-commodity_id,name,jenis_acuan,harga_acuan_rp,satuan,dasar_hukum
-beras_medium,Beras Medium,HET,13500,kg,Perbadan No 5/2024 Zonasi 1
-cabai_rawit_merah,Cabai Rawit Merah,HAP,45000,kg,Perbadan No 12/2024
-bawang_merah,Bawang Merah,HAP,32000,kg,Perbadan No 12/2024
-telur_ayam_ras,Telur Ayam Ras,DINAMIS_MEDIAN_90H,29500,kg,Moving Median 90 Hari
-minyakita,Minyakita,HET,15700,liter,Permendag No 18/2024
+commodity_id,name,jenis_acuan,tingkat,harga_acuan_min_rp,harga_acuan_max_rp,harga_acuan_rp,satuan,dasar_hukum,catatan
+beras_medium,Beras Medium,HET,konsumen,13500,13500,13500,kg,Kepbadan Bapanas No. 299/2025,Zona Jawa-Lampung-Sumsel; premium Rp14.900
+bawang_merah,Bawang Merah,HAP,konsumen,36500,41500,39000,kg,Perbadan Bapanas No. 12/2024,Produsen: konde basah 18.500-20.000; rogol kering 25.000-30.000; konde kering askip 32.000
+cabai_rawit_merah,Cabai Rawit Merah,HAP,konsumen,40000,57000,48500,kg,Perbadan Bapanas No. 12/2024,Produsen 25.000-31.500
+telur_ayam_ras,Telur Ayam Ras,HAP,konsumen,30000,30000,30000,kg,Kepbadan Bapanas No. 529/2024,Produsen Rp26.500
+minyak_goreng_curah,Minyak Goreng Curah,HET,konsumen,15700,15700,15700,liter,Kepmendag No. 1028/2024,DPO Minyakita: L1 13.500 / L2 14.000 / pengecer 14.500
+minyak_goreng_kemasan,Minyak Goreng Kemasan,HET,konsumen,15700,15700,15700,liter,Kepmendag No. 1028/2024,Minyakita; kemasan merek lain mengikuti pasar

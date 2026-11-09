@@ -236,6 +236,9 @@ class RegionDetailRingkasan(BaseModel):
     commodity: CommoditySchema
     harga_aktual_rp: Optional[int] = Field(None, description="null bila tidak ada data")
     harga_acuan_rp: int
+    acuan_min_rp: Optional[int] = Field(None, description="Batas bawah HET/HAP bila ditetapkan sebagai rentang")
+    acuan_max_rp: Optional[int] = Field(None, description="Batas atas HET/HAP")
+    dasar_hukum: Optional[str] = Field(None, description="Regulasi penetapan acuan")
     harga_prediksi_h7_rp: Optional[int] = None
     selisih_persen: Optional[float] = None
     status: PriceStatus

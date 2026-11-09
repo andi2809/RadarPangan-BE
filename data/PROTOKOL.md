@@ -239,3 +239,33 @@ yang dipublikasikan hanya turunan (CSV kanonik) dengan atribusi.
 
 Bapanas ≠ SP2KP: contoh 26 Okt 2026 Kota Bandung — cabai Bapanas 86.667 vs SP2KP 79.500 (+9%).
 Karena itu label sumber tetap wajib ditampilkan.
+
+
+## 17. Acuan HET/HAP dari regulasi (9 Nov 2026)
+
+Tabel `data/referensi/het_hap.csv` diperbarui dari empat regulasi yang diverifikasi (PDF):
+Kepbadan Bapanas 299/2025 (beras), Kepbadan 529/2024 (telur), Kepmendag 1028/2024 (minyak
+goreng rakyat), Perbadan 12/2024 (cabai & bawang merah).
+
+| Komoditas | Acuan (titik) | Rentang | Jenis | Dasar hukum |
+|---|---|---|---|---|
+| Beras Medium | 13.500 | 13.500 | HET | Kepbadan 299/2025 (Zona Jawa) |
+| Bawang Merah | 39.000 | 36.500–41.500 | HAP | Perbadan 12/2024 |
+| Cabai Rawit Merah | 48.500 | 40.000–57.000 | HAP | Perbadan 12/2024 |
+| Telur Ayam Ras | 30.000 | 30.000 | HAP | Kepbadan 529/2024 (produsen 26.500) |
+| Minyak Goreng Curah | 15.700 | 15.700 | HET | Kepmendag 1028/2024 |
+| Minyak Goreng Kemasan | 15.700 | 15.700 | HET | Kepmendag 1028/2024 (Minyakita) |
+
+**Koreksi penting terhadap data lama:**
+- Bawang merah sebelumnya 32.000 — itu *harga produsen konde kering askip*, bukan acuan konsumen.
+  Acuan konsumen yang benar 36.500–41.500 (titik tengah 39.000).
+- Cabai rawit sebelumnya angka tunggal 45.000; regulasi menetapkan rentang 40.000–57.000.
+- Telur sebelumnya "dinamis median 90 hari"; regulasi menetapkan HAP konsumen 30.000.
+- Beras: dasar hukum lama (Perbadan 5/2024) diganti Kepbadan 299/2025.
+
+Acuan kini dibaca satu tempat (`app/services/acuan.py`) — tidak lagi ditulis ulang di router.
+Angka HET/HAP **tidak** dipakai sebagai input prakiraan (lihat §16 dan §9); ia dipakai untuk
+klasifikasi status, laporan acuan-vs-riil, dan skor EWS.
+
+Catatan: jagung, daging ayam, gula, dan bawang putih dari regulasi yang sama **tidak** dimasukkan
+karena belum ada data harga pada paket Bapanas kita.
