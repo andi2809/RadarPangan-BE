@@ -218,7 +218,7 @@ Catatan koreksi: kesimpulan awal "SES terbaik" berasal dari 45 seri/50 evaluasi 
 - Dipakai peta dan detail wilayah → satu angka, satu tingkat risiko.
 
 
-## 16. Bapanas menjadi sumber utama EWS (6 Nov 2026)
+## 16. Bapanas menjadi SATU-SATUNYA sumber harga (6 Nov 2026)
 
 Badan Pangan Nasional menyerahkan dataset harga melalui surat No. 1014/TS.02.03/B.2/11/2026
 (5 November 2026). Dataset itu kini menjadi **sumber tunggal untuk prediksi EWS**;

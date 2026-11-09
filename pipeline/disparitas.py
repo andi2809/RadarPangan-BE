@@ -122,7 +122,7 @@ def main() -> int:
     except SystemExit as exc:
         print(f"  ! bapanas: {exc}")
 
-    for label, pola in (("sp2kp", "sp2kp_jabar_*.csv"), ("pihps", None)):
+    for label, pola in ():
         try:
             path = berkas_terbaru(pola) if pola else None
         except SystemExit as exc:
@@ -138,6 +138,7 @@ def main() -> int:
                 f"{('ya' if r['bergerak'] else 'tidak'):>10s}"
             )
 
+    hasil = {"bapanas": hasil["bapanas"]}
     tujuan = ROOT / "data" / "derived" / "disparitas.json"
     tujuan.parent.mkdir(parents=True, exist_ok=True)
     tujuan.write_text(json.dumps(hasil, indent=2, ensure_ascii=False), encoding="utf-8")

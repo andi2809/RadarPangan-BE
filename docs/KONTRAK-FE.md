@@ -127,11 +127,11 @@ tetap ada — jangan dihapus saat memuat ke UI; itulah yang membedakan "harga pa
   telur `DINAMIS 29.500`, minyak `HET 15.700`. Label **Minyakita vs Minyak Goreng Curah
   masih menunggu keputusan tim** — jangan hardcode di FE.
 - Kode komoditas: API memakai `minyakita` dan menerima alias `minyak_goreng_curah`.
-- `sumber=bapanas` (default) = dataset resmi Badan Pangan Nasional, **27/27 wilayah**,
+- `sumber=bapanas` (**satu-satunya**) = dataset resmi Badan Pangan Nasional, **27/27 wilayah**,
   6 komoditas termasuk `minyak_goreng_kemasan`.
 - `sumber=utama` = **satu tabel jadi**: PIHPS dipakai bila ada, SP2KP menambal sisanya.
   Memberi **27/27 wilayah**; tetap periksa `jenis_harga` per baris (beras: 9 `pasar`, 18 `acuan`).
-- `sumber=sp2kp` memberi **27/27 wilayah**, tetapi untuk beras/telur/minyakita
+, tetapi untuk beras/telur/minyakita
   `jenis_harga = "acuan"` (angka menempel HET) — jangan diberi label "harga pasar".
   Cabai & bawang dari SP2KP tetap `pasar` karena memang bergerak.
 - Selalu tampilkan `meta.mode_data` sebagai badge; bila `peringatan_kualitas` berisi

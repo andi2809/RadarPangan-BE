@@ -14,11 +14,11 @@ prakiraan selalu disertai rentang.
 
 ## 2. Sumber data
 
-| Sumber | Peran | Cakupan |
-|---|---|---|
-| Bapanas (surat 1014/TS.02.03/B.2/11/2026) | Utama | 27/27 wilayah · 6 komoditas · harian 2024-01-01 – 2026-10-31 |
-| PIHPS Bank Indonesia | Pembanding | 9/27 wilayah |
-| SP2KP Kemendag | Pembanding | 27/27 wilayah |
+**Satu-satunya sumber harga: dataset resmi Badan Pangan Nasional** (surat 1014/TS.02.03/B.2/11/2026)
+— 27/27 kabupaten/kota, 6 komoditas, harian 2024-01-01 – 2026-10-31. Tidak ada sumber harga pembanding.
+
+Yang dibandingkan dengan harga Bapanas: **(1)** acuan pemerintah HET/HAP, dan **(2)** **data riil hari ini**
+dari laporan warga.
 
 ## 3. Harga acuan (HET/HAP)
 
@@ -103,7 +103,7 @@ lonjakan 0,097% → lulus.
 
 ## 10. Batasan
 
-1. HET/HAP dan UMK bukan input prakiraan (terbukti memperburuk akurasi).
+1. Sumber harga tunggal Bapanas; HET/HAP dan UMK bukan input prakiraan (terbukti memperburuk akurasi).
 2. Musim panen menjelaskan beda akurasi antar-komoditas, tetapi penyesuaian musiman memperburuk prakiraan 7 hari.
 3. Prakiraan hanya untuk horizon 7 hari.
 4. Laporan warga belum tersimpan permanen (masih di memori server).

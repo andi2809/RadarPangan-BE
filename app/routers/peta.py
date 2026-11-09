@@ -65,8 +65,8 @@ async def get_peta_status(
     komoditas: str = Query("beras_medium", description="ID komoditas kanonik"),
     tanggal: Optional[str] = Query(None, description="Tanggal observasi YYYY-MM-DD"),
     layer: Literal["aktual", "h7"] = Query("aktual", description="Lapisan visualisasi data (aktual | h7)"),
-    sumber: Literal["bapanas", "pihps", "sp2kp", "utama"] = Query(
-        "bapanas", description="pihps | sp2kp | utama (PIHPS prioritas, SP2KP menambal)"
+    sumber: Literal["bapanas"] = Query(
+        "bapanas", description="Sumber tunggal: dataset resmi Badan Pangan Nasional"
     ),
 ):
     """Status harga + skor EWS untuk 27 kab/kota Jawa Barat.
@@ -97,27 +97,9 @@ async def get_peta_status(
             kode = row["kode_kemendagri"]
             nama = row["nama_wilayah"]
 
-            asal = sumber
-            if sumber in ("bapanas", "utama") and sumber == "bapanas":
-                titik = bapanas_service.terakhir(nama, komoditas_kanonik)
-                seri_penuh = bapanas_service.seri(nama, komoditas_kanonik)
-            elif sumber == "utama":
-                titik = bapanas_service.terakhir(nama, komoditas_kanonik)
-                if titik:
-                    seri_penuh, asal = bapanas_service.seri(nama, komoditas_kanonik), "bapanas"
-                else:
-                    hasil_utama = fakta_service.terakhir_utama(nama, komoditas_kanonik)
-                    if hasil_utama:
-                        titik, asal = hasil_utama
-                        seri_penuh = fakta_service.seri(nama, komoditas_kanonik, asal)
-                    else:
-                        titik, seri_penuh = None, []
-            elif sumber == "sp2kp":
-                titik = fakta_service.terakhir(nama, komoditas_kanonik, "sp2kp")
-                seri_penuh = fakta_service.seri(nama, komoditas_kanonik, "sp2kp")
-            else:
-                titik = harga_service.terakhir(nama, komoditas_kanonik)
-                seri_penuh = harga_service.seri(nama, komoditas_kanonik)
+            asal = "bapanas"
+            titik = bapanas_service.terakhir(nama, komoditas_kanonik)
+            seri_penuh = bapanas_service.seri(nama, komoditas_kanonik)
             if titik is None:
                 items.append(_item_kosong(kode, nama, komoditas_kanonik, acuan, jenis_acuan, sumber))
                 continue
@@ -184,7 +166,7 @@ async def get_peta_status(
                 )
             )
 
-    cak = harga_service.cakupan()
+    cak = bapanas_service.cakupan()
     jumlah_berisi = sum(1 for i in items if i.harga_aktual_rp is not None)
     if jumlah_berisi:
         peringatan = []
@@ -197,12 +179,7 @@ async def get_peta_status(
         data=items,
         meta=Meta(
             tanggal_data=tanggal_terbaru or (cak["periode"][1] if cak["periode"] else None),
-            sumber=(
-                ["Badan Pangan Nasional"] if sumber == "bapanas"
-                else ["PIHPS BI", "SP2KP Kemendag"] if sumber == "utama"
-                else ["SP2KP Kemendag"] if sumber == "sp2kp"
-                else ["PIHPS BI"]
-            ),
+            sumber=["Badan Pangan Nasional"],
             mode_data="nyata" if cak["sumber"] else "demo",
             peringatan_kualitas=peringatan,
         ),

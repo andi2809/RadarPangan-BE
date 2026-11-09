@@ -16,7 +16,7 @@ FastAPI, dideploy di Vercel. Repo ini bagian dari organisasi `RadarPangan` (Dash
 
 ## Data historis
 
-Sumber utama: **Bapanas 189.812 baris (27 kab/kota, 2024–2026)**. Pembanding: PIHPS 35.235 baris (9 wilayah) + SP2KP 83.086 baris (27 wilayah).
+Sumber utama: **Bapanas 189.812 baris (27 kab/kota, 2024–2026)**. Tidak ada sumber harga pembanding; pembanding hanya HET/HAP dan laporan warga.
 Bundel Vercel hanya memuat `data/raw`, `data/referensi`, dan `data/derived/*.json` —
 CSV turunan (6–7 MB) tidak ikut. Rincian: `data/README.md` bagian 8.
 

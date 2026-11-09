@@ -1,7 +1,6 @@
 """Metadata sumber data: registry + jejak jalur distribusi (lineage).
 
 GET /api/v1/meta/sumber        -> daftar sumber, tier, cakupan, kesegaran
-GET /api/v1/meta/konsistensi   -> laporan rekonsiliasi lintas sumber terakhir
 """
 
 from __future__ import annotations
@@ -154,17 +153,3 @@ async def get_benchmark():
     )
 
 
-@router.get("/konsistensi", response_model=EnvelopeResponse[Dict[str, Any]])
-async def get_konsistensi():
-    """Laporan rekonsiliasi lintas sumber terbaru (PIHPS vs SP2KP)."""
-    berkas = sorted(DERIVED.glob("rekonsiliasi_*.json"))
-    if not berkas:
-        return EnvelopeResponse(
-            data={"tersedia": False, "catatan": "belum ada laporan rekonsiliasi"},
-            meta=harga_service.meta_terkini(),
-        )
-    isi = _baca_json(berkas[-1], {})
-    return EnvelopeResponse(
-        data={"tersedia": True, "berkas": berkas[-1].name, **isi},
-        meta=harga_service.meta_terkini(),
-    )
