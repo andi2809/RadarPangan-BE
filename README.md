@@ -7,6 +7,13 @@ FastAPI, dideploy di Vercel. Repo ini bagian dari organisasi `RadarPangan` (Dash
 
 ---
 
+## Dokumen
+
+- `docs/RUMUS_DAN_PERHITUNGAN.md` — semua rumus & perhitungan dalam bahasa manusia
+  (PDF: `dokumen/RUMUS_RADAR_PANGAN.pdf`)
+- `data/PROTOKOL.md` — aturan pipeline, provenance, dan catatan metodologi
+- `docs/KONTRAK-FE.md` — kontrak endpoint untuk front end
+
 ## Data historis
 
 Sumber utama: **Bapanas 189.812 baris (27 kab/kota, 2024–2026)**. Pembanding: PIHPS 35.235 baris (9 wilayah) + SP2KP 83.086 baris (27 wilayah).

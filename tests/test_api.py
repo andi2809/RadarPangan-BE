@@ -79,3 +79,19 @@ def test_ai_briefing_dicabut():
     })
     assert response.status_code == 404
 
+
+
+def test_meta_benchmark_dan_integritas_tersedia():
+    for path in ("/api/v1/meta/benchmark", "/api/v1/meta/integritas"):
+        r = client.get(path)
+        assert r.status_code == 200, path
+        data = r.json()["data"]
+        assert data.get("tersedia") is True, path
+
+
+def test_sumber_utama_adalah_bapanas():
+    data = client.get("/api/v1/meta/sumber").json()["data"]
+    utama = [s for s in data["sumber"] if s.get("peran") == "utama"]
+    assert len(utama) == 1
+    assert utama[0]["id"] == "bapanas_pangan_strategis"
+    assert utama[0]["cakupan_jabar"] == "27 dari 27"
