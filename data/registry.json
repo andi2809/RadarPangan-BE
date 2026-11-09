@@ -1,7 +1,22 @@
 {
-  "diperbarui": "2026-10-26",
+  "diperbarui": "2026-11-09",
   "catatan": "Registry sumber data Radar Pangan. Satu-satunya tempat mendaftarkan sumber baru.",
   "sumber": [
+    {
+      "id": "bapanas_pangan_strategis",
+      "nama": "Dataset Harga Pangan Strategis Bapanas (surat resmi)",
+      "url": "https://s.badanpangan.go.id/s/PanganStrategisJabar",
+      "adapter": "pipeline/bapanas_import.py",
+      "tier": "kabkota",
+      "granularitas": "kabupaten/kota (konsumen dan produsen)",
+      "frekuensi": "harian",
+      "akses": "tautan unduh resmi (Surat Bapanas No. 1014/TS.02.03/B.2/11/2026)",
+      "cakupan_jabar": "27 dari 27",
+      "komoditas": 6,
+      "peran": "utama",
+      "periode": "2024-01-01 s.d. 2026-10-31",
+      "catatan": "Sumber tunggal EWS. 189.812 baris; konsumen 158.708 + produsen 31.104. Berkas Excel mentah tidak dipublikasikan (izin: analisis/penelitian)."
+    },
     {
       "id": "pihps_bi",
       "nama": "PIHPS Bank Indonesia",
@@ -13,7 +28,8 @@
       "akses": "terbuka",
       "cakupan_jabar": "9 dari 27",
       "komoditas": 5,
-      "catatan": "harga pasar tradisional (price_type_id=1); tipe produsen tidak berisi data"
+      "catatan": "harga pasar tradisional (price_type_id=1); tipe produsen tidak berisi data",
+      "peran": "pembanding"
     },
     {
       "id": "sp2kp_kemendag",
@@ -26,7 +42,8 @@
       "akses": "terbuka (endpoint ekspor Excel, tanpa API key)",
       "cakupan_jabar": "27 dari 27",
       "komoditas": 6,
-      "catatan": "POST /report/api/average-price/export-area-daily-excel (multipart). Terverifikasi 26 Okt: 27/27 wilayah, 5 komoditas, termasuk Minyakita. HATI-HATI: seri 'Beras Medium' ≈ harga program/HET (11 wilayah persis 13.500), bukan harga pasar bebas seperti PIHPS."
+      "catatan": "POST /report/api/average-price/export-area-daily-excel (multipart). Terverifikasi 26 Okt: 27/27 wilayah, 5 komoditas, termasuk Minyakita. HATI-HATI: seri 'Beras Medium' ≈ harga program/HET (11 wilayah persis 13.500), bukan harga pasar bebas seperti PIHPS.",
+      "peran": "pembanding"
     },
     {
       "id": "bapanas_dataset",
@@ -39,7 +56,8 @@
       "akses": "unduh manual",
       "cakupan_jabar": "parsial",
       "komoditas": null,
-      "catatan": "UI Livewire; unduhan per dataset tersedia"
+      "catatan": "UI Livewire; unduhan per dataset tersedia",
+      "peran": "pembanding"
     },
     {
       "id": "nfa_webapi",
@@ -52,7 +70,8 @@
       "akses": "API key (pengajuan)",
       "cakupan_jabar": "target 27",
       "komoditas": null,
-      "catatan": "pendaftaran 26 Okt 2026, menunggu verifikasi Pusdatin"
+      "catatan": "pendaftaran 26 Okt 2026, menunggu verifikasi Pusdatin",
+      "peran": "pembanding"
     },
     {
       "id": "bps",
@@ -65,7 +84,8 @@
       "akses": "API key",
       "cakupan_jabar": "27",
       "komoditas": null,
-      "catatan": "bukan harga retail harian"
+      "catatan": "bukan harga retail harian",
+      "peran": "pembanding"
     },
     {
       "id": "tepas_jabar",
@@ -78,7 +98,8 @@
       "akses": "terbuka di browser, TAPI diblokir Cloudflare/JabarCloud dari VM (403)",
       "cakupan_jabar": "belum diverifikasi",
       "komoditas": null,
-      "catatan": "26 Okt: seluruh rute (termasuk /api/*) 403 'Under Attack'; tidak ada arsip Wayback. Perlu tangkapan Network dari browser pengguna sebelum dipakai. Dugaan: dashboard statis (hanya harga terkini), tanpa histori."
+      "catatan": "26 Okt: seluruh rute (termasuk /api/*) 403 'Under Attack'; tidak ada arsip Wayback. Perlu tangkapan Network dari browser pengguna sebelum dipakai. Dugaan: dashboard statis (hanya harga terkini), tanpa histori.",
+      "peran": "pembanding"
     }
   ]
 }

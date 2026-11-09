@@ -309,3 +309,21 @@ Hasil 9 Nov 2026:
 | Status | **lulus** |
 
 Celah > 3 hari wajar terjadi pada periode libur panjang; tidak diimputasi.
+
+
+---
+
+## 14. Registry sumber (9 Nov 2026)
+
+`data/registry.json` kini menandai **peran** tiap sumber:
+
+| id | peran | cakupan | catatan |
+|---|---|---|---|
+| `bapanas_pangan_strategis` | **utama** | 27/27 | Surat Bapanas No. 1014/TS.02.03/B.2/11/2026 · harian 2024-01-01–2026-10-31 · 6 komoditas |
+| `pihps_bi` | pembanding | 9/27 | harga pasar tradisional |
+| `sp2kp_kemendag` | pembanding | 27/27 | laporan daerah |
+| `nfa_webapi` | cadangan | target 27 | menunggu verifikasi Pusdatin |
+| `bps`, `tepas_jabar`, `bapanas_dataset` | referensi | — | belum dipakai sebagai input EWS |
+
+Endpoint `/api/v1/meta/sumber` membaca registry ini — sehingga UI bisa menampilkan mana sumber
+utama dan mana pembanding tanpa menafsir ulang.
