@@ -69,5 +69,5 @@ def meta_terkini() -> dict:
     return {
         "tanggal_data": cak["periode"][1] if cak["periode"] else None,
         "sumber": ["Badan Pangan Nasional"],
-        "mode_data": "nyata" if cak["harga"] or cak["jumlah_seri"] else "demo",
+        "mode_data": "nyata" if cak["jumlah_seri"] else "demo",
     }

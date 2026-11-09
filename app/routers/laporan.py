@@ -1,20 +1,19 @@
 from fastapi import APIRouter, Header, Query
 from typing import List, Optional
 from app.schemas import EnvelopeResponse, LaporanWargaInput
-from app.services import harga as harga_service
+from app.services import bapanas as bapanas_service
 
 router = APIRouter(prefix="/api/v1/laporan-warga", tags=["Laporan Warga"])
 
 
 def _meta_laporan():
     """Laporan warga dari pengguna nyata; penyimpanan masih in-memory (hilang saat restart)."""
-    dasar = harga_service.meta_terkini(sumber=["Laporan Warga (simulasi)", "PIHPS BI"])
-    return dasar.model_copy(
-        update={
-            "mode_data": "demo",
-            "peringatan_kualitas": dasar.peringatan_kualitas + ["LAPORAN_WARGA_PENYIMPANAN_SEMENTARA"],
-        }
-    )
+    dasar = dict(bapanas_service.meta_terkini())
+    dasar["mode_data"] = "demo"
+    dasar["peringatan_kualitas"] = list(dasar.get("peringatan_kualitas") or []) + [
+        "LAPORAN_WARGA_PENYIMPANAN_SEMENTARA"
+    ]
+    return dasar
 
 # In-memory mock store
 REPORTS_DB: list[dict] = []  # kosong: laporan warga harus datang dari pengguna nyata

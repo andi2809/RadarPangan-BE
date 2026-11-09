@@ -177,9 +177,9 @@ class StatusPetaItem(BaseModel):
     flat_days: Optional[int] = Field(
         None, description="Jumlah observasi terakhir dengan harga sama (0 = berubah terakhir)"
     )
-    jenis_harga: Optional[Literal["survei_pasar", "laporan_daerah"]] = Field(
+    jenis_harga: Optional[Literal["resmi_bapanas"]] = Field(
         None,
-        description="Fakta asal angka: survei_pasar (PIHPS) / laporan_daerah (SP2KP) / resmi Bapanas",
+        description="Fakta asal angka: dataset resmi Badan Pangan Nasional",
     )
     sifat_seri: Optional[Literal["bergerak", "statis"]] = Field(
         None, description="Turunan flat_days: statis bila >= 3 observasi terakhir sama"

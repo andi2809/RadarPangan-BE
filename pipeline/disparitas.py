@@ -22,28 +22,8 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 RAW = ROOT / "data" / "raw"
 
 
-def berkas_terbaru(pola: str) -> pathlib.Path:
-    kandidat = sorted(RAW.glob(pola))
-    if not kandidat:
-        raise SystemExit(f"tidak ada berkas {pola} di {RAW}")
-    return kandidat[-1]
 
 
-def hitung_pihps() -> dict:
-    """PIHPS dibaca lewat loader yang menggabungkan semua snapshot (bukan berkas terakhir)."""
-    sys.path.insert(0, str(ROOT))
-    from app.services import harga as harga_service
-
-    data: dict[tuple[str, str], list[tuple[str, int]]] = {}
-    nama_wilayah = []
-    with (ROOT / "data" / "referensi" / "umk_jabar_2026.csv").open(encoding="utf-8") as fh:
-        nama_wilayah = [r["nama_wilayah"] for r in csv.DictReader(fh)]
-
-    for komoditas in ("beras_medium", "cabai_rawit_merah", "bawang_merah", "telur_ayam_ras", "minyak_goreng_curah"):
-        for wilayah in nama_wilayah:
-            for tanggal, harga in harga_service.seri(wilayah, komoditas):
-                data.setdefault((tanggal, komoditas), []).append((wilayah, harga))
-    return _ringkas(data, "pihps (gabungan snapshot)")
 
 
 def hitung_bapanas() -> dict:
@@ -66,14 +46,6 @@ def hitung_bapanas() -> dict:
     return _ringkas(data, "bapanas (paket konsumen, 180 hari terakhir)")
 
 
-def hitung(path: pathlib.Path) -> dict:
-    data: dict[tuple[str, str], list[tuple[str, int]]] = {}
-    with path.open(encoding="utf-8") as fh:
-        for row in csv.DictReader(fh):
-            kunci = (row["tanggal"], row["komoditas"])
-            data.setdefault(kunci, []).append((row["wilayah"], int(row["harga_rp"])))
-
-    return _ringkas(data, path.name)
 
 
 def _ringkas(data: dict, nama: str) -> dict:

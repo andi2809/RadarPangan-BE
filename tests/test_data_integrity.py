@@ -18,7 +18,7 @@ from pathlib import Path
 
 import pytest
 
-from app.services import harga as harga_service
+from app.services import bapanas as bapanas_service
 
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "data" / "raw"
@@ -28,7 +28,7 @@ STATUS_SAH = {"aman", "waspada", "kritis", "turun", "tidak_ada_data"}
 
 
 def _semua_baris():
-    for berkas in sorted(RAW.glob("pihps_jabar_*.csv")):
+    for berkas in sorted(RAW.glob("bapanas_jabar_*.csv")):
         with berkas.open(encoding="utf-8") as fh:
             for baris in csv.DictReader(fh):
                 baris["_berkas"] = berkas.name
@@ -45,14 +45,14 @@ def test_harga_positif_dan_angka():
 
 
 def test_kunci_unik_per_snapshot():
-    for berkas in sorted(RAW.glob("pihps_jabar_*.csv")):
+    for berkas in sorted(RAW.glob("bapanas_jabar_*.csv")):
         with berkas.open(encoding="utf-8") as fh:
             kunci = [(r["tanggal"], r["wilayah"], r["komoditas"]) for r in csv.DictReader(fh)]
         assert len(kunci) == len(set(kunci)), f"duplikat di {berkas.name}"
 
 
 def test_gabungan_tidak_duplikat():
-    for (wilayah, komoditas), seri in harga_service._muat()["harga"].items():
+    for (wilayah, komoditas), seri in bapanas_service._muat()["harga"].items():
         tanggal = [t for t, _h in seri]
         assert len(tanggal) == len(set(tanggal)), f"tanggal ganda: {wilayah}/{komoditas}"
         assert tanggal == sorted(tanggal), f"seri tidak terurut: {wilayah}/{komoditas}"
@@ -74,12 +74,12 @@ def test_wilayah_dan_komoditas_dikenal():
 
 def test_pemuatan_ulang_deterministik():
     def sidik():
-        muat = harga_service._muat()
+        muat = bapanas_service._muat()
         teks = repr(sorted((k, v) for k, v in muat["harga"].items()))
         return hashlib.sha256(teks.encode()).hexdigest()
 
     pertama = sidik()
-    harga_service._muat.cache_clear()
+    bapanas_service._muat.cache_clear()
     kedua = sidik()
     assert pertama == kedua, "hasil pemuatan berubah antar-run (tidak deterministik)"
 

@@ -36,14 +36,6 @@ def muat() -> dict[tuple[str, str, str], list[int]]:
                 kunci = ("bapanas", r["wilayah"], r["komoditas"])
                 seri.setdefault(kunci, {})[r["tanggal"]] = int(r["harga_rp"])
         return {k: [v for _, v in sorted(d.items())] for k, d in seri.items() if len(d) >= MIN_OBS}
-    for pola, sumber in (("pihps_jabar_*.csv", "pihps"), ("sp2kp_jabar_*.csv", "sp2kp")):
-        for f in glob.glob(str(RAW / pola)):
-            with open(f, encoding="utf-8") as fh:
-                for r in csv.DictReader(fh):
-                    if not (r.get("harga_rp") or "").isdigit():
-                        continue
-                    kunci = (sumber, r["wilayah"], r["komoditas"])
-                    seri.setdefault(kunci, {})[r["tanggal"]] = int(r["harga_rp"])
     return {k: [v for _, v in sorted(d.items())] for k, d in seri.items() if len(d) >= MIN_OBS}
 
 

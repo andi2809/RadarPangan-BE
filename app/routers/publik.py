@@ -2,7 +2,7 @@ from fastapi import APIRouter
 
 from app.routers.peta import get_peta_status
 from app.schemas import EnvelopeResponse, Meta, RingkasanLandingData
-from app.services import harga as harga_service
+from app.services import bapanas as bapanas_service
 
 router = APIRouter(prefix="/api/v1/publik", tags=["Publik"])
 
@@ -50,7 +50,7 @@ async def get_ringkasan_landing():
         default="tidak_ada_data",
     )
 
-    cak = harga_service.cakupan()
+    cak = bapanas_service.cakupan()
     peringatan = ["DATA_PIHPS_SNAPSHOT", "LAPORAN_WARGA_BELUM_TERSEDIA"]
     if cak["sumber"]:
         peringatan.append(f"CAKUPAN_SEBAGIAN_{cak['jumlah_wilayah']}_DARI_27_WILAYAH")

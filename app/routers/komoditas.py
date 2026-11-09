@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from typing import List
-from app.services import harga as harga_service
+from app.services import bapanas as bapanas_service
 from app.schemas import EnvelopeResponse, CommoditySchema
 
 router = APIRouter(prefix="/api/v1/komoditas", tags=["Komoditas"])
@@ -65,4 +65,4 @@ COMMODITIES_DATA: List[CommoditySchema] = [
 @router.get("", response_model=EnvelopeResponse[List[CommoditySchema]])
 async def get_all_commodities():
     """Mengambil daftar 6 komoditas pangan pokok strategis beserta harga acuan resmi (HAP/HET)."""
-    return EnvelopeResponse(data=COMMODITIES_DATA, meta=harga_service.meta_terkini())
+    return EnvelopeResponse(data=COMMODITIES_DATA, meta=bapanas_service.meta_terkini())

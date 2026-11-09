@@ -8,8 +8,8 @@ from app.schemas import EnvelopeResponse, RegionSchema, RegionDetailRingkasan, C
 from app.routers.komoditas import COMMODITIES_DATA
 from app.services import acuan as acuan_service
 from app.services import bapanas as bapanas_service
-from app.services import fakta as fakta_service
-from app.services import harga as harga_service
+from app.services import indikator as indikator_service
+from app.services import bapanas as bapanas_service
 from app.services import prakiraan as prakiraan_service
 from app.services import skor as skor_service
 
@@ -62,7 +62,7 @@ async def list_wilayah(q: Optional[str] = Query(None, description="Cari nama wil
     regions = _load_regions_from_csv()
     if q:
         regions = [r for r in regions if q.lower() in r.name.lower()]
-    return EnvelopeResponse(data=regions, meta=harga_service.meta_terkini())
+    return EnvelopeResponse(data=regions, meta=bapanas_service.meta_terkini())
 
 @router.get("/{kode}/ringkasan", response_model=EnvelopeResponse[RegionDetailRingkasan])
 async def get_wilayah_ringkasan(
@@ -106,7 +106,7 @@ async def get_wilayah_ringkasan(
         base_date = date.fromisoformat(tanggal_data)
         nilai = [v for _t, v in seri]
         prog = prakiraan_service.prakiraan_h7(
-            seri, fakta_service.flat_days(seri), komoditas=clean_komoditas, sumber=asal
+            seri, indikator_service.flat_days(seri), komoditas=clean_komoditas, sumber=asal
         )
         harga_prediksi_h7 = prog["harga_prediksi_h7_rp"] if prog else harga_aktual
 
@@ -116,7 +116,7 @@ async def get_wilayah_ringkasan(
             seri=seri_penuh,
             umk_rp=target_reg.umk_2026_rp,
             komoditas=clean_komoditas,
-            flat_days=fakta_service.flat_days(seri_penuh),
+            flat_days=indikator_service.flat_days(seri_penuh),
         )
         selisih_persen = hasil_skor["selisih_persen"]
         status = hasil_skor["status"]
@@ -186,4 +186,4 @@ async def get_wilayah_ringkasan(
         }
     )
 
-    return EnvelopeResponse(data=data, meta=harga_service.meta_terkini())
+    return EnvelopeResponse(data=data, meta=bapanas_service.meta_terkini())

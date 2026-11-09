@@ -7,10 +7,9 @@ from fastapi import APIRouter, Query
 from app.schemas import AcuanType, EnvelopeResponse, Meta, PriceStatus, StatusPetaItem
 from app.services import acuan as acuan_service
 from app.services import bapanas as bapanas_service
-from app.services import fakta as fakta_service
+from app.services import indikator as indikator_service
 from app.services import prakiraan as prakiraan_service
 from app.services import skor as skor_service
-from app.services import harga as harga_service
 
 router = APIRouter(prefix="/api/v1/peta", tags=["Peta"])
 
@@ -56,7 +55,7 @@ def _item_kosong(
         nama=nama,
         skor_ews=None,
         sumber=sumber,
-        jenis_harga=fakta_service.metode_data(sumber) if sumber else None,
+        jenis_harga=indikator_service.metode_data(sumber) if sumber else None,
     )
 
 
@@ -114,7 +113,7 @@ async def get_peta_status(
             # Prakiraan H+7: exponential smoothing + pita 95% (lihat services/prakiraan.py).
             prakiraan = prakiraan_service.prakiraan_h7(
                 seri_penuh,
-                fakta_service.flat_days(seri_penuh),
+                indikator_service.flat_days(seri_penuh),
                 komoditas=komoditas_kanonik,
                 sumber=asal,
             )
@@ -124,7 +123,7 @@ async def get_peta_status(
                 proyeksi = harga
 
             harga_tampil = proyeksi if layer == "h7" else harga
-            flat = fakta_service.flat_days(seri_penuh)
+            flat = indikator_service.flat_days(seri_penuh)
             try:
                 umk = int(row["umk_2026_rp"])
             except (KeyError, ValueError):
@@ -158,9 +157,9 @@ async def get_peta_status(
                     nama=nama,
                     skor_ews=ews,
                     sumber=asal,
-                    jenis_harga=fakta_service.metode_data(asal),
+                    jenis_harga=indikator_service.metode_data(asal),
                     flat_days=flat,
-                    sifat_seri=fakta_service.sifat_seri(flat),
+                    sifat_seri=indikator_service.sifat_seri(flat),
                     rekomendasi_tindakan=hasil_skor["rekomendasi_tindakan"],
                     risk_level=hasil_skor["risk_level"],
                 )

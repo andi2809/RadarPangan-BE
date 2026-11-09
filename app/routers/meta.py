@@ -13,7 +13,7 @@ from typing import Any, Dict, List
 from fastapi import APIRouter
 
 from app.schemas import EnvelopeResponse
-from app.services import harga as harga_service
+from app.services import bapanas as bapanas_service
 
 router = APIRouter(prefix="/api/v1/meta", tags=["Metadata"])
 
@@ -88,7 +88,7 @@ async def get_sumber():
             "ambang_segar_jam": SEGAR_JAM,
             "sumber": baris,
         },
-        meta=harga_service.meta_terkini(),
+        meta=bapanas_service.meta_terkini(),
     )
 
 
@@ -99,11 +99,11 @@ async def get_disparitas():
     if not berkas.is_file():
         return EnvelopeResponse(
             data={"tersedia": False, "catatan": "belum ada hasil disparitas"},
-            meta=harga_service.meta_terkini(),
+            meta=bapanas_service.meta_terkini(),
         )
     return EnvelopeResponse(
         data={"tersedia": True, "berkas": berkas.name, **_baca_json(berkas, {})},
-        meta=harga_service.meta_terkini(),
+        meta=bapanas_service.meta_terkini(),
     )
 
 
@@ -114,12 +114,12 @@ async def get_backtest():
     if not berkas:
         return EnvelopeResponse(
             data={"tersedia": False, "catatan": "belum ada hasil backtest"},
-            meta=harga_service.meta_terkini(),
+            meta=bapanas_service.meta_terkini(),
         )
     isi = _baca_json(berkas[-1], {})
     return EnvelopeResponse(
         data={"tersedia": True, "berkas": berkas[-1].name, **isi},
-        meta=harga_service.meta_terkini(),
+        meta=bapanas_service.meta_terkini(),
     )
 
 
@@ -128,10 +128,10 @@ async def get_integritas():
     """Hasil pemeriksaan integritas paket Bapanas (duplikat, celah, lonjakan)."""
     berkas = DERIVED / "integritas_bapanas.json"
     if not berkas.exists():
-        return EnvelopeResponse(data={"tersedia": False}, meta=harga_service.meta_terkini())
+        return EnvelopeResponse(data={"tersedia": False}, meta=bapanas_service.meta_terkini())
     return EnvelopeResponse(
         data={"tersedia": True, "berkas": berkas.name, **_baca_json(berkas, {})},
-        meta=harga_service.meta_terkini(),
+        meta=bapanas_service.meta_terkini(),
     )
 
 
@@ -144,12 +144,12 @@ async def get_benchmark():
     if not berkas:
         return EnvelopeResponse(
             data={"tersedia": False, "catatan": "belum ada benchmark"},
-            meta=harga_service.meta_terkini(),
+            meta=bapanas_service.meta_terkini(),
         )
     isi = _baca_json(berkas[-1], {})
     return EnvelopeResponse(
         data={"tersedia": True, "berkas": berkas[-1].name, **isi},
-        meta=harga_service.meta_terkini(),
+        meta=bapanas_service.meta_terkini(),
     )
 
 
