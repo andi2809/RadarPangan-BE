@@ -1,0 +1,79 @@
+{
+  "tanggal_periksa": "2026-11-09",
+  "berkas": "bapanas.csv.gz",
+  "jumlah_seri_konsumen": 162,
+  "jumlah_wilayah": 27,
+  "jumlah_komoditas": 6,
+  "duplikat": 0,
+  "harga_tidak_positif": 0,
+  "tanggal_masa_depan": 0,
+  "wilayah_tidak_dikenal": 0,
+  "celah_lebih_3_hari": 576,
+  "contoh_celah": [
+    {
+      "wilayah": "Kab. Bandung Barat",
+      "komoditas": "bawang_merah",
+      "dari": "2024-12-31",
+      "ke": "2025-01-06",
+      "hari": 6
+    },
+    {
+      "wilayah": "Kab. Bandung Barat",
+      "komoditas": "bawang_merah",
+      "dari": "2025-03-28",
+      "ke": "2025-04-03",
+      "hari": 6
+    },
+    {
+      "wilayah": "Kab. Bandung Barat",
+      "komoditas": "beras_medium",
+      "dari": "2024-12-31",
+      "ke": "2025-01-06",
+      "hari": 6
+    },
+    {
+      "wilayah": "Kab. Bandung Barat",
+      "komoditas": "beras_medium",
+      "dari": "2025-03-28",
+      "ke": "2025-04-03",
+      "hari": 6
+    },
+    {
+      "wilayah": "Kab. Bandung Barat",
+      "komoditas": "cabai_rawit_merah",
+      "dari": "2024-12-31",
+      "ke": "2025-01-06",
+      "hari": 6
+    }
+  ],
+  "lonjakan_harian_lebih_50pct": 153,
+  "total_transisi": 158546,
+  "persen_lonjakan": 0.097,
+  "seri_per_komoditas": [
+    {
+      "komoditas": "bawang_merah",
+      "seri": 27
+    },
+    {
+      "komoditas": "beras_medium",
+      "seri": 27
+    },
+    {
+      "komoditas": "cabai_rawit_merah",
+      "seri": 27
+    },
+    {
+      "komoditas": "minyak_goreng_curah",
+      "seri": 27
+    },
+    {
+      "komoditas": "minyak_goreng_kemasan",
+      "seri": 27
+    },
+    {
+      "komoditas": "telur_ayam_ras",
+      "seri": 27
+    }
+  ],
+  "lulus": true
+}

@@ -124,6 +124,18 @@ async def get_backtest():
     )
 
 
+@router.get("/integritas", response_model=EnvelopeResponse[Dict[str, Any]])
+async def get_integritas():
+    """Hasil pemeriksaan integritas paket Bapanas (duplikat, celah, lonjakan)."""
+    berkas = DERIVED / "integritas_bapanas.json"
+    if not berkas.exists():
+        return EnvelopeResponse(data={"tersedia": False}, meta=harga_service.meta_terkini())
+    return EnvelopeResponse(
+        data={"tersedia": True, "berkas": berkas.name, **_baca_json(berkas, {})},
+        meta=harga_service.meta_terkini(),
+    )
+
+
 @router.get("/benchmark", response_model=EnvelopeResponse[Dict[str, Any]])
 async def get_benchmark():
     """Benchmark model prakiraan pada data Bapanas (naive vs SES/Holt/Holt-Winters)."""

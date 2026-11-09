@@ -286,3 +286,26 @@ harga_acuan_rp, satuan, dasar_hukum, catatan`.
 `harga_acuan_rp` adalah titik yang dipakai perhitungan (untuk HAP berupa rentang, dipakai titik
 tengah); `min/max` disimpan agar UI bisa menampilkan rentang resmi. Sumber: Kepbadan 299/2025,
 Kepbadan 529/2024, Kepmendag 1028/2024, Perbadan 12/2024.
+
+
+---
+
+## 13. Pemeriksaan integritas paket Bapanas (9 Nov 2026)
+
+`pipeline/integritas_bapanas.py` (`make integritas`) memeriksa `packet/bapanas.csv.gz` dan menulis
+`derived/integritas_bapanas.json`. Endpoint: `/api/v1/meta/integritas`.
+
+Hasil 9 Nov 2026:
+
+| Pemeriksaan | Hasil |
+|---|---|
+| Seri konsumen | 162 (27 wilayah × 6 komoditas) |
+| Duplikat | **0** |
+| Harga ≤ 0 | **0** |
+| Tanggal masa depan | **0** |
+| Wilayah tidak dikenal | **0** |
+| Celah antar-observasi > 3 hari | 576 (0,36% transisi) |
+| Lonjakan harian > 50% | 153 (0,097%) |
+| Status | **lulus** |
+
+Celah > 3 hari wajar terjadi pada periode libur panjang; tidak diimputasi.

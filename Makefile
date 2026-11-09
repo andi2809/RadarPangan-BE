@@ -41,6 +41,9 @@ sp2kp-fetch:
 sp2kp-import:
 	$(PY) pipeline/sp2kp_import.py --berkas $(BERKAS)
 
+integritas:
+	$(PY) pipeline/integritas_bapanas.py --ringkas 2>/dev/null || $(PY) pipeline/integritas_bapanas.py
+
 bapanas:
 	$(PY) pipeline/bapanas_import.py
 
