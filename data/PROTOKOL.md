@@ -287,3 +287,13 @@ gerbang. Model aktif per komoditas: naive untuk 5 komoditas, **ma7** untuk minya
 + interval residual empiris*.
 
 Endpoint: `/api/v1/meta/benchmark` kini menyajikan berkas evaluasi ini (bukan lagi benchmark lama).
+
+
+---
+
+## 19. Sumber lama dihapus (9 Nov 2026)
+
+PIHPS (BI) dan SP2KP (Kemendag) **dihapus dari repo** atas keputusan pemilik produk:
+sumber harga tunggal adalah dataset Bapanas. Seluruh skrip penarik, paket gzip, dan berkas turunan
+lama dibuang agar tidak ada dua kebenaran. Pembanding yang sah hanya acuan HET/HAP dan laporan warga.
+Bagian §13–§18 di atas dipertahankan sebagai catatan historis metodologi.

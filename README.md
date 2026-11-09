@@ -25,7 +25,7 @@ CSV turunan (6–7 MB) tidak ikut. Rincian: `data/README.md` bagian 8.
 | | |
 |---|---|
 | Versi | MVP — target First Draft Submission 1 Nov 2026 |
-| Data | **nyata** — snapshot PIHPS BI, 3 Agu – 26 Okt 2026 |
+| Data | **nyata** — dataset resmi Badan Pangan Nasional, 1 Jan 2024 – 31 Okt 2026 |
 | Cakupan | **9 dari 27** kab/kota (batas sumber, bukan bug) |
 | Komoditas | 5 — beras medium, cabai rawit merah, bawang merah, telur ayam ras, minyak goreng curah |
 | Uji | **18 tes** `pytest`, termasuk integritas data & determinisme |
@@ -47,7 +47,6 @@ Perintah operasional ada di `Makefile`:
 make test        # seluruh uji              make backtest      # backtest ambang EWS
 make integrity   # uji integritas data      make exports       # openapi.json + fixtures
 make fetch START=2026-10-26 END=2026-10-26  make deploy        # Vercel produksi
-make rekonsiliasi TANGGAL=2026-10-26        make semua         # test+rekonsiliasi+backtest+exports
 ```
 
 ---
@@ -63,14 +62,12 @@ Amplop respons seragam `{ ok, data, meta }`. `meta` selalu memuat `tanggal_data`
 | GET | `/api/v1/komoditas` | 5 komoditas + acuan (HET/HAP) |
 | GET | `/api/v1/wilayah` | 27 kab/kota (kode Kemendagri + BPS) |
 | GET | `/api/v1/wilayah/{kode}/ringkasan` | detail wilayah + histori 14 hari + prakiraan H+7 |
-| GET | `/api/v1/peta/status` | status harga + skor EWS 27 wilayah (`layer=aktual\|h7`, `sumber=pihps\|sp2kp\|utama`) |
 | GET | `/api/v1/laporan-warga/sekitar` | laporan warga di sekitar titik (kosong sampai ada kiriman nyata) |
 | POST | `/api/v1/laporan-warga` | kirim laporan warga |
 | GET | `/api/v1/publik/ringkasan-landing` | ringkasan landing, dihitung dari data nyata |
 | GET | `/api/v1/meta/sumber` | registry sumber + run terakhir + kesegaran |
-| GET | `/api/v1/meta/konsistensi` | rekonsiliasi lintas sumber |
 | GET | `/api/v1/meta/backtest` | hasil backtest ambang EWS |
-| GET | `/api/v1/meta/disparitas` | sebaran harga antarwilayah per hari (PIHPS & SP2KP) |
+| GET | `/api/v1/meta/disparitas` | sebaran harga antarwilayah per hari (Bapanas) |
 | GET | `/openapi.json` · `/docs` | skema & Swagger UI |
 
 Kontrak untuk front end: [`docs/KONTRAK-FE.md`](docs/KONTRAK-FE.md).
@@ -79,14 +76,13 @@ Kontrak untuk front end: [`docs/KONTRAK-FE.md`](docs/KONTRAK-FE.md).
 
 ## Data
 
-- **Sumber utama:** PIHPS Bank Indonesia (`pipeline/pihps_fetch.py`) → snapshot imutabel
-  `data/raw/pihps_jabar_*.csv`. Loader menggabungkan **semua** snapshot (tanggal sama: berkas
-  terbaru menang).
-- **Pembanding resmi:** SP2KP Kemendag (nasional/provinsi) — `pipeline/rekonsiliasi.py`.
-- **SP2KP kab/kota:** dashboard `sp2kp.kemendag.go.id/statistik/tabulasi-harga` dan
+- **Sumber tunggal:** dataset resmi Badan Pangan Nasional (surat No. 1014/TS.02.03/B.2/11/2026),
+  diimpor `pipeline/bapanas_import.py` → `data/paket/bapanas.csv.gz` (189.812 baris, 27 kab/kota,
+  6 komoditas, harian 1 Jan 2024 – 31 Okt 2026).
+- **Pembanding yang sah:** acuan pemerintah HET/HAP (tabel `data/referensi/het_hap.csv`) dan
+  laporan warga sebagai data riil hari ini. Tidak ada sumber harga pembanding lain.
   `/statistik/area` punya
   data per kab/kota + Minyakita, tetapi hanya bisa diakses lewat **ekspor manual** (bukan REST).
-  Impor ekspornya dengan `make sp2kp-import BERKAS=ekspor.csv` (atau `.xlsx`) → `data/raw/sp2kp_jabar_<tgl>.csv`.
 - **Registry sumber:** [`data/registry.json`](data/registry.json) — tier, granularitas, akses, cakupan.
 - **Jejak tarikan (lineage):** `data/derived/runs.jsonl` — `run_id`, status, jumlah baris, `sha256`.
 - **Protokol pengukuran:** [`data/PROTOKOL.md`](data/PROTOKOL.md) — definisi "harga" per sumber,
@@ -107,25 +103,17 @@ Kontrak untuk front end: [`docs/KONTRAK-FE.md`](docs/KONTRAK-FE.md).
 
 | Berkas | Isi |
 |---|---|
-| `pipeline/backtest.py` → `data/derived/backtest_*.json` | presisi / recall / jeda deteksi per komoditas |
-| `pipeline/agreement.py` → `data/derived/agreement_pihps_provinsi.json` | Spearman + Bland–Altman (kab/kota vs provinsi) |
-| `pipeline/rekonsiliasi.py` → `data/derived/rekonsiliasi_*.json` | selisih vs provinsi PIHPS & SP2KP |
 | `pipeline/disparitas.py` → `data/derived/disparitas.json` | sebaran harga antarwilayah per hari (sinyal alternatif) |
-| `pipeline/gabung_ekspor.py` → `data/derived/gabungan_harga.csv` | ekspor gabungan PIHPS+SP2KP dengan kolom `sumber` & `jenis_harga` |
 | `app/services/skor.py` | satu sumber skor EWS (peta + detail) |
 | `app/services/prakiraan.py` | **naive** + pita kuantil empiris untuk H+7 |
 | `pipeline/pita_prakiraan.py` | kalibrasi pita dari arsip mentah (`make pita`) |
 | `pipeline/benchmark_ews.py` | benchmark model (naive/SES/Holt/HW) pada data Bapanas |
 | `pipeline/bapanas_import.py` | impor Excel Bapanas → `data/paket/bapanas.csv.gz` (sumber utama EWS) |
-| `pipeline/paket_kompres.py` | gabung+gzip arsip untuk bundel serverless (`make paket`, 0,4 MB) |
-| `pipeline/harga_utama.py` → `data/derived/harga_utama.csv` | **satu tabel untuk FE**: PIHPS prioritas, SP2KP menambal 18 wilayah (tanpa merata-ratakan) |
 | [`docs/HASIL_BACKTEST_EWS.md`](docs/HASIL_BACKTEST_EWS.md) | laporan naratif + tabel hasil |
 | [`docs/STRATEGI_SUMBER_DATA.md`](docs/STRATEGI_SUMBER_DATA.md) | strategi federasi sumber + lineage |
 | [`docs/KESIMPULAN_METODOLOGI.md`](docs/KESIMPULAN_METODOLOGI.md) | kesimpulan metodologi + lima perubahan implementasi |
 
 Setiap baris `/peta/status` kini membawa `sumber`, `jenis_harga` (`pasar`|`acuan`), dan `flat_days`:
-PIHPS = `pasar` (9/27 wilayah berisi); SP2KP = 27/27, tetapi beras/telur/minyakita ditandai
-`acuan` karena angkanya menempel HET, sedangkan cabai & bawang ditandai `pasar`.
 
 Ringkasan temuan (26 Okt 2026): status "kritis" mengukur **kepatuhan HET**, bukan sinyal dini —
 beras & minyak nyaris selalu di atas HET sehingga tidak informatif; cabai informatif (presisi 61%,
@@ -165,7 +153,7 @@ Tiga jebakan yang pernah terjadi:
 ```
 app/            FastAPI — routers, schemas, services/harga.py
 api/index.py    entrypoint Vercel
-pipeline/       pihps_fetch · sp2kp_import · rekonsiliasi · backtest · agreement · runlog
+pipeline/       bapanas_import · pita_prakiraan · integritas_bapanas · disparitas · evaluasi_model · runlog
 data/           raw snapshot · referensi · derived · registry.json · PROTOKOL.md
 docs/           KONTRAK-FE.md
 scripts/        export_openapi.py
