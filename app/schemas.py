@@ -87,7 +87,11 @@ class CommoditySchema(BaseModel):
     category: str = "Pangan Pokok"
     satuan: Literal["kg", "liter"]
     jenis_acuan: AcuanType
-    harga_acuan_rp: int = Field(description="HET/HAP/median 90 hari (Rupiah)")
+    harga_acuan_rp: int = Field(description="HET/HAP konsumen acuan perhitungan deviasi (Rupiah)")
+    acuan_min_rp: Optional[int] = Field(None, description="Batas bawah rentang HAP/HET konsumen (Rupiah)")
+    acuan_max_rp: Optional[int] = Field(None, description="Batas atas rentang HAP/HET konsumen (Rupiah)")
+    harga_acuan_produsen_rp: Optional[str] = Field(None, description="Keterangan HAP/HPP tingkat produsen")
+    dasar_hukum: Optional[str] = Field(None, description="Dasar regulasi Bapanas / Kemendag")
     deskripsi: str = ""
 
     # Aliases for compatibility
@@ -162,6 +166,14 @@ class StatusPetaItem(BaseModel):
     region_name: str = Field(examples=["Kota Bandung"])
     commodity_id: str = Field(examples=["cabai_rawit_merah"])
     harga_aktual_rp: Optional[int] = Field(None, description="null bila tidak ada data")
+    harga_prediksi_h7_rp: Optional[int] = Field(
+        None, description="Prediksi harga H+7 dari model ANN Perceptron (5-16-1)"
+    )
+    batas_bawah_h7_rp: Optional[int] = Field(None, description="Batas bawah pita kepercayaan H+7 (q10)")
+    batas_atas_h7_rp: Optional[int] = Field(None, description="Batas atas pita kepercayaan H+7 (q90)")
+    metode_prediksi: Optional[Literal["ann_perceptron_5_16_1"]] = Field(
+        None, description="Arsitektur model prediksi H+7"
+    )
     harga_acuan_rp: int
     jenis_acuan: AcuanType
     selisih_persen: Optional[float] = Field(None, description="Gap terhadap acuan (%)")
@@ -228,6 +240,15 @@ class RegionDetailRingkasan(BaseModel):
     region: RegionSchema
     commodity: CommoditySchema
     harga_aktual_rp: Optional[int] = Field(None, description="null bila tidak ada data")
+    harga_prediksi_h7_rp: Optional[int] = Field(
+        None, description="Prediksi harga H+7 dari model ANN Perceptron (5-16-1)"
+    )
+    batas_bawah_h7_rp: Optional[int] = Field(None, description="Batas bawah pita kepercayaan H+7 (q10)")
+    batas_atas_h7_rp: Optional[int] = Field(None, description="Batas atas pita kepercayaan H+7 (q90)")
+    perubahan_h7_persen: Optional[float] = Field(None, description="Persentase perubahan H+7 terhadap harga aktual")
+    metode_prediksi: Optional[Literal["ann_perceptron_5_16_1"]] = Field(
+        None, description="Arsitektur model prediksi H+7"
+    )
     harga_acuan_rp: int
     acuan_min_rp: Optional[int] = Field(None, description="Batas bawah HET/HAP bila ditetapkan sebagai rentang")
     acuan_max_rp: Optional[int] = Field(None, description="Batas atas HET/HAP")

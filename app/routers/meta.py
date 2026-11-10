@@ -14,6 +14,7 @@ from fastapi import APIRouter
 
 from app.schemas import EnvelopeResponse
 from app.services import bapanas as bapanas_service
+from app.services import prediksi_ann as prediksi_ann_service
 
 router = APIRouter(prefix="/api/v1/meta", tags=["Metadata"])
 
@@ -131,6 +132,15 @@ async def get_integritas():
         return EnvelopeResponse(data={"tersedia": False}, meta=bapanas_service.meta_terkini())
     return EnvelopeResponse(
         data={"tersedia": True, "berkas": berkas.name, **_baca_json(berkas, {})},
+        meta=bapanas_service.meta_terkini(),
+    )
+
+
+@router.get("/evaluasi-ann", response_model=EnvelopeResponse[Dict[str, Any]])
+async def get_evaluasi_ann():
+    """Ringkasan evaluasi akurasi 162 model ANN Perceptron (5-16-1) untuk prediksi H+7."""
+    return EnvelopeResponse(
+        data=prediksi_ann_service.ringkasan_evaluasi(),
         meta=bapanas_service.meta_terkini(),
     )
 

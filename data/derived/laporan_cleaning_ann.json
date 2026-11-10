@@ -1,0 +1,182 @@
+{
+  "total_seri_diproses": 162,
+  "total_cell_tanggal_kosong_diimputasi_ffill": 8892,
+  "total_anomali_salah_ketik_dikoreksi": 109,
+  "contoh_koreksi_anomali": [
+    {
+      "wilayah": "kab bandung",
+      "komoditas": "bawang_merah",
+      "tanggal": "2024-08-20",
+      "harga_mentah_typo": 34500,
+      "harga_koreksi": 25000
+    },
+    {
+      "wilayah": "kab bandung",
+      "komoditas": "cabai_rawit_merah",
+      "tanggal": "2025-03-26",
+      "harga_mentah_typo": 57500,
+      "harga_koreksi": 95000
+    },
+    {
+      "wilayah": "kab bandung",
+      "komoditas": "telur_ayam_ras",
+      "tanggal": "2024-11-14",
+      "harga_mentah_typo": 36000,
+      "harga_koreksi": 26000
+    },
+    {
+      "wilayah": "kab bandung",
+      "komoditas": "telur_ayam_ras",
+      "tanggal": "2026-07-24",
+      "harga_mentah_typo": 35000,
+      "harga_koreksi": 25500
+    },
+    {
+      "wilayah": "kab bandung barat",
+      "komoditas": "cabai_rawit_merah",
+      "tanggal": "2024-03-06",
+      "harga_mentah_typo": 39333,
+      "harga_koreksi": 70000
+    },
+    {
+      "wilayah": "kab bandung barat",
+      "komoditas": "cabai_rawit_merah",
+      "tanggal": "2026-01-20",
+      "harga_mentah_typo": 55000,
+      "harga_koreksi": 40000
+    },
+    {
+      "wilayah": "kab bandung barat",
+      "komoditas": "cabai_rawit_merah",
+      "tanggal": "2026-01-21",
+      "harga_mentah_typo": 55000,
+      "harga_koreksi": 40000
+    },
+    {
+      "wilayah": "kab bekasi",
+      "komoditas": "bawang_merah",
+      "tanggal": "2025-01-11",
+      "harga_mentah_typo": 44000,
+      "harga_koreksi": 30000
+    },
+    {
+      "wilayah": "kab bekasi",
+      "komoditas": "bawang_merah",
+      "tanggal": "2025-01-12",
+      "harga_mentah_typo": 44000,
+      "harga_koreksi": 30000
+    },
+    {
+      "wilayah": "kab bekasi",
+      "komoditas": "cabai_rawit_merah",
+      "tanggal": "2024-01-15",
+      "harga_mentah_typo": 30000,
+      "harga_koreksi": 60000
+    },
+    {
+      "wilayah": "kab bekasi",
+      "komoditas": "cabai_rawit_merah",
+      "tanggal": "2024-08-08",
+      "harga_mentah_typo": 45000,
+      "harga_koreksi": 80000
+    },
+    {
+      "wilayah": "kab bekasi",
+      "komoditas": "minyak_goreng_curah",
+      "tanggal": "2024-04-01",
+      "harga_mentah_typo": 19000,
+      "harga_koreksi": 14000
+    },
+    {
+      "wilayah": "kab bekasi",
+      "komoditas": "minyak_goreng_curah",
+      "tanggal": "2024-04-29",
+      "harga_mentah_typo": 19000,
+      "harga_koreksi": 14000
+    },
+    {
+      "wilayah": "kab bekasi",
+      "komoditas": "minyak_goreng_curah",
+      "tanggal": "2024-05-02",
+      "harga_mentah_typo": 19000,
+      "harga_koreksi": 14000
+    },
+    {
+      "wilayah": "kab bekasi",
+      "komoditas": "telur_ayam_ras",
+      "tanggal": "2024-10-05",
+      "harga_mentah_typo": 38000,
+      "harga_koreksi": 27000
+    },
+    {
+      "wilayah": "kab bogor",
+      "komoditas": "bawang_merah",
+      "tanggal": "2025-02-14",
+      "harga_mentah_typo": 45667,
+      "harga_koreksi": 31667
+    },
+    {
+      "wilayah": "kab bogor",
+      "komoditas": "cabai_rawit_merah",
+      "tanggal": "2024-05-14",
+      "harga_mentah_typo": 60000,
+      "harga_koreksi": 36000
+    },
+    {
+      "wilayah": "kab bogor",
+      "komoditas": "cabai_rawit_merah",
+      "tanggal": "2024-05-15",
+      "harga_mentah_typo": 60000,
+      "harga_koreksi": 36000
+    },
+    {
+      "wilayah": "kab bogor",
+      "komoditas": "cabai_rawit_merah",
+      "tanggal": "2024-09-10",
+      "harga_mentah_typo": 55000,
+      "harga_koreksi": 40000
+    },
+    {
+      "wilayah": "kab ciamis",
+      "komoditas": "cabai_rawit_merah",
+      "tanggal": "2024-10-10",
+      "harga_mentah_typo": 135000,
+      "harga_koreksi": 40000
+    },
+    {
+      "wilayah": "kab ciamis",
+      "komoditas": "minyak_goreng_curah",
+      "tanggal": "2024-07-25",
+      "harga_mentah_typo": 11000,
+      "harga_koreksi": 17000
+    },
+    {
+      "wilayah": "kab ciamis",
+      "komoditas": "minyak_goreng_curah",
+      "tanggal": "2024-11-12",
+      "harga_mentah_typo": 11800,
+      "harga_koreksi": 18800
+    },
+    {
+      "wilayah": "kab cianjur",
+      "komoditas": "cabai_rawit_merah",
+      "tanggal": "2025-03-04",
+      "harga_mentah_typo": 136667,
+      "harga_koreksi": 96667
+    },
+    {
+      "wilayah": "kab cianjur",
+      "komoditas": "cabai_rawit_merah",
+      "tanggal": "2026-03-27",
+      "harga_mentah_typo": 50000,
+      "harga_koreksi": 91667
+    },
+    {
+      "wilayah": "kab cianjur",
+      "komoditas": "cabai_rawit_merah",
+      "tanggal": "2026-03-28",
+      "harga_mentah_typo": 50000,
+      "harga_koreksi": 91667
+    }
+  ]
+}

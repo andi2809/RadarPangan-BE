@@ -8,10 +8,11 @@ help:
 	@echo "make test          # seluruh uji (pytest)"
 	@echo "make integrity     # uji integritas data saja"
 	@echo "make bapanas       # impor Excel Bapanas -> data/paket/bapanas.csv.gz"
+	@echo "make ann           # latih 162 model ANN Perceptron (5-16-1) -> data/derived/bobot_ann_h7.json"
 	@echo "make paket         # gabung+gzip arsip untuk bundel serverless (0,4 MB)"
 	@echo "make exports       # regenerasi openapi.json + fixtures"
 	@echo "make deploy        # deploy ke Vercel produksi"
-	@echo "make semua         # test + rekonsiliasi + backtest + exports"
+	@echo "make semua         # test + integritas + bapanas + ann + exports"
 
 test:
 	$(PY) -m pytest -q
@@ -30,6 +31,9 @@ integritas:
 
 bapanas:
 	$(PY) pipeline/bapanas_import.py
+
+ann:
+	$(PY) pipeline/prediksi_ann_h7.py
 
 paket:
 	$(PY) pipeline/paket_kompres.py

@@ -9,7 +9,7 @@ from app.routers.komoditas import COMMODITIES_DATA
 from app.services import acuan as acuan_service
 from app.services import bapanas as bapanas_service
 from app.services import indikator as indikator_service
-from app.services import bapanas as bapanas_service
+from app.services import prediksi_ann as prediksi_ann_service
 from app.services import skor as skor_service
 
 router = APIRouter(prefix="/api/v1/wilayah", tags=["Wilayah"])
@@ -19,8 +19,8 @@ REF_DIR = DATA_DIR / "referensi"
 GEO_DIR = DATA_DIR / "geo"
 
 def _normalize_commodity_code(code: str) -> str:
-    if code == "minyak_goreng_curah":
-        return "minyakita"
+    if code == "minyakita":
+        return "minyak_goreng_kemasan"
     return code
 
 def _load_regions_from_csv() -> List[RegionSchema]:
@@ -91,6 +91,11 @@ async def get_wilayah_ringkasan(
 
     if titik is None:
         harga_aktual = None
+        harga_prediksi_h7 = None
+        batas_bawah_h7 = None
+        batas_atas_h7 = None
+        perubahan_h7 = None
+        metode_pred = None
         selisih_persen = None
         status = "tidak_ada_data"
         ews_score = None
@@ -102,6 +107,13 @@ async def get_wilayah_ringkasan(
         tanggal_data, harga_aktual = titik
         base_date = date.fromisoformat(tanggal_data)
         nilai = [v for _t, v in seri]
+
+        hasil_ann = prediksi_ann_service.prediksi_h7(target_reg.name, clean_komoditas, seri_penuh)
+        harga_prediksi_h7 = hasil_ann["harga_prediksi_h7_rp"] if hasil_ann else None
+        batas_bawah_h7 = hasil_ann["batas_bawah_h7_rp"] if hasil_ann else None
+        batas_atas_h7 = hasil_ann["batas_atas_h7_rp"] if hasil_ann else None
+        perubahan_h7 = hasil_ann["perubahan_persen"] if hasil_ann else None
+        metode_pred = hasil_ann["metode"] if hasil_ann else None
 
         hasil_skor = skor_service.hitung(
             harga_rp=harga_aktual,
@@ -139,6 +151,11 @@ async def get_wilayah_ringkasan(
         region=target_reg,
         commodity=comm_found,
         harga_aktual_rp=harga_aktual,
+        harga_prediksi_h7_rp=harga_prediksi_h7,
+        batas_bawah_h7_rp=batas_bawah_h7,
+        batas_atas_h7_rp=batas_atas_h7,
+        perubahan_h7_persen=perubahan_h7,
+        metode_prediksi=metode_pred,
         harga_acuan_rp=harga_acuan,
         acuan_min_rp=data_acuan["min_rp"] if data_acuan else None,
         acuan_max_rp=data_acuan["max_rp"] if data_acuan else None,
