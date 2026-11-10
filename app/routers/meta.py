@@ -135,21 +135,3 @@ async def get_integritas():
     )
 
 
-@router.get("/benchmark", response_model=EnvelopeResponse[Dict[str, Any]])
-async def get_benchmark():
-    """Evaluasi model sesuai DATA_PIPELINE §4.3: MAPE, sMAPE, MASE, Coverage80, Pinball."""
-    berkas = sorted(DERIVED.glob("evaluasi_model_bapanas_*.json")) or sorted(
-        DERIVED.glob("benchmark_ews_bapanas_*.json")
-    )
-    if not berkas:
-        return EnvelopeResponse(
-            data={"tersedia": False, "catatan": "belum ada benchmark"},
-            meta=bapanas_service.meta_terkini(),
-        )
-    isi = _baca_json(berkas[-1], {})
-    return EnvelopeResponse(
-        data={"tersedia": True, "berkas": berkas[-1].name, **isi},
-        meta=bapanas_service.meta_terkini(),
-    )
-
-

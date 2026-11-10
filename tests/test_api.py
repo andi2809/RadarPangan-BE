@@ -56,7 +56,7 @@ def test_get_wilayah_ringkasan():
     assert len(data["history_14d"]) >= 14
     assert "supply_balance" in data
     assert "affordability" in data
-    assert "prakiraan" in data
+    assert "history_14d" in data
 
 def test_laporan_warga_anonymous():
     response = client.post("/api/v1/laporan-warga", json={
@@ -81,12 +81,13 @@ def test_ai_briefing_dicabut():
 
 
 
-def test_meta_benchmark_dan_integritas_tersedia():
-    for path in ("/api/v1/meta/benchmark", "/api/v1/meta/integritas"):
-        r = client.get(path)
-        assert r.status_code == 200, path
-        data = r.json()["data"]
-        assert data.get("tersedia") is True, path
+def test_meta_integritas_tersedia_dan_benchmark_dicabut():
+    r = client.get("/api/v1/meta/integritas")
+    assert r.status_code == 200
+    assert r.json()["data"].get("tersedia") is True
+    # model prakiraan dicabut atas keputusan produk
+    assert client.get("/api/v1/meta/benchmark").status_code == 404
+
 
 
 def test_sumber_utama_adalah_bapanas():

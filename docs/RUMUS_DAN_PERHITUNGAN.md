@@ -7,10 +7,10 @@ Berlaku 9 November 2026. Semua contoh dihitung dari sistem yang berjalan.
 
 Radar Pangan mengolah harga pangan harian dari **Badan Pangan Nasional** (27 kabupaten/kota Jawa Barat,
 6 komoditas, 1 Januari 2024 – 31 Oktober 2026). Keluarannya: status harga (warna peta), skor risiko 0–100,
-prakiraan 7 hari beserta rentang, dan perbandingan antarwilayah.
+status, skor risiko, dan perbandingan antarwilayah.
 
 Prinsip: **tidak mengarang angka**. Wilayah tanpa data ditandai “tidak ada data”; celah tidak diimputasi;
-prakiraan selalu disertai rentang.
+angka selalu disertai sumber dan acuan resmi.
 
 ## 2. Sumber data
 
@@ -61,49 +61,21 @@ Ambang risiko: ≥75 EXTREME · ≥55 HIGH · ≥35 MEDIUM · <35 LOW.
 
 Contoh (cabai Kota Bandung, 31 Okt 2026): deviasi 100 · tren 24,5 · daya beli 27,2 → **skor 59**, EXTREME.
 
-## 6. Prakiraan 7 hari
-
-```
-prakiraan H+7 = harga terakhir                       (naive)
-batas bawah   = harga × (1 + Q10)                    Q10 = kuantil 10% perubahan 7 hari
-batas atas    = harga × (1 + Q90)                    Q90 = kuantil 90% perubahan 7 hari
-```
-
-Contoh: Rp60.000 → rentang wajar 7 hari **Rp47.502 – Rp77.142** (Q10 −20,8%, Q90 +28,6%).
-Harga di luar rentang = kejadian tidak wajar menurut sejarah komoditas tersebut.
-
-Alasan memakai naive: pada uji 162 seri (4 fold, h=1..7), naive mengalahkan SES, Holt, dan
-Holt-Winters; musiman mingguan justru memperburuk. HET/HAP dan UMK juga tidak dipakai sebagai
-input karena terbukti memperburuk akurasi.
-
-## 7. Metrik evaluasi
-
-| Metrik | Arti |
-|---|---|
-| MAPE | rata-rata persentase kesalahan |
-| sMAPE | versi MAPE yang stabil untuk harga kecil |
-| MASE | kesalahan dibanding naive; < 1 berarti lebih baik dari naive |
-| Coverage80 | persentase kejadian nyata di dalam rentang yang dijanjikan |
-| Pinball | hukuman bila rentang terlalu lebar/sempit |
-
-Gerbang promosi model: sMAPE ≤ 98% baseline terbaik **dan** MASE < 1,00 **dan** Coverage80 ∈ [0,72; 0,92].
-Hasil: tidak ada model kompleks yang lolos; aktif = naive (5 komoditas) dan ma7 (minyak curah).
-
-## 8. Disparitas antarwilayah
+## 6. Disparitas antarwilayah
 
 `(harga tertinggi − harga terendah) / harga terendah` per komoditas per tanggal.
 Median 180 hari terakhir: bawang 56,9% · cabai 53,1% · minyak kemasan 40,3% · minyak curah 25,0% ·
 beras 15,5% · telur 13,9%.
 
-## 9. Kualitas data
+## 7. Kualitas data
 
 Diperiksa setiap impor: duplikat, harga ≤ 0, tanggal masa depan, wilayah asing, celah > 3 hari,
 lonjakan harian > 50%. Hasil 9 Nov 2026: 0 duplikat · 0 harga tidak valid · 0 tanggal masa depan ·
 lonjakan 0,097% → lulus.
 
-## 10. Batasan
+## 8. Batasan
 
-1. Sumber harga tunggal Bapanas; HET/HAP dan UMK bukan input prakiraan (terbukti memperburuk akurasi).
+1. Sumber harga tunggal Bapanas; HET/HAP dan UMK dipakai untuk penilaian, bukan untuk meramal.
 2. Musim panen menjelaskan beda akurasi antar-komoditas, tetapi penyesuaian musiman memperburuk prakiraan 7 hari.
 3. Prakiraan hanya untuk horizon 7 hari.
 4. Laporan warga belum tersimpan permanen (masih di memori server).
@@ -118,3 +90,5 @@ lonjakan 0,097% → lulus.
 | Kualitas data | `/api/v1/meta/integritas` |
 | Sebaran antarwilayah | `/api/v1/meta/disparitas` |
 | Daftar sumber | `/api/v1/meta/sumber` |
+
+> **Catatan:** seluruh bagian prakiraan (naive, pita, metrik evaluasi) dihapus pada 10 Nov 2026 atas keputusan produk. Sistem kini hanya menyajikan status, skor EWS, acuan, disparitas, dan kualitas data.

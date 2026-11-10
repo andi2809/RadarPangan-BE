@@ -204,3 +204,10 @@ Konsekuensi produk:
 2. Nilai tambah dipindah ke **ketidakpastian, gap kebijakan, dan peringatan** — bukan ke
    kompleksitas model.
 3. Klaim "machine learning" tidak dipakai; tidak ada dasar empiris untuk itu pada data ini.
+
+
+---
+
+## Catatan 10 Nov 2026 — model prakiraan dicabut
+
+Seluruh eksperimen prakiraan (naive, SES/Holt/HW, MLP, LightGBM, ensemble, pita kuantil, metrik evaluasi) **dihapus dari produk dan repo**. Dokumen ini dipertahankan sebagai catatan historis riset, bukan spesifikasi yang berlaku.

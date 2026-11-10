@@ -62,12 +62,10 @@ Amplop respons seragam `{ ok, data, meta }`. `meta` selalu memuat `tanggal_data`
 | GET | `/api/v1/komoditas` | 6 komoditas + acuan (HET/HAP, rentang + dasar hukum) |
 | GET | `/api/v1/wilayah` | 27 kab/kota (kode Kemendagri + BPS) |
 | GET | `/api/v1/peta/status` | status + skor EWS 27 wilayah (`layer=aktual|h7`, `sumber=bapanas`) |
-| GET | `/api/v1/wilayah/{kode}/ringkasan` | detail wilayah + histori 14 hari + prakiraan H+7 + pita |
 | GET | `/api/v1/laporan-warga/sekitar` | laporan warga di sekitar titik (kosong sampai ada kiriman nyata) |
 | POST | `/api/v1/laporan-warga` | kirim laporan warga |
 | GET | `/api/v1/publik/ringkasan-landing` | ringkasan landing, dihitung dari data nyata |
 | GET | `/api/v1/meta/sumber` | registry sumber + run terakhir + kesegaran |
-| GET | `/api/v1/meta/benchmark` | evaluasi model (MAPE, sMAPE, MASE, Coverage80, Pinball) |
 | GET | `/api/v1/meta/integritas` | pemeriksaan mutu paket Bapanas |
 | GET | `/api/v1/meta/disparitas` | sebaran harga antarwilayah per hari (Bapanas) |
 | GET | `/openapi.json` · `/docs` | skema & Swagger UI |
@@ -107,9 +105,6 @@ Kontrak untuk front end: [`docs/KONTRAK-FE.md`](docs/KONTRAK-FE.md).
 |---|---|
 | `pipeline/disparitas.py` → `data/derived/disparitas.json` | sebaran harga antarwilayah per hari (sinyal alternatif) |
 | `app/services/skor.py` | satu sumber skor EWS (peta + detail) |
-| `app/services/prakiraan.py` | **naive** + pita kuantil empiris untuk H+7 |
-| `pipeline/pita_prakiraan.py` | kalibrasi pita dari arsip mentah (`make pita`) |
-| `pipeline/benchmark_ews.py` | benchmark model (naive/SES/Holt/HW) pada data Bapanas |
 | `pipeline/bapanas_import.py` | impor Excel Bapanas → `data/paket/bapanas.csv.gz` (sumber utama EWS) |
 | [`docs/HASIL_BACKTEST_EWS.md`](docs/HASIL_BACKTEST_EWS.md) | laporan naratif + tabel hasil |
 | [`docs/STRATEGI_SUMBER_DATA.md`](docs/STRATEGI_SUMBER_DATA.md) | strategi federasi sumber + lineage |
@@ -155,7 +150,6 @@ Tiga jebakan yang pernah terjadi:
 ```
 app/            FastAPI — routers, schemas, services/harga.py
 api/index.py    entrypoint Vercel
-pipeline/       bapanas_import · pita_prakiraan · integritas_bapanas · disparitas · evaluasi_model · runlog
 data/           raw snapshot · referensi · derived · registry.json · PROTOKOL.md
 docs/           KONTRAK-FE.md
 scripts/        export_openapi.py

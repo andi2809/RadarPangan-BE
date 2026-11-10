@@ -9,7 +9,6 @@ help:
 	@echo "make integrity     # uji integritas data saja"
 	@echo "make bapanas       # impor Excel Bapanas -> data/paket/bapanas.csv.gz"
 	@echo "make paket         # gabung+gzip arsip untuk bundel serverless (0,4 MB)"
-	@echo "make pita          # kalibrasi pita prakiraan 7 hari dari data mentah"
 	@echo "make exports       # regenerasi openapi.json + fixtures"
 	@echo "make deploy        # deploy ke Vercel produksi"
 	@echo "make semua         # test + rekonsiliasi + backtest + exports"
@@ -35,8 +34,6 @@ bapanas:
 paket:
 	$(PY) pipeline/paket_kompres.py
 
-pita:
-	$(PY) pipeline/pita_prakiraan.py
 
 
 
@@ -47,4 +44,4 @@ exports:
 deploy:
 	npx --yes vercel@latest --prod --yes
 
-semua: test integritas bapanas pita disparitas evaluasi exports
+semua: test integritas bapanas disparitas exports

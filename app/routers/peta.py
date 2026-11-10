@@ -2,13 +2,12 @@ import csv
 from pathlib import Path
 from typing import List, Optional, Literal
 
-from fastapi import APIRouter, Query
+from fastapi import APIRouter, HTTPException, Query
 
 from app.schemas import AcuanType, EnvelopeResponse, Meta, PriceStatus, StatusPetaItem
 from app.services import acuan as acuan_service
 from app.services import bapanas as bapanas_service
 from app.services import indikator as indikator_service
-from app.services import prakiraan as prakiraan_service
 from app.services import skor as skor_service
 
 router = APIRouter(prefix="/api/v1/peta", tags=["Peta"])
@@ -44,7 +43,6 @@ def _item_kosong(
         region_name=nama,
         commodity_id=komoditas,
         harga_aktual_rp=None,
-        harga_prediksi_h7_rp=None,
         harga_acuan_rp=acuan,
         jenis_acuan=jenis,
         selisih_persen=None,
@@ -63,7 +61,7 @@ def _item_kosong(
 async def get_peta_status(
     komoditas: str = Query("beras_medium", description="ID komoditas kanonik"),
     tanggal: Optional[str] = Query(None, description="Tanggal observasi YYYY-MM-DD"),
-    layer: Literal["aktual", "h7"] = Query("aktual", description="Lapisan visualisasi data (aktual | h7)"),
+    layer: Optional[str] = Query(None, include_in_schema=False),
     sumber: Literal["bapanas"] = Query(
         "bapanas", description="Sumber tunggal: dataset resmi Badan Pangan Nasional"
     ),
@@ -73,9 +71,13 @@ async def get_peta_status(
     Harga diambil dari snapshot PIHPS (`data/raw/pihps_jabar_*.csv`).
     Wilayah tanpa data dikembalikan `status="tidak_ada_data"` — tidak dikarang.
     """
+    if layer not in (None, "aktual"):
+        raise HTTPException(
+            status_code=410,
+            detail="Lapisan prakiraan (layer=h7) dihapus: model prediksi dicabut dari produk.",
+        )
     # Saat dipanggil langsung (bukan lewat HTTP), default parameter masih berupa objek Query.
     sumber = sumber if isinstance(sumber, str) else "bapanas"
-    layer = layer if isinstance(layer, str) else "aktual"
     komoditas = komoditas if isinstance(komoditas, str) else "beras_medium"
     komoditas_kanonik = _normalize_commodity_code(komoditas)
     data_acuan = acuan_service.untuk(komoditas_kanonik)
@@ -110,19 +112,7 @@ async def get_peta_status(
                 items.append(_item_kosong(kode, nama, komoditas_kanonik, acuan, jenis_acuan, sumber))
                 continue
 
-            # Prakiraan H+7: exponential smoothing + pita 95% (lihat services/prakiraan.py).
-            prakiraan = prakiraan_service.prakiraan_h7(
-                seri_penuh,
-                indikator_service.flat_days(seri_penuh),
-                komoditas=komoditas_kanonik,
-                sumber=asal,
-            )
-            if prakiraan:
-                proyeksi = prakiraan["harga_prediksi_h7_rp"]
-            else:  # data terlalu pendek: jangan mengarang proyeksi
-                proyeksi = harga
-
-            harga_tampil = proyeksi if layer == "h7" else harga
+            harga_tampil = harga
             flat = indikator_service.flat_days(seri_penuh)
             try:
                 umk = int(row["umk_2026_rp"])
@@ -146,7 +136,6 @@ async def get_peta_status(
                     region_name=nama,
                     commodity_id=komoditas_kanonik,
                     harga_aktual_rp=harga,
-                    harga_prediksi_h7_rp=proyeksi,
                     harga_acuan_rp=acuan,
                     jenis_acuan=jenis_acuan,
                     selisih_persen=selisih,

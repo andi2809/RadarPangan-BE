@@ -26,7 +26,7 @@ bila request gagal / cold start.
 | GET | `/api/v1/komoditas` | 5 komoditas + acuan |
 | GET | `/api/v1/wilayah` | 27 kab/kota Jabar (+ UMK, garis kemiskinan, populasi, centroid) |
 | GET | `/api/v1/peta/status?komoditas=&tanggal=&layer=aktual\|h7&sumber=bapanas\|pihps\|sp2kp\|utama` | array status per wilayah |
-| GET | `/api/v1/wilayah/{kode}/ringkasan?komoditas=` | detail + histori 14 hari + prakiraan H+7 |
+| GET | `/api/v1/wilayah/{kode}/ringkasan?komoditas=` | detail + histori 14 hari |
 | GET | `/api/v1/laporan-warga/sekitar?lat=&lng=&komoditas=` | harga sekitar + progres klaster (simulasi) |
 | POST | `/api/v1/laporan-warga` | kirim laporan |
 | GET | `/api/v1/meta/sumber` | registry sumber + kesegaran + run terakhir |
@@ -80,16 +80,7 @@ Semua respons GET memakai amplop `{ ok, data, meta }`.
 | `ews_score` | `ews_score` / `skor_ews` |
 | — | `sumber` (`pihps`/`sp2kp`) dan `jenis_harga` (`pasar`/`acuan`) — **wajib ditampilkan** sebagai badge |
 | — | `rekomendasi_tindakan` & `risk_level` — **wajib ditampilkan**; dihitung backend (SSOT), jangan dihitung ulang di FE |
-| — | `harga_prediksi_h7_rp` = **harga terakhir** (naive); bandingkan dengan `pita` — jangan tampilkan satu angka tanpa rentang |
 | — | `flat_days` — berapa observasi terakhir harga tidak berubah (0 = berubah terakhir). Gunakan untuk memberi catatan "harga stabil N hari" atau menandai seri yang tampak seperti angka acuan |
-
-### 3.4 Histori & prakiraan → `GET /api/v1/wilayah/{kode}/ringkasan`
-
-| FE | API |
-|---|---|
-| `history14d[]` | `history_14d[]` (alias: `seri_historis[]`) |
-| `forecast7d[]` | `prakiraan[]` (`tanggal, harga_rp, batas_bawah_rp, batas_atas_rp`) |
-| `currentPrice` | field datar di `data` (`harga_aktual_rp`, `status`, dst.) |
 
 ### 3.5 `crowdsource.json` → `GET /api/v1/laporan-warga/sekitar`
 
@@ -140,3 +131,5 @@ tetap ada — jangan dihapus saat memuat ke UI; itulah yang membedakan "harga pa
   jangan diwarnai tebakan.
 - Status adalah **kepatuhan HET**, bukan sinyal dini. Bila FE ingin "sinyal dini",
   pakai `/api/v1/meta/backtest` sebagai rujukan kualitas, bukan menambah label baru sendiri.
+
+> **Model prakiraan dicabut (10 Nov 2026).** Tidak ada lagi `harga_prediksi_h7_rp`, `prakiraan`, `layer=h7`, maupun `/meta/benchmark`. Endpoint yang mengirim `layer` selain `aktual` akan menjawab **410 Gone**. Skor EWS, status, dan acuan tetap berjalan.

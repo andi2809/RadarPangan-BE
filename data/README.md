@@ -210,7 +210,7 @@ batas data; UI disarankan membedakan pola/warna untuk `acuan`.
 Catatan:
 - SP2KP **hanya menyimpan ±2,5 tahun** (uji 2024-01 = kosong, 2024-04 = ada) → arsip ini wajib dijaga.
 - PIHPS tersedia sejak 2018, tetapi arsip dibatasi 3 tahun agar perbandingan acuan tetap sebanding.
-- `derived/pita_prakiraan.json` dihitung dari dua arsip di atas (`make pita`), bukan saat request.
+- Berkas pita prakiraan (`pita_prakiraan.json`) sudah dihapus bersama modul prakiraan (10 Nov 2026).
 - Bundel Vercel **tidak** memuat `derived/*.csv` (6–7 MB); lihat `vercel.json`.
 
 

@@ -162,7 +162,6 @@ class StatusPetaItem(BaseModel):
     region_name: str = Field(examples=["Kota Bandung"])
     commodity_id: str = Field(examples=["cabai_rawit_merah"])
     harga_aktual_rp: Optional[int] = Field(None, description="null bila tidak ada data")
-    harga_prediksi_h7_rp: Optional[int] = None
     harga_acuan_rp: int
     jenis_acuan: AcuanType
     selisih_persen: Optional[float] = Field(None, description="Gap terhadap acuan (%)")
@@ -224,12 +223,6 @@ class TitikSeri(BaseModel):
     harga_rp: Optional[int]
 
 
-class TitikPrakiraan(BaseModel):
-    tanggal: str
-    harga_rp: int
-    batas_bawah_rp: int
-    batas_atas_rp: int
-
 
 class RegionDetailRingkasan(BaseModel):
     region: RegionSchema
@@ -239,7 +232,6 @@ class RegionDetailRingkasan(BaseModel):
     acuan_min_rp: Optional[int] = Field(None, description="Batas bawah HET/HAP bila ditetapkan sebagai rentang")
     acuan_max_rp: Optional[int] = Field(None, description="Batas atas HET/HAP")
     dasar_hukum: Optional[str] = Field(None, description="Regulasi penetapan acuan")
-    harga_prediksi_h7_rp: Optional[int] = None
     selisih_persen: Optional[float] = None
     status: PriceStatus
     ews_score: Optional[int] = None
@@ -253,7 +245,6 @@ class RegionDetailRingkasan(BaseModel):
 
     # Aliases for compatibility with Abyan's structure
     seri_historis: Optional[List[TitikSeri]] = None
-    prakiraan: Optional[List[TitikPrakiraan]] = None
     skor_ews: Optional[int] = None
     catatan_kondisi_khusus: Optional[str] = None
 

@@ -4,13 +4,12 @@ from datetime import date, timedelta
 from pathlib import Path
 from typing import List, Literal, Optional
 from fastapi import APIRouter, HTTPException, Query
-from app.schemas import EnvelopeResponse, RegionSchema, RegionDetailRingkasan, CommoditySchema, TitikPrakiraan
+from app.schemas import EnvelopeResponse, RegionSchema, RegionDetailRingkasan, CommoditySchema
 from app.routers.komoditas import COMMODITIES_DATA
 from app.services import acuan as acuan_service
 from app.services import bapanas as bapanas_service
 from app.services import indikator as indikator_service
 from app.services import bapanas as bapanas_service
-from app.services import prakiraan as prakiraan_service
 from app.services import skor as skor_service
 
 router = APIRouter(prefix="/api/v1/wilayah", tags=["Wilayah"])
@@ -93,22 +92,16 @@ async def get_wilayah_ringkasan(
     if titik is None:
         harga_aktual = None
         selisih_persen = None
-        harga_prediksi_h7 = None
         status = "tidak_ada_data"
         ews_score = None
         risk_level = "TIDAK_DIKETAHUI"
         rekomendasi_tindakan = None
         base_date = date.today()
         history: list[dict] = []
-        prakiraan: list[TitikPrakiraan] = []
     else:
         tanggal_data, harga_aktual = titik
         base_date = date.fromisoformat(tanggal_data)
         nilai = [v for _t, v in seri]
-        prog = prakiraan_service.prakiraan_h7(
-            seri, indikator_service.flat_days(seri), komoditas=clean_komoditas, sumber=asal
-        )
-        harga_prediksi_h7 = prog["harga_prediksi_h7_rp"] if prog else harga_aktual
 
         hasil_skor = skor_service.hitung(
             harga_rp=harga_aktual,
@@ -126,23 +119,6 @@ async def get_wilayah_ringkasan(
 
         history = [{"date": t, "tanggal": t, "harga_rp": v} for t, v in seri]
 
-        prakiraan = []
-        lebar_pita = (
-            (prog["batas_atas_rp"] - prog["harga_prediksi_h7_rp"]) / prog["harga_prediksi_h7_rp"]
-            if prog and prog["harga_prediksi_h7_rp"] else 0.02
-        )
-        for h in range(1, 8):
-            d = base_date + timedelta(days=h)
-            val = round(harga_aktual + (harga_prediksi_h7 - harga_aktual) * h / 7)
-            margin = round(val * lebar_pita * (h / 7) ** 0.5)
-            prakiraan.append(
-                TitikPrakiraan(
-                    tanggal=d.isoformat(),
-                    harga_rp=val,
-                    batas_bawah_rp=val - margin,
-                    batas_atas_rp=val + margin,
-                )
-            )
 
     comm_found = next((c for c in COMMODITIES_DATA if c.id == clean_komoditas), None)
     if not comm_found:
@@ -167,14 +143,12 @@ async def get_wilayah_ringkasan(
         acuan_min_rp=data_acuan["min_rp"] if data_acuan else None,
         acuan_max_rp=data_acuan["max_rp"] if data_acuan else None,
         dasar_hukum=data_acuan["dasar_hukum"] if data_acuan else None,
-        harga_prediksi_h7_rp=harga_prediksi_h7,
         selisih_persen=selisih_persen,
         status=status,
         ews_score=ews_score,
         risk_level=risk_level,
         rekomendasi_tindakan=rekomendasi_tindakan,
         history_14d=history,
-        prakiraan=prakiraan,
         supply_balance={
             # Data neraca pasokan belum tersedia -> jangan mengarang angka.
             "status_neraca": None,
